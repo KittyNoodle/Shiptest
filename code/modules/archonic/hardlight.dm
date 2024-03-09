@@ -1,8 +1,9 @@
 /obj/effect/proc_holder/spell/targeted/conjure_item/hardlight_spear
 	name = "Hardlight Spear"
 	desc = "Summon a spear of light to strike down your foes."
-	button_icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
-	button_icon_state = "lightspear"
+	action_icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
+	action_icon_state = "lightspear"
+	action_background_icon_state = "bg_tech_blue"
 	sound = 'sound/weapons/saberon.ogg'
 
 	charge_max = 20 SECONDS
@@ -20,13 +21,14 @@
 	. = ..()
 	for(var/I in cast_on.get_contents())
 		if(istype(I, /obj/item/gun/magic/hardlight_spear))
-			return . | SPELL_CANCEL_CAST
+			return
 
 /obj/effect/proc_holder/spell/targeted/conjure_item/hardlight_spear/make_item()
 	. = ..()
 	var/obj/item/gun/magic/hardlight_spear/made_spear = .
 	made_spear.spears_left = spell_level-1
 
+/*
 /obj/effect/proc_holder/spell/targeted/conjure_item/hardlight_spear/get_spell_title()
 	switch(spell_level)
 		if(2)
@@ -43,32 +45,35 @@
 			return "Commmanding "
 
 	return ""
+*/
 
 /obj/effect/proc_holder/spell/targeted/conjure_item/hardlight_spear/max
 	name = "Commmanding Hardlight Spear"
 	charge_max = 10 SECONDS
 	cooldown_min = 10 SECONDS
 	spell_level = 7
+	action_background_icon_state = "bg_alien"
 
+/*
 /obj/effect/proc_holder/spell/targeted/conjure_item/max/get_spell_title()
 	return "" //commanding commanding
+*/
 
 /obj/item/gun/magic/hardlight_spear //listen man
 	name = "hardlight spear"
 	desc = "A spear made out of hardened light."
 	fire_sound = 'sound/weapons/fwoosh.ogg'
-	pinless = TRUE
 	force = 25
 	armour_penetration = 18
 	block_chance = 0
 	sharpness = IS_SHARP_ACCURATE
 	w_class = WEIGHT_CLASS_HUGE
-	antimagic_flags = NONE
+	checks_antimagic = FALSE
 	hitsound = 'sound/weapons/blade1.ogg'
 	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
 	icon_state = "lightspear"
-	inhand_icon_state = "lightspear"
-	worn_icon_state = "none"
+	item_state = "lightspear"
+	mob_overlay_icon = "none"
 	lefthand_file = 'code/modules/archonic/icons/inhands/lefthand.dmi'
 	righthand_file = 'code/modules/archonic/icons/inhands/righthand.dmi'
 	slot_flags = null
@@ -76,7 +81,6 @@
 	item_flags = NEEDS_PERMIT | DROPDEL | ABSTRACT | NO_MAT_REDEMPTION
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	light_system = MOVABLE_LIGHT
-	light_outer_range = 3
 	light_power = 1
 	max_charges = 1
 	var/spears_left = 6
@@ -144,36 +148,35 @@
 	heavy_metal = FALSE
 
 /obj/item/ammo_casing/magic/hardlight_spear/ready_proj(atom/target, mob/living/user, quiet, zone_override, atom/fired_from)
-	if(!loaded_projectile)
+	if(!BB)
 		return
 
 	if(isliving(target))
-		loaded_projectile.homing = TRUE
-		loaded_projectile.homing_turn_speed = 40
-		loaded_projectile.set_homing_target(target)
+		BB.homing = TRUE
+		BB.homing_turn_speed = 40
+		BB.set_homing_target(target)
 
 	return ..()
 
 /obj/projectile/bullet/hardlight_spear
 	name = "hardlight spear"
-	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
+	icon = 'code/modules/archonic/icons/projectiles.dmi'
 	icon_state = "lightspear"
 	damage = 45
 	armour_penetration = 10
 	speed = 0.4 //lower = faster
 	shrapnel_type = /obj/item/shrapnel/bullet/spear
-	light_outer_range = 1
 	light_power = 1
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	hitsound_wall = 'sound/weapons/parry.ogg'
+	hitsound_non_living = 'sound/weapons/parry.ogg'
+
+/obj/item/shrapnel/spear
+	name = "hardlight spear"
+	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
+	icon_state = "lightspear"
 	embedding = list(embed_chance=100, fall_chance=2, jostle_chance=4, ignore_throwspeed_threshold=TRUE, pain_stam_pct=0.5, pain_mult=5, jostle_pain_mult=6, rip_time=10)
 
-/obj/item/shrapnel/bullet/spear
-	name = "hardlight spear"
-	icon = 'monkestation/icons/obj/items_and_weapons.dmi'
-	icon_state = "lightspear"
-
-/obj/item/shrapnel/bullet/spear/unembedded()
+/obj/item/shrapnel/spear/unembedded()
 	. = ..()
 	QDEL_NULL(src) //Deletes itself when unembedded
 	return TRUE
