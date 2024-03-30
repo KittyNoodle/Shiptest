@@ -33,10 +33,33 @@
 	block_chance = 120
 	armour_penetration = 200
 	max_integrity = 300
+	var/wielded = FALSE
 
 /obj/item/spear/archous/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/two_handed, force_unwielded=30, force_wielded=105, icon_wielded="[icon_prefix]1") //4 hit crit
+
+/obj/item/spear/archous/Initialize(mapload)
+	. = ..()
+	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_wield))
+	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, PROC_REF(on_unwield))
+
+/// triggered on wield of two handed item
+/obj/item/spear/archous/proc/on_wield(obj/item/source, mob/user)
+	SIGNAL_HANDLER
+
+	wielded = TRUE
+
+/// triggered on unwield of two handed item
+/obj/item/spear/archous/proc/on_unwield(obj/item/source, mob/user)
+	SIGNAL_HANDLER
+
+	wielded = FALSE
+
+/obj/item/spear/archous/attack(mob/living/M, mob/user)
+	. = ..()
+	if(wielded)
+		M.archonic_flash()
 
 /obj/item/spear/archous/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(prob(final_block_chance))
@@ -158,6 +181,27 @@
 	REMOVE_TRAIT(user, TRAIT_RESISTHEAT, "suit_[REF(src)]")
 	REMOVE_TRAIT(user, TRAIT_NOFIRE, "suit_[REF(src)]")
 	user.remove_status_effect(/datum/status_effect/rebreathing)
+
+/obj/item/archonic_talisman
+	name = "archonic talisman"
+	desc = "A small purple crystal, as you hold it you can feel a warmness in your hand, and a gentle pulse."
+	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
+	icon_state = "archonic_crystal"
+	var/in_use = FALSE
+
+/obj/item/archonic_talisman/equipped(mob/living/carbon/human/user)
+	. = ..()
+	if("Archous" in user.faction) //do not double archous me
+		visible_message(span_revenboldnotice("FACTION CHECK WORKSL ETS FUCKING GO"))
+		return
+	user.faction |= "Archous"
+	in_use = TRUE
+
+/obj/item/archonic_talisman/dropped(mob/living/carbon/human/user)
+	..()
+	if(in_use)
+		user.faction -= "Archous"
+
 
 /obj/machinery/cythrxcrystal
 	name = "anomalous crystal"
@@ -433,9 +477,11 @@
 			return
 
 		adjust_charge(-70)
+		new /obj/effect/temp_visual/archous_flash/fading(get_turf(src))
+		C.archonic_flash()
 		brainwash(C, command)
 		to_chat(C, "<span class='revendanger'>A flash of violet light shoots out of [user]'s archonic interface system and burns into your eyes.</span>")
-		visible_message("<span class='revendanger'>[src] emits a flash of violet light</span>")
+		user.visible_message("<span class='revenwarning'>[src] emits a flash of violet light</span>")
 		to_chat(user, "<span class='revennotice'>You send the command to your target.</span>")
 
 /obj/item/archonic/interface_system/proc/interface_message(atom/target, mob/living/user)
@@ -484,7 +530,7 @@
 		adjust_charge(-5, user)
 
 		to_chat(user, "<span class='revennotice'>You restrain your target.</span>")
-		to_chat(C, "<span class='revenwarning'><span class='hypnophrase'>Violet</span> wires shoot out from [user]'s archonic interface system and wrap around you, holding you still. The wires quickly fade away, but their effect lingers.</span>")
+		to_chat(C, "<span class='revenwarning'>Violet wires shoot out from [user]'s archonic interface system and wrap around you, holding you still. The wires quickly fade away, but their effect lingers.</span>")
 		C.Paralyze(300, TRUE)
 		C.Knockdown(400, TRUE)
 
@@ -513,6 +559,75 @@
 	gloves = /obj/item/clothing/gloves/combat
 	back = /obj/item/spear/archous
 	implants = list(/obj/item/implant/freedom, /obj/item/implant/weapons_auth, /obj/item/implant/radio, /obj/item/implant/spell/archonic/barrage, /obj/item/implant/spell/archonic/summonitem, /obj/item/implant/spell/archonic/knock, /obj/item/implant/spell/archonic/heal, /obj/item/implant/spell/archonic/sparkstorm, /obj/item/implant/spell/archonic/flight, /obj/item/implant/archonic_storage, /obj/item/implant/archonic)
+
+/datum/outfit/archonic/post_equip(mob/living/carbon/human/H, visualsOnly)
+	. = ..()
+	if(visualsOnly)
+		return
+	H.faction |= list(FACTION_ANTAG_ARCHOUS)
+
+/*
+///////////////////////////Archonic Flash///////////////////////////
+*/
+
+
+/obj/effect/temp_visual/silence_lightning
+	icon = 'code/modules/archonic/icons/96x96.dmi'
+	icon_state = "overaelectric"
+	duration = 20
+	pixel_x = -32
+	pixel_y = -32
+	alpha = 1
+
+/obj/effect/temp_visual/silence_lightning/Initialize()
+	. = ..()
+	animate(src, alpha = 255, time = 5)
+
+/obj/effect/temp_visual/archous_flash
+	icon = 'code/modules/archonic/icons/96x96.dmi'
+	icon_state = "arch_flash"
+	plane = ABOVE_LIGHTING_PLANE
+	duration = 12
+	pixel_x = -32
+	pixel_y = -32
+
+/obj/effect/temp_visual/archous_flash/fading/Initialize()
+	. = ..()
+	animate(src, alpha = 0, time = duration)
+
+/obj/effect/temp_visual/archous_flash/large
+	icon = 'code/modules/archonic/icons/160x160.dmi'
+	icon_state = "arch_flash"
+	duration = 13
+	pixel_x = -64
+	pixel_y = -64
+
+/obj/effect/temp_visual/archous_flash/large/fading/Initialize()
+	. = ..()
+	animate(src, alpha = 0, time = duration)
+
+/obj/effect/temp_visual/archous_flash/huge
+	icon = 'code/modules/archonic/icons/288x288.dmi'
+	icon_state = "arch_flash"
+	duration = 14
+	pixel_x = -128
+	pixel_y = -128
+
+/obj/effect/temp_visual/archous_flash/huge/fading/Initialize()
+	. = ..()
+	animate(src, alpha = 0, time = duration)
+
+/atom/movable/screen/fullscreen/archous_flash
+	icon = 'code/modules/archonic/icons/fullscreen.dmi'
+	icon_state = "archonic_flash"
+	layer = CURSE_LAYER
+	plane = FULLSCREEN_PLANE
+
+/mob/living/proc/archonic_flash(type = /atom/movable/screen/fullscreen/archous_flash)
+	overlay_fullscreen("archous", type)
+	addtimer(CALLBACK(src, PROC_REF(clear_fullscreen), "archous", 25), 25)
+	return TRUE
+
 
 /*
 ///////////////////////////Archonic Runes///////////////////////////
@@ -639,6 +754,7 @@
 	visible_message("<span class='nicegreen'><span class='command_headset'>[src] crackles with bolts of green lightning!</span></span>")
 	animate(src, color = active_color, time = 200)
 	sleep(200)
+	new /obj/effect/temp_visual/silence_lightning(get_turf(src))
 	visible_message("<span class='revendanger'><span class='nicegreen'>The green lightning coalesces in the center of the rune.</span></span>")
 	animate(src, color = critical_color, time = 15)
 	sleep(15)
@@ -892,6 +1008,8 @@
 	recoil_unwielded = -0.1
 	spread_unwielded = 0
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/enchanted/arcane_barrage/archonic
+	has_safety = FALSE
+	safety = FALSE
 
 /obj/item/ammo_box/magazine/internal/boltaction/enchanted/arcane_barrage/archonic
 	ammo_type = /obj/item/ammo_casing/magic/arcane_barrage/archonic
@@ -1235,7 +1353,7 @@
 		return
 
 	dust_mob(user,
-		"<span class='revenwarning'>[user] leans in and sticks [user.p_their()] tongue into [src], which rapidly moves into [user.p_their()], dissolving them from the inside-out. <span class='cultbold'>Maybe they did it wrong, you should try too.</span></span>",
+		"<span class='revenwarning'>[user] leans in and sticks [user.p_their()] tongue into [src], which rapidly moves into [user.p_their()] mouth, dissolving them from the inside-out. <span class='cultbold'>Maybe they did it wrong, you should try too.</span></span>",
 		"<span class='revendanger'>You lean in and stick your tongue into [src]. You are filled with regret as your tongue dissolves away and your lungs and esophagus fill with fire.</span>",
 		"failed lick"
 	)

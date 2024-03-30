@@ -25,6 +25,11 @@
 
 /obj/effect/proc_holder/spell/targeted/conjure_item/hardlight_spear/make_item()
 	. = ..()
+	if(spell_level == 0)
+		var/obj/item/gun/magic/hardlight_spear/made_spear = .
+		made_spear.spears_left = 0
+		return
+
 	var/obj/item/gun/magic/hardlight_spear/made_spear = .
 	made_spear.spears_left = spell_level-1
 
@@ -132,7 +137,7 @@
 	. = ..()
 	if(!.)
 		return
-	if(spears_left)
+	if(spears_left > 0)
 		var/obj/item/gun/magic/hardlight_spear/spear = new type
 		spear.spears_left = spears_left - 1
 		qdel(src)
@@ -165,7 +170,7 @@
 	damage = 45
 	armour_penetration = 10
 	speed = 0.4 //lower = faster
-	shrapnel_type = /obj/item/shrapnel/bullet/spear
+	shrapnel_type = /obj/item/shrapnel/spear
 	light_power = 1
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	hitsound_non_living = 'sound/weapons/parry.ogg'
@@ -176,7 +181,3 @@
 	icon_state = "lightspear"
 	embedding = list(embed_chance=100, fall_chance=2, jostle_chance=4, ignore_throwspeed_threshold=TRUE, pain_stam_pct=0.5, pain_mult=5, jostle_pain_mult=6, rip_time=10)
 
-/obj/item/shrapnel/spear/unembedded()
-	. = ..()
-	QDEL_NULL(src) //Deletes itself when unembedded
-	return TRUE
