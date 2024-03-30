@@ -1,0 +1,25 @@
+{
+	"$schema": "https://raw.githubusercontent.com/shiptest-ss13/Shiptest/master/_maps/ship_config_schema.json",
+	"map_name": "Unknown-Class",
+	"prefix": "ACSV",
+	"namelists": [
+		"WEAPONS"
+	],
+	"faction_name": "Cult of Archous",
+	"map_short_name": "Unknown-Class",
+	"description": "Crux CF's personal ship. The exterior is covered with all sorts of runic inscriptions, acting as the ship's primary defence. It is also equipped with the one-of-a-kind violetspace launchpad. XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.",
+	"tags": [
+		"Specialist"
+	],
+	"map_path": "_maps/shuttles/archonic/archonic_terminal_2.dmm",
+	"limit":1,
+	"starting_funds": 0,
+	"job_slots": {
+		"Archonicist": {
+			"outfit": "/datum/outfit/archonic",
+			"slots": 1
+		}
+	},
+	"enabled": false,
+	"space_spawn": true
+}

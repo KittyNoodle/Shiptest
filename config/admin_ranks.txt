@@ -49,6 +49,11 @@ Include = @ STEALTH SOUND DEBUG POSSESS POLL BUILD SERVER FUN
 Exclude =
 Edit =
 
+Name = Stupid Cat
+Include = @ STEALTH SOUND DEBUG POSSESS POLL BUILD SERVER FUN
+Exclude =
+Edit =
+
 Name = Senior Admin
 Include = EVERYTHING
 Exclude =

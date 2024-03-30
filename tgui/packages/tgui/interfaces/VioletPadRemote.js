@@ -11,7 +11,7 @@ export const VioletPadRemote = (props, context) => {
       title="Violetspace Interface Crystal"
       width={300}
       height={240}
-      theme="spookyconsole"
+      theme="abductor"
     >
       <Window.Content>
         {(!has_pad && <NoticeBox>No Launchpad Connected</NoticeBox>) || (

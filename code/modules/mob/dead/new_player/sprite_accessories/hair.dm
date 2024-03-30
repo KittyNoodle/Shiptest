@@ -82,6 +82,10 @@
 	name = "Boddicker"
 	icon_state = "hair_boddicker"
 
+/datum/sprite_accessory/hair/bowpigtails
+	name = "Pigtails with Bows"
+	icon_state = "hair_bowpigtails"
+
 /datum/sprite_accessory/hair/bowlcut
 	name = "Bowlcut"
 	icon_state = "hair_bowlcut"
