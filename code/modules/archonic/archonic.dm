@@ -184,15 +184,15 @@
 
 /obj/item/archonic_talisman
 	name = "archonic talisman"
-	desc = "A small purple crystal, as you hold it you can feel a warmness in your hand, and a gentle pulse."
+	desc = "A tiny purple crystal, as you hold it you can feel a warmness in your hand, and a gentle pulse."
 	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
 	icon_state = "archonic_crystal"
+	w_class = WEIGHT_CLASS_TINY
 	var/in_use = FALSE
 
 /obj/item/archonic_talisman/equipped(mob/living/carbon/human/user)
 	. = ..()
 	if("Archous" in user.faction) //do not double archous me
-		visible_message(span_revenboldnotice("FACTION CHECK WORKSL ETS FUCKING GO"))
 		return
 	user.faction |= "Archous"
 	in_use = TRUE

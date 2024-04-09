@@ -23,7 +23,6 @@
 /mob/living/simple_animal/hostile/guardian/fire/AttackingTarget()
 	. = ..()
 	if(. && ishuman(target) && target != summoner)
-		new /datum/hallucination/delusion(target,TRUE,"custom",200,0, icon_state,icon)
 		melee_damage_lower = 7
 		melee_damage_upper = 7
 	if(. && isanimal(target) && target != summoner)

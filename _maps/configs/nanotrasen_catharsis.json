@@ -1,0 +1,41 @@
+{
+	"$schema": "https://raw.githubusercontent.com/shiptest-ss13/Shiptest/master/_maps/ship_config_schema.json",
+	"prefix": "NTSV",
+	"map_name": "Catharsis-class Frontier Exploration Vessel",
+	"namelists": [
+		"NANOTRASEN",
+		"NATURAL_AGGRESSIVE",
+		"WEAPONS"
+	],
+	"map_short_name": "Catharsis-class",
+	"description": "█ ██████████ ██████ ███ ███ ███████ ████████ ████ ██ ██ █████ ████████ ██████ █████ ███ █████████ ███ ███ ██████ ███ ███████ ███ ███████████ ██████████ █████ ███████ █████ █████ ██ ████ ██ █ ██████ ███ ██ ███ █████ ██████ ██ ███ ████████ ███████ ██████████ █████ ████ ██████ ███ █████████ ██ ███ ██████████ ██ █ ████ ██████████ ██████ ████ █ ████████████ ██ ███ ████ ██████████ ██ ███ ████ ███████",
+	"tags": [
+		"RP Focus",
+		"Telecomms",
+		"Generalist"
+	],
+	"starting_funds": 500,
+	"roundstart": true,
+	"map_path": "_maps/shuttles/archonic/nanotrasen_catharsis.dmm",
+	"limit": 1,
+	"job_slots": {
+		"Pilot": {
+			"outfit": "/datum/outfit/job/nanotrasen/captain/cath",
+			"officer": true,
+			"slots": 1
+		},
+		"Engineering Specialist": {
+			"outfit": "/datum/outfit/job/nanotrasen/engineer/cath",
+			"slots": 1
+		},
+		"Endurance Specialist": {
+			"outfit": "/datum/outfit/job/nanotrasen/hop/cath",
+			"slots": 1
+		},
+		"Medical Specialist": {
+			"outfit": "/datum/outfit/job/nanotrasen/doctor/cath",
+			"slots": 1
+		}
+	},
+	"enabled": true
+}

@@ -15,8 +15,8 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	/datum/hallucination/stationmessage = 5,
 	/datum/hallucination/fake_flood = 5,
 	/datum/hallucination/bolts = 5,
-	/datum/hallucination/delusion = 5,
-	/datum/hallucination/self_delusion = 4,
+//	/datum/hallucination/delusion = 5,
+//	/datum/hallucination/self_delusion = 4,
 	/datum/hallucination/items = 4,
 	/datum/hallucination/shock = 3,
 	/datum/hallucination/death = 1,
@@ -522,6 +522,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			target.client.images.Remove(A)
 	qdel(src)
 
+/*
 /datum/hallucination/delusion
 	var/list/image/delusions = list()
 
@@ -616,6 +617,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	if(target.client)
 		target.client.images.Remove(delusion)
 	return ..()
+*/
 
 /datum/hallucination/bolts
 	var/list/locks = list()

@@ -259,7 +259,7 @@
 	else if((findtext(message, hallucinate_words)))
 		cooldown = COOLDOWN_MEME
 		for(var/mob/living/carbon/C in listeners)
-			new /datum/hallucination/delusion(C, TRUE, null,150 * power_multiplier,0)
+			new /datum/hallucination/hudscrew(C, TRUE)
 
 	//WAKE UP
 	else if((findtext(message, wakeup_words)))

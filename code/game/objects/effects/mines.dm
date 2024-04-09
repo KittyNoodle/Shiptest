@@ -161,7 +161,7 @@
 		return
 	to_chat(victim, "<span class='reallybig redtext'>RIP AND TEAR</span>")
 
-	INVOKE_ASYNC(src, PROC_REF(blood_delusion), victim)
+	//INVOKE_ASYNC(src, PROC_REF(blood_delusion), victim)
 
 	chainsaw = new(victim.loc)
 	victim.log_message("entered a marg frenzy", LOG_ATTACK)
@@ -187,7 +187,7 @@
 		qdel(chainsaw)
 
 /obj/effect/mine/pickup/bloodbath/proc/blood_delusion(mob/living/carbon/victim)
-	new /datum/hallucination/delusion(victim, TRUE, "demon", duration, 0)
+//	new /datum/hallucination/delusion(victim, TRUE, "demon", duration, 0)
 
 /obj/effect/mine/pickup/healing
 	name = "His Benevolence"

@@ -113,6 +113,13 @@
 "dq" = (
 /obj/structure/table/abductor,
 /obj/machinery/airalarm/directional/west,
+/obj/item/archonic_talisman{
+	pixel_x = -5
+	},
+/obj/item/archonic_talisman,
+/obj/item/archonic_talisman{
+	pixel_x = 5
+	},
 /turf/open/floor/plasteel/dark,
 /area/ship/storage/eva)
 "dB" = (
@@ -192,7 +199,7 @@
 	id = "termbedshutter"
 	},
 /obj/effect/spawner/structure/window/plasma/reinforced/plastitanium/archonic,
-/turf/open/floor/plating/abductor,
+/turf/open/indestructible/hierophant,
 /area/ship/crew)
 "gx" = (
 /obj/machinery/power/shuttle/engine/void,
@@ -205,6 +212,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
 	dir = 4
 	},
+/obj/machinery/autolathe/hacked,
 /turf/open/floor/plasteel/tech,
 /area/ship/engineering)
 "gE" = (
@@ -228,7 +236,7 @@
 	id = "termcshutter"
 	},
 /obj/effect/spawner/structure/window/plasma/reinforced/plastitanium/archonic,
-/turf/open/floor/plating/abductor,
+/turf/open/indestructible/hierophant,
 /area/ship/bridge)
 "hr" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
@@ -414,7 +422,8 @@
 	},
 /obj/machinery/turretid{
 	pixel_y = 6;
-	pixel_x = 5
+	pixel_x = 5;
+	locked = 0
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ship/bridge)
@@ -424,7 +433,7 @@
 	dir = 4
 	},
 /obj/effect/spawner/structure/window/plasma/reinforced/plastitanium/archonic,
-/turf/open/floor/plating/abductor,
+/turf/open/indestructible/hierophant,
 /area/ship/bridge)
 "tW" = (
 /obj/structure/table/chem,
@@ -659,6 +668,12 @@
 	},
 /turf/open/floor/plasteel/mono/dark,
 /area/ship/medical)
+"Fl" = (
+/obj/machinery/computer/operating{
+	dir = 1
+	},
+/turf/open/floor/plasteel/white,
+/area/ship/medical)
 "Ft" = (
 /obj/effect/turf_decal/corner/opaque/solgovblue/half{
 	dir = 4
@@ -685,7 +700,7 @@
 	dir = 8
 	},
 /obj/effect/spawner/structure/window/plasma/reinforced/plastitanium/archonic,
-/turf/open/floor/plating/abductor,
+/turf/open/indestructible/hierophant,
 /area/ship/bridge)
 "Gv" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
@@ -739,8 +754,9 @@
 /turf/open/floor/plasteel/dark,
 /area/ship/crew)
 "Hp" = (
-/obj/structure/table/abductor,
-/obj/item/storage/secure/briefcase,
+/obj/machinery/cryopod/syndicate{
+	dir = 1
+	},
 /turf/open/floor/plasteel/dark,
 /area/ship/crew)
 "HV" = (
@@ -885,6 +901,11 @@
 /obj/machinery/rnd/production/techfab,
 /turf/open/floor/plasteel/tech,
 /area/ship/engineering)
+"MK" = (
+/obj/structure/table/chem,
+/obj/item/disk/surgery/debug/terminal,
+/turf/open/floor/plasteel/white,
+/area/ship/medical)
 "Nd" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 6
@@ -985,6 +1006,7 @@
 /obj/effect/turf_decal/corner/opaque/black/half{
 	dir = 4
 	},
+/obj/structure/AIcore/latejoin_inactive,
 /turf/open/floor/plasteel/tech,
 /area/ship/engineering)
 "Sa" = (
@@ -1058,6 +1080,7 @@
 	dir = 10
 	},
 /obj/machinery/light/directional/north,
+/obj/item/disk/tech_disk/debug/terminal,
 /turf/open/floor/plasteel/tech,
 /area/ship/engineering)
 "Vy" = (
@@ -1106,7 +1129,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/corner/opaque/black/bordercorner,
-/obj/machinery/autolathe/hacked,
+/obj/machinery/computer/rdconsole,
 /turf/open/floor/plasteel/tech,
 /area/ship/engineering)
 "Yd" = (
@@ -1244,7 +1267,7 @@ yV
 Im
 Im
 Im
-tW
+Mv
 jf
 gx
 bp
@@ -1293,8 +1316,8 @@ Im
 sE
 mv
 zW
-tW
-Mv
+MK
+Fl
 jf
 JI
 Kl

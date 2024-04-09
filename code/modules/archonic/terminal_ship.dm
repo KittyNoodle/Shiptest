@@ -246,6 +246,13 @@
 		Beam(get_turf(M),icon_state="purple_lightning",time=5,maxdistance=kill_range)
 		qdel(M)
 
+/obj/item/disk/tech_disk/debug/terminal
+	name = "\improper Terminal technology disk"
+	desc = "A tech disk printed by SIGIL."
+
+/obj/item/disk/surgery/debug/terminal
+	name = "SIGIL Surgery Disk"
+
 /obj/machinery/porta_turret/ship/archonic
 	name = "Archonic Ward"
 	desc = "A rune made of an unknown glowing substance."

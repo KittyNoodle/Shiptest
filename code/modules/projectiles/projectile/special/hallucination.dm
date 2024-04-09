@@ -203,6 +203,7 @@
 	hal_target.stuttering += 5
 	hal_target.adjustStaminaLoss(8)
 
+/*
 /obj/projectile/hallucination/change
 	name = "bolt of change"
 	damage_type = BURN
@@ -215,6 +216,7 @@
 
 /obj/projectile/hallucination/change/hal_apply_effect()
 	new /datum/hallucination/self_delusion(hal_target, TRUE, wabbajack = FALSE)
+*/
 
 /obj/projectile/hallucination/death
 	name = "bolt of death"

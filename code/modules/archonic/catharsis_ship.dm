@@ -272,3 +272,15 @@
 	SAY Glory to Nanotrasen.
 	DELAY 50
 	"}
+
+
+// OTHERWORLDLY NECKLACE
+
+/obj/item/clothing/neck/otherworldly_necklace
+	name = "otherworldly necklace"
+	desc = "A strange, eldritch necklace. 7 otherworldly stones hang from it, each of which seems to dimly glow with a fragment of forgotten power. Two of the stones appear to be cracked."
+	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
+	icon_state = "shi_necklace"
+	mob_overlay_icon = 'code/modules/archonic/icons/worn/neck.dmi'
+	lefthand_file = 'code/modules/archonic/icons/inhands/lefthand.dmi'
+	righthand_file = 'code/modules/archonic/icons/inhands/righthand.dmi'

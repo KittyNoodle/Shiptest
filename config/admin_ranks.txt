@@ -54,6 +54,11 @@ Include = @ STEALTH SOUND DEBUG POSSESS POLL BUILD SERVER FUN
 Exclude =
 Edit =
 
+Name = AberrantQuerist
+Include = @ STEALTH SOUND DEBUG POSSESS POLL BUILD SERVER FUN
+Exclude =
+Edit =
+
 Name = Senior Admin
 Include = EVERYTHING
 Exclude =
