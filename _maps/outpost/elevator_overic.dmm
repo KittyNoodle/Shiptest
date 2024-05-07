@@ -1,0 +1,45 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/overic_light/directional/west,
+/obj/structure/elevator_platform/overic,
+/turf/template_noop,
+/area/template_noop)
+"e" = (
+/obj/machinery/status_display/elevator{
+	pixel_y = 32
+	},
+/obj/structure/elevator_platform/overic,
+/turf/template_noop,
+/area/template_noop)
+"k" = (
+/obj/machinery/elevator_floor_button{
+	pixel_y = 25
+	},
+/obj/structure/elevator_platform/overic,
+/turf/template_noop,
+/area/template_noop)
+"A" = (
+/obj/structure/elevator_platform/overic,
+/turf/template_noop,
+/area/template_noop)
+"S" = (
+/obj/structure/overic_light/directional/east,
+/obj/structure/elevator_platform/overic,
+/turf/template_noop,
+/area/template_noop)
+
+(1,1,1) = {"
+k
+a
+A
+"}
+(2,1,1) = {"
+e
+A
+A
+"}
+(3,1,1) = {"
+A
+S
+A
+"}

@@ -2,6 +2,16 @@
 	name = "Reliquary"
 	icon_state = "shuttle"
 
+/datum/outfit/archonic/terminal
+	name = "Terminal Archonicist"
+	uniform = /obj/item/clothing/under/syndicate/skirt
+	suit = null
+	shoes = /obj/item/clothing/shoes/jackboots
+	neck = null
+	gloves = /obj/item/clothing/gloves/combat
+	back = null
+	implants = list(/obj/item/implant/freedom, /obj/item/implant/weapons_auth, /obj/item/implant/radio, /obj/item/implant/spell/archonic/barrage, /obj/item/implant/spell/archonic/summonitem, /obj/item/implant/spell/archonic/knock, /obj/item/implant/spell/archonic/heal, /obj/item/implant/spell/archonic/sparkstorm, /obj/item/implant/spell/archonic/flight, /obj/item/implant/archonic_storage, /obj/item/implant/archonic)
+
 /obj/machinery/launchpad/violetspace
 	name = "violetspace launchpad"
 	desc = "A bluespace pad able to rotate matter through violetspace, teleporting it to or from nearby locations."

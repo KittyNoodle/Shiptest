@@ -640,12 +640,16 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/plasteel/dark,
 /area/ship/hallway/central)
+"DA" = (
+/obj/machinery/holopad/secure,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/bridge)
 "DH" = (
 /obj/machinery/launchpad/violetspace,
 /turf/open/floor/plating/abductor2,
 /area/ship/archonic)
 "Ee" = (
-/obj/structure/grille,
+/obj/structure/grille/indestructable,
 /turf/open/floor/engine/hull/reinforced,
 /area/ship/external)
 "Es" = (
@@ -1400,7 +1404,7 @@ wk
 (9,1,1) = {"
 hl
 BN
-hS
+DA
 wM
 Bq
 JZ

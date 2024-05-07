@@ -13,3 +13,5 @@
 #define FACTION_PLAYER_INTEQ "playerInteq"
 #define FACTION_PLAYER_ROUMAIN "playerRoumain"
 #define FACTION_PLAYER_GEZENA "playerGezena"
+
+#define FACTION_OVERIC "Overic"
