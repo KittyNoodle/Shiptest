@@ -215,6 +215,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_NOMOBSWAP "no-mob-swap"
 #define TRAIT_XRAY_VISION "xray_vision"
 #define TRAIT_THERMAL_VISION "thermal_vision"
+#define TRAIT_CYTHRXIMMUNE "cythrx_immunity"
 /// We have some form of forced gravity acting on us
 #define TRAIT_FORCED_GRAVITY "forced_gravity"
 #define TRAIT_ABDUCTOR_TRAINING "abductor-training"

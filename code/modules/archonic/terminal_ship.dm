@@ -307,6 +307,44 @@
 	armor = list("melee" = 50, "bullet" = 40, "laser" = 40, "energy" = 35, "bomb" = 50, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	desc = "The Voidic Interchange Mobile Exosuit or VIME is an experimental hardsuit designed by the Aetherofusion Nusquamology division. Its design incorporates a thin layer of hyperdense protomatter around it, the layer provides no conventional armor, however protects from the effects of Voidic diffusion."
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/quixote/dimensional
+	var/protomatter_shield = 100
+
+/obj/item/clothing/suit/space/hardsuit/quixote/dimensional/archonic/Initialize()
+	. = ..()
+	START_PROCESSING(SSobj, src)
+
+/obj/item/clothing/suit/space/hardsuit/quixote/dimensional/archonic/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	return ..()
+
+/obj/item/clothing/suit/space/hardsuit/quixote/dimensional/archonic/process()
+	if(protomatter_shield)
+		var/turf/location = src.loc
+		if(ishuman(location))
+			var/mob/living/carbon/human/M = location
+			if(M.is_holding(src) || M.wear_suit == src)
+				if(!HAS_TRAIT(M, TRAIT_CYTHRXIMMUNE))
+					ADD_TRAIT(M, TRAIT_CYTHRXIMMUNE, "suit_[REF(src)]")
+				location = M.loc
+		if(isturf(location))
+			if(istype(location, /turf/open/indestructible/cythrx))
+				protomatter_shield = clamp(protomatter_shield-12, 0, 100)
+	if(!protomatter_shield)
+		var/turf/location = src.loc
+		if(ishuman(location))
+			var/mob/living/carbon/human/M = location
+			if(M.is_holding(src) || M.wear_suit == src)
+				if(HAS_TRAIT(M, TRAIT_CYTHRXIMMUNE))
+					REMOVE_TRAIT(M, TRAIT_CYTHRXIMMUNE, "suit_[REF(src)]")
+				location = M.loc
+		if(isturf(location))
+			if(istype(location, /turf/open/indestructible/cythrx))
+				var/turf/open/indestructible/cythrx/cythrx_turf = location
+				var/turf/location_2 = src.loc
+				if(ishuman(location_2))
+					var/mob/living/carbon/human/M = location_2
+					if(M.is_holding(src) || M.wear_suit == src)
+						cythrx_turf.dust_mob(M)
 
 /obj/projectile/magic/arcane_barrage/archonic/stun
 	name = "archonic flash"

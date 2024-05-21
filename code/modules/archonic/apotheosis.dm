@@ -24,7 +24,7 @@
 	return TRUE
 
 /obj/item/apoth_deleter
-	desc = "A strange baton-like object with a hole in reality itself jutting out of it. You really should avoid touching it."
+	desc = "A strange baton-like object with a hole in reality jutting out of it. You really should avoid touching it."
 	name = "\improper P-PDS-093 'Banhammer'"
 	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
 	icon_state = "apoth_deleter"
@@ -73,7 +73,7 @@
 		return FALSE
 	user.do_attack_animation(target)
 	target.apoth_delete()
-	target.visible_message("<span class='adminhelp'>[user] bans [target] with the [src]!</span>", \
+	target.visible_message("<span class='adminhelp'>[user] deletes [target] with the [src]!</span>", \
 							"<span class='adminhelp'><span class='extremelybig'>You feel a sudden numbness as you are ripped out of reality.</span></span>")
 
 /obj/item/apoth_deleter/attack_obj(obj/O, mob/living/user)
