@@ -3,7 +3,8 @@
 /obj/item/ammo_box/a357
 	name = "speed loader (.357)"
 	desc = "A 7-round speed loader for quickly reloading .357 revolvers. These rounds do good damage with average performance against armor."
-	icon_state = "357"
+	icon_state = "speedloader_357-7"
+	base_icon_state = "speedloader_357"
 	ammo_type = /obj/item/ammo_casing/a357
 	caliber = ".357"
 	max_ammo = 7
@@ -11,6 +12,9 @@
 	item_flags = NO_MAT_REDEMPTION
 	w_class = WEIGHT_CLASS_TINY
 	instant_load = TRUE
+
+/obj/item/ammo_box/a357/empty
+	start_empty = TRUE
 
 /obj/item/ammo_box/a357/match
 	name = "speed loader (.357 match)"
@@ -21,6 +25,28 @@
 	name = "speed loader (.357 hollow point)"
 	desc = "A 7-round speed loader for quickly reloading .357 revolvers. These hollow point rounds do incredible damage against soft targets, but are nearly ineffective against armored ones."
 	ammo_type = /obj/item/ammo_casing/a357/hp
+
+/obj/item/ammo_box/a357_box
+	name = "ammo box (.357)"
+	desc = "A box of standard .357 ammo."
+	icon_state = "357box"
+	ammo_type = /obj/item/ammo_casing/a357
+	max_ammo = 50
+
+/obj/item/ammo_box/a357_box/match
+	name = "ammo box (.357)"
+	desc = "A box of match .357 ammo."
+	icon_state = "357box-match"
+	ammo_type = /obj/item/ammo_casing/a357/match
+	max_ammo = 50
+
+/obj/item/ammo_box/a357_box/hp
+	name = "ammo box (.357)"
+	desc = "A box of hollow point .357 ammo."
+	icon_state = "357box-hp"
+	ammo_type = /obj/item/ammo_casing/a357/hp
+	max_ammo = 50
+
 
 // .45-70 Ammo Holders (Hunting Revolver)
 
@@ -56,7 +82,8 @@
 /obj/item/ammo_box/c38
 	name = "speed loader (.38 special)"
 	desc = "A 6-round speed loader for quickly reloading .38 special revolvers. These rounds do okay damage, but struggle against armor."
-	icon_state = "38"
+	icon_state = "speedloader_38-6"
+	base_icon_state = "speedloader_38"
 	ammo_type = /obj/item/ammo_casing/c38
 	caliber = ".38"
 	max_ammo = 6
@@ -95,6 +122,9 @@
 	desc = "A 6-round speed loader for quickly reloading .38 special revolvers. These iceblox bullets contain a cryogenic payload that chills targets."
 	ammo_type = /obj/item/ammo_casing/c38/iceblox
 
+/obj/item/ammo_box/c38/empty
+	start_empty = TRUE
+
 // 8x58mm Stripper Clip (SSG-669C)
 
 /obj/item/ammo_box/a858
@@ -111,7 +141,8 @@
 /obj/item/ammo_box/vickland_a308
 	name = "stripper clip  (.308)"
 	desc = "A 5-round stripper clip for the Vickland Battle Rifle. The Vickland itself has a 10 round capacity, so keep in mind two of these are needed to fully reload it. These rounds do good damage with significant armor penetration."
-	icon_state = "308"
+	icon_state = "stripper_308-5"
+	base_icon_state = "stripper_308"
 	ammo_type = /obj/item/ammo_casing/a308
 	max_ammo = 5
 	multiple_sprites = AMMO_BOX_PER_BULLET
@@ -131,6 +162,8 @@
 	w_class = WEIGHT_CLASS_TINY
 	instant_load = TRUE
 
+/obj/item/ammo_box/a300/empty
+	start_empty = TRUE
 // .300 Blackout Stripper Clip (Polymer Survivor Rifle)
 
 /obj/item/ammo_box/aac_300blk_stripper
@@ -149,7 +182,8 @@
 /obj/item/ammo_box/amagpellet_claris
 	name = "\improper Claris speed loader (ferromagnetic pellet)"
 	desc = "A 22-round speed loader for quickly reloading the Claris rifle. Ferromagnetic pellets do okay damage with significant armor penetration."
-	icon_state = "claris-sl"
+	icon_state = "claris-sl-1"
+	base_icon_state = "claris-sl"
 	ammo_type = /obj/item/ammo_casing/caseless/gauss
 	max_ammo = 22
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
@@ -385,17 +419,21 @@
 	ammo_type = /obj/item/ammo_casing/c22lr
 	max_ammo = 75
 
-/obj/item/ammo_box/c45_speedloader
-	name = "speed loader (.45)"
+/obj/item/ammo_box/a44roum_speedloader
+	name = "speed loader (.44)"
 	desc = "Designed to quickly reload revolvers."
-	icon_state = "38"
-	ammo_type = /obj/item/ammo_casing/c45
-	caliber = ".45"
+	icon_state = "speedloader_38-6"
+	base_icon_state = "speedloader_38"
+	ammo_type = /obj/item/ammo_casing/a44roum
+	caliber = ".44 Roumain"
 	max_ammo = 6
 	multiple_sprites = AMMO_BOX_PER_BULLET
 	custom_materials = list(/datum/material/iron = 15000)
 	w_class = WEIGHT_CLASS_TINY
 	instant_load = TRUE
+
+/obj/item/ammo_box/a44roum_speedloader/empty
+	start_empty = TRUE
 
 /obj/item/ammo_box/c46x30mm_box
 	name = "ammo box (4.6x30mm)"
@@ -438,3 +476,31 @@
 	icon_state = "8x50mmbox-hp"
 	ammo_type = /obj/item/ammo_casing/a8_50rhp
 	max_ammo = 20
+
+/obj/item/ammo_box/a300_box
+	name = "ammo box (.300 Magnum)"
+	desc = "A box of standard .300 Magnum ammo."
+	icon_state = "300box"
+	ammo_type = /obj/item/ammo_casing/a300
+	max_ammo = 20
+
+/obj/item/ammo_box/a44roum
+	name = "ammo box (.44 roumain)"
+	desc = "A box of standard .44 roumain ammo."
+	icon_state = "a44roum"
+	ammo_type = /obj/item/ammo_casing/a44roum
+	max_ammo = 50
+
+/obj/item/ammo_box/a44roum/rubber
+	name = "ammo box (.44 roumain rubber)"
+	desc = "A box of .44 roumain rubbershot ammo, designed to disable targets without causing serious damage."
+	icon_state = "a44roum-rubber"
+	ammo_type = /obj/item/ammo_casing/a44roum/rubber
+	max_ammo = 50
+
+/obj/item/ammo_box/a44roum/hp
+	name = "ammo box (.44 roumain hollow point)"
+	desc = "A box of .44 roumain hollow point ammo, designed to cause massive damage at the cost of armor penetration."
+	icon_state = "a44roum-hp"
+	ammo_type = /obj/item/ammo_casing/a44roum/hp
+	max_ammo = 50

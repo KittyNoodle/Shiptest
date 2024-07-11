@@ -242,9 +242,8 @@
 	sound = 'sound/magic/repulse.ogg'
 	var/maxthrow = 5
 	var/sparkle_path = /obj/effect/temp_visual/gravpush
-	var/anti_magic_check = TRUE
 	var/repulse_force = MOVE_FORCE_EXTREMELY_STRONG
-
+	var/stun_amt = 5
 	action_icon_state = "repulse"
 
 /obj/effect/proc_holder/spell/aoe_turf/repulse/cast(list/hit_turfs, mob/user = usr, stun_amt = 5)
@@ -285,7 +284,7 @@
 	action_icon = 'icons/mob/actions/actions_xeno.dmi'
 	action_icon_state = "tailsweep"
 	action_background_icon_state = "bg_alien"
-	anti_magic_check = FALSE
+	stun_amt = 0
 
 /obj/effect/proc_holder/spell/aoe_turf/repulse/xeno/cast(list/targets,mob/user = usr)
 	if(iscarbon(user))

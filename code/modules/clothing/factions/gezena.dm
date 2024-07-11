@@ -1,5 +1,4 @@
 //Jumpsuits
-//thgvr TODO: Make more stuff (backpacks, headsets, doodads, part 2?)
 /obj/item/clothing/under/gezena
 	name = "gezenan navywear"
 	desc = "Made of a slick synthetic material that is both breathable, and resistant to scale and thorn alike."
@@ -37,7 +36,7 @@
 	item_state = "bluecloth"
 	blood_overlay_type = "coat"
 	togglename = "zipper"
-	body_parts_covered = CHEST|ARMS
+	body_parts_covered = CHEST
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/exo
 	supports_variations = DIGITIGRADE_VARIATION_NO_NEW_ICON
 	armor = list("melee" = 20, "bullet" = 20, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 0)
@@ -54,20 +53,11 @@
 	icon_state = "coat"
 	item_state = "bluecloth"
 	blood_overlay_type = "coat"
-	body_parts_covered = CHEST|ARMS|GROIN|LEGS
+	body_parts_covered = CHEST|GROIN
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/exo
 	supports_variations = DIGITIGRADE_VARIATION_NO_NEW_ICON
 	armor = list("melee" = 35, "bullet" = 35, "laser" = 20, "energy" = 40, "bomb" = 20, "bio" = 20, "rad" = 0, "fire" = 50, "acid" = 50)
-	allowed = list(
-					/obj/item/flashlight,
-					/obj/item/tank/internals/emergency_oxygen,
-					/obj/item/tank/internals/plasmaman,
-					/obj/item/toy,
-					/obj/item/storage/fancy/cigarettes,
-					/obj/item/lighter,
-					/obj/item/radio,
-					/obj/item/gun/energy/kalix,
-					)
+	allowed = null
 
 /obj/item/clothing/suit/armor/gezena/engi
 	name = "engineer navywear coat"
@@ -270,7 +260,7 @@
 	item_state = "blackcloth"
 
 /obj/item/clothing/neck/cloak/gezena/lead
-	name = "officer's Azuilhauz"
+	name = "sergeant's Azuilhauz"
 	desc = "The “Aziulhauz”, or “rank-cape”, is the method with which PGF military members display their rank to others. Wearing one while on duty is required by uniform code. This variant displays the wearer's rank as a squad commander."
 	icon_state = "squadcape"
 	item_state = "blackcloth"
