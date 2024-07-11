@@ -37,7 +37,7 @@
 
 /obj/item/spear/archous/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/two_handed, force_unwielded=30, force_wielded=105, icon_wielded="[icon_prefix]1") //4 hit crit
+	AddComponent(/datum/component/two_handed, force_unwielded=20, force_wielded=35, icon_wielded="[icon_prefix]1") //4 hit crit
 
 /obj/item/spear/archous/Initialize(mapload)
 	. = ..()

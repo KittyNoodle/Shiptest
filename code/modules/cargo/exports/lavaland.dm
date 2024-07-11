@@ -7,6 +7,7 @@
 	unit_name = "minor lava planet artifact"
 	export_types = list(/obj/item/immortality_talisman,
 						/obj/item/book_of_babel,
+						/obj/item/gun/magic/hook,
 						/obj/item/wisp_lantern,
 						/obj/item/reagent_containers/glass/bottle/potion/flight,
 						/obj/item/katana/cursed,
@@ -22,7 +23,9 @@
 						/obj/item/lava_staff,
 						/obj/item/ship_in_a_bottle,
 						/obj/item/clothing/shoes/clown_shoes/banana_shoes,
+						/obj/item/gun/magic/staff/honk,
 						/obj/item/kitchen/knife/envy,
+						/obj/item/gun/ballistic/revolver/russian/soul,
 						/obj/item/veilrender/vealrender,
 						/obj/item/nullrod/scythe/talking/necro,
 						/obj/item/clothing/suit/armor/ascetic)
@@ -52,7 +55,8 @@
 						/obj/machinery/anomalous_crystal,
 						/obj/item/mayhem,
 						/obj/item/blood_contract,
-						/obj/item/guardiancreator/miner/choose//this is basically the most valulable mining loot so good luck getting a miner to part ways
+						/obj/item/guardiancreator/miner/choose,//this is basically the most valulable mining loot so good luck getting a miner to part ways
+						/obj/item/gun/magic/staff/spellblade,
 						)
 /*
 /datum/export/lavaland/trophycommon

@@ -147,6 +147,7 @@ other types of metals and chemistry for reagents).
 /obj/item/disk/design_disk/disposable_gun/Initialize()
 	. = ..()
 	blueprints[1] = new /datum/design/disposable_gun()
+	blueprints[2] = new /datum/design/pizza_disposable_gun()
 
 /obj/item/disk/design_disk/clip_mechs
 	name = "design disk - CLIP mecha modifications"
