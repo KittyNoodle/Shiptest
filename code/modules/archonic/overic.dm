@@ -200,6 +200,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/overic_light, 26)
 	armor = list("melee" = 100, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	damage_deflection = 400
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | LAVA_PROOF
+	density = TRUE
+	initial_language_holder = /datum/language_holder/overic
+
 
 /obj/structure/overic_structure/computer
 	name = "glowing construct"
