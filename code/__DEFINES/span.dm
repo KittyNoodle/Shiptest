@@ -119,3 +119,7 @@
 // Spans that use embedded tgui components:
 // Sorted alphabetically
 #define span_tooltip(tip, main_text) ("<span data-component=\"Tooltip\" data-content=\"" + tip + "\" class=\"tooltip\">" + main_text + "</span>")
+
+//Addition:
+#define span_anomaly(str) ("<span class='anomaly'>" + str + "</span>")
+#define span_overic(str) ("<span class='overic'>" + str + "</span>")

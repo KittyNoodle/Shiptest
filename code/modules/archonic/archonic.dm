@@ -29,7 +29,7 @@
 	sharpness = IS_SHARP_ACCURATE
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 100)
 	force = 30
-	throwforce = 250
+	throwforce = 50
 	block_chance = 120
 	armour_penetration = 200
 	max_integrity = 300
@@ -56,10 +56,10 @@
 
 	wielded = FALSE
 
-///obj/item/spear/archous/attack(mob/living/M, mob/user)
-	//. = ..()
-	//if(wielded)
-		//M.archonic_flash()
+/obj/item/spear/archous/attack(mob/living/M, mob/user)
+	. = ..()
+	if(wielded)
+		flash_color(M, "#ff0066", 1)
 
 /obj/item/spear/archous/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(prob(final_block_chance))
@@ -80,13 +80,13 @@
 	shield_state = "purplesparkles"
 	shield_on = "purplesparkles"
 	resistance_flags = FIRE_PROOF | ACID_PROOF
-	max_integrity = 400 //you can repair this with duct tape
+	max_integrity = 100 //you can repair this with duct tape
 	damage_to_take_on_hit = 10 //every time the owner is hit, how much damage to give to the amulet?
 
 /obj/item/clothing/neck/crystal_amulet/archous/stayofexecution
 	name = "Stay of Execution"
 	desc = "A mysterious amulet which prevents enviromental damage, and prevents most negative health effects, including death. The effect and the amulet destroyed by blocking a single hit."
-	damage_to_take_on_hit = 400 //instant death
+	damage_to_take_on_hit = 100 //instant death
 
 /obj/item/clothing/neck/crystal_amulet/archous/stayofexecution/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
@@ -161,7 +161,7 @@
 	. = ..()
 	if(slot == ITEM_SLOT_OCLOTHING)
 		ADD_TRAIT(user, TRAIT_NOBREATH, "suit_[REF(src)]")
-		ADD_TRAIT(user, TRAIT_STUNIMMUNE, "suit_[REF(src)]")
+		ADD_TRAIT(user, TRAIT_BOMBIMMUNE, "suit_[REF(src)]")
 		ADD_TRAIT(user, TRAIT_RESISTLOWPRESSURE, "suit_[REF(src)]")
 		ADD_TRAIT(user, TRAIT_RESISTCOLD, "suit_[REF(src)]")
 		ADD_TRAIT(user, TRAIT_RESISTHIGHPRESSURE, "suit_[REF(src)]")
@@ -174,7 +174,7 @@
 /obj/item/clothing/suit/wizrobe/magusred/archonic/dropped(mob/living/carbon/human/user)
 	..()
 	REMOVE_TRAIT(user, TRAIT_NOBREATH, "suit_[REF(src)]")
-	REMOVE_TRAIT(user, TRAIT_STUNIMMUNE, "suit_[REF(src)]")
+	REMOVE_TRAIT(user, TRAIT_BOMBIMMUNE, "suit_[REF(src)]")
 	REMOVE_TRAIT(user, TRAIT_RESISTLOWPRESSURE, "suit_[REF(src)]")
 	REMOVE_TRAIT(user, TRAIT_RESISTCOLD, "suit_[REF(src)]")
 	REMOVE_TRAIT(user, TRAIT_RESISTHIGHPRESSURE, "suit_[REF(src)]")
@@ -243,7 +243,7 @@
 	if(activated || !isliving(AM))
 		return
 	var/mob/living/harbinger = AM
-	if(!harbinger.client) //please no "John ai mob" setting this off
+	if(!harbinger.client) //please no "John NPC" setting this off
 		return
 	activate()
 
@@ -478,7 +478,7 @@
 
 		adjust_charge(-70)
 		new /obj/effect/temp_visual/archous_flash/fading(get_turf(src))
-		C.archonic_flash()
+		flash_color(C, "#ff0066", 20)
 		brainwash(C, command)
 		to_chat(C, "<span class='revendanger'>A flash of violet light shoots out of [user]'s archonic interface system and burns into your eyes.</span>")
 		user.visible_message("<span class='revenwarning'>[src] emits a flash of violet light</span>")
@@ -505,7 +505,7 @@
 		adjust_charge(-1)
 		to_chat(L, "<span class='revenwarning'>You hear a voice in your head saying: </span><span class='hypnophrase'>[message]</span>")
 		to_chat(user, "<span class='revennotice'>You send the message to your target.</span>")
-		log_directed_talk(user, L, message, LOG_SAY, "abductor whisper")
+		log_directed_talk(user, L, message, LOG_SAY, "archonic interface")
 
 /obj/item/archonic/interface_system/proc/interface_restrain(atom/target, mob/living/user)
 	if(ismachinery(target))
@@ -531,6 +531,7 @@
 
 		to_chat(user, "<span class='revennotice'>You restrain your target.</span>")
 		to_chat(C, "<span class='revenwarning'>Violet wires shoot out from [user]'s archonic interface system and wrap around you, holding you still. The wires quickly fade away, but their effect lingers.</span>")
+		flash_color(C, "#ff0066", 5)
 		C.Paralyze(300, TRUE)
 		C.Knockdown(400, TRUE)
 
@@ -895,55 +896,6 @@
 /*
 //////////////////////////////Spells//////////////////////////////
 */
-
-/obj/effect/proc_holder/spell/self/bioresonance/grant_all
-	name = "Transcend"
-	desc = "Dream the reality around you, bend it to your will."
-	action_background_icon_state = "bg_alien"
-	clothes_req = FALSE
-
-/obj/effect/proc_holder/spell/self/bioresonance/grant_all/cast(list/targets, mob/living/carbon/human/user)
-	var/obj/effect/proc_holder/spell/S1 = new /obj/effect/proc_holder/spell/voice_of_god/bioresonance
-	var/obj/effect/proc_holder/spell/S2 = new /obj/effect/proc_holder/spell/self/bioresonance/heal
-	var/obj/effect/proc_holder/spell/S3 = new /obj/effect/proc_holder/spell/self/flight/bioresonance
-	user.mind.AddSpell(S1)
-	user.mind.AddSpell(S2)
-	user.mind.AddSpell(S3)
-	qdel(src)
-
-/obj/effect/proc_holder/spell/voice_of_god/bioresonance //Bioresonance
-	name = "Bioresonant Command"
-	desc = "Speak with an incredibly compelling voice, forcing listeners to obey your commands."
-	spans = list("hypnophrase","big")
-	power_mod = 0.9
-	cooldown_mod = 0.7
-	speech_sound = 'sound/magic/mandswap.ogg'
-	action_icon = 'icons/mob/actions/actions_borer.dmi'
-	action_icon_state = "borer_whisper"
-	action_background_icon_state = "bg_alien"
-	antimagic_allowed = FALSE
-
-/obj/effect/proc_holder/spell/self/bioresonance/heal
-	name = "Restore Vitality"
-	desc = "Force your wounds to knit shut and your body to reform."
-	human_req = TRUE
-	clothes_req = FALSE
-	charge_max = 400
-	invocation_type = "none"
-	sound = 'sound/magic/demon_consume.ogg'
-	action_icon = 'icons/mob/actions/actions_changeling.dmi'
-	action_icon_state = "regenerate"
-	action_background_icon_state = "bg_alien"
-
-/obj/effect/proc_holder/spell/self/bioresonance/heal/cast(list/targets, mob/living/carbon/human/user)
-	user.visible_message("<span class='abductor'>[user]'s body twitches as their wounds knit and their flesh regenerates!</span>", "<span class='mind_control'>You will your wounds to shut and your body to reform.</span>")
-	user.regenerate_limbs(1)
-	user.regenerate_organs()
-	user.restore_blood()
-	user.adjustBruteLoss(-60)
-	user.adjustFireLoss(-60)
-	user.updatehealth()
-
 /obj/effect/proc_holder/spell/self/archonic/heal
 	name = "Aluria's Restoration"
 	desc = "Seal your doors and bathe in the Violet Light."
@@ -985,9 +937,6 @@
 		user.setMovetype(user.movement_type & ~FLOATING)
 		user.float(FALSE)
 		user.visible_message("<span class='warning'>[user] slowly falls back to the ground.</span>", "<span class='notice'>You dispell your levitation, and slowly drift back to the ground.</span>")
-
-/obj/effect/proc_holder/spell/self/flight/bioresonance
-	action_background_icon_state = "bg_alien"
 
 /obj/effect/proc_holder/spell/self/flight/archonic
 	action_background_icon_state = "bg_hive"

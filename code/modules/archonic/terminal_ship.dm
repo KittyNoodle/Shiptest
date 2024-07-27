@@ -390,3 +390,86 @@
 
 /obj/effect/projectile/muzzle/archonic
 	icon_state = "muzzle_hcult"
+
+/obj/item/hairbrush
+	name = "hairbrush"
+	desc = "A small, circular brush with an ergonomic grip for efficient brush application."
+	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
+	icon_state = "brush"
+	item_state = "brush"
+	lefthand_file = 'code/modules/archonic/icons/inhands/lefthand.dmi'
+	righthand_file = 'code/modules/archonic/icons/inhands/righthand.dmi'
+	w_class = WEIGHT_CLASS_TINY
+	var/brush_speed = 3 SECONDS
+
+/obj/item/hairbrush/attack(mob/target, mob/user)
+	. = ..()
+	if(target.stat == DEAD)
+		to_chat(usr, span_warning("There isn't much point brushing someone who can't appreciate it!"))
+		return
+	brush(target, user)
+
+/// Brushes someone, giving them a small mood boost
+/obj/item/hairbrush/proc/brush(mob/living/target, mob/user)
+	if(ishuman(target))
+		var/mob/living/carbon/human/human_target = target
+		var/obj/item/bodypart/head = human_target.get_bodypart(BODY_ZONE_HEAD)
+
+		// Don't brush if you can't reach their head or cancel the action
+		if(!head)
+			to_chat(user, span_warning("[human_target] has no head!"))
+			return
+		if(human_target.is_mouth_covered(ITEM_SLOT_HEAD))
+			to_chat(user, span_warning("You can't brush [human_target]'s hair while [human_target.p_their()] head is covered!"))
+			return
+		if(!do_after(user, brush_speed, human_target))
+			return
+
+		// Do 1 brute to their head if they're bald. Should've been more careful.
+		if(human_target.hairstyle == "Bald" || human_target.hairstyle == "Skinhead" && is_species(human_target, /datum/species/human))
+			human_target.visible_message(span_warning("[usr] scrapes the bristles uncomfortably over [human_target]'s scalp."), span_warning("You scrape the bristles uncomfortably over [human_target]'s scalp."))
+			head.receive_damage(1)
+			return
+
+		// Brush their hair
+		if(human_target == user)
+			human_target.visible_message(span_notice("[usr] brushes [usr.p_their()] hair!"), span_notice("You brush your hair."))
+			SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "brushed", /datum/mood_event/brushed/self)
+		else
+			user.visible_message(span_notice("[usr] brushes [human_target]'s hair!"), span_notice("You brush [human_target]'s hair."), ignored_mobs=list(human_target))
+			human_target.show_message(span_notice("[usr] brushes your hair!"), MSG_VISUAL)
+			SEND_SIGNAL(human_target, COMSIG_ADD_MOOD_EVENT, "brushed", /datum/mood_event/brushed)
+
+/obj/item/hairbrush/tactical
+	name = "tactical hairbrush"
+	desc = "Sometimes, after a brush with death, a good grooming is just the thing for tactical stress relief. "
+	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
+	icon_state = "tacticalbrush"
+	item_state = "tacticalbrush"
+	lefthand_file = 'code/modules/archonic/icons/inhands/lefthand.dmi'
+	righthand_file = 'code/modules/archonic/icons/inhands/righthand.dmi'
+
+/obj/item/hairbrush/contraption
+	name = "strange hairbrush"
+	desc = "A strange purple hairbrush with a strong handle. The back of the brush has a small crystalline rhombus embedded in it, it seems like theres space to press it down..."
+	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
+	icon_state = "archbrush"
+	item_state = "archbrush"
+	lefthand_file = 'code/modules/archonic/icons/inhands/lefthand.dmi'
+	righthand_file = 'code/modules/archonic/icons/inhands/righthand.dmi'
+
+/datum/mood_event/brushed
+	description = span_nicegreen("Someone brushed my hair recently, that felt great!\n")
+	mood_change = 3
+	timeout = 4 MINUTES
+
+/datum/mood_event/brushed/add_effects(mob/brusher)
+	description = span_nicegreen("[brusher? brusher.name : "I"] brushed my hair recently, that felt great!\n")
+
+/datum/mood_event/brushed/self
+	description = span_nicegreen("I brushed my hair recently!\n")
+	mood_change = 2		// You can't hit all the right spots yourself, or something
+
+/turf/open/floor/plasteel/tech/grid/root
+	name = "electrostatic floor"
+	desc = "A floor modified with ports that can support rooting ethereals."

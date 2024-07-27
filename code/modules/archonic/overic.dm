@@ -8,7 +8,7 @@
 	key = "M"
 	flags = LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD|NO_STUTTER
 	default_priority = 300
-	spans = list("resonate","memoedit")
+	spans = list("overic","memoedit")
 	icon_state = "ratvar"
 
 /datum/language/overic/scramble(input)
@@ -274,7 +274,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/overic_light, 26)
 		v_speaker,
 		/datum/language/overic,
 		"[dock_requester.name] confirmed touchdown at [dock_requester.shuttle_port.docked].",
-		list("resonate","memoedit"),
+		list("overic","memoedit"),
 		list(MODE_CUSTOM_SAY_EMOTE = "illuminates")
 	)
 	signal.send_to_receivers()
@@ -293,7 +293,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/overic_light, 26)
 		v_speaker,
 		/datum/language/overic,
 		"[dock_requester.name] has departed from [src].",
-		list("resonate","memoedit"),
+		list("overic","memoedit"),
 		list(MODE_CUSTOM_SAY_EMOTE = "illuminates")
 	)
 	signal.send_to_receivers()
@@ -481,7 +481,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/overic_light, 26)
 	melee_damage_lower = 500
 	melee_damage_upper = 500
 	dextrous = TRUE
-	speech_span = list("resonate","memoedit")
+	speech_span = list("overic","memoedit")
 	held_items = list(null, null)
 	possible_a_intents = list(INTENT_HELP, INTENT_GRAB, INTENT_DISARM, INTENT_HARM)
 	initial_language_holder = /datum/language_holder/overic
@@ -508,7 +508,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/overic_light, 26)
 	maxHealth = 50000
 	force_threshold = 5000
 	damage_coeff = list(BRUTE = 0.5, BURN = -5, TOX = -0.1, CLONE = -0.1, STAMINA = 0, OXY = 0)
-	speech_span = list("resonate","command_headset")
+	speech_span = list("overic","command_headset")
 	var/mutable_appearance/censor
 
 /mob/living/simple_animal/overian/overa/Initialize()

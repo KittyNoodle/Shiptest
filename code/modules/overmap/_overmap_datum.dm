@@ -41,6 +41,9 @@
 	/// The current docking ticket of this object, if any
 	var/datum/docking_ticket/current_docking_ticket
 
+	/// The Spatial Plane it occupies
+	var/space_plane = SPATIAL_PLANE_SPACE
+
 /datum/overmap/New(position, ...)
 	SHOULD_NOT_OVERRIDE(TRUE) // Use [/datum/overmap/proc/Initialize] instead.
 	if(!position)

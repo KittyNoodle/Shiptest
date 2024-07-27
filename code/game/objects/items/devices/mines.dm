@@ -592,8 +592,6 @@
 		return
 	to_chat(victim, "<span class='reallybig redtext'>RIP AND TEAR</span>")
 
-	INVOKE_ASYNC(src, PROC_REF(blood_delusion), victim)
-
 	chainsaw = new(victim.loc)
 	victim.log_message("entered a marg frenzy", LOG_ATTACK)
 
@@ -616,9 +614,6 @@
 		doomslayer.log_message("exited a blood frenzy", LOG_ATTACK)
 	if(chainsaw)
 		qdel(chainsaw)
-
-/obj/item/mine/pressure/pickup/bloodbath/proc/blood_delusion(mob/living/carbon/victim)
-	new /datum/hallucination/delusion(victim, TRUE, "demon", duration, 0)
 
 /obj/item/mine/pressure/pickup/healing
 	name = "healing orb"

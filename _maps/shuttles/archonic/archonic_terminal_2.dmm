@@ -69,6 +69,10 @@
 	pixel_y = 14;
 	pixel_x = -2
 	},
+/obj/item/hairbrush/tactical{
+	pixel_y = -2;
+	pixel_x = -12
+	},
 /turf/open/floor/plasteel/dark,
 /area/ship/crew)
 "bD" = (
@@ -202,7 +206,9 @@
 /turf/open/indestructible/hierophant,
 /area/ship/crew)
 "gx" = (
-/obj/machinery/power/shuttle/engine/void,
+/obj/machinery/power/shuttle/engine/void{
+	dir = 2
+	},
 /turf/open/floor/plating/abductor2,
 /area/ship/medical)
 "gB" = (
@@ -317,7 +323,7 @@
 "lY" = (
 /obj/structure/bed/double,
 /obj/item/bedsheet/double/rd,
-/turf/open/floor/plasteel/dark,
+/turf/open/floor/plasteel/tech/grid/root,
 /area/ship/crew)
 "mp" = (
 /obj/machinery/ntnet_relay,
@@ -710,7 +716,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 8
 	},
-/turf/open/floor/plasteel/tech/grid,
+/turf/open/floor/plasteel/tech/grid/root,
 /area/ship/engineering)
 "Gx" = (
 /obj/docking_port/mobile{
@@ -755,6 +761,7 @@
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/shoes/jackboots,
+/obj/item/hairbrush/contraption,
 /turf/open/floor/plasteel/dark,
 /area/ship/crew)
 "Hp" = (
@@ -942,7 +949,7 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/plasteel/tech/grid/root,
 /area/ship/bridge)
 "OD" = (
 /obj/effect/turf_decal/corner/opaque/black/bordercorner{
@@ -951,7 +958,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 9
 	},
-/turf/open/floor/plasteel/tech/grid,
+/turf/open/floor/plasteel/tech/grid/root,
 /area/ship/engineering)
 "OV" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
@@ -974,16 +981,20 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/plasteel/tech/grid/root,
 /area/ship/bridge)
 "PU" = (
 /obj/structure/table/abductor,
-/obj/item/multitool/abductor,
+/obj/item/multitool/abductor{
+	name = "SIGIL uplink"
+	},
 /obj/machinery/light/directional/west,
 /turf/open/floor/plating/abductor,
 /area/ship/archonic)
 "PX" = (
-/obj/machinery/power/shuttle/engine/void,
+/obj/machinery/power/shuttle/engine/void{
+	dir = 2
+	},
 /turf/open/floor/plating/abductor2,
 /area/ship/engineering)
 "Qs" = (
@@ -1004,13 +1015,13 @@
 /area/ship/storage/eva)
 "QV" = (
 /obj/effect/turf_decal/corner/opaque/black/bordercorner,
-/turf/open/floor/plasteel/tech/grid,
+/turf/open/floor/plasteel/tech/grid/root,
 /area/ship/engineering)
 "RF" = (
 /obj/effect/turf_decal/corner/opaque/black/half{
 	dir = 4
 	},
-/obj/structure/AIcore/latejoin_inactive,
+/obj/machinery/power/ship_gravity/admin,
 /turf/open/floor/plasteel/tech,
 /area/ship/engineering)
 "Sa" = (
@@ -1142,7 +1153,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
-/turf/open/floor/plasteel/tech/grid,
+/turf/open/floor/plasteel/tech/grid/root,
 /area/ship/engineering)
 "Yo" = (
 /turf/closed/indestructible/syndicate,
@@ -1167,7 +1178,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 5
 	},
-/turf/open/floor/plasteel/tech/grid,
+/turf/open/floor/plasteel/tech/grid/root,
 /area/ship/engineering)
 "YX" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
@@ -1184,7 +1195,7 @@
 /obj/effect/turf_decal/corner/opaque/black/bordercorner{
 	dir = 4
 	},
-/turf/open/floor/plasteel/tech/grid,
+/turf/open/floor/plasteel/tech/grid/root,
 /area/ship/engineering)
 "ZU" = (
 /obj/effect/turf_decal/corner/opaque/black/half{

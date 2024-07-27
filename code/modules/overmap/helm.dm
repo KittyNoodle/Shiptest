@@ -179,14 +179,16 @@
 
 		//Even if its full or incompatible with us, it should still show up.
 		if(object in SSovermap.overmap_container[current_ship.x][current_ship.y])
-			available_dock = TRUE
+			if(object.space_plane == current_ship.space_plane)
+				available_dock = TRUE
 
 		//Detect any ships in this location we can dock to
 		if(istype(object))
 			for(var/obj/docking_port/stationary/docking_port as anything in object.shuttle_port.docking_points)
 				if(current_ship.shuttle_port.check_dock(docking_port, silent = TRUE))
-					available_dock = TRUE
-					break
+					if(object.space_plane == current_ship.space_plane)
+						available_dock = TRUE
+						break
 
 		objects |= object.contents
 
@@ -346,6 +348,9 @@
 		if(action == "undock")
 			current_ship.calculate_avg_fuel()
 			if(current_ship.avg_fuel_amnt < 25 && tgui_alert(usr, "Ship only has ~[round(current_ship.avg_fuel_amnt)]% fuel remaining! Are you sure you want to undock?", name, list("Yes", "No")) != "Yes")
+				return
+			if(current_ship.grounded)
+				to_chat(usr, "<span class='warning'>Cannot undock due to bluespace distortion!</span>")
 				return
 			current_ship.Undock()
 

@@ -172,6 +172,18 @@
 
 	adjust_speed(added_velocity["x"], added_velocity["y"])
 
+	switch(space_plane)
+		if(SPATIAL_PLANE_SPACE)
+			token.color = "#FFFFFF"
+		if(SPATIAL_PLANE_OVERA)
+			token.color = "#66FFCC"
+		if(SPATIAL_PLANE_PRETTY)
+			token.color = "#000066"
+		if(SPATIAL_PLANE_NIHIL)
+			token.color = "#001A0D"
+		if(SPATIAL_PLANE_VIOLET)
+			token.color = "#FF66B3"
+
 /**
  * Calculates the amount of acceleration to apply to the ship given the direction and velocity increase
  * * direction - The direction to accelerate in

@@ -27,8 +27,9 @@
  */
 /datum/overmap/event/proc/apply_effect()
 	for(var/datum/overmap/ship/controlled/Ship in get_nearby_overmap_objects())
-		if(prob(chance_to_affect))
-			affect_ship(Ship)
+		if(Ship.space_plane == space_plane)
+			if(prob(chance_to_affect))
+				affect_ship(Ship)
 
 /**
  * The proc called on all ships that are currently being affected.

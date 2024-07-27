@@ -6,12 +6,14 @@
 	allow_duplicates = FALSE
 	ruin_type = RUINTYPE_SPACE
 
+/*
 /datum/map_template/ruin/space/voidling
 	id = "voidling"
 	suffix = "voidling.dmm"
 	cost = 0
 	name = "Voidling Fortress"
 	description = "You know what this is."
+*/
 
 /datum/map_template/ruin/space/corporate_mining
 	id = "corporate_mining"

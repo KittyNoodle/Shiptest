@@ -159,4 +159,36 @@ h1.alert, h2.alert		{color: #000000;}
 
 .monkeyhive				{color: #774704;}
 .monkeylead				{color: #774704;	font-size: 2;}
+
+.overic				{color: #4CDAC9;	animation: overic 30000ms infinite;}
+	@keyframes overic {
+		0%		{color: #4CDAC9;}
+		50%		{color: #32e7a2;}
+		100%	{color: #4CDAC9;}
+}
+
+.anomaly			{color: #ffe6ff;	font-weight: bold;	animation: anomaly 25000ms infinite;}
+	@keyframes anomaly {
+		0%		{color: #ffe6ff;}
+		5%		{color: #ff0000;}
+		10%		{color: #ff9933;}
+		15%		{color: #ffe6ff;}
+		20%		{color: #ffff66;}
+		25%		{color: #99ff66;}
+		30%		{color: #ffe6ff;}
+		35%		{color: #00ff00;}
+		40%		{color: #66ffcc;}
+		45%		{color: #ffe6ff;}
+		50%		{color: #33ccff;}
+		55%		{color: #0066ff;}
+		60%		{color: #ffe6ff;}
+		65%		{color: #1a1aff;}
+		70%		{color: #6600ff;}
+		75%		{color: #ffe6ff;}
+		80%		{color: #cc33ff;}
+		85%		{color: #ff33cc;}
+		90%		{color: #ffe6ff;}
+		95%		{color: #ff0080;}
+		100%	{color: #ff004f;}
+}
 </style>"}

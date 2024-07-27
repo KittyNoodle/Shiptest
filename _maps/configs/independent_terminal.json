@@ -7,6 +7,7 @@
 	],
 	"faction_name": "Cult of Archous",
 	"map_short_name": "Unknown-Class",
+	"unique_ship_access": false,
 	"description": "Crux CF's personal ship. The exterior is covered with all sorts of runic inscriptions, acting as the ship's primary defence. It is also equipped with the one-of-a-kind violetspace launchpad. XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.",
 	"tags": [
 		"Specialist"

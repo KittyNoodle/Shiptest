@@ -1,8 +1,5 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ac" = (
-/obj/structure/chair/comfy/brown{
-	dir = 1
-	},
 /obj/structure/closet/secure_closet/wall{
 	dir = 4;
 	icon_door = "sec_wall";
@@ -1007,9 +1004,6 @@
 /obj/item/storage/backpack/satchel/cap,
 /obj/item/storage/backpack/captain,
 /obj/item/clothing/shoes/laceup,
-/obj/item/clothing/under/rank/command/captain/nt/skirt,
-/obj/item/clothing/under/rank/command/captain/nt,
-/obj/item/clothing/suit/armor/vest/capcarapace/alt,
 /obj/item/clothing/glasses/sunglasses,
 /obj/item/clothing/head/caphat/nt,
 /obj/item/storage/belt/sabre,
@@ -2067,9 +2061,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/ship/cargo)
-"oi" = (
-/turf/closed/indestructible/alien,
-/area/ship/external)
 "oo" = (
 /obj/machinery/space_heater,
 /obj/effect/turf_decal/industrial/warning{
@@ -2473,11 +2464,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/ship/hallway/central)
-"qw" = (
-/obj/structure/lattice/clockwork,
-/obj/structure/lattice/clockwork,
-/turf/template_noop,
-/area/ship/external)
 "qL" = (
 /obj/effect/turf_decal/industrial/warning{
 	dir = 4
@@ -3879,7 +3865,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/open/floor/plasteel/stairs/medium{
+/turf/open/floor/plasteel/stairs/mid{
 	dir = 4
 	},
 /area/ship/cargo)
@@ -5098,8 +5084,6 @@
 /obj/item/storage/backpack,
 /obj/item/storage/backpack/satchel/leather,
 /obj/item/clothing/shoes/laceup,
-/obj/item/clothing/under/rank/command/head_of_personnel/nt/skirt,
-/obj/item/clothing/under/rank/command/head_of_personnel/nt,
 /obj/item/clothing/suit/armor/vest/hop,
 /obj/item/clothing/gloves/color/white,
 /obj/item/clothing/glasses/sunglasses,
@@ -5523,7 +5507,6 @@
 /turf/open/floor/plasteel/patterned/grid,
 /area/ship/engineering)
 "KL" = (
-/obj/structure/chair/comfy/brown,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /obj/structure/cable{
@@ -6488,6 +6471,7 @@
 /area/ship/science/ai_chamber)
 "RE" = (
 /obj/machinery/light/directional/north,
+/obj/machinery/power/ship_gravity/admin,
 /turf/open/floor/plating/abductor,
 /area/ship/engineering)
 "RI" = (
@@ -7101,9 +7085,6 @@
 /turf/open/floor/plasteel/dark,
 /area/ship/science)
 "VF" = (
-/obj/structure/chair/comfy/brown{
-	dir = 4
-	},
 /obj/effect/landmark/start/captain,
 /obj/machinery/airalarm/directional/west,
 /obj/structure/sign/poster/retro/lasergun_new{
@@ -7225,9 +7206,6 @@
 /turf/template_noop,
 /area/template_noop)
 "Ws" = (
-/obj/structure/chair/comfy/brown{
-	dir = 4
-	},
 /obj/effect/landmark/start/head_of_personnel,
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/carpet/blue,
@@ -7788,21 +7766,21 @@ LB
 Tn
 eE
 eE
-oi
-wT
-wT
-wT
-qw
-wT
-wT
-wT
-wT
-wT
-qw
-wT
-wT
-wT
-oi
+Tn
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+wo
 wo
 kG
 kG
@@ -7823,21 +7801,21 @@ Gr
 Gr
 mZ
 WU
-oi
-oi
-li
-li
-wT
+Tn
+Tn
 li
 li
 li
 li
 li
-wT
 li
 li
-oi
-oi
+li
+li
+li
+li
+wo
+wo
 yj
 Iv
 Bl
@@ -7859,19 +7837,19 @@ BN
 ci
 WU
 MM
-oi
-li
-li
-wT
+Tn
 li
 li
 li
 li
 li
-wT
 li
 li
-oi
+li
+li
+li
+li
+wo
 IY
 yj
 pT
