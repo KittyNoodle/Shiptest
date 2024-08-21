@@ -84,6 +84,7 @@
 
 // Spatial Planes
 #define SPATIAL_PLANE_SPACE "space"
+#define SPATIAL_PLANE_WIRE "wire"
 #define SPATIAL_PLANE_OVERA "overic"
 #define SPATIAL_PLANE_PRETTY "pretty"
 #define SPATIAL_PLANE_NIHIL "nihil"
