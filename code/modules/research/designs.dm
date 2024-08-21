@@ -150,8 +150,8 @@ other types of metals and chemistry for reagents).
 	blueprints[2] = new /datum/design/pizza_disposable_gun()
 
 /obj/item/disk/design_disk/clip_mechs
-	name = "design disk - CLIP mecha modifications"
-	desc = "A design disk containing specifications for CLIP-custom mecha conversions."
+	name = "design disk - CLIP exosuit modifications"
+	desc = "A design disk containing specifications for CLIP-custom exosuit conversions."
 	color = "#57b8f0"
 	max_blueprints = 2
 

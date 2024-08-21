@@ -1,5 +1,4 @@
 /obj/item/gun/ballistic/automatic/pistol
-	can_suppress = TRUE
 	bolt_type = BOLT_TYPE_LOCKING
 
 	vary_fire_sound = FALSE
@@ -67,7 +66,6 @@ EMPTY_GUN_HELPER(automatic/pistol/syndicate)
 	mob_overlay_icon = 'icons/obj/guns/manufacturer/hunterspride/onmob.dmi'
 
 	mag_type = /obj/item/ammo_box/magazine/m45
-	can_suppress = FALSE
 	fire_sound = 'sound/weapons/gun/pistol/candor.ogg'
 	rack_sound = 'sound/weapons/gun/pistol/candor_cocked.ogg'
 	lock_back_sound = 'sound/weapons/gun/pistol/slide_lock.ogg'
@@ -106,7 +104,7 @@ EMPTY_GUN_HELPER(automatic/pistol/candor/factory)
 	icon_state = "deagle"
 	force = 14
 	mag_type = /obj/item/ammo_box/magazine/m50
-	can_suppress = FALSE
+	mag_display = TRUE
 	show_magazine_on_sprite = TRUE
 	fire_sound = 'sound/weapons/gun/pistol/deagle.ogg'
 	rack_sound = 'sound/weapons/gun/pistol/rack.ogg'
@@ -195,7 +193,6 @@ EMPTY_GUN_HELPER(automatic/pistol/candor/factory)
 
 	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = /obj/item/ammo_box/magazine/co9mm
-	can_suppress = FALSE
 	manufacturer = MANUFACTURER_NANOTRASEN
 	fire_sound = 'sound/weapons/gun/pistol/commander.ogg'
 	load_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
@@ -233,7 +230,6 @@ EMPTY_GUN_HELPER(automatic/pistol/commander/inteq)
 
 	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = /obj/item/ammo_box/magazine/co9mm
-	can_suppress = FALSE
 	var/funnysounds = TRUE
 	var/cooldown = 0
 	load_sound = 'sound/weapons/gun/pistol/mag_insert.ogg'
@@ -273,6 +269,7 @@ EMPTY_GUN_HELPER(automatic/pistol/commander/inteq)
 	to_chat(user, "<span class='notice'>You toggle [src]'s vox audio functions.</span>")
 
 /obj/item/gun/ballistic/automatic/pistol/commissar/AltClick(mob/user)
+	. = ..()
 	if(!user.canUseTopic(src, BE_CLOSE, ismonkey(user)))
 		return
 	if((cooldown < world.time - 200) && funnysounds)
@@ -344,7 +341,6 @@ EMPTY_GUN_HELPER(automatic/pistol/commander/inteq)
 	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = /obj/item/ammo_box/magazine/disposable
 	custom_materials = list(/datum/material/plastic=2000)
-	can_suppress = FALSE
 	manufacturer = MANUFACTURER_NONE
 	has_safety = FALSE //thing barely costs anything, why would it have a safety?
 	safety = FALSE
@@ -433,7 +429,6 @@ EMPTY_GUN_HELPER(automatic/pistol/commander/inteq)
 
 	w_class = WEIGHT_CLASS_TINY
 	mag_type = /obj/item/ammo_box/magazine/m22lr
-	can_suppress = FALSE
 	fire_sound = 'sound/weapons/gun/pistol/himehabu.ogg'
 
 	load_sound = 'sound/weapons/gun/pistol/mag_insert_alt.ogg'
