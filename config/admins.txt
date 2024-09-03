@@ -6,7 +6,7 @@
 
 Noodlecat = Host
 AberrantQuerist = AberrantQuerist
-Absolucy = Stupid Cat
+No_Originality = Stupid Cat
 Crystalseekr = AberrantQuerist
 
 #just use the database, this is deprecated

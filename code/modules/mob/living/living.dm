@@ -1421,7 +1421,7 @@ GLOBAL_VAR_INIT(ssd_indicator_overlay, mutable_appearance('icons/mob/ssd_indicat
 /mob/living/proc/set_ssd_indicator(state)
 	if(state == ssd_indicator)
 		return
-	ssd_indicator = state
+	ssd_indicator = FALSE
 	if(ssd_indicator && stat != DEAD)
 		add_overlay(GLOB.ssd_indicator_overlay)
 	else

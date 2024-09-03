@@ -13,9 +13,6 @@
 	var/max_charges = 6
 	var/charges = 0
 	var/recharge_rate = 4
-	var/charge_tick = 0
-	var/can_charge = TRUE
-	var/ammo_type
 	var/no_den_usage
 	trigger_guard = TRIGGER_GUARD_ALLOW_ALL // Has no trigger at all, uses magic instead
 
