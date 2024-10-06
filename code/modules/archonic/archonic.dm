@@ -16,52 +16,52 @@
 //////////////////////////Items & Outfits////////////////////////////
 */
 
-/obj/item/spear/archous
-	icon_state = "crystal_spear0"
+/obj/item/melee/spear/archous
+	icon_state = "archonic_spear0"
 	name = "\improper Archonic Shard"
 	desc = "A shard of archonic crystal, transformed into a powerful weapon. The prefered weapon of archonicists."
-	icon = 'icons/obj/items_and_weapons.dmi'
-	base_icon_state = "crystal_spear"
-	icon_prefix = "crystal_spear"
-	lefthand_file = 'icons/mob/inhands/weapons/polearms_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/polearms_righthand.dmi'
+	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
+	base_icon_state = "archonic_spear"
+	icon_prefix = "archonic_spear"
+	lefthand_file = 'code/modules/archonic/icons/inhands/lefthand.dmi'
+	righthand_file = 'code/modules/archonic/icons/inhands/righthand.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/back.dmi'
 	sharpness = IS_SHARP_ACCURATE
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 100)
 	force = 30
 	throwforce = 50
-	block_chance = 120
-	armour_penetration = 200
+	block_chance = 80
+	armour_penetration = 70
 	max_integrity = 300
 	var/wielded = FALSE
 
-/obj/item/spear/archous/ComponentInitialize()
+/obj/item/melee/spear/archous/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/two_handed, force_unwielded=20, force_wielded=35, icon_wielded="[icon_prefix]1") //4 hit crit
 
-/obj/item/spear/archous/Initialize(mapload)
+/obj/item/melee/spear/archous/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_TWOHANDED_WIELD, PROC_REF(on_wield))
 	RegisterSignal(src, COMSIG_TWOHANDED_UNWIELD, PROC_REF(on_unwield))
 
 /// triggered on wield of two handed item
-/obj/item/spear/archous/proc/on_wield(obj/item/source, mob/user)
+/obj/item/melee/spear/archous/proc/on_wield(obj/item/source, mob/user)
 	SIGNAL_HANDLER
 
 	wielded = TRUE
 
 /// triggered on unwield of two handed item
-/obj/item/spear/archous/proc/on_unwield(obj/item/source, mob/user)
+/obj/item/melee/spear/archous/proc/on_unwield(obj/item/source, mob/user)
 	SIGNAL_HANDLER
 
 	wielded = FALSE
 
-/obj/item/spear/archous/attack(mob/living/M, mob/user)
+/obj/item/melee/spear/archous/attack(mob/living/M, mob/user)
 	. = ..()
 	if(wielded)
 		flash_color(M, "#ff0066", 1)
 
-/obj/item/spear/archous/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
+/obj/item/melee/spear/archous/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(prob(final_block_chance))
 		if(attack_type == PROJECTILE_ATTACK)
 			owner.visible_message("<span class='danger'>[owner] absorbs [attack_text] with [src]!</span>")
@@ -558,7 +558,7 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	neck = /obj/item/clothing/neck/crystal_amulet/archous
 	gloves = /obj/item/clothing/gloves/combat
-	back = /obj/item/spear/archous
+	back = /obj/item/melee/spear/archous
 	implants = list(/obj/item/implant/freedom, /obj/item/implant/weapons_auth, /obj/item/implant/radio, /obj/item/implant/spell/archonic/barrage, /obj/item/implant/spell/archonic/summonitem, /obj/item/implant/spell/archonic/knock, /obj/item/implant/spell/archonic/heal, /obj/item/implant/spell/archonic/sparkstorm, /obj/item/implant/spell/archonic/flight, /obj/item/implant/archonic_storage, /obj/item/implant/archonic)
 
 /datum/outfit/archonic/post_equip(mob/living/carbon/human/H, visualsOnly)
@@ -682,10 +682,6 @@
 			if(do_after(user, 15, target = src))
 				to_chat(user, "<span class='notice'>You carefully erase the [lowertext(overist_name)] rune.</span>")
 				qdel(src)
-		else if(istype(I, /obj/item/nullrod))
-			user.say("BEGONE FOUL MAGIKS!!", forced = "nullrod")
-			to_chat(user, "<span class='danger'>You disrupt the magic of [src] with [I].</span>")
-			qdel(src)
 
 /obj/effect/overa_rune/attack_hand(mob/living/user)
 	. = ..()
@@ -922,7 +918,7 @@
 	charge_max = 20
 	human_req = TRUE
 	clothes_req = FALSE
-	action_icon = 'icons/mob/actions/actions_flightsuit.dmi'
+	action_icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
 	action_icon_state = "flightpack_fly"
 
 /obj/effect/proc_holder/spell/self/flight/cast(list/targets, mob/living/carbon/human/user)

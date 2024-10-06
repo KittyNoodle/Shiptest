@@ -78,8 +78,6 @@
 		/obj/item/clothing/head/wig/random = 3,
 		/obj/item/gohei = 1,
 		/obj/item/clothing/suit/judgerobe = 1,
-		/obj/item/clothing/head/powdered_wig = 1,
-		/obj/item/clothing/glasses/sunglasses/garb = 2,
 		/obj/item/clothing/glasses/blindfold = 1,
 		/obj/item/clothing/mask/muzzle = 2)
 	premium = list(

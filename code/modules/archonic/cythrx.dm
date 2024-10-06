@@ -123,14 +123,6 @@ GLOBAL_VAR_INIT(cythrx_spread, TRUE)
 		qdel(rip_u)
 	return
 
-/turf/open/indestructible/cythrx/blob_act(obj/structure/blob/blob)
-	if(!blob || isspaceturf(loc)) //does nothing in space
-		return
-	playsound(src, 'sound/effects/curse3.ogg', 50, TRUE)
-	blob.visible_message("<span class='revenwarning'>\The [blob] strikes at \the [src] and is quickly dissolved into \the [src].</span>",
-		"<span class='revenwarning'>You feel a draining sensation, <span class='cultbold'>then something more. You will feed something so much more.</span></span>")
-	Consume(blob)
-
 /turf/open/indestructible/cythrx/attack_paw(mob/user, list/modifiers)
 	dust_mob(user, cause = "monkey attack")
 

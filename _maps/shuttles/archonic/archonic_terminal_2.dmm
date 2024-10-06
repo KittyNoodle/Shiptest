@@ -264,11 +264,11 @@
 	req_access = null;
 	name = "Crux's Armory"
 	},
-/obj/item/spear/archous,
 /obj/item/clothing/neck/crystal_amulet/archous,
 /obj/item/clothing/suit/wizrobe/magusred/archonic,
 /obj/item/multitool/ai_detect,
 /obj/item/healthanalyzer/rad_laser,
+/obj/item/melee/spear/archous,
 /turf/open/floor/plasteel/dark,
 /area/ship/crew)
 "hR" = (

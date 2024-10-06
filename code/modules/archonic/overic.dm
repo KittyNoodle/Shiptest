@@ -304,7 +304,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/overic_light, 26)
 /area/outpost/overic
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
 	has_gravity = STANDARD_GRAVITY
-	area_flags = VALID_TERRITORY | BLOBS_ALLOWED | NOTELEPORT // not unique, in case multiple outposts get loaded. all derivatives should also be NOTELEPORT
+	area_flags = VALID_TERRITORY | NOTELEPORT // not unique, in case multiple outposts get loaded. all derivatives should also be NOTELEPORT
 	flags_1 = null
 	sound_environment = SOUND_AREA_STANDARD_STATION
 	lighting_colour_tube = "#c0f2ec"

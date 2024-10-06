@@ -245,12 +245,6 @@ EMPTY_GUN_HELPER(automatic/pistol/commander/inteq)
 	to_chat(user, "<span class='warning'>Theres no magazine to replace!</span>")
 	return
 
-/obj/item/gun/ballistic/automatic/pistol/disposable/pizza
-	name = "pizza disposable gun"
-	desc = "How horrible. Whoever you point at with this won't be very cheesed to meet you." //this is a warcrime against italians // IF YOU'RE GOING TO DO US DIRTY SPELL IT RIGHT
-	icon_state = "disposable_pizza"
-	custom_materials = list(/datum/material/pizza=2000)
-
 //not technically a pistol but whatever
 /obj/item/gun/ballistic/derringer
 	name = ".38 Derringer"

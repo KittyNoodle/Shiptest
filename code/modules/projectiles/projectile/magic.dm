@@ -230,7 +230,6 @@
 							/mob/living/simple_animal/hostile/killertomato,
 							/mob/living/simple_animal/hostile/poison/giant_spider,
 							/mob/living/simple_animal/hostile/poison/giant_spider/hunter,
-							/mob/living/simple_animal/hostile/blob/blobbernaut/independent,
 							/mob/living/simple_animal/hostile/asteroid/basilisk/watcher,
 							/mob/living/simple_animal/hostile/asteroid/goliath/beast,
 							/mob/living/simple_animal/hostile/headcrab,
