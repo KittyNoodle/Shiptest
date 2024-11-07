@@ -32,6 +32,20 @@
 	if(docked_to)
 		RegisterSignal(docked_to, COMSIG_OVERMAP_MOVED, PROC_REF(on_docked_to_moved))
 
+	switch(space_plane)
+		if(SPATIAL_PLANE_SPACE)
+			token.color = "#FFFFFF"
+		if(SPATIAL_PLANE_WIRE)
+			token.color = "#FFDAE5"
+		if(SPATIAL_PLANE_OVERA)
+			token.color = "#66FFCC"
+		if(SPATIAL_PLANE_PRETTY)
+			token.color = "#000066"
+		if(SPATIAL_PLANE_NIHIL)
+			token.color = "#000F08"
+		if(SPATIAL_PLANE_VIOLET)
+			token.color = "#FF399C"
+
 /datum/overmap/ship/Destroy()
 	if(movement_callback_id)
 		deltimer(movement_callback_id, SSovermap_movement)

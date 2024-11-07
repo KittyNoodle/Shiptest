@@ -17,9 +17,9 @@
 /datum/element/decal/apoth_delete/generate_appearance(_icon, _icon_state, _dir, _layer, _alpha, source)
 	if(!_icon || !_icon_state)
 		return FALSE
-	var/icon/black_texture = icon(_icon, _icon_state, , 1)		//we only want to apply blood-splatters to the initial icon_state for each object
+	var/icon/black_texture = icon(_icon, _icon_state, , 1)		//we only want to apply black overlay to the initial icon_state for each object
 	black_texture.Blend("#fff", ICON_ADD) 			//fills the icon_state with white (except where it's transparent)
-	black_texture.Blend(icon('code/modules/archonic/icons/288x288.dmi', "nothing"), ICON_MULTIPLY) //adds blood and the remaining white areas become transparant
+	black_texture.Blend(icon('code/modules/archonic/icons/288x288.dmi', "nothing"), ICON_MULTIPLY) //adds overlay and the remaining white areas become transparant
 	pic = mutable_appearance(black_texture)
 	return TRUE
 
