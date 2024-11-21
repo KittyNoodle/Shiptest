@@ -153,8 +153,12 @@
 	heat_protection = HEAD|CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	body_parts_covered = HEAD|CHEST|GROIN|LEGS|FEET|ARMS|HANDS
-	icon_state = "magusred"
-	item_state = "magusred"
+	icon = 'icons/obj/clothing/suits/hooded.dmi'
+	mob_overlay_icon = 'icons/mob/clothing/suits/hooded.dmi'
+	icon_state = "cultrobesalt"
+	item_state = "cultrobesalt"
+	//icon_state = "magusred"
+	//item_state = "magusred"
 	armor = list("melee" = 80, "bullet" = 90, "laser" = 90, "energy" = 100, "bomb" = 90, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 
 /obj/item/clothing/suit/wizrobe/magusred/archonic/equipped(mob/living/carbon/human/user, slot)

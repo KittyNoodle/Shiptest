@@ -1881,12 +1881,12 @@ GLOBAL_VAR_INIT(ssd_indicator_overlay, mutable_appearance('icons/mob/ssd_indicat
 
 /mob/living/proc/seizure()
 	set waitfor = 0
-	if(!IsParalyzed() && stat == CONSCIOUS)
-		visible_message("<span class='danger'>\The [src] starts having a seizure!</span>", "<span class='userdanger'>Your muscles spasm violently!</span>")
-		var/howfuck = rand(8,16)
-		AdjustParalyzed(howfuck)
-		AdjustKnockdown(howfuck)
-		Jitter(rand(150,200))
+	visible_message("<span class='danger'>\The [src] starts having a seizure!</span>", "<span class='userdanger'>Your muscles spasm violently!</span>")
+	var/howfuck = rand(48,116)
+	Unconscious(howfuck-20)
+	AdjustParalyzed(howfuck)
+	AdjustKnockdown(howfuck)
+	Jitter(rand(150,200))
 
 /**
  * Sets the mob's speed variable and then calls update_living_varspeed().

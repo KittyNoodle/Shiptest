@@ -86,9 +86,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
-/obj/machinery/computer/cargo/express{
-	dir = 8
-	},
 /obj/effect/turf_decal/corner/opaque/brown{
 	dir = 4
 	},
@@ -1005,7 +1002,6 @@
 /obj/item/storage/backpack/captain,
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/glasses/sunglasses,
-/obj/item/clothing/head/caphat/nt,
 /obj/item/storage/belt/sabre,
 /obj/item/assembly/flash/handheld,
 /obj/item/disk/nuclear/fake{
@@ -2507,7 +2503,6 @@
 /obj/item/clothing/suit/toggle/chef,
 /obj/item/clothing/accessory/waistcoat,
 /obj/item/clothing/head/chefhat,
-/obj/item/clothing/head/bowler,
 /obj/item/storage/box/drinkingglasses,
 /obj/item/storage/fancy/candle_box,
 /obj/item/radio/intercom/directional/east,
@@ -2698,14 +2693,6 @@
 /area/ship/hallway/central)
 "sl" = (
 /obj/structure/table/reinforced,
-/obj/item/reagent_containers/food/condiment/peppermill{
-	pixel_x = -4;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/food/condiment/saltshaker{
-	pixel_x = 4;
-	pixel_y = 10
-	},
 /obj/effect/turf_decal/corner/opaque/white{
 	dir = 4
 	},
@@ -5087,7 +5074,6 @@
 /obj/item/clothing/suit/armor/vest/hop,
 /obj/item/clothing/gloves/color/white,
 /obj/item/clothing/glasses/sunglasses,
-/obj/item/clothing/head/hopcap/nt,
 /obj/item/assembly/flash/handheld,
 /obj/item/storage/box/ids,
 /obj/item/storage/box/PDAs,
@@ -5389,7 +5375,6 @@
 "JL" = (
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/food/drinks/shaker,
-/obj/item/reagent_containers/food/condiment/enzyme,
 /obj/effect/turf_decal/corner/opaque/white{
 	dir = 4
 	},
@@ -5397,6 +5382,14 @@
 	dir = 8
 	},
 /obj/item/reagent_containers/glass/rag,
+/obj/item/reagent_containers/condiment/saltshaker{
+	pixel_x = 9;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/condiment/peppermill{
+	pixel_y = 1;
+	pixel_x = -10
+	},
 /turf/open/floor/plasteel,
 /area/ship/crew/canteen)
 "JN" = (
@@ -5443,13 +5436,13 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
 	dir = 1
 	},
-/obj/structure/fireaxecabinet{
-	pixel_y = 32
-	},
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
 /obj/machinery/camera/autoname,
+/obj/structure/cabinet/fireaxe{
+	pixel_y = 33
+	},
 /turf/open/floor/plasteel/patterned/grid,
 /area/ship/engineering/atmospherics)
 "Ko" = (
@@ -7384,10 +7377,7 @@
 /area/ship/engineering)
 "XE" = (
 /obj/structure/table/reinforced,
-/obj/item/kitchen/knife,
 /obj/item/kitchen/rollingpin,
-/obj/item/reagent_containers/food/condiment/sugar,
-/obj/item/reagent_containers/food/condiment/rice,
 /obj/effect/turf_decal/corner/opaque/white{
 	dir = 4
 	},
@@ -7432,6 +7422,7 @@
 	},
 /obj/machinery/light/small/directional/north,
 /obj/machinery/firealarm/directional/north,
+/obj/item/storage/belt/sabre/suns/captain,
 /turf/open/floor/carpet/royalblue,
 /area/ship/bridge)
 "XX" = (

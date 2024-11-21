@@ -160,6 +160,7 @@
 #define MAG_SIZE_SMALL 1
 #define MAG_SIZE_MEDIUM 2
 #define MAG_SIZE_LARGE 3
+#define MAG_SIZE_NAC 4
 
 //Projectile Reflect
 #define REFLECT_NORMAL (1<<0)

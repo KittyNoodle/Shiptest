@@ -131,6 +131,12 @@
 	if(mag_size == MAG_SIZE_LARGE && !istype(C, /obj/item/stock_parts/cell/gun/large))
 		to_chat(user, span_warning("\The [C] doesn't seem to fit into \the [src]..."))
 		return FALSE
+	if(mag_size == MAG_SIZE_NAC && !istype(C, /obj/item/stock_parts/cell/gun/nac))
+		to_chat(user, span_warning("\The [C] doesn't seem to fit into \the [src]..."))
+		return FALSE
+	if(!mag_size == MAG_SIZE_NAC && istype(C, /obj/item/stock_parts/cell/gun/nac))
+		to_chat(user, span_warning("\The [C] doesn't seem to fit into \the [src]..."))
+		return FALSE
 	if(user.transferItemToLoc(C, src))
 		cell = C
 		to_chat(user, span_notice("You load the [C] into \the [src]."))

@@ -455,15 +455,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/overic_light, 26)
 	speed = 0
 	faction = list("Overic")
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
-	damage_coeff = list(BRUTE = 0.5, BURN = -0.5, TOX = 0, CLONE = 0, STAMINA = 0, OXY = 0)
-	health = 5000
-	maxHealth = 5000
+	damage_coeff = list(BRUTE = 0.8, BURN = 0.6, TOX = 0, CLONE = 0, STAMINA = 0, OXY = 0)
+	health = 700
+	maxHealth = 700
 	light_range = 3
 	light_color = "#c0f2ec"
 	minbodytemp = 0
 	maxbodytemp = INFINITY
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	obj_damage = 400
+	obj_damage = 500
 	environment_smash = ENVIRONMENT_SMASH_RWALLS
 	move_resist = MOVE_FORCE_OVERPOWERING
 	pull_force = MOVE_FORCE_OVERPOWERING
@@ -478,8 +478,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/overic_light, 26)
 	attack_verb_continuous = "sublimates"
 	attack_verb_simple = "sublimate"
 	attack_sound = 'sound/effects/gravhit.ogg'
-	melee_damage_lower = 500
-	melee_damage_upper = 500
+	melee_damage_lower = 200
+	melee_damage_upper = 200
 	dextrous = TRUE
 	speech_span = list("overic","memoedit")
 	held_items = list(null, null)
@@ -491,10 +491,13 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/overic_light, 26)
 	verb_exclaim = "proclaims"
 	verb_yell = "imparts"
 	see_in_dark = 10
-	force_threshold = 50
+	force_threshold = 40
+	var/datum/action/innate/overic/dexterity/dextoggle
 
 /mob/living/simple_animal/overian/Initialize()
 	. = ..()
+	dextoggle = new
+	dextoggle.Grant(src)
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
 
 /mob/living/simple_animal/overian/overa
@@ -532,3 +535,22 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/overic_light, 26)
 	active_msg = "You ready a caging bolt..."
 	deactive_msg = "You disarm the caging bolt..."
 	projectile_type = /obj/projectile/overic/cage
+
+/datum/action/innate/overic
+	button_icon = 'code/modules/archonic/icons/overic.dmi'
+	background_icon_state = "bg_overic"
+	icon_icon = 'code/modules/archonic/icons/overic.dmi'
+
+/datum/action/innate/overic/dexterity
+	name = "Toggle Dexterity"
+	button_icon_state = "dex_toggle"
+	desc = "Switch between using direct attacks and using your 'hands'."
+
+/datum/action/innate/overic/dexterity/Activate()
+	var/mob/living/simple_animal/overian/O = owner
+	if(O.dextrous)
+		O.dextrous = FALSE
+		to_chat(O, "<span class='notice'>You no longer dextrous.</span>")
+	else
+		O.dextrous = TRUE
+		to_chat(O, "<span class='notice'>You now dextrous.</span>")

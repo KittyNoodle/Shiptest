@@ -473,3 +473,62 @@
 /turf/open/floor/plasteel/tech/grid/root
 	name = "electrostatic floor"
 	desc = "A floor modified with ports that can support rooting ethereals."
+
+/obj/item/clothing/suit/armor/vest/syndie_body_armor
+	name = "syndicate body armor"
+	desc = "A set of red and black body armor. Lightweight but great protection."
+	icon_state = "armor_syndie"
+	item_state = "armor_syndie"
+	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
+	mob_overlay_icon = 'code/modules/archonic/icons/worn/armor.dmi'
+	blood_overlay_type = "armor"
+	dog_fashion = /datum/dog_fashion/back
+
+/obj/item/stock_parts/cell/gun/nac
+	name = "N.A.C. cartridge"
+	desc = "A small black cartridge. It has a data terminal on the bottom region and a small array of life support equipment on the top. A living organism is contained within, the words \"CO-8\" are tattooed onto the upper portion."
+	icon_state = "nac_cart"
+	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
+	ratingdesc = FALSE
+	maxcharge = 1
+	charge = 1
+	chargerate = 0
+
+/obj/item/stock_parts/cell/nac/examine(mob/user)
+	. = ..()
+	if(charge == 0 && maxcharge == 1)
+		. += "The tissue seems off color, slight hemorrhages are visable."
+
+/obj/item/stock_parts/cell/gun/nac/empty
+	name = "N.A.C. cartridge(empty)"
+	desc = "A small black cartridge. It has a data terminal on the bottom region and a small array of life support equipment on the top."
+	icon_state = "nac_cart_empty"
+	maxcharge = 0
+	charge = 0
+
+/datum/reagent/toxin/paralytic
+	name = "P-PPS-02"
+	description = "Poly-Plasma Sulfate. A powerful paralyric that prevents nerves from communicating with non-cardiac muscles, simulating sleep paralysis and rendering its victim completely limp."
+	silent_toxin = TRUE
+	reagent_state = LIQUID
+	specific_heat = SPECIFIC_HEAT_PLASMA + 100
+	color = "#b32366"
+	metabolization_rate = 0.10 * REAGENTS_METABOLISM
+	toxpwr = 0
+	taste_description = "slight numbness and a sickly sweet flavor"
+	taste_mult = 0.8
+	accelerant_quality = 5
+
+/datum/reagent/toxin/paralytic/on_mob_life(mob/living/carbon/M)
+	if(current_cycle == 3)
+		M.emote("sway")
+	if(current_cycle == 4)
+		M.manual_emote("stumbles.")
+	if(current_cycle >= 5)
+		M.AllImmobility(60)
+	return ..()
+
+/datum/chemical_reaction/paralytic
+	mix_message = "The solution turns a deep bloody purple and becomes slightly viscious."
+	results = list(/datum/reagent/toxin/paralytic = 3)
+	required_reagents = list(/datum/reagent/medicine/polypyr = 1, /datum/reagent/toxin/plasma = 1, /datum/reagent/toxin/sulfonal = 1)

@@ -1,4 +1,5 @@
 /obj/proc/apoth_delete()
+	color = "#ffffff"
 	AddElement(/datum/element/decal/apoth_delete, initial(icon) || icon, initial(icon_state) || icon_state)
 	add_filter("extract_outline", 1, outline_filter(size = 1, color = "#ff0000"))
 	QDEL_IN(src, 0.6 SECONDS)
@@ -89,3 +90,8 @@
 /area/ruin/space/has_grav/singularitylab/command
 	name = "Command Center"
 	icon_state = "blue"
+
+/datum/controller/subsystem/overmap/proc/empty_space()
+	for(var/datum/overmap/O as anything in overmap_objects)
+		if(!istype(O, /datum/overmap/ship))
+			qdel(O)
