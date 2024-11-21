@@ -41,6 +41,9 @@
 /obj/item/storage/box/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.storage_flags = STORAGE_FLAGS_VOLUME_DEFAULT
+	STR.max_volume = STORAGE_VOLUME_CONTAINER_S
+	STR.max_w_class = WEIGHT_CLASS_SMALL
 	STR.use_sound = 'sound/items/storage/briefcase.ogg'
 
 /obj/item/storage/box/update_overlays()
@@ -98,6 +101,14 @@
 /obj/item/storage/box/disks/PopulateContents()
 	for(var/i in 1 to 7)
 		new /obj/item/disk/data(src)
+
+/obj/item/storage/box/holodisc
+	name = "holodisc box"
+	illustration = "disk_kit"
+
+/obj/item/storage/box/holodisc/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/disk/holodisk(src)
 
 //guys why are my tests failing
 /obj/item/storage/box/disks_plantgene
@@ -168,8 +179,12 @@
 	internal_type = /obj/item/tank/internals/emergency_oxygen/engi //clip actually cares about their personnel
 
 /obj/item/storage/box/survival/clip/balaclava
-	mask_type = /obj/item/clothing/mask/gas/sechailer/balaclava
+	mask_type = /obj/item/clothing/mask/balaclava
 	internal_type = /obj/item/tank/internals/emergency_oxygen/double
+
+/obj/item/storage/box/survival/inteq
+	mask_type = /obj/item/clothing/mask/balaclava/inteq
+	internal_type = /obj/item/tank/internals/emergency_oxygen/engi
 
 /obj/item/storage/box/survival/frontier
 	mask_type = null // we spawn in gas masks in frontiersmen bags alongside this, so it isn't nessary
@@ -477,11 +492,6 @@
 	for(var/i in 1 to 6)
 		new donktype(src)
 
-/obj/item/storage/box/donkpockets/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.set_holdable(list(/obj/item/reagent_containers/food/snacks/donkpocket))
-
 /obj/item/storage/box/donkpockets/donkpocketspicy
 	name = "box of spicy-flavoured donk-pockets"
 	icon_state = "donkpocketboxspicy"
@@ -519,12 +529,6 @@
 	illustration = null
 	var/cube_type = /obj/item/reagent_containers/food/snacks/monkeycube
 
-/obj/item/storage/box/monkeycubes/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 7
-	STR.set_holdable(list(/obj/item/reagent_containers/food/snacks/monkeycube))
-
 /obj/item/storage/box/monkeycubes/PopulateContents()
 	for(var/i in 1 to 5)
 		new cube_type(src)
@@ -538,12 +542,6 @@
 	desc = "Waffle Co. brand gorilla cubes. Do not taunt."
 	icon_state = "monkeycubebox"
 	illustration = null
-
-/obj/item/storage/box/gorillacubes/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 3
-	STR.set_holdable(list(/obj/item/reagent_containers/food/snacks/monkeycube))
 
 /obj/item/storage/box/gorillacubes/PopulateContents()
 	for(var/i in 1 to 3)
@@ -676,12 +674,6 @@
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "spbox"
 
-/obj/item/storage/box/snappops/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.set_holdable(list(/obj/item/toy/snappop))
-	STR.max_items = 8
-
 /obj/item/storage/box/snappops/PopulateContents()
 	SEND_SIGNAL(src, COMSIG_TRY_STORAGE_FILL_TYPE, /obj/item/toy/snappop)
 
@@ -695,13 +687,7 @@
 	slot_flags = ITEM_SLOT_BELT
 	drop_sound = 'sound/items/handling/matchbox_drop.ogg'
 	pickup_sound =  'sound/items/handling/matchbox_pickup.ogg'
-	custom_price = 20
-
-/obj/item/storage/box/matches/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 10
-	STR.set_holdable(list(/obj/item/match))
+	custom_price = 2
 
 /obj/item/storage/box/matches/PopulateContents()
 	SEND_SIGNAL(src, COMSIG_TRY_STORAGE_FILL_TYPE, /obj/item/match)
@@ -720,9 +706,10 @@
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
 	foldable = /obj/item/stack/sheet/cardboard //BubbleWrap
 
-/obj/item/storage/box/lights/ComponentInitialize()
+/obj/item/storage/box/lights/ComponentInitialize()//holy oversized box. this one can stay the way it is, for now
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.storage_flags = STORAGE_FLAGS_LEGACY_DEFAULT
 	STR.max_items = 21
 	STR.set_holdable(list(/obj/item/light/tube, /obj/item/light/bulb))
 	STR.max_combined_w_class = 21
@@ -767,6 +754,15 @@
 /obj/item/storage/box/deputy/PopulateContents()
 	for(var/i in 1 to 7)
 		new /obj/item/clothing/accessory/armband/deputy(src)
+
+/obj/item/storage/box/smokebombs
+	name = "box of smoke grenades"
+	desc = "Used for rapidly laying cover."
+	illustration = "grenade"
+
+/obj/item/storage/box/smokebombs/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/grenade/smokebomb(src)
 
 /obj/item/storage/box/metalfoam
 	name = "box of metal foam grenades"
@@ -1474,13 +1470,12 @@
 	w_class = WEIGHT_CLASS_TINY
 	illustration = null
 	foldable = null
-	custom_price = 120
+	custom_price = 5
 
 /obj/item/storage/box/gum/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.set_holdable(list(/obj/item/reagent_containers/food/snacks/chewable/bubblegum))
-	STR.max_items = 4
+	STR.max_volume = (STORAGE_VOLUME_CONTAINER_S / 2)
 
 /obj/item/storage/box/gum/PopulateContents()
 	for(var/i in 1 to 4)
@@ -1490,7 +1485,7 @@
 	name = "nicotine gum packet"
 	desc = "Designed to help with nicotine addiction and oral fixation all at once without destroying your lungs in the process. Mint flavored!"
 	icon_state = "bubblegum_nicotine"
-	custom_premium_price = 275
+	custom_premium_price = 10
 
 /obj/item/storage/box/gum/nicotine/PopulateContents()
 	for(var/i in 1 to 4)
@@ -1500,8 +1495,8 @@
 	name = "HP+ gum packet"
 	desc = "A seemingly homemade packaging with an odd smell. It has a weird drawing of a smiling face sticking out its tongue."
 	icon_state = "bubblegum_happiness"
-	custom_price = 300
-	custom_premium_price = 300
+	custom_price = 10
+	custom_premium_price = 10
 
 /obj/item/storage/box/gum/happiness/Initialize()
 	. = ..()

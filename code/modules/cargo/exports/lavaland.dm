@@ -10,7 +10,6 @@
 						/obj/item/gun/magic/hook,
 						/obj/item/wisp_lantern,
 						/obj/item/reagent_containers/glass/bottle/potion/flight,
-						/obj/item/clothing/suit/space/hardsuit/cult,
 						/obj/item/voodoo,
 						/obj/item/grenade/clusterbuster/inferno,
 						/obj/item/clothing/neck/memento_mori,
@@ -25,8 +24,7 @@
 /datum/export/lavaland/major //valuable chest/ruin loot and staff of storms
 	cost = 10000
 	unit_name = "lava planet artifact"
-	export_types = list(/obj/item/guardiancreator,
-						/obj/item/rod_of_asclepius,
+	export_types = list(/obj/item/rod_of_asclepius,
 						/obj/item/clothing/suit/space/hardsuit/ert/paranormal,
 						/obj/item/prisoncube,
 						/obj/item/staff/storm,
@@ -42,13 +40,11 @@
 	cost = 40000
 	unit_name = "major lava planet artifact"
 	export_types = list(/obj/item/hierophant_club,
-						/obj/item/melee/transforming/cleaving_saw,
+						/obj/item/melee/cleaving_saw,
 						/obj/item/organ/vocal_cords/colossus,
 						/obj/machinery/anomalous_crystal,
 						/obj/item/mayhem,
 						/obj/item/blood_contract,
-						/obj/item/guardiancreator/miner/choose,//this is basically the most valulable mining loot so good luck getting a miner to part ways
-						/obj/item/gun/magic/staff/spellblade,
 						)
 /*
 /datum/export/lavaland/trophycommon
