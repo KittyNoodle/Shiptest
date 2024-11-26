@@ -52,6 +52,8 @@
 
 #define DUALWIELD_PENALTY_EXTRA_MULTIPLIER 1.6
 
+#define MANUFACTURER_OVERIC "a three pointed star"
+
 #define MANUFACTURER_NONE null
 #define MANUFACTURER_SHARPLITE "the Sharplite Defense logo"
 #define MANUFACTURER_SHARPLITE_NEW "the Nanotrasen-Sharplite logo"

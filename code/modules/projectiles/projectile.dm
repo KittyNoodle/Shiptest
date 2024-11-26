@@ -178,6 +178,9 @@
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 
+	///Is the projectile immune to an overic palefire system
+	var/palefire_immune = FALSE
+
 /obj/projectile/Initialize()
 	. = ..()
 	decayedRange = range
@@ -676,6 +679,9 @@
 		setAngle(angle)
 	if(spread)
 		setAngle(Angle + ((rand() - 0.5) * spread))
+	if(GLOB.palefire & !palefire_immune)
+		qdel(src)
+		return
 	var/turf/starting = get_turf(src)
 	if(isnull(Angle))	//Try to resolve through offsets if there's no angle set.
 		if(isnull(xo) || isnull(yo))

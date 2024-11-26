@@ -1,4 +1,4 @@
-/datum/ert/nanotrasen
+/*/datum/ert/nanotrasen
 	teamsize = 4
 	leader_role = /datum/antagonist/ert/nanotrasen/leader
 	roles = list(/datum/antagonist/ert/nanotrasen)
@@ -24,3 +24,4 @@
 	roles = list(/datum/antagonist/ert/nanotrasen/inspector)
 	rename_team = "Nanotrasen Central Command Liaison"
 	polldesc = "a NT CentCom inspector"
+*/

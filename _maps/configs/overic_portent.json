@@ -1,0 +1,21 @@
+{
+	"$schema": "https://raw.githubusercontent.com/shiptest-ss13/Shiptest/master/_maps/ship_config_schema.json",
+	"map_name": "Portent-class Fighter",
+	"map_short_name": "Portent-class",
+	"map_path": "_maps/shuttles/archonic/overic_portent.dmm",
+	"description": "The portent-class is technically two seperate ships, formed from two overic fighters merged halfway through their crescent shape. Two phasic accelerators run across the inside of the crescents creating a rapid-fire phase-bolt emitter. The overians pilot both ships in complete synchronization, able to split and reform their unification at will.",
+	"tags": [
+		"Combat"
+	],
+	"namelists": [
+		"GENERAL",
+		"SPACE"
+	],
+	"faction": "/datum/faction/overic",
+	"prefix": "OSV",
+	"limit": 30,
+	"job_slots": {
+
+	},
+	"enabled": false
+}

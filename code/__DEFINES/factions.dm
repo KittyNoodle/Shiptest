@@ -2,7 +2,6 @@
 // anything with these factions should be hostile to the average player.
 #define FACTION_ANTAG_SYNDICATE "Syndicate"
 #define FACTION_ANTAG_FRONTIERSMEN "Frontiersmen"
-#define FACTION_ANTAG_ARCHOUS "Archous"
 
 //Player Factions
 #define FACTION_PLAYER_SYNDICATE "playerSyndicate"
@@ -16,6 +15,7 @@
 
 #define FACTION_OVERIC "Overic"
 
+#define FACTION_ARCHOUS "Cult of Archous"
 #define FACTION_SYNDICATE "Syndicate"
 	#define FACTION_NGR "New Gorlex Republic"
 	#define FACTION_CYBERSUN "CyberSun"
@@ -31,6 +31,9 @@
 #define FACTION_FRONTIER "Frontiersmen Fleet"
 #define FACTION_PGF "Pan-Gezenan Federation"
 #define FACTION_INDEPENDENT "Independent"
+
+#define PREFIX_ARCHOUS list("ACSV")
+#define PREFIX_OVERIC list("OSV")
 
 #define PREFIX_SYNDICATE list("SEV", "SSV")
 	#define PREFIX_NGR list("NGRV")

@@ -789,6 +789,10 @@
 
 	if(chambered && chambered.BB && can_trigger_gun(user))
 		chambered.BB.damage *= 3
+
+		if(GLOB.palefire)
+			return
+
 		//Check is here for safeties and such, brain will be removed after
 		if(!pre_fire(target, user, TRUE, FALSE, params, BODY_ZONE_HEAD)) // We're already in handle_suicide, hence the 4th parameter needs to be FALSE to avoid circular logic. Also, BODY_ZONE_HEAD because we want to damage the head as a whole.
 			return

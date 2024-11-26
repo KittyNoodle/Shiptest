@@ -1,0 +1,38 @@
+"a" = (/turf/template_noop,/area/template_noop)
+"c" = (/obj/structure/overic_light/directional/west,/turf/open/indestructible/overic/floor,/area/ship/overic)
+"d" = (/obj/structure/netcable,/turf/closed/indestructible/overic,/area/ship/overic)
+"f" = (/obj/machinery/door/overic,/turf/open/indestructible/overic,/area/ship/overic)
+"h" = (/obj/structure/table/overic,/turf/open/indestructible/overic/hangar{dir = 10},/area/ship/overic)
+"p" = (/obj/structure/table/overic,/turf/open/indestructible/overic/hangar{dir = 6},/area/ship/overic)
+"r" = (/obj/structure/overic_structure/computer,/turf/open/indestructible/overic,/area/ship/overic)
+"t" = (/turf/closed/indestructible/overic,/area/ship/overic)
+"x" = (/turf/open/indestructible/overic/active,/area/ship/overic)
+"D" = (/turf/open/indestructible/overic,/area/ship/overic)
+"J" = (/obj/machinery/door/overic{dir = 4},/turf/open/indestructible/overic/floor,/area/ship/overic)
+"N" = (/obj/structure/overic_structure/computer,/turf/open/indestructible/overic/hangar{dir = 5},/area/ship/overic)
+"O" = (/obj/structure/overic_light/directional/north,/turf/open/indestructible/overic/floor,/area/ship/overic)
+"R" = (/obj/structure/overic_structure/computer,/turf/open/indestructible/overic/hangar{dir = 9},/area/ship/overic)
+"S" = (/obj/docking_port/mobile{port_direction = 2; launch_status = 0},/turf/closed/indestructible/overic,/area/ship/overic)
+"U" = (/turf/open/indestructible/overic/floor,/area/ship/overic)
+"V" = (/obj/structure/overic_light/directional/east,/turf/open/indestructible/overic/floor,/area/ship/overic)
+"X" = (/obj/structure/netcable/end,/turf/open/indestructible/overic,/area/ship/overic)
+"Y" = (/obj/docking_port/stationary{dir = 2; width = 30; height = 15; dwidth = 15},/turf/closed/indestructible/overic,/area/ship/overic)
+
+(1,1,1) = {"
+aaaaaaaaaaattttaaaaaaaaaaattttaaaaaaaaaaa
+aaaaaaaaaaaattttaaaaaaaaattttaaaaaaaaaaaa
+aaaaaaaaaaaaatttttaaaaatttttaaaaaaaaaaaaa
+aaaaaaaaaaaaaattttttattttttaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaatttttttttaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaatttttttaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaatttttttttaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaattddtttddttaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaatttXXtttXXtttaaaaaaaaaaaaaa
+aaaaaaaaaaaattttcUUJDJUUVttttaaaaaaaaaaaa
+aaaaaaaaaatttttUUtttftttUUtttttaaaaaaaaaa
+aaaaaaaaattttrOUttttattttUOrttttaaaaaaaaa
+aaaaaatttttRxUUttttaaattttUUxNtttttaaaaaa
+aaatttttttthpttttaaaaaaatttthpttttttttaaa
+attttttttttttttaaaaaaaaaaatttttttttttttta
+ttttttttYttSaaaaaaaaaaaaaaaaatttttttttttt
+"}

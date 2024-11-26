@@ -19,6 +19,13 @@
 								/datum/language/overic = list(LANGUAGE_ATOM))
 	spoken_languages = list(/datum/language/overic = list(LANGUAGE_ATOM))
 
+
+/////////////////////FACTION/////////////////////
+
+/datum/faction/overic
+	name = FACTION_OVERIC
+	prefixes = PREFIX_OVERIC
+
 //////////////////////TURFS//////////////////////
 
 /turf/closed/indestructible/overic
@@ -206,7 +213,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/overic_light, 26)
 
 /obj/structure/overic_structure/computer
 	name = "glowing construct"
-	desc = "A glowing orb nestled in a housing of machinery. It seems to be projecting a screen, whatevers on the screen is changing so fast its indiscernible."
+	desc = "A glowing orb nestled in a housing of machinery. It seems to be projecting a screen, the contents are changing so fast its indiscernible."
 	icon = 'code/modules/archonic/icons/overic.dmi'
 	icon_state = "compute"
 	var/mutable_appearance/screen
@@ -217,6 +224,46 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/overic_light, 26)
 	screen.pixel_y = 15
 	add_overlay(screen)
 
+////////////////////PALEFIRE////////////////////
+// Of all Overic technology none is more dreaded and respected as Palefire, which dispite its name is not a white flame.
+// What Palefire is, is an array of extremely precise sensors, field emitters, and micro-wormhole generators that, when active, effectively destroy any small high energy emissions like bullets or laser fire before they can exit their source.
+// This obviously carries a significant tactical advantage, as it prevents smaller caliber ship weapons like autocannons and almost all personell weaponry from firing. However the original intent was never for this purpose, but instead to prevent suicides.
+GLOBAL_VAR_INIT(palefire, FALSE)
+
+/////////////////////SHIPS/////////////////////
+/area/ship/overic
+	name = "Interior"
+	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
+	has_gravity = STANDARD_GRAVITY
+	area_flags = VALID_TERRITORY | NOTELEPORT // not unique, in case multiple outposts get loaded. all derivatives should also be NOTELEPORT
+	flags_1 = null
+	sound_environment = SOUND_ENVIRONMENT_ROOM
+	lighting_colour_tube = "#c0f2ec"
+	lighting_colour_bulb = "#c0f2ec"
+	lightswitch = TRUE
+	power_equip = TRUE
+	power_light = TRUE
+	power_environ = TRUE
+
+/obj/machinery/computer/helm/overic
+	name = "glowing construct"
+	icon = 'code/modules/archonic/icons/overic.dmi'
+	icon_state = "compute"
+	icon_screen = null
+	icon_keyboard = null
+	unique_icon = TRUE
+	flags_1 = NODECONSTRUCT_1
+	armor = list("melee" = 100, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
+	damage_deflection = 400
+	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | ACID_PROOF | LAVA_PROOF
+	initial_language_holder = /datum/language_holder/overic
+	var/mutable_appearance/screen
+
+/obj/machinery/computer/helm/overic/Initialize()
+	. = ..()
+	screen = mutable_appearance('code/modules/archonic/icons/overic.dmi', "compute_screen", ABOVE_ALL_MOB_LAYER)
+	screen.pixel_y = 15
+	add_overlay(screen)
 
 ////////////////////OUTPOST////////////////////
 
@@ -375,6 +422,75 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/overic_light, 26)
 	pixel_x = -236
 	pixel_y = -236
 
+///////////////////WEAPONS////////////////////
+
+/obj/item/gun/energy/overic
+	name = "OIW-P-D-P007"
+	desc = "A strange weapon, it's almost dangerously warm to the touch."
+	icon_state = "overic_pistol"
+	item_state = "overic_pistol"
+	icon = 'code/modules/archonic/icons/48x32.dmi'
+	lefthand_file = 'code/modules/archonic/icons/inhands/lefthand.dmi'
+	righthand_file = 'code/modules/archonic/icons/inhands/righthand.dmi'
+	mob_overlay_icon = 'code/modules/archonic/icons/worn/armor.dmi'
+	manufacturer = MANUFACTURER_OVERIC
+	w_class = WEIGHT_CLASS_NORMAL
+	modifystate = FALSE
+
+	fire_delay = 0.05 SECONDS
+
+	wield_delay = 0.2 SECONDS
+	wield_slowdown = 0.15
+
+	muzzleflash_iconstate = "muzzle_flash_light"
+	muzzle_flash_lum = 3
+	muzzle_flash_color = COLOR_VERY_SOFT_YELLOW
+
+	spread = 2
+	spread_unwielded = 5
+
+	gun_firemodes = list(FIREMODE_SEMIAUTO, FIREMODE_FULLAUTO)
+	default_firemode = FIREMODE_SEMIAUTO
+
+	default_ammo_type = /obj/item/stock_parts/cell/gun/overic
+	allowed_ammo_types = list(
+		/obj/item/stock_parts/cell/gun/overic,
+	)
+	ammo_type = list(/obj/item/ammo_casing/energy/overic/pistol, /obj/item/ammo_casing/energy/overic/cage)
+
+/obj/item/gun/energy/overic/emp_act(severity)
+	return
+
+/obj/item/ammo_casing/energy/overic/pistol
+	projectile_type = /obj/projectile/overic/phasic/pistol
+	fire_sound = 'sound/weapons/gun/energy/kalixsmg.ogg'
+	e_cost = 40000 //2500 shots per cell
+	delay = 0
+
+/obj/item/ammo_casing/energy/overic
+	select_name  = "Force"
+	projectile_type = /obj/projectile/overic/phasic
+	fire_sound = 'sound/weapons/gun/energy/kalixsmg.ogg'
+	e_cost = 80000 //1250 shots per cell
+	delay = 1
+
+/obj/item/ammo_casing/energy/overic/cage
+	select_name  = "Entrap"
+	projectile_type = /obj/projectile/overic/cage
+	fire_sound = 'sound/weapons/gun/energy/kalixsmg.ogg'
+	e_cost = 250000 //400 shots per cell
+	delay = 5
+
+
+/obj/item/stock_parts/cell/gun/overic
+	name = "overic phasic cell"
+	icon_state = "g-sg-cell"
+	maxcharge = 100000000 // 2500 shots at 40000 energy per
+	chargerate = 4000000
+
+/obj/item/stock_parts/cell/gun/overic/corrupt()
+	return
+
 //////////////////PROJECTILE//////////////////
 
 /obj/projectile/overic
@@ -386,6 +502,45 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/overic_light, 26)
 	nodamage = TRUE
 	armour_penetration = 100
 	flag = "energy"
+	palefire_immune = TRUE //IFF
+
+/obj/projectile/overic/phasic
+	name = "phasic bolt"
+	icon = 'code/modules/archonic/icons/projectiles.dmi'
+	icon_state = "phasic_bolt"
+	damage = 45
+	armour_penetration = 100
+	speed = BULLET_SPEED_RIFLE
+	damage_type = BRUTE
+	nodamage = FALSE
+	flag = "bullet"
+
+	hitsound = "bullet_hit"
+	hitsound_non_living = "bullet_impact"
+	hitsound_glass = "bullet_hit_glass"
+	hitsound_stone = "bullet_hit_stone"
+	hitsound_metal = "bullet_hit_metal"
+	hitsound_wood = "bullet_hit_wood"
+	hitsound_snow = "bullet_hit_snow"
+
+	near_miss_sound = "bullet_miss"
+	ricochet_sound = "bullet_bounce"
+
+	range = 70
+	light_system = 2
+	light_color = MOVABLE_LIGHT
+	light_range = 3
+
+	impact_effect_type = /obj/effect/temp_visual/impact_effect
+	ricochets_max = 5 //should be enough to scare the shit out of someone
+	ricochet_chance = 0
+	ricochet_decay_damage = 0.5 //shouldnt being reliable, but deadly enough to be careful if you accidentally hit an ally
+
+/obj/projectile/overic/phasic/pistol
+	name = "phasic bolt"
+	icon_state = "phasic_bolt_pistol"
+	damage = 20
+	projectile_piercing = PASSMOB
 
 /obj/projectile/overic/cage
 	name = "bolt"
@@ -554,3 +709,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/overic_light, 26)
 	else
 		O.dextrous = TRUE
 		to_chat(O, "<span class='notice'>You now dextrous.</span>")
+
+/obj/effect/proc_holder/spell/targeted/shapeshift/overic
+	name = "Release Disguise"
+	desc = "Become what you truely are."
+	invocation = null
+	convert_damage = FALSE
+
+
+	shapeshift_type = /mob/living/simple_animal/overian

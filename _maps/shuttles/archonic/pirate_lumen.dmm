@@ -1470,7 +1470,6 @@
 /obj/item/storage/box/handcuffs,
 /obj/item/clothing/glasses/meson,
 /obj/item/megaphone,
-/obj/item/melee/transforming/energy/sword/saber/red,
 /obj/item/pinpointer/crew,
 /obj/item/clothing/mask/gas/atmos,
 /obj/item/clothing/mask/whistle,
@@ -2939,7 +2938,6 @@
 "VF" = (
 /obj/machinery/ai_slipper,
 /obj/effect/turf_decal/spline/fancy/opaque/black,
-/obj/effect/landmark/observer_start,
 /turf/open/floor/plasteel/dark,
 /area/ship/cargo)
 "VK" = (

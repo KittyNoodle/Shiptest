@@ -13,6 +13,15 @@
         src.spell = new spell
 
 /*
+//////////////////////////////Faction//////////////////////////////
+*/
+
+/datum/faction/archous
+	name = FACTION_ARCHOUS
+	short_name = "Archonicist"
+	prefixes = PREFIX_ARCHOUS
+
+/*
 //////////////////////////Items & Outfits////////////////////////////
 */
 
@@ -569,7 +578,7 @@
 	. = ..()
 	if(visualsOnly)
 		return
-	H.faction |= list(FACTION_ANTAG_ARCHOUS)
+	H.faction |= list(FACTION_ARCHOUS)
 
 /*
 ///////////////////////////Archonic Flash///////////////////////////
@@ -956,7 +965,7 @@
 	recoil = -0.1
 	recoil_unwielded = -0.1
 	spread_unwielded = 0
-	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/enchanted/arcane_barrage/archonic
+	default_ammo_type = /obj/item/ammo_box/magazine/internal/boltaction/enchanted/arcane_barrage/archonic
 	has_safety = FALSE
 	safety = FALSE
 

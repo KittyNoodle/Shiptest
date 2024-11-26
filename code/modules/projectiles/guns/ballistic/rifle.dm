@@ -194,7 +194,7 @@
 	name = "enchanted bolt-action rifle"
 	desc = "Careful not to lose your head."
 	var/guns_left = 30
-	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/enchanted
+	default_ammo_type = /obj/item/ammo_box/magazine/internal/boltaction/enchanted
 	can_be_sawn_off = FALSE
 	manufacturer = MANUFACTURER_NONE
 
@@ -212,7 +212,7 @@
 	flags_1 = NONE
 	trigger_guard = TRIGGER_GUARD_ALLOW_ALL
 
-	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/enchanted/arcane_barrage
+	default_ammo_type = /obj/item/ammo_box/magazine/internal/boltaction/enchanted/arcane_barrage
 
 /obj/item/gun/ballistic/rifle/illestren/enchanted/dropped()
 	. = ..()

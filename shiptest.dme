@@ -1782,6 +1782,7 @@
 #include "code\modules\archonic\bioresonance.dm"
 #include "code\modules\archonic\catharsis_ship.dm"
 #include "code\modules\archonic\cythrx.dm"
+#include "code\modules\archonic\goo.dm"
 #include "code\modules\archonic\hardlight.dm"
 #include "code\modules\archonic\overic.dm"
 #include "code\modules\archonic\reactor.dm"

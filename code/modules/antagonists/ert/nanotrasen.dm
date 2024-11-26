@@ -1,4 +1,4 @@
-/datum/antagonist/ert/nanotrasen
+/*/datum/antagonist/ert/nanotrasen
 	name = "Vigilitas Security Officer"
 	outfit = /datum/outfit/job/nanotrasen/ert
 	role = "Security Officer"
@@ -12,17 +12,17 @@
 	name = "Nanotrasen Central Command Liaison"
 	outfit = /datum/outfit/job/nanotrasen/ert/inspector
 	role = "Liaison"
-
+*/
 // /datum/antagonist/ert/nanotrasen/emergency
 // 	name = "Vigilitas Response Officer"
 // 	outfit = /datum/outfit/job/nanotrasen/ert/emergency
 // 	role = "Response Officer"
 
-/datum/antagonist/ert/nanotrasen/leader
+/*/datum/antagonist/ert/nanotrasen/leader
 	name = "Vigilitas Security Corporal"
 	outfit = /datum/outfit/job/nanotrasen/ert/leader
 	role = "Corporal"
-
+*/
 // /datum/antagonist/ert/nanotrasen/leader/emergency
 // 	name = "Vigilitas Response Lieutenant"
 // 	outfit = /datum/outfit/job/nanotrasen/ert/leader/emergency
