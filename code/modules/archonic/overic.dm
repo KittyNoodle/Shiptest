@@ -662,8 +662,8 @@ GLOBAL_VAR_INIT(palefire, FALSE)
 	melee_damage_lower = 9000
 	melee_damage_upper = 9000
 	obj_damage = 4000
-	health = 50000
-	maxHealth = 50000
+	health = 90000
+	maxHealth = 90000
 	force_threshold = 5000
 	damage_coeff = list(BRUTE = 0.5, BURN = -5, TOX = -0.1, CLONE = -0.1, STAMINA = 0, OXY = 0)
 	speech_span = list("overic","command_headset")

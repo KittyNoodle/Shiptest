@@ -5,7 +5,7 @@
 #define ROOT_CHARGE_GAIN (5 * ELZUOSE_CHARGE_SCALING_MULTIPLIER)
 
 /datum/species/elzuose
-	name = "\improper Elzuose"
+	name = "\improper Ethereal"
 	id = SPECIES_ELZUOSE
 	attack_verb = "burn"
 	attack_sound = 'sound/weapons/etherealhit.ogg'

@@ -40,8 +40,8 @@
 	human_target.update_hair()
 
 /obj/item/colorsalve
-	name = "Elzuose color salve"
-	desc = "A Kalixcian beauty product for Elzuose that comes in the form of a salve packaged with various color additives. Used to temporarily change the pigment color of light emitting cells in the skin, requiring an extensive amount of time to prepare and apply. Wears off after a few hours."
+	name = "Ethereal color salve"
+	desc = "A Sprout beauty product for Ethereals that comes in the form of a salve packaged with various color additives. Used to temporarily change the pigment color of light emitting cells in the skin, requiring an extensive amount of time to prepare and apply. Wears off after a few hours."
 	icon = 'icons/obj/dyespray.dmi'
 	icon_state = "colorsalve"
 
@@ -52,7 +52,7 @@
 	var/mob/living/carbon/human/H = user
 	var/datum/species/elzuose/species_datum = H.dna.species
 		// select new color
-	var/new_etherealcolor = input(user, "Choose your Elzuose color:", "Character Preference", species_datum.default_color) as color|null
+	var/new_etherealcolor = input(user, "Choose your Ethereal color:", "Character Preference", species_datum.default_color) as color|null
 	if(new_etherealcolor)
 		var/temp_hsv = RGBtoHSV(new_etherealcolor)
 		if(ReadHSV(temp_hsv)[3] >= ReadHSV("#505050")[3]) // elzu colors should be bright ok??

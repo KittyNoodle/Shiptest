@@ -143,7 +143,7 @@
 	path = /obj/item/dyespray
 
 /datum/gear/colorsalve
-	display_name = "Elzuose color salve"
+	display_name = "Ethereal color salve"
 	path = /obj/item/colorsalve
 
 /datum/gear/tablebell

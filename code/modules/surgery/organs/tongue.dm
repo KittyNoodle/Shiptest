@@ -303,7 +303,7 @@
 	icon_state = "electrotongue"
 	say_mod = "crackles"
 	attack_verb = list("shocked", "jolted", "zapped")
-	taste_sensitivity = 101 // Not a tongue, they can't taste shit
+	taste_sensitivity = 10 // ethereal tongues function (very loosely) like a gas spectrometer: vaporising a small amount of the food and allowing it to pass to the nose, resulting in more sensitive taste
 	var/static/list/languages_possible_ethereal = typecacheof(list(
 		/datum/language/common,
 		/datum/language/draconic,
@@ -317,6 +317,7 @@
 		/datum/language/sylvan,
 		/datum/language/shadowtongue,
 		/datum/language/ratvar,
+		/datum/language/voltaic
 	))
 
 /obj/item/organ/tongue/ethereal/Initialize(mapload)

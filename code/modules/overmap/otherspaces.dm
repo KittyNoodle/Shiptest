@@ -12,7 +12,7 @@
 
 ///*Pretty* Space: SPATIAL_PLANE_PRETTY
 ///Color: #000066
-///The void, all movement divided by 10, including maximums.
+///The void, all movement divided by 50, including maximums.
 
 ///Nihil: SPATIAL_PLANE_NIHIL
 ///Color: #000F08

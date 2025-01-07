@@ -62,7 +62,7 @@
 		mytray.mutation_roll(user)
 		mytray.adjustToxic(1.5) //It is still toxic, mind you, but not to the same degree
 
-#define LIQUID_PLASMA_BP (50+T0C)
+#define LIQUID_PLASMA_BP (500+T0C)
 
 /datum/reagent/toxin/plasma
 	name = "Plasma"

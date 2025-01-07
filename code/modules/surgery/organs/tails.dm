@@ -86,7 +86,7 @@
 	desc = "A fabricated severed lizard tail. This one's made of synthflesh."
 
 /obj/item/organ/tail/elzu
-	name = "\improper Elzuose tail"
+	name = "\improper Ethereal tail"
 	desc = "A detached Elzuose's tail. You probably shouldn't plant this."
 	color = "#d3e8e9"
 	tail_type = "Long"

@@ -344,6 +344,8 @@
 	name = "Archonic Tap"
 	desc = "An archonic power source that produces energy from a tether to Archous's light."
 	flags_1 = NODECONSTRUCT_1
+	power_gen = 20000
+	var/start_power_gen = 20000
 	var/deactivated = FALSE
 
 /obj/machinery/power/rtg/abductor/archonic/examine(mob/user)
@@ -362,7 +364,7 @@
 /obj/machinery/power/rtg/abductor/archonic/proc/reactivate()
 	visible_message("<span class='revenwarning'>\The [src]'s lights turn back on with a faint hum.</span>")
 	deactivated = FALSE
-	power_gen = 20000
+	power_gen = start_power_gen
 
 /obj/item/archonic
 	icon = 'icons/obj/abductor.dmi'
@@ -739,7 +741,6 @@
 	animate(src, transform = matrix()*2, alpha = 0, time = 5, flags = ANIMATION_END_NOW) //fade out
 	sleep(5)
 	animate(src, transform = matrix(), alpha = 255, time = 0, flags = ANIMATION_END_NOW)
-
 
 /obj/effect/overa_rune/silence
 	desc = "A massive arrangement of symbols and lines painted in a brilliant glowing substance."

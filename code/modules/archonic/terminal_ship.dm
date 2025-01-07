@@ -262,7 +262,7 @@
 
 /obj/item/flashlight/lantern/lamp_of_silence
 	name = "\improper Lamp of Silence"
-	desc = "An ornate, pale-green lantern. The words saltare in auream lucem are enscribed into the lamp"
+	desc = "An ornate, pale-green lantern. The words saltare in auream lucem are enscribed into the lamp on a golden plaque."
 	color = LIGHT_COLOR_GREEN
 	light_color = LIGHT_COLOR_GREEN
 
@@ -565,54 +565,96 @@
 	blood_overlay_type = "armor"
 	dog_fashion = /datum/dog_fashion/back
 
-/obj/item/stock_parts/cell/gun/nac
-	name = "N.A.C. cartridge"
-	desc = "A small black cartridge. It has a data terminal on the bottom region and a small array of life support equipment on the top. A living organism is contained within, the words \"CO-8\" are tattooed onto the upper portion."
-	icon_state = "nac_cart"
-	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
-	ratingdesc = FALSE
-	maxcharge = 1
-	charge = 1
-	chargerate = 0
+/obj/item/gun/ballistic/automatic/pistol/sprout
+	name = "\improper 'Prism' makeshift pistol"
+	desc = "A well-engineered but clearly makeshift pistol, reinforced with brass plates. Every bullet it fires carries a small prismatic tracer created as an unintended byproduct of the bullet fabrication process. The designer seems to have left it in for asthetic reasons. Has a custom shaped ergonomic grip. Chambered in 11mm."
+	default_ammo_type = /obj/item/ammo_box/magazine/internal/sprout_pistol
+	allowed_ammo_types = list(
+		/obj/item/ammo_box/magazine/internal/sprout_pistol,
+	)
+	internal_magazine = TRUE
+	bolt_type = BOLT_TYPE_STANDARD //holy fuck it teleports the shells fix this ASAP.
+	tac_reloads = FALSE
+	fire_delay = 0.2 SECONDS
+	spread_unwielded = 15
+	recoil = 0.5
+	recoil_unwielded = 1.5
+	spread = 4
+	spread_unwielded = 6
 
-/obj/item/stock_parts/cell/nac/examine(mob/user)
+/obj/item/ammo_box/magazine/internal/sprout_pistol
+	name = "'Prism' internal magazine"
+	ammo_type = /obj/item/ammo_casing/c11mm
+	max_ammo = 14
+	caliber = "11mm"
+	multiload = TRUE
+
+/obj/item/ammo_box/magazine/ammo_stack/prefilled/c11mm
+	max_ammo = 28
+	ammo_type = /obj/item/ammo_casing/c11mm
+
+/obj/item/ammo_casing/c11mm
+	name = "fabricated 11mm bullet casing"
+	desc = "A 11mm bullet casing. It looks dusty and rough."
+	icon_state = "pistol-brass"
+	bullet_skin = "surplus"
+	caliber = "11mm"
+	projectile_type = /obj/projectile/bullet/c11mm
+
+/obj/projectile/bullet/c11mm
+	name = "11mm bullet"
+	icon = 'code/modules/archonic/icons/projectiles.dmi'
+	icon_state = "prism_bullet"
+	damage = 25
+	armour_penetration = 5
+	light_system = MOVABLE_LIGHT
+	light_range = 3
+	light_power = 0.8
+	light_on = FALSE
+	speed = BULLET_SPEED_HANDGUN
+	var/tracer_color = null
+	var/mutable_appearance/tracer_overlay
+	var/static/list/color_list = list(
+		"red" = "#FF0000",
+		"green" = "#00FF00",
+		"blue" = "#0000FF",
+		"yellow" = "#FFFF00",
+		"cyan" = "#00FFFF",
+		"purple" = "#FF00FF"
+	)
+
+/obj/projectile/bullet/c11mm/Initialize(mapload)
 	. = ..()
-	if(charge == 0 && maxcharge == 1)
-		. += "The tissue seems off color, slight hemorrhages are visable."
+	tracer_color = pick(color_list)
+	set_light_color(color_list[tracer_color])
+	add_atom_colour(color_list[tracer_color], FIXED_COLOUR_PRIORITY)
 
-/obj/item/stock_parts/cell/gun/nac/empty
-	name = "N.A.C. cartridge(empty)"
-	desc = "A small black cartridge. It has a data terminal on the bottom region and a small array of life support equipment on the top."
-	icon_state = "nac_cart_empty"
-	maxcharge = 0
-	charge = 0
+/obj/projectile/bullet/c11mm/fire(setAngle)
+	set_light_on(TRUE)
+	..()
 
-/datum/reagent/toxin/paralytic
-	name = "P-PPS-02"
-	description = "Poly-Plasma Sulfate. A powerful paralyric that prevents nerves from communicating with non-cardiac muscles, simulating sleep paralysis and rendering its victim completely limp."
-	silent_toxin = TRUE
-	reagent_state = LIQUID
-	specific_heat = SPECIFIC_HEAT_PLASMA + 100
-	color = "#b32366"
-	metabolization_rate = 0.10 * REAGENTS_METABOLISM
-	toxpwr = 0
-	taste_description = "slight numbness and a sickly sweet flavor"
-	taste_mult = 0.8
-	accelerant_quality = 5
+/obj/projectile/energy/bluespace //launcher-type weapon that shoots bluespace crystals.
+	name = "distorter shot"
+	icon_state = "cbbolt"
+	damage = 70
+	damage_type = BRUTE
+	nodamage = FALSE
+	light_system = MOVABLE_LIGHT
+	light_range = 1.5
+	light_power = 1
+	light_color = COLOR_BLUE_LIGHT
+	var/blink_range = 4 // The teleport range of the limb/gibs.
 
-/datum/reagent/toxin/paralytic/on_mob_end_metabolize(mob/living/carbon/M)
-	M.SetParalyzed(5)
-
-/datum/reagent/toxin/paralytic/on_mob_life(mob/living/carbon/M)
-	if(current_cycle == 3)
-		M.emote("sway")
-	if(current_cycle == 4)
-		M.manual_emote("stumbles.")
-	if(current_cycle >= 5)
-		M.AllImmobility(60)
-	return ..()
-
-/datum/chemical_reaction/paralytic
-	mix_message = "The solution turns a deep bloody purple and becomes slightly viscious."
-	results = list(/datum/reagent/toxin/paralytic = 3)
-	required_reagents = list(/datum/reagent/medicine/polypyr = 1, /datum/reagent/toxin/plasma = 1, /datum/reagent/toxin/sulfonal = 1)
+/obj/projectile/energy/bluespace/on_hit(atom/target, blocked = FALSE)
+	..()
+	if(iscarbon(target))
+		var/mob/living/carbon/C = target
+		var/obj/item/bodypart/target_limb
+		target_limb = C.check_limb_hit(def_zone)
+		var/turf/T = get_turf(C)
+		new /obj/effect/particle_effect/sparks(T)
+		playsound(loc, "sparks", 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+		if(target_limb.dismember(BRUTE)) //Broken. //Make it so when it hits chest/head it teleports out an organ and gibs(the effect not just exploding the guy).
+			C.visible_message("<span class='danger'>[C]'s [parse_zone(target_limb)] is violently teleported off their body!</span>", \
+						"<span class='userdanger'>Your [parse_zone(target_limb)] is violently teleported off your body!</span>", null, COMBAT_MESSAGE_RANGE)
+			do_teleport(target_limb, get_turf(C), blink_range, asoundin = 'sound/effects/phasein.ogg', channel = TELEPORT_CHANNEL_BLUESPACE)

@@ -95,3 +95,20 @@
 	for(var/datum/overmap/O as anything in overmap_objects)
 		if(!istype(O, /datum/overmap/ship))
 			qdel(O)
+
+/client/proc/mass_screen_message()
+	set name = "Mass Screen Message"
+	set category = "Admin.Events"
+	set desc = "Broadcasts a screen message to everyone."
+
+	if(!holder)
+		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
+		return
+	if(check_rights(R_DEBUG, 1))
+		var/message = input(usr, "X overmap coordinate:") as text|null
+		if(!message)
+			return FALSE
+		for(var/mob/M as anything in GLOB.player_list)
+			M.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u>[message]</u></span>")
+		message_admins("[key_name_admin(usr)] mass screen messaged \"[message]\"")
+		log_admin("[key_name_admin(usr)] mass screen messaged \"[message]\"")

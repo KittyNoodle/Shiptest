@@ -2974,7 +2974,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer2{
 	dir = 9
 	},
-/obj/machinery/computer/cargo/express,
 /turf/open/floor/carpet/nanoweave/beige,
 /area/ruin/space/has_grav/singularitylab/cargo)
 "nT" = (
@@ -3244,10 +3243,6 @@
 /obj/machinery/recharger{
 	pixel_x = 5;
 	pixel_y = -5
-	},
-/obj/item/reagent_containers/food/drinks/soda_cans/dr_gibb{
-	pixel_x = -4;
-	pixel_y = 2
 	},
 /obj/effect/turf_decal/corner/opaque/purple{
 	dir = 9
@@ -3536,9 +3531,6 @@
 /area/ruin/space/has_grav/singularitylab/civvie)
 "qt" = (
 /obj/structure/table,
-/obj/item/reagent_containers/food/drinks/soda_cans/space_mountain_wind{
-	pixel_x = -6
-	},
 /obj/item/radio/intercom/directional/east,
 /obj/structure/cable{
 	icon_state = "4-9"
@@ -3843,7 +3835,6 @@
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/singularitylab/lab)
 "rQ" = (
-/obj/structure/chair/comfy/black,
 /obj/effect/decal/remains/human,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/singularitylab)
@@ -5269,12 +5260,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/singularitylab/cargo)
-"zo" = (
-/obj/structure/chair/comfy/brown{
-	dir = 1
-	},
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/singularitylab/civvie)
 "zq" = (
 /obj/machinery/vending/cigarette,
 /turf/open/floor/plasteel/tech/techmaint,
@@ -5490,18 +5475,6 @@
 	},
 /turf/open/floor/engine,
 /area/ruin/space/has_grav/singularitylab)
-"Ao" = (
-/obj/structure/chair/comfy/brown{
-	dir = 4
-	},
-/obj/effect/turf_decal/industrial/warning{
-	dir = 1
-	},
-/obj/structure/railing{
-	dir = 1
-	},
-/turf/open/floor/plasteel/dark,
-/area/ruin/space/has_grav/singularitylab/reactor)
 "Aq" = (
 /obj/machinery/computer/monitor{
 	dir = 4;
@@ -6200,7 +6173,6 @@
 	name = "Prototype Storage"
 	},
 /obj/item/gun/energy/laser/captain,
-/obj/item/clothing/shoes/wheelys,
 /obj/structure/sign/poster/retro/lasergun_new{
 	pixel_y = 32
 	},
@@ -6335,12 +6307,6 @@
 	},
 /turf/open/floor/plasteel/tech,
 /area/ruin/space/has_grav/singularitylab/lab)
-"Ed" = (
-/obj/structure/chair/comfy/brown{
-	dir = 4
-	},
-/turf/open/floor/plasteel/dark,
-/area/ruin/space/has_grav/singularitylab/reactor)
 "Ef" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 10
@@ -7237,9 +7203,6 @@
 /turf/open/floor/plasteel/grimy,
 /area/ruin/space/has_grav/singularitylab/lab)
 "HU" = (
-/obj/structure/fireaxecabinet{
-	pixel_y = 32
-	},
 /obj/structure/sign/warning/incident{
 	pixel_x = -32
 	},
@@ -8320,12 +8283,6 @@
 /obj/machinery/vending/medical,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/singularitylab/lab)
-"Mo" = (
-/obj/structure/chair/comfy/brown{
-	dir = 8
-	},
-/turf/open/floor/wood,
-/area/ruin/space/has_grav/singularitylab/civvie)
 "Mq" = (
 /obj/structure/chair/stool/bar{
 	dir = 8;
@@ -9190,11 +9147,6 @@
 "PZ" = (
 /obj/effect/turf_decal/box,
 /obj/machinery/light/directional/north,
-/obj/item/gun/energy/lasercannon/unrestricted{
-	desc = "An advanced laser cannon, a laser etched inscription in the handle states 'NT-LS-1013'. The casing is made of a lightweight alloy.";
-	icon_state = "pulse";
-	name = "NT-LS-1013"
-	},
 /obj/item/gun/energy/laser/iot,
 /obj/item/gun/energy/laser/iot{
 	dry_fire_sound = 'sound/items/ding.ogg';
@@ -11088,10 +11040,6 @@
 	default_raw_text = "Whatever happens. Happens."
 	},
 /obj/item/pen,
-/obj/item/reagent_containers/food/drinks/soda_cans/starkist{
-	pixel_x = 10;
-	pixel_y = 4
-	},
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/singularitylab)
 "Yc" = (
@@ -14350,14 +14298,14 @@ yh
 ty
 qo
 pq
-Mo
+pq
 ty
 tx
 yh
 ty
 FU
 Ns
-Mo
+pq
 ty
 yh
 iJ
@@ -14607,8 +14555,8 @@ se
 pE
 UC
 oT
-Ed
-Ed
+oT
+oT
 uD
 pE
 Gi
@@ -14819,7 +14767,7 @@ yh
 ty
 qo
 pq
-Mo
+pq
 ty
 yh
 hS
@@ -14889,7 +14837,7 @@ se
 yh
 ty
 Zq
-zo
+pq
 SZ
 tx
 yh
@@ -14994,7 +14942,7 @@ Ix
 ye
 Dw
 nc
-Ao
+dp
 pE
 Dp
 nI

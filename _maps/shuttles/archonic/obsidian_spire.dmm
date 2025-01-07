@@ -231,7 +231,6 @@
 /area/ship/cargo)
 "bT" = (
 /obj/structure/spider/stickyweb,
-/obj/effect/spawner/lootdrop/maintenance,
 /obj/item/toy/figure/cargotech,
 /turf/open/floor/plating,
 /area/ship/cargo)
@@ -592,7 +591,6 @@
 /turf/open/floor/plasteel/white,
 /area/ship/science)
 "eB" = (
-/obj/machinery/vending/cola/random,
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
@@ -1552,7 +1550,6 @@
 /turf/open/floor/plating,
 /area/ship/hallway/central)
 "kZ" = (
-/obj/machinery/vending/snack/random,
 /obj/structure/disposalpipe/segment{
 	dir = 5
 	},
@@ -2780,12 +2777,6 @@
 	name = "food crate"
 	},
 /obj/item/storage/cans/sixbeer,
-/obj/effect/spawner/lootdrop/ration,
-/obj/effect/spawner/lootdrop/ration,
-/obj/effect/spawner/lootdrop/ration,
-/obj/effect/spawner/lootdrop/ration,
-/obj/effect/spawner/lootdrop/ration,
-/obj/effect/spawner/lootdrop/ration,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
@@ -2927,7 +2918,6 @@
 	},
 /obj/structure/closet/crate,
 /obj/item/vending_refill/coffee,
-/obj/effect/spawner/lootdrop/maintenance/three,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /turf/open/floor/plasteel/patterned/cargo_one,
 /area/ship/cargo)
@@ -3359,7 +3349,6 @@
 /turf/open/floor/plasteel/tech,
 /area/ship/cargo)
 "wC" = (
-/obj/machinery/vending/snack/random,
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
@@ -3727,7 +3716,6 @@
 /turf/open/floor/plasteel/dark,
 /area/ship/science/ai_chamber)
 "yE" = (
-/obj/machinery/vending/cola/random,
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
@@ -3900,7 +3888,6 @@
 /obj/effect/turf_decal/corner/transparent/neutral{
 	dir = 4
 	},
-/obj/machinery/vending/snack/random,
 /obj/machinery/light/directional/east,
 /turf/open/floor/plasteel,
 /area/ship/hallway/central)
@@ -4183,7 +4170,6 @@
 /turf/open/floor/plasteel/patterned,
 /area/ship/cargo)
 "Bu" = (
-/obj/machinery/vending/cola/random,
 /obj/effect/turf_decal/corner/opaque/white{
 	dir = 8
 	},
