@@ -425,7 +425,7 @@ GLOBAL_VAR_INIT(palefire, FALSE)
 ///////////////////WEAPONS////////////////////
 
 /obj/item/gun/energy/overic
-	name = "OIW-P-D-P007"
+	name = "OIW-P-D-P007" //Overic Infiltraitor Weapon-Pistol-Deviseon-Personal 007
 	desc = "A strange weapon, it's almost dangerously warm to the touch."
 	icon_state = "overic_pistol"
 	item_state = "overic_pistol"

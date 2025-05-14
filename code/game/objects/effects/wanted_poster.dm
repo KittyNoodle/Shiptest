@@ -46,6 +46,7 @@
 	posterHeaderText = postHeaderText
 	posterHeaderColor = postHeaderColor
 	wanted_name = person_name
+	background = "wanted_background" //Archonic Edit
 
 	name = "[postName] ([wanted_name])"
 	desc = description

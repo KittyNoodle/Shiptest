@@ -73,6 +73,10 @@
 	if(target == user)
 		return FALSE
 	user.do_attack_animation(target)
+	if(HAS_TRAIT(target, TRAIT_ANOMALY_IMMUNE_AIMTIACRYSTAL))
+		target.visible_message("<span class='adminhelp'>[user] fails to delete [target] with the [src]!</span>")
+		target.visible_message("<span class='warning'>A pink and gold vein-like structure under [target]'s skin bursts into brilliant light.</span>")
+		return
 	target.apoth_delete()
 	target.visible_message("<span class='adminhelp'>[user] deletes [target] with the [src]!</span>", \
 							"<span class='adminhelp'><span class='extremelybig'>You feel a sudden numbness as you are ripped out of reality.</span></span>")
@@ -108,7 +112,12 @@
 		var/message = input(usr, "X overmap coordinate:") as text|null
 		if(!message)
 			return FALSE
-		for(var/mob/M as anything in GLOB.player_list)
-			M.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u>[message]</u></span>")
+		var/message2 = input(usr, "Undertext?")
+		if(message2)
+			for(var/mob/M as anything in GLOB.player_list)
+				M.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u>[message]</u></span><br>[message2]")
+		else
+			for(var/mob/M as anything in GLOB.player_list)
+				M.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u>[message]</u></span>")
 		message_admins("[key_name_admin(usr)] mass screen messaged \"[message]\"")
 		log_admin("[key_name_admin(usr)] mass screen messaged \"[message]\"")

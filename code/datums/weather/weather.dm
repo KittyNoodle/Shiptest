@@ -116,10 +116,14 @@
 	return ..()
 
 /datum/weather/process()
+	if(prob(thunder_chance)) // Archonic Edit
+		do_thunder()
 	if(aesthetic || stage != MAIN_STAGE)
 		return
+	/* //Archonic Edit
 	if(prob(thunder_chance))
 		do_thunder()
+	*/
 	for(var/i in GLOB.mob_living_list)
 		var/mob/living/L = i
 		if(can_weather_act(L))

@@ -178,7 +178,7 @@
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 
-	///Is the projectile immune to an overic palefire system
+	///Is the projectile immune to an overic palefire system //Archonic Edit
 	var/palefire_immune = FALSE
 
 /obj/projectile/Initialize()
@@ -679,7 +679,7 @@
 		setAngle(angle)
 	if(spread)
 		setAngle(Angle + ((rand() - 0.5) * spread))
-	if(GLOB.palefire & !palefire_immune)
+	if(GLOB.palefire & !palefire_immune) //Archonic Edit
 		qdel(src)
 		return
 	var/turf/starting = get_turf(src)

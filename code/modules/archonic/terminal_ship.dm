@@ -551,9 +551,385 @@
 	description = span_nicegreen("I brushed my hair recently!\n")
 	mood_change = 2		// You can't hit all the right spots yourself, or something
 
+/datum/map_template/ruin/jungle/ventilation_shaft
+	id = "ventshaft"
+	suffix = "jungle_ventilation.dmm"
+	name = "Shaft 39X"
+	description = "Among civilian vessels the most common cause of tragedy is lack of food. \
+	This ship was outfitted with a multitude of food-generating features, then summarily ran into an asteroid shortly after takeoff."
+
+/area/ruin/jungle/ventilation_shaft
+	name = "Ventilation Shaft"
+	icon_state = "green"
+	lighting_colour_tube = "#ffce93"
+	lighting_colour_bulb = "#ffbc6f"
+	lighting_brightness_bulb = 8
+
+/turf/open/chasm/jungle/plantary
+	icon = 'icons/turf/floors/junglechasm.dmi'
+	icon_state = "junglechasm-255"
+	base_icon_state = "junglechasm"
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+	baseturfs = /turf/open/chasm/jungle/plantary
+
+/turf/open/chasm/jungle/plantary/open
+	icon = 'icons/turf/floors/junglechasm.dmi'
+	icon_state = "junglechasm-255"
+	base_icon_state = "junglechasm"
+	baseturfs = /turf/open/chasm/jungle/plantary/open
+	smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_TURF_CHASM, SMOOTH_GROUP_CLOSED_TURFS)
+	canSmoothWith = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_TURF_CHASM, SMOOTH_GROUP_CLOSED_TURFS)
+
 /turf/open/floor/plasteel/tech/grid/root
 	name = "electrostatic floor"
 	desc = "A floor modified with ports that can support rooting ethereals."
+
+/obj/structure/sign/poster/crux
+	name = "wanted poster (Crux)"
+	desc = "A poster declaring Crux to be a dangerous individual, wanted by Nanotrasen. Report any sightings to nanotrasen authorites immediately."
+	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
+	icon_state = "poster_wanted_crux"
+
+
+/datum/outfit/sprout_rebel
+	name = "Sprout Rebel"
+	uniform = /obj/item/clothing/under/pants/black
+	suit = null
+	belt = /obj/item/storage/belt/grenade/modified
+	shoes = /obj/item/clothing/shoes/jackboots
+	neck = null
+	mask = /obj/item/clothing/mask/gas/sechailer
+	glasses = /obj/item/clothing/glasses/welding/steampunk_goggles
+	r_pocket = /obj/item/melee/knife/mindblade/sprout
+	l_pocket = /obj/item/storage/bag/bullet_fabricator
+	gloves = /obj/item/clothing/gloves/fingerless
+	back = /obj/item/storage/backpack/satchel/leather
+	implants = list(/obj/item/implant/third_circle, /obj/item/implant/weapons_auth)
+
+	backpack_contents = list(/obj/item/storage/box/survival/engineer=1,\
+		/obj/item/ammo_box/magazine/ammo_stack/prefilled/a458=1,\
+		/obj/item/storage/firstaid/regular=1,\
+		/obj/item/reagent_containers/medigel/styptic=1, \
+		/obj/item/reagent_containers/medigel/silver_sulf=1, \
+		/obj/item/flashlight=1,\
+		/obj/item/lodestone_gem=1,\
+		/obj/item/grenade/c4/x4=1)
+
+/datum/outfit/sprout_rebel/post_equip(mob/living/carbon/human/H, visualsOnly)
+	. = ..()
+	if(visualsOnly)
+		return
+	H.faction |= list(FACTION_ARCHOUS)
+
+/obj/item/clothing/glasses/welding/steampunk_goggles
+	name = "steampunk goggles"
+	desc = "These brass goggles have a toggleable slit for welding."
+	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
+	mob_overlay_icon = 'code/modules/archonic/icons/worn/eyes.dmi'
+	icon_state = "goldengoggles"
+	slot_flags = ITEM_SLOT_EYES
+	flash_protect = FLASH_PROTECTION_NONE
+	flags_cover = GLASSESCOVERSEYES
+	custom_materials = null // Don't want that to go in the autolathe
+	visor_vars_to_toggle = 0
+	tint = 0
+	actions_types = list(/datum/action/item_action/toggle, /datum/action/item_action/toggle_steampunk_goggles_welding_protection)
+
+	/// Was welding protection added yet?
+	var/welding_upgraded = FALSE
+	/// Was welding protection toggled on, if welding_upgraded is TRUE?
+	var/welding_protection = FALSE
+	/// The sound played when toggling the shutters.
+	var/shutters_sound = 'sound/effects/clock_tick.ogg'
+
+/obj/item/clothing/glasses/welding/steampunk_goggles/Initialize(mapload)
+	. = ..()
+	visor_toggling()
+
+/obj/item/clothing/glasses/welding/steampunk_goggles/examine(mob/user)
+	. = ..()
+	. += "Its are currently [welding_protection ? "closed" : "opened"]."
+
+/obj/item/clothing/glasses/welding/steampunk_goggles/visor_toggling()
+	. = ..()
+	slot_flags = up ? ITEM_SLOT_EYES | ITEM_SLOT_HEAD : ITEM_SLOT_EYES
+	toggle_vision_effects()
+
+/obj/item/clothing/glasses/welding/steampunk_goggles/weldingvisortoggle(mob/user)
+	. = ..()
+	handle_sight_updating(user)
+
+/// Proc that handles the whole toggling the welding protection on and off, with user feedback.
+/obj/item/clothing/glasses/welding/steampunk_goggles/proc/toggle_shutters(mob/user)
+	if(!can_use(user) || !user)
+		return FALSE
+	if(!toggle_welding_protection(user))
+		return FALSE
+
+	to_chat(user, span_notice("You slide \the [src]'s welding shutters slider, [welding_protection ? "closing" : "opening"] them."))
+	playsound(user, shutters_sound, 100, TRUE)
+	if(iscarbon(user))
+		var/mob/living/carbon/carbon_user = user
+		carbon_user.head_update(src, forced = 1)
+	return TRUE
+
+/// This is the proc that handles toggling the welding protection, while also making sure to update the sight of a mob wearing it.
+/obj/item/clothing/glasses/welding/steampunk_goggles/proc/toggle_welding_protection(mob/user)
+	welding_protection = !welding_protection
+
+	visor_vars_to_toggle = welding_protection ? VISOR_FLASHPROTECT | VISOR_TINT : initial(visor_vars_to_toggle)
+	toggle_vision_effects()
+	// We also need to make sure the user has their vision modified. We already checked that there was a user, so this is safe.
+	handle_sight_updating(user)
+	return TRUE
+
+/// Proc handling changing the flash protection and the tint of the goggles.
+/obj/item/clothing/glasses/welding/steampunk_goggles/proc/toggle_vision_effects()
+	if(welding_protection)
+		if(visor_vars_to_toggle & VISOR_FLASHPROTECT)
+			flash_protect = up ? FLASH_PROTECTION_NONE : FLASH_PROTECTION_WELDER
+	else
+		flash_protect = FLASH_PROTECTION_NONE
+	tint = flash_protect
+
+/// Proc handling to update the sight of the user, while forcing an update_tint() call every time, due to how the welding protection toggle works.
+/obj/item/clothing/glasses/welding/steampunk_goggles/proc/handle_sight_updating(mob/user)
+	if(user && (user.get_item_by_slot(ITEM_SLOT_HEAD) == src || user.get_item_by_slot(ITEM_SLOT_EYES) == src))
+		user.update_sight()
+		if(iscarbon(user))
+			var/mob/living/carbon/carbon_user = user
+			carbon_user.update_tint()
+			carbon_user.head_update(src, forced = TRUE)
+
+/obj/item/clothing/glasses/welding/steampunk_goggles/ui_action_click(mob/user, actiontype, is_welding_toggle = FALSE)
+	if(!is_welding_toggle)
+		return ..()
+	else
+		toggle_shutters(user)
+
+/// Action button for toggling the welding shutters (aka, welding protection) on or off.
+/datum/action/item_action/toggle_steampunk_goggles_welding_protection
+	name = "Toggle Welding Shutters"
+
+/// We need to do a bit of code duplication here to ensure that we do the right kind of ui_action_click(), while keeping it modular.
+/datum/action/item_action/toggle_steampunk_goggles_welding_protection/Trigger(trigger_flags)
+	if(!IsAvailable())
+		return FALSE
+	if(SEND_SIGNAL(src, COMSIG_ACTION_TRIGGER, src) & COMPONENT_ACTION_BLOCK_TRIGGER)
+		return FALSE
+	if(!target || !istype(target, /obj/item/clothing/glasses/welding/steampunk_goggles))
+		return FALSE
+
+	var/obj/item/clothing/glasses/welding/steampunk_goggles/goggles = target
+	goggles.ui_action_click(owner, src, is_welding_toggle = TRUE)
+	return TRUE
+
+
+/obj/item/melee/knife/mindblade/sprout
+	name = "SPLF fanblade"
+	icon_state = "survivalknife"
+	item_state = "survivalknife"
+	desc = "A standard issue among higher ranking SPLF militia members. A sharp blade capable of fanning out into a shield. A small light is attached to the crossguard, this one appears to be broken."
+	mindspace = FALSE
+	light_on = FALSE
+
+/obj/item/implant/third_circle
+	name = "aimtisalized archonic crystal"
+	desc = "A contorted and warped archonic crystal. It now beats with the third circle's light."
+	activated = FALSE
+	var/obj/effect/proc_holder/spell/spell = /obj/effect/proc_holder/spell/self/bioresonance/transis/aimtiacrystal
+
+/obj/item/implant/third_circle/Initialize()
+    . = ..()
+    if(ispath(src.spell))
+        src.spell = new spell
+
+/obj/item/implant/third_circle/implant(mob/living/target, mob/user, silent = FALSE, force = FALSE)
+	. = ..()
+	if (.)
+		if(ishuman(target))
+			var/mob/living/carbon/human/H = target
+			H.physiology.armor.melee += 30 // Passive Principle of Conviction
+			H.physiology.armor.bullet += 30 // Passive Principle of Conviction
+		ADD_TRAIT(target, TRAIT_ANOMALY_IMMUNE_AIMTIACRYSTAL, "implant") //Archonic Principle of Firebrand(Absorbting lower anomalistic energy) aimtisalized into a partial fusion of Firebrand and Silence
+		ADD_TRAIT(target, TRAIT_GUNSLINGER, "implant") //Quirks
+		ADD_TRAIT(target, TRAIT_LIGHT_STEP, "implant") //Quirks
+		ADD_TRAIT(target, TRAIT_FREERUNNING, "implant") //Passive Principle of Transis
+		if (!spell)
+			return FALSE
+		if (spell.clothes_req)
+			spell.clothes_req = FALSE
+		target.AddSpell(spell)
+		return TRUE
+
+/obj/item/implant/third_circle/removed(mob/target, silent = FALSE, special = 0)
+	. = ..()
+	if (.)
+		target.RemoveSpell(spell)
+		if(ishuman(target))
+			var/mob/living/carbon/human/H = target
+			H.physiology.armor.melee -= 25
+			H.physiology.armor.bullet -= 25
+		if(target.stat != DEAD && !silent)
+			to_chat(target, "<span class='boldnotice'>The knowledge of how to cast [spell] slips out from your mind.</span>")
+		REMOVE_TRAIT(target, TRAIT_ANOMALY_IMMUNE_AIMTIACRYSTAL, "implant")
+
+/obj/item/implant/third_circle/get_data()
+	var/dat = {"<b>Implant Specifications:</b><BR>
+				<b>Name:</b> UNKNOWN<BR>
+				<b>Life:</b> UNKNOWN<BR>
+				<b>Implant Details:</b> <BR>
+				<b>Function:</b> UNKNOWN." : "None"]"}
+	return dat
+
+/obj/item/storage/belt/grenade/modified
+	name = "modified grenadier belt"
+	desc = "A belt for holding grenades. This one has been modified with a holster."
+	icon_state = "grenadebeltnew"
+	item_state = "grenadebeltnew"
+
+/obj/item/storage/belt/grenade/modified/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_items = 40
+	STR.display_numerical_stacking = TRUE
+	STR.max_combined_w_class = 80
+	STR.max_w_class = WEIGHT_CLASS_BULKY
+	STR.set_holdable(list(
+		/obj/item/grenade,
+		/obj/item/screwdriver,
+		/obj/item/lighter,
+		/obj/item/multitool,
+		/obj/item/wirecutters,
+		/obj/item/gun/ballistic/revolver/sprout,
+		/obj/item/grenade/c4
+		))
+
+/obj/item/storage/belt/grenade/modified/PopulateContents()
+	var/static/items_inside = list(
+		/obj/item/grenade/chem_grenade/lexorin = 6,
+		/obj/item/grenade/chem_grenade/multiacid = 7,
+		/obj/item/grenade/chem_grenade/smoke_and_bomb = 8,
+		/obj/item/grenade/chem_grenade/color_smoke = 9,
+		/obj/item/grenade/c4 = 3,
+		/obj/item/grenade/empgrenade = 1,
+		/obj/item/screwdriver = 1,
+		/obj/item/gun/ballistic/revolver/sprout = 1,
+		/obj/item/wirecutters = 1,
+		/obj/item/multitool = 1)
+	generate_items_inside(items_inside,src)
+
+/obj/item/grenade/chem_grenade/smoke_and_bomb
+	name = "chemical grenade"
+	desc = "A red crossed circle is spray painted onto it."
+	color = "#FF7777"
+	stage = GRENADE_READY
+	ex_dev = 1
+	ex_heavy = 2
+	ex_light = 4
+	ex_flame = 2
+
+/obj/item/grenade/chem_grenade/smoke_and_bomb/Initialize()
+	. = ..()
+	var/obj/item/reagent_containers/glass/bottle/B1 = new(src)
+	var/obj/item/reagent_containers/glass/bottle/B2 = new(src)
+
+	B1.reagents.add_reagent(/datum/reagent/phosphorus, 10)
+	B1.reagents.add_reagent(/datum/reagent/potassium, 5)
+	B1.reagents.add_reagent(/datum/reagent/toxin/heparin, 15)
+	B2.reagents.add_reagent(/datum/reagent/consumable/sugar, 10)
+	B2.reagents.add_reagent(/datum/reagent/potassium, 5)
+	B2.reagents.add_reagent(/datum/reagent/colorful_reagent/powder/red, 5)
+	B2.reagents.add_reagent(/datum/reagent/toxin/heparin, 10)
+
+	beakers += B1
+	beakers += B2
+
+/obj/item/grenade/chem_grenade/lexorin
+	name = "chemical grenade"
+	desc = "A green 'X' is spray painted onto it."
+	color = "#B8EB65"
+	stage = GRENADE_READY
+
+/obj/item/grenade/chem_grenade/lexorin/Initialize()
+	. = ..()
+	var/obj/item/reagent_containers/glass/beaker/meta/B1 = new(src)
+	var/obj/item/reagent_containers/glass/beaker/meta/B2 = new(src)
+
+	B1.reagents.add_reagent(/datum/reagent/phosphorus, 80)
+	B1.reagents.add_reagent(/datum/reagent/potassium, 40)
+	B1.reagents.add_reagent(/datum/reagent/toxin/lexorin, 60)
+	B2.reagents.add_reagent(/datum/reagent/consumable/sugar, 80)
+	B2.reagents.add_reagent(/datum/reagent/potassium, 40)
+	B2.reagents.add_reagent(/datum/reagent/toxin/lexorin, 55)
+	B2.reagents.add_reagent(/datum/reagent/colorful_reagent/powder/green, 5)
+
+	beakers += B1
+	beakers += B2
+
+/obj/item/grenade/chem_grenade/multiacid
+	name = "chemical grenade"
+	desc = "A blue 'O' is spray painted onto it."
+	color = "#65C5EB"
+	stage = GRENADE_READY
+
+/obj/item/grenade/chem_grenade/multiacid/Initialize()
+	. = ..()
+	var/obj/item/reagent_containers/glass/beaker/meta/B1 = new(src)
+	var/obj/item/reagent_containers/glass/beaker/meta/B2 = new(src)
+
+	B1.reagents.add_reagent(/datum/reagent/phosphorus, 60)
+	B1.reagents.add_reagent(/datum/reagent/potassium, 30)
+	B1.reagents.add_reagent(/datum/reagent/toxin/acid/fluacid, 90)
+	B2.reagents.add_reagent(/datum/reagent/consumable/sugar, 60)
+	B2.reagents.add_reagent(/datum/reagent/potassium, 30)
+	B2.reagents.add_reagent(/datum/reagent/toxin/acid, 40)
+	B2.reagents.add_reagent(/datum/reagent/toxin/acid/nitracid, 45)
+	B2.reagents.add_reagent(/datum/reagent/colorful_reagent/powder/blue, 5)
+
+	beakers += B1
+	beakers += B2
+
+/obj/item/grenade/chem_grenade/color_smoke
+	name = "smoke grenade"
+	desc = "A white '-' is spray painted onto it."
+	color = "#E27FFF"
+	stage = GRENADE_READY
+
+/obj/item/grenade/chem_grenade/color_smoke/Initialize()
+	. = ..()
+
+	var/obj/item/reagent_containers/glass/beaker/meta/B1 = new(src)
+	var/obj/item/reagent_containers/glass/beaker/meta/B2 = new(src)
+
+	B1.reagents.add_reagent(/datum/reagent/phosphorus, 118)
+	B1.reagents.add_reagent(/datum/reagent/potassium, 59)
+	B2.reagents.add_reagent(/datum/reagent/consumable/sugar, 118)
+	B2.reagents.add_reagent(/datum/reagent/potassium, 59)
+	color = pick("#FF7777","#FF8600","#FFF200","#B8EB65","#65C5EB",
+		"#E27FFF")
+	switch(color)
+		if("#ff7777")
+			B1.reagents.add_reagent(/datum/reagent/colorful_reagent/powder/red, 3)
+			B2.reagents.add_reagent(/datum/reagent/colorful_reagent/powder/red, 3)
+		if("#ff8600")
+			B1.reagents.add_reagent(/datum/reagent/colorful_reagent/powder/orange, 3)
+			B2.reagents.add_reagent(/datum/reagent/colorful_reagent/powder/orange, 3)
+		if("#fff200")
+			B1.reagents.add_reagent(/datum/reagent/colorful_reagent/powder/yellow, 3)
+			B2.reagents.add_reagent(/datum/reagent/colorful_reagent/powder/yellow, 3)
+		if("#b8eb65")
+			B1.reagents.add_reagent(/datum/reagent/colorful_reagent/powder/green, 3)
+			B2.reagents.add_reagent(/datum/reagent/colorful_reagent/powder/green, 3)
+		if("#65c5eb")
+			B1.reagents.add_reagent(/datum/reagent/colorful_reagent/powder/blue, 3)
+			B2.reagents.add_reagent(/datum/reagent/colorful_reagent/powder/blue, 3)
+		if("#e27fff")
+			B1.reagents.add_reagent(/datum/reagent/colorful_reagent/powder/purple, 3)
+			B2.reagents.add_reagent(/datum/reagent/colorful_reagent/powder/purple, 3)
+	beakers += B1
+	beakers += B2
 
 /obj/item/clothing/suit/armor/vest/syndie_body_armor
 	name = "syndicate body armor"
@@ -565,53 +941,56 @@
 	blood_overlay_type = "armor"
 	dog_fashion = /datum/dog_fashion/back
 
-/obj/item/gun/ballistic/automatic/pistol/sprout
-	name = "\improper 'Prism' makeshift pistol"
-	desc = "A well-engineered but clearly makeshift pistol, reinforced with brass plates. Every bullet it fires carries a small prismatic tracer created as an unintended byproduct of the bullet fabrication process. The designer seems to have left it in for asthetic reasons. Has a custom shaped ergonomic grip. Chambered in 11mm."
-	default_ammo_type = /obj/item/ammo_box/magazine/internal/sprout_pistol
+//Prism revolver
+/obj/item/gun/ballistic/revolver/sprout
+	name = "\improper 'Prism' makeshift revolver"
+	desc = "A well-engineered but clearly makeshift ten shot revolver, reinforced with brass plates. Every bullet it fires carries a small prismatic tracer created as an unintended byproduct of the bullet fabrication process. The designer seems to have left it in for asthetic reasons. Has a custom shaped ergonomic grip. Chambered in .458."
+	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
+	icon_state = "prism_temp"
+	default_ammo_type = /obj/item/ammo_box/magazine/internal/cylinder/sprout_revolver
 	allowed_ammo_types = list(
-		/obj/item/ammo_box/magazine/internal/sprout_pistol,
+		/obj/item/ammo_box/magazine/internal/cylinder/sprout_revolver,
 	)
-	internal_magazine = TRUE
-	bolt_type = BOLT_TYPE_STANDARD //holy fuck it teleports the shells fix this ASAP.
-	tac_reloads = FALSE
-	fire_delay = 0.2 SECONDS
-	spread_unwielded = 15
+	fire_sound = 'sound/weapons/gun/revolver/viper.ogg'
+	rack_sound = 'sound/weapons/gun/revolver/viper_prime.ogg'
+	manufacturer = MANUFACTURER_NONE
+	fire_delay = 0.5 SECONDS
 	recoil = 0.5
-	recoil_unwielded = 1.5
+	recoil_unwielded = 2
 	spread = 4
 	spread_unwielded = 6
 
-/obj/item/ammo_box/magazine/internal/sprout_pistol
-	name = "'Prism' internal magazine"
-	ammo_type = /obj/item/ammo_casing/c11mm
-	max_ammo = 14
-	caliber = "11mm"
-	multiload = TRUE
+/obj/item/ammo_box/magazine/internal/cylinder/sprout_revolver
+	name = "'Prism' cylinder"
+	ammo_type = /obj/item/ammo_casing/a458
+	max_ammo = 10
+	caliber = ".458"
+	instant_load = TRUE
+	//multiload = TRUE
 
-/obj/item/ammo_box/magazine/ammo_stack/prefilled/c11mm
-	max_ammo = 28
-	ammo_type = /obj/item/ammo_casing/c11mm
+/obj/item/ammo_box/magazine/ammo_stack/prefilled/a458
+	max_ammo = 15
+	ammo_type = /obj/item/ammo_casing/a458
 
-/obj/item/ammo_casing/c11mm
-	name = "fabricated 11mm bullet casing"
-	desc = "A 11mm bullet casing. It looks dusty and rough."
-	icon_state = "pistol-brass"
+/obj/item/ammo_casing/a458
+	name = "fabricated .458 bullet casing"
+	desc = "A .458 bullet casing. It looks dusty and rough."
+	icon_state = "magnum-brass"
 	bullet_skin = "surplus"
-	caliber = "11mm"
-	projectile_type = /obj/projectile/bullet/c11mm
+	caliber = ".458"
+	projectile_type = /obj/projectile/bullet/a458
 
-/obj/projectile/bullet/c11mm
-	name = "11mm bullet"
+/obj/projectile/bullet/a458
+	name = ".458 bullet"
 	icon = 'code/modules/archonic/icons/projectiles.dmi'
-	icon_state = "prism_bullet"
-	damage = 25
-	armour_penetration = 5
+	icon_state = "prism_bullet_2"
+	damage = 75
+	armour_penetration = 12
 	light_system = MOVABLE_LIGHT
 	light_range = 3
 	light_power = 0.8
 	light_on = FALSE
-	speed = BULLET_SPEED_HANDGUN
+	speed = BULLET_SPEED_REVOLVER-0.1
 	var/tracer_color = null
 	var/mutable_appearance/tracer_overlay
 	var/static/list/color_list = list(
@@ -623,21 +1002,95 @@
 		"purple" = "#FF00FF"
 	)
 
-/obj/projectile/bullet/c11mm/Initialize(mapload)
+/obj/projectile/bullet/a458/Initialize(mapload)
 	. = ..()
 	tracer_color = pick(color_list)
 	set_light_color(color_list[tracer_color])
 	add_atom_colour(color_list[tracer_color], FIXED_COLOUR_PRIORITY)
 
-/obj/projectile/bullet/c11mm/fire(setAngle)
+/obj/projectile/bullet/a458/fire(setAngle)
 	set_light_on(TRUE)
 	..()
 
+/obj/projectile/bullet/a458/on_hit(target)
+	if(istype(target, /obj/item/grenade))
+		var/obj/item/grenade/G = target
+		G.prime() //Detonate grenades 100% of the time.
+	. = ..()
+
+/obj/item/storage/bag/bullet_fabricator
+	name = "bullet fabricator"
+	desc = "A bizzare contraption made from the synthesizers of two chem dispensers and a portable seed extractor. It has an ammo patch around attached to the bottom."
+	icon = 'icons/obj/bags.dmi'
+	icon_state = "portaseeder"
+	w_class = WEIGHT_CLASS_SMALL
+	var/stored_energy = 0
+
+/obj/item/storage/bag/bullet_fabricator/examine(mob/user)
+	. = ..()
+	. += "You can activate fabricator by pressing the <b>unique action</b> key. By default, this is <b>space</b>"
+	. += "\The [name]'s display reads <span class='alert'>[stored_energy]</span>. What this number means is a mystery to you."
+
+/obj/item/storage/bag/bullet_fabricator/ComponentInitialize()
+	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.max_w_class = WEIGHT_CLASS_NORMAL
+	STR.max_combined_w_class = 200
+	STR.max_items = 8
+	STR.insert_preposition = "in"
+	STR.set_holdable(list(
+		/obj/item/ammo_box/magazine/ammo_stack/prefilled/a458,
+		/obj/item/stack/sheet/mineral/wood,
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/grown
+		))
+
+/obj/item/storage/bag/bullet_fabricator/unique_action(mob/living/user)
+	if(usr.incapacitated())
+		return
+	var/made_bullets = FALSE
+	var/processed_contents = FALSE
+	for(var/obj/item/O in contents)
+		if(istype(O, /obj/item/stack/sheet/mineral/wood))
+			var/obj/item/stack/sheet/mineral/wood/W = O
+			stored_energy += W.amount*3 //33 wood = one stack
+			qdel(W)
+			processed_contents = TRUE
+		if(istype(O, /obj/item/reagent_containers/food/snacks/meat))
+			var/obj/item/reagent_containers/food/snacks/meat/M = O
+			stored_energy += 9 //11.1(12) meat = one stack
+			qdel(M)
+			processed_contents = TRUE
+		if(istype(O, /obj/item/reagent_containers/food/snacks/grown))
+			var/obj/item/reagent_containers/food/snacks/grown/G = O
+			stored_energy += 16 //16.6(17) plants = one stack
+			qdel(G)
+			processed_contents = TRUE
+		if(stored_energy >= 100)
+			made_bullets = TRUE
+			new /obj/item/ammo_box/magazine/ammo_stack/prefilled/a458(src)
+			stored_energy = 0
+	if(made_bullets)
+		to_chat(user, "<span class='notice'>\The [src] fabricates a stack of .458 bullets.</span>")
+	if(processed_contents)
+		to_chat(user, "<span class='notice'>\The [src] processes its organic contents.</span>")
+		playsound(src.loc, 'sound/machines/ding.ogg', 50, TRUE)
+	else
+		to_chat(user, "<span class='alert'>\The [src] fails to find any compatable organic material.</span>")
+	return 1
+
+//Unnamed firework gun.
+// Shoots mostly orange sparklers with a rare chance to fire bright red flares.
+
+
+
+//Bluespace Distorter
 /obj/projectile/energy/bluespace //launcher-type weapon that shoots bluespace crystals.
 	name = "distorter shot"
 	icon_state = "cbbolt"
-	damage = 70
+	damage = 80
 	damage_type = BRUTE
+	armour_penetration = 95
 	nodamage = FALSE
 	light_system = MOVABLE_LIGHT
 	light_range = 1.5

@@ -33,7 +33,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ship/bridge)
 "aP" = (
-/turf/closed/gateway,
+/turf/closed/indestructible/syndicate,
 /area/ship/medical)
 "aW" = (
 /obj/machinery/airalarm/directional/east,
@@ -44,7 +44,13 @@
 /turf/open/floor/plasteel/dark,
 /area/ship/crew)
 "bp" = (
-/turf/closed/wall/r_wall,
+/obj/item/shard{
+	icon_state = "medium"
+	},
+/obj/effect/decal/cleanable/glass,
+/turf/open/floor/plating/airless{
+	icon_state = "platingdmg3"
+	},
 /area/ship/external)
 "bs" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
@@ -116,28 +122,30 @@
 /obj/effect/turf_decal/corner/opaque/black/bordercorner{
 	dir = 8
 	},
-/obj/structure/frame/machine,
-/obj/item/stack/ore/salvage/scrapmetal,
-/obj/item/stack/cable_coil/cut/red{
-	amount = 2
-	},
 /turf/open/floor/plasteel/tech,
 /area/ship/engineering)
 "dq" = (
 /obj/item/stack/cable_coil/cut/red{
 	amount = 2
 	},
+/obj/structure/cable/green{
+	icon_state = "6-9";
+	name = "changeling flesh"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-9";
+	name = "changeling flesh"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-6";
+	name = "changeling flesh"
+	},
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg1"
 	},
 /area/ship/engineering)
 "dB" = (
-/obj/machinery/power/rtg/abductor/archonic{
-	name = "broken archonic tap";
-	desc = "An archonic power source that produces energy from a tether to Archous's light. The machine appears popped open, a strange golden light eminates from within.";
-	deactivated = 1;
-	power_gen = 0
-	},
+/obj/machinery/power/rtg/abductor/archonic,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 6
 	},
@@ -172,14 +180,17 @@
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg2"
 	},
-/area/ship/medical)
+/area/ship/external)
 "eN" = (
 /obj/machinery/computer/camera_advanced/syndie,
 /turf/open/floor/mineral/plastitanium,
 /area/ship/bridge)
 "eQ" = (
-/turf/closed/indestructible/alien,
-/area/ship/archonic)
+/obj/structure/table_frame/abductor,
+/turf/open/floor/plating/airless{
+	icon_state = "platingdmg3"
+	},
+/area/ship/external)
 "eY" = (
 /obj/structure/sink{
 	dir = 8;
@@ -189,15 +200,15 @@
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg3"
 	},
-/area/ship/medical)
+/area/ship/external)
 "fD" = (
 /turf/open/floor/engine/hull,
 /area/ship/external)
 "fE" = (
-/obj/machinery/power/shuttle/engine/void{
-	dir = 2
+/obj/structure/girder/reinforced,
+/turf/open/floor/plating/airless{
+	icon_state = "platingdmg3"
 	},
-/turf/open/floor/plating/abductor2,
 /area/ship/archonic)
 "fJ" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
@@ -221,7 +232,7 @@
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg3"
 	},
-/area/ship/archonic)
+/area/ship/external)
 "gt" = (
 /obj/machinery/door/poddoor/shutters/indestructible{
 	dir = 4;
@@ -239,8 +250,11 @@
 	},
 /area/ship/storage/eva)
 "gE" = (
-/turf/open/floor/plasteel/rockvault/alien,
-/area/ship/archonic)
+/obj/item/shard,
+/turf/open/floor/plating/airless{
+	icon_state = "platingdmg2"
+	},
+/area/ship/external)
 "gR" = (
 /obj/machinery/light_switch{
 	pixel_y = 22
@@ -268,13 +282,9 @@
 /turf/open/indestructible/hierophant,
 /area/ship/bridge)
 "hr" = (
-/turf/open/floor/plating/airless,
+/obj/structure/lattice,
+/turf/template_noop,
 /area/ship/external)
-"hv" = (
-/obj/structure/window/plasma/reinforced/plastitanium,
-/obj/structure/grille/indestructable,
-/turf/open/floor/plating/airless,
-/area/ship/medical)
 "hC" = (
 /obj/structure/closet/secure_closet/personal{
 	req_access = null;
@@ -284,6 +294,7 @@
 /obj/item/clothing/suit/wizrobe/magusred/archonic,
 /obj/item/multitool/ai_detect,
 /obj/item/healthanalyzer/rad_laser,
+/obj/item/melee/spear/archous,
 /turf/open/floor/plasteel/dark,
 /area/ship/crew)
 "hR" = (
@@ -307,13 +318,15 @@
 /area/ship/bridge)
 "hU" = (
 /obj/machinery/meteor_ward,
-/turf/closed/gateway,
+/turf/closed/indestructible/syndicate,
 /area/ship/storage/eva)
 "ic" = (
-/obj/machinery/meteor_ward,
 /turf/closed/indestructible/alien,
-/area/ship/archonic)
+/area/ship/engineering)
 "iv" = (
+/obj/effect/turf_decal/corner/opaque/black/half{
+	dir = 1
+	},
 /obj/effect/turf_decal/corner/opaque/black/bordercorner{
 	dir = 8
 	},
@@ -326,7 +339,6 @@
 /obj/structure/table_frame/abductor,
 /obj/effect/decal/cleanable/glass/plasma,
 /obj/machinery/light/broken/directional/north,
-/obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/plasteel/tech,
 /area/ship/engineering)
 "jf" = (
@@ -373,8 +385,17 @@
 /turf/open/floor/plasteel/tech,
 /area/ship/engineering)
 "ny" = (
-/turf/closed/gateway,
+/turf/closed/indestructible/syndicate,
 /area/ship/hallway/central)
+"or" = (
+/obj/effect/turf_decal/corner/opaque/black/mono,
+/obj/structure/frame/machine,
+/obj/item/stack/ore/salvage/scrapmetal,
+/obj/item/stack/cable_coil/cut/red{
+	amount = 2
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/engineering)
 "oM" = (
 /obj/effect/turf_decal/corner/opaque/solgovblue/half,
 /obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer2,
@@ -390,9 +411,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/plasteel/dark,
 /area/ship/hallway/central)
-"oY" = (
-/turf/closed/wall/r_wall,
-/area/ship/storage/eva)
 "pn" = (
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -437,12 +455,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /turf/open/floor/plasteel/dark,
 /area/ship/hallway/central)
-"ru" = (
-/turf/closed/wall/mineral/plastitanium,
-/area/ship/medical)
-"sd" = (
-/turf/closed/wall/r_wall,
-/area/ship/archonic)
 "sE" = (
 /obj/structure/dresser,
 /obj/item/flashlight/lantern/lamp_of_silence{
@@ -452,8 +464,8 @@
 /turf/open/floor/plasteel/dark,
 /area/ship/crew)
 "sN" = (
-/turf/open/floor/plating/airless,
-/area/ship/archonic)
+/turf/template_noop,
+/area/space)
 "tg" = (
 /obj/effect/decal/cleanable/glass,
 /obj/machinery/light/broken/directional/east,
@@ -495,7 +507,7 @@
 	},
 /area/ship/archonic)
 "uE" = (
-/turf/closed/gateway,
+/turf/closed/indestructible/syndicate,
 /area/ship/archonic)
 "uF" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
@@ -536,15 +548,16 @@
 /turf/open/floor/plasteel/dark,
 /area/ship/storage/eva)
 "vL" = (
-/turf/open/floor/plating/airless,
-/area/ship/medical)
+/obj/machinery/meteor_ward,
+/turf/closed/indestructible/alien,
+/area/ship/engineering)
 "vW" = (
 /obj/structure/table_frame/abductor,
 /obj/effect/decal/cleanable/glass/plasma,
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg1"
 	},
-/area/ship/archonic)
+/area/ship/external)
 "wk" = (
 /turf/template_noop,
 /area/template_noop)
@@ -587,7 +600,7 @@
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg2"
 	},
-/area/ship/archonic)
+/area/ship/external)
 "yZ" = (
 /obj/structure/table/abductor,
 /turf/open/floor/mineral/plastitanium,
@@ -605,7 +618,7 @@
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg3"
 	},
-/area/ship/medical)
+/area/ship/external)
 "Aq" = (
 /obj/effect/turf_decal/corner/opaque/solgovblue/half{
 	dir = 4
@@ -642,7 +655,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/ship/bridge)
 "Bq" = (
-/turf/closed/gateway,
+/turf/closed/indestructible/syndicate,
 /area/ship/bridge)
 "BN" = (
 /obj/machinery/computer/helm,
@@ -666,15 +679,16 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ship/hallway/central)
-"CW" = (
-/turf/closed/wall/r_wall,
-/area/ship/engineering)
+"CG" = (
+/obj/structure/lattice,
+/turf/closed/indestructible/alien,
+/area/ship/external)
 "Db" = (
 /obj/effect/decal/cleanable/glass/plastitanium,
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg3"
 	},
-/area/ship/medical)
+/area/ship/external)
 "Df" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
@@ -729,9 +743,16 @@
 /turf/open/floor/plasteel/mono/dark,
 /area/ship/medical)
 "Fl" = (
-/obj/machinery/suit_storage_unit/inherit,
-/turf/open/floor/plasteel/dark,
-/area/ship/storage/eva)
+/obj/effect/turf_decal/corner/opaque/black/half{
+	dir = 4
+	},
+/obj/effect/turf_decal/corner/opaque/black/bordercorner{
+	dir = 1
+	},
+/obj/structure/extinguisher_cabinet/directional/east,
+/obj/item/stack/ore/salvage/scrapmetal,
+/turf/open/floor/plasteel/tech,
+/area/ship/engineering)
 "Ft" = (
 /obj/effect/turf_decal/corner/opaque/solgovblue/half{
 	dir = 4
@@ -796,7 +817,7 @@
 /turf/template_noop,
 /area/template_noop)
 "GL" = (
-/turf/closed/gateway,
+/turf/closed/indestructible/syndicate,
 /area/ship/crew)
 "Ho" = (
 /obj/effect/turf_decal/corner/opaque/black/bordercorner{
@@ -823,11 +844,12 @@
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg1"
 	},
-/area/ship/archonic)
+/area/ship/external)
 "Im" = (
 /turf/open/floor/plasteel/white,
 /area/ship/medical)
 "It" = (
+/obj/structure/girder/reinforced,
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg3"
 	},
@@ -849,8 +871,10 @@
 /turf/open/floor/plasteel/dark,
 /area/ship/hallway/central)
 "JI" = (
-/obj/structure/falsewall/reinforced,
-/turf/open/floor/plating/airless,
+/obj/structure/girder/reinforced,
+/turf/open/floor/plating/airless{
+	icon_state = "platingdmg3"
+	},
 /area/ship/engineering)
 "JZ" = (
 /obj/effect/turf_decal/corner/opaque/solgovblue/half{
@@ -872,7 +896,7 @@
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg1"
 	},
-/area/ship/medical)
+/area/ship/external)
 "Kt" = (
 /obj/machinery/button/door{
 	dir = 4;
@@ -890,7 +914,7 @@
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg2"
 	},
-/area/ship/medical)
+/area/ship/external)
 "KC" = (
 /obj/effect/turf_decal/corner/opaque/solgovblue/half{
 	dir = 8
@@ -941,7 +965,7 @@
 /turf/open/floor/plating/catwalk_floor,
 /area/ship/hallway/central)
 "Ly" = (
-/turf/closed/gateway,
+/turf/closed/indestructible/syndicate,
 /area/ship/storage/eva)
 "Mc" = (
 /obj/structure/cable{
@@ -989,7 +1013,7 @@
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg1"
 	},
-/area/ship/archonic)
+/area/ship/external)
 "Od" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
 /obj/structure/chair/comfy/shuttle{
@@ -1033,16 +1057,21 @@
 /turf/open/floor/plasteel/tech/grid/root,
 /area/ship/bridge)
 "PU" = (
-/turf/closed/wall/mineral/titanium,
-/area/ship/archonic)
-"PX" = (
-/turf/open/floor/plating/airless{
-	icon_state = "platingdmg2"
+/obj/structure/lattice,
+/obj/item/shard{
+	icon_state = "small"
 	},
-/area/ship/medical)
+/turf/template_noop,
+/area/ship/external)
+"PX" = (
+/obj/machinery/power/shuttle/engine/void{
+	dir = 2
+	},
+/turf/open/floor/plating/abductor2,
+/area/ship/engineering)
 "Qs" = (
 /obj/machinery/meteor_ward,
-/turf/closed/gateway,
+/turf/closed/indestructible/syndicate,
 /area/ship/crew)
 "QI" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
@@ -1057,6 +1086,10 @@
 /turf/open/floor/plasteel/dark,
 /area/ship/storage/eva)
 "QV" = (
+/obj/structure/cable/green{
+	icon_state = "1-2";
+	name = "changeling flesh"
+	},
 /turf/open/floor/plating/airless,
 /area/ship/engineering)
 "RF" = (
@@ -1064,7 +1097,6 @@
 	dir = 4
 	},
 /obj/machinery/power/ship_gravity/admin,
-/obj/item/stack/ore/salvage/scrapmetal,
 /turf/open/floor/plasteel/tech,
 /area/ship/engineering)
 "Sa" = (
@@ -1096,7 +1128,7 @@
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg3"
 	},
-/area/ship/medical)
+/area/ship/external)
 "SF" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/east,
@@ -1109,8 +1141,8 @@
 /turf/open/floor/plasteel/dark,
 /area/ship/crew)
 "Ti" = (
-/turf/closed/wall/r_wall,
-/area/ship/medical)
+/turf/open/floor/plasteel/rockvault/alien,
+/area/ship/engineering)
 "Um" = (
 /turf/open/floor/plasteel/dark,
 /area/ship/crew)
@@ -1153,7 +1185,7 @@
 /turf/open/floor/plating/airless{
 	icon_state = "platingdmg3"
 	},
-/area/ship/engineering)
+/area/ship/external)
 "WL" = (
 /obj/machinery/light/directional/south,
 /obj/structure/extinguisher_cabinet/directional/east,
@@ -1170,6 +1202,10 @@
 	dir = 8;
 	name = "EVA"
 	},
+/obj/structure/cable/green{
+	icon_state = "6-8";
+	name = "changeling flesh"
+	},
 /turf/open/floor/plasteel/mono/dark,
 /area/ship/engineering)
 "Xr" = (
@@ -1185,7 +1221,7 @@
 /turf/open/floor/plasteel/tech/grid/root,
 /area/ship/engineering)
 "Yo" = (
-/turf/closed/gateway,
+/turf/closed/indestructible/syndicate,
 /area/ship/engineering)
 "YA" = (
 /obj/effect/turf_decal/corner/opaque/solgovblue/three_quarters,
@@ -1221,8 +1257,11 @@
 /turf/open/floor/plasteel/mono/dark,
 /area/ship/archonic)
 "ZB" = (
-/turf/closed/wall/r_wall,
-/area/ship/crew)
+/obj/effect/decal/cleanable/glass,
+/turf/open/floor/plating/airless{
+	icon_state = "platingdmg3"
+	},
+/area/ship/external)
 "ZU" = (
 /obj/effect/decal/cleanable/glass/plasma,
 /obj/item/shard/plasma,
@@ -1249,12 +1288,12 @@ wk
 aP
 aP
 aP
-ru
+hr
 aP
 aP
-Ti
-ru
-ru
+wk
+wk
+wk
 wk
 wk
 wk
@@ -1275,21 +1314,21 @@ gt
 gt
 GL
 GL
-ZB
-Ti
+hr
+hr
 aP
 Es
 Db
-vL
+wk
 ey
 zW
-vL
-vL
-vL
 hr
-wk
-wk
-wk
+hr
+lw
+hr
+hr
+lw
+CG
 wk
 wk
 wk
@@ -1309,21 +1348,21 @@ Uo
 aK
 aP
 ej
-PX
+mp
 Kv
-It
-It
-vL
-vL
-vL
-vL
+lw
+lw
+wk
+wk
+wk
+wk
+wk
+wk
+wk
 hr
-wk
-wk
-wk
-wk
-wk
-wk
+hr
+lw
+hr
 "}
 (4,1,1) = {"
 wk
@@ -1342,14 +1381,14 @@ aP
 Gv
 jf
 Kl
-vL
-vL
-vL
-It
-It
-vL
-vL
-wk
+hr
+hr
+hr
+lw
+lw
+hr
+hr
+hr
 wk
 wk
 wk
@@ -1373,17 +1412,17 @@ aP
 Iw
 Im
 gU
-vL
+wk
 St
 eY
-vL
-vL
-vL
-It
 wk
-wk
-wk
-wk
+hr
+hr
+lw
+hr
+hr
+hr
+hr
 wk
 wk
 "}
@@ -1404,13 +1443,13 @@ aP
 aG
 aP
 aP
-hv
+wk
 aP
 aP
-vL
-vL
-Ti
-bp
+hr
+hr
+It
+hr
 wk
 wk
 wk
@@ -1439,8 +1478,8 @@ tW
 ZU
 uE
 uE
-uE
-uE
+lw
+lw
 wk
 wk
 wk
@@ -1467,13 +1506,13 @@ Sa
 uE
 dB
 DH
-sN
+hr
 vs
 tW
-sN
-PU
-eQ
-ic
+uE
+uE
+hr
+wk
 wk
 wk
 wk
@@ -1498,15 +1537,15 @@ oM
 YX
 Mv
 gq
-sN
-sN
+wk
+wk
 vW
 HV
-eQ
+uE
 fE
-gE
-wk
-wk
+hr
+hr
+hr
 wk
 wk
 wk
@@ -1529,15 +1568,15 @@ YA
 uE
 pn
 Lb
-sN
-sN
+hr
+hr
 Nd
 yV
 eQ
-eQ
-eQ
-wk
-wk
+lw
+lw
+sN
+sN
 wk
 wk
 wk
@@ -1559,17 +1598,17 @@ Yo
 Xk
 Yo
 uE
-sN
-sN
-sd
-uE
-uE
-uE
 wk
 wk
 wk
 wk
 wk
+wk
+wk
+hr
+hr
+hr
+hr
 wk
 wk
 "}
@@ -1612,14 +1651,14 @@ Bq
 fD
 fD
 Ly
-Fl
+zv
 cQ
 Ss
 OV
 qm
 Yo
 Yo
-QV
+hr
 Wb
 mv
 Bf
@@ -1628,7 +1667,7 @@ Yo
 Yo
 hr
 hr
-wk
+hr
 wk
 wk
 wk
@@ -1643,23 +1682,23 @@ Ee
 Ee
 Ee
 Ly
-Fl
+zv
 qm
 qm
 qm
 ab
 Yo
-QV
+hr
 Yo
 fJ
 Yd
 YI
 Ho
 UY
-mp
-lw
-hr
-wk
+gE
+bp
+Yo
+Yo
 wk
 wk
 wk
@@ -1680,17 +1719,17 @@ Df
 wF
 gB
 JI
-QV
+hr
 Yo
 vh
 MK
 qt
 xh
 Xr
-lw
+ZB
 hr
-hr
-wk
+ic
+vL
 wk
 wk
 wk
@@ -1709,9 +1748,9 @@ Ly
 Gx
 Ly
 Ly
-oY
-CW
-QV
+hr
+hr
+hr
 Yo
 iv
 RF
@@ -1719,8 +1758,8 @@ cS
 tg
 Mz
 hr
-hr
-hr
+ic
+PX
 wk
 wk
 wk
@@ -1741,17 +1780,17 @@ wk
 wk
 wk
 wk
-CW
+hr
 Yo
-Yo
-Yo
+or
+Fl
 Yo
 Yo
 Yo
 OD
-hr
-hr
-hr
+ic
+PX
+Ti
 wk
 wk
 wk
@@ -1774,15 +1813,15 @@ wk
 wk
 wk
 wk
+Yo
+Yo
 wk
-wk
-wk
-wk
-wk
-wk
-wk
-wk
-wk
+hr
+hr
+PU
+ic
+ic
+ic
 wk
 wk
 wk
@@ -1808,12 +1847,12 @@ wk
 wk
 wk
 wk
+hr
 wk
 wk
-wk
-wk
-wk
-wk
+Yo
+Yo
+Yo
 wk
 wk
 wk

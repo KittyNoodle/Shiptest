@@ -8,14 +8,6 @@ GLOBAL_VAR_INIT(cythrx_tendrils, 20) //good lord do not touch this if you don't 
 GLOBAL_VAR_INIT(cythrx_delay, 0) //in deciseconds
 GLOBAL_VAR_INIT(cythrx_spread, TRUE)
 
-
-/datum/map_template/ruin/space/refuge
-	id = "refuge"
-	suffix = "refuge.dmm"
-	name = "Refuge"
-	description = "Among civilian vessels the most common cause of tragedy is lack of food. \
-	This ship was outfitted with a multitude of food-generating features, then summarily ran into an asteroid shortly after takeoff."
-
 /turf/open/indestructible/cythrx
 	name = "creeping purple haze"
 	desc = "A creeping dark-purple thick fog, or is it smoke? No its something else entirely... Whatever it is <span class='cultitalic'>you really can't seem to make it out, prehaps you should get closer.</span> "

@@ -114,6 +114,8 @@
 				var/mob/living/carbon/human/H = L
 				if(istype(H.ears, /obj/item/clothing/ears/earmuffs))
 					continue
+			if(HAS_TRAIT(L, TRAIT_ANOMALY_IMMUNE_AIMTIACRYSTAL)) //Archonic edit
+				L.visible_message("<span class='warning'>A pink and gold vein-like structure under [L]'s skin lights up briefly.</span>") //Archonic Edit
 			listeners += L
 
 	if(!listeners.len)

@@ -98,7 +98,7 @@
 	addtimer(CALLBACK(src, PROC_REF(prime)), isnull(delayoverride)? det_time : delayoverride)
 
 /obj/item/grenade/proc/prime()
-	if(GLOB.palefire)
+	if(GLOB.palefire) // Archonic Edit
 		visible_message(span_warning("[src] vanishes in a flash of light."))
 		qdel(src)
 

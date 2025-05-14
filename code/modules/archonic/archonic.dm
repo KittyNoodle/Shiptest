@@ -1047,12 +1047,12 @@
 	desc = "Grants Archonic Entry."
 	activated = FALSE
 
-/obj/item/implant/spell/implant(mob/living/target, mob/user, silent = FALSE, force = FALSE)
+/obj/item/implant/archonic/implant(mob/living/target, mob/user, silent = FALSE, force = FALSE)
 	. = ..()
 	if (.)
 		ADD_TRAIT(target, TRAIT_ABDUCTOR_TRAINING, "implant")
 
-/obj/item/implant/spell/removed(mob/target, silent = FALSE, special = 0)
+/obj/item/implant/archonic/removed(mob/target, silent = FALSE, special = 0)
 	. = ..()
 	if (.)
 		REMOVE_TRAIT(target, TRAIT_ABDUCTOR_TRAINING, "implant")

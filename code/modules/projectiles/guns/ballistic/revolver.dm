@@ -422,14 +422,14 @@
 	var/fan = FALSE
 	if(HAS_TRAIT(user, TRAIT_GUNSLINGER) && !semi_auto && !wielded && loc == user && !safety && !user.get_inactive_held_item())
 		fan = TRUE
-		fire_delay = 0 SECONDS
+		fire_delay = 0.1 SECONDS
 	. = ..()
 	fire_delay = src::fire_delay
 	if(fan)
 		rack()
 		to_chat(user, span_notice("You fan the [bolt_wording] of \the [src]!"))
 		balloon_alert_to_viewers("fans revolver!")
-		fire_delay = 0 SECONDS
+		fire_delay = 0.1 SECONDS
 
 /obj/item/gun/ballistic/revolver/shoot_live_shot(mob/living/user, pointblank, atom/pbtarget, message)
 	. = ..()

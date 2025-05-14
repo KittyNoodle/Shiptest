@@ -150,6 +150,9 @@
 	else if(issilicon(M))
 		var/mob/living/silicon/robot/R = M
 		log_combat(user, R, "flashed", src)
+		if(R.flash_immunity == TRUE) //Archonic Edit
+			user.visible_message("<span class='warning'>[user] fails to overload [R]'s sensors with the flash!</span>", "<span class='danger'>You fail to overload [R]'s sensors with the flash!</span>")
+			return FALSE
 		update_icon(ALL, TRUE)
 		R.Paralyze(rand(80,120))
 		var/diff = 5 * CONFUSION_STACK_MAX_MULTIPLIER - M.confused

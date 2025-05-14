@@ -222,7 +222,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_NOMOBSWAP "no-mob-swap"
 #define TRAIT_XRAY_VISION "xray_vision"
 #define TRAIT_THERMAL_VISION "thermal_vision"
-#define TRAIT_CYTHRXIMMUNE "cythrx_immunity"
+#define TRAIT_CYTHRXIMMUNE "cythrx_immunity" // Archonic Edit
+#define TRAIT_ANOMALY_IMMUNE_AIMTIACRYSTAL "anomaly_immunity_aimtiacrystal" // Archonic Edit
 /// Like antimagic, but doesn't block the user from casting
 #define TRAIT_ANTIMAGIC_NO_SELFBLOCK "anti_magic_no_selfblock"
 /// We have some form of forced gravity acting on us

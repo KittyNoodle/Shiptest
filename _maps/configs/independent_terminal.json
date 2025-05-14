@@ -17,7 +17,7 @@
 	"starting_funds": 0,
 	"job_slots": {
 		"Archonicist": {
-			"outfit": "/datum/outfit/archonic/terminal",
+			"outfit": "/datum/outfit/sprout_rebel",
 			"slots": 1
 		}
 	},

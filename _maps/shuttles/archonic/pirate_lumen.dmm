@@ -216,23 +216,15 @@
 /obj/effect/turf_decal/spline/fancy/opaque/black{
 	dir = 9
 	},
-/obj/structure/closet/crate{
-	name = "looted circuits"
-	},
 /obj/effect/turf_decal/box,
-/obj/item/circuitboard/machine/cell_charger,
-/obj/item/circuitboard/machine/cell_charger,
-/obj/item/circuitboard/machine/microwave,
-/obj/item/stack/circuit_stack/full,
-/obj/item/stack/circuit_stack/full,
-/obj/item/stack/circuit_stack/full,
-/obj/item/circuitboard/machine/grounding_rod,
-/obj/item/circuitboard/machine/grounding_rod,
-/obj/item/circuitboard/machine/grounding_rod,
-/obj/item/circuitboard/machine/grounding_rod,
-/obj/item/stack/sheet/mineral/silver,
-/obj/item/stack/sheet/mineral/silver,
-/obj/item/circuitboard/computer/operating,
+/obj/structure/table/reinforced{
+	color = "#666666"
+	},
+/obj/item/gun/energy/e_gun/nuclear,
+/obj/item/gun/energy/tesla_cannon{
+	pixel_y = 6;
+	pixel_x = 10
+	},
 /turf/open/floor/plasteel/dark,
 /area/ship/cargo)
 "db" = (
@@ -345,9 +337,11 @@
 /turf/closed/wall/mineral/plastitanium,
 /area/ship/bridge)
 "ev" = (
-/obj/machinery/power/rtg,
 /obj/structure/cable{
 	icon_state = "0-6"
+	},
+/obj/machinery/power/rtg/advanced{
+	power_gen = 12500
 	},
 /turf/open/floor/circuit/red,
 /area/ship/maintenance/central)
@@ -955,12 +949,10 @@
 /obj/effect/turf_decal/spline/fancy/opaque/black{
 	dir = 1
 	},
-/obj/structure/closet/crate{
-	name = "extraction kit"
-	},
 /obj/effect/turf_decal/box,
-/obj/item/pickaxe/drill,
-/obj/item/pickaxe/drill,
+/obj/structure/table/reinforced{
+	color = "#666666"
+	},
 /turf/open/floor/plasteel/dark,
 /area/ship/cargo)
 "pi" = (
@@ -1471,7 +1463,6 @@
 /obj/item/clothing/glasses/meson,
 /obj/item/megaphone,
 /obj/item/pinpointer/crew,
-/obj/item/clothing/mask/gas/atmos,
 /obj/item/clothing/mask/whistle,
 /obj/item/radio/intercom/directional/south,
 /turf/open/floor/plasteel/telecomms_floor,
@@ -2370,10 +2361,14 @@
 /obj/effect/turf_decal/spline/fancy/opaque/black{
 	dir = 5
 	},
-/obj/structure/closet/crate,
 /obj/effect/turf_decal/box,
-/obj/item/pizzabox,
-/obj/item/pizzabox,
+/obj/structure/table/reinforced{
+	color = "#666666"
+	},
+/obj/item/gun/energy/wormhole_projector{
+	pixel_y = 7;
+	pixel_x = -2
+	},
 /turf/open/floor/plasteel/dark,
 /area/ship/cargo)
 "KF" = (
@@ -2439,9 +2434,11 @@
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/crew)
 "LR" = (
-/obj/machinery/power/rtg,
 /obj/structure/cable{
 	icon_state = "0-5"
+	},
+/obj/machinery/power/rtg/advanced{
+	power_gen = 12500
 	},
 /turf/open/floor/circuit/red,
 /area/ship/maintenance/central)
@@ -2574,6 +2571,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
+/obj/machinery/droneDispenser/lumen,
 /turf/open/floor/plasteel/dark,
 /area/ship/engineering)
 "NO" = (
@@ -2747,11 +2745,13 @@
 /turf/open/floor/plating,
 /area/ship/maintenance/central)
 "Rp" = (
-/obj/machinery/power/rtg,
 /obj/structure/cable{
 	icon_state = "0-10"
 	},
 /obj/machinery/light/dim/directional/east,
+/obj/machinery/power/rtg/advanced{
+	power_gen = 12500
+	},
 /turf/open/floor/circuit/red,
 /area/ship/maintenance/central)
 "Rr" = (
@@ -2894,11 +2894,13 @@
 /turf/open/floor/plasteel/dark,
 /area/ship/crew)
 "Uv" = (
-/obj/machinery/power/rtg,
 /obj/structure/cable{
 	icon_state = "0-9"
 	},
 /obj/machinery/light/dim/directional/east,
+/obj/machinery/power/rtg/advanced{
+	power_gen = 12500
+	},
 /turf/open/floor/circuit/red,
 /area/ship/maintenance/central)
 "UY" = (

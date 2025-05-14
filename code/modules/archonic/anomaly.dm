@@ -72,7 +72,7 @@
 					return
 				to_chat(L, "<span class='narsiesmall'><span class='anomaly'>[message]</span></span>")
 				to_chat(L, "<span class='userdanger'><span class='anomaly'>Your body moves without your mind, your mind moves without your soul.</span></span>")
-				to_chat(L, "<span class='warning'>The strongest of wills could muster not a second. You are not the soverign of your body.</span>")
+				to_chat(L, "<span class='warning'>The strongest of wills could muster not a second. You are not the sovereign of your body.</span>")
 			if(2)
 				if(ishuman(L))
 					var/mob/living/carbon/human/H = L
@@ -103,14 +103,34 @@
 				to_chat(L, "<span class='bolddanger'><span class='anomaly'>Your body bends to the words.</span></span>")
 				to_chat(L, "<span class='warning'>It's like trying to push two neodymium magnets together from the wrong end, while someone is stabbing you in the leg, in a tornado. Every thought against the will is agony. <span class='bolditalic'>You just need to get them to touch... just... for a little bit...</span></span>")
 			if(4)
+				if(ishuman(L))
+					var/mob/living/carbon/human/H = L
+					if(istype(H.ears, /obj/item/clothing/ears/earmuffs))
+						to_chat(L, "<span class='anomaly'><span class='italics'>You feel your attention drawn to [user]'s lips as they move.</span></span></span>")
+						return
+				if(!(L.can_hear()))
+					to_chat(L, "<span class='anomaly'><span class='italics'>You feel your attention drawn to [user]'s lips as they move.</span></span></span>")
+					return
 				to_chat(L, "<span class='command_headset'><span class='anomaly'>[message]</span></span>")
 				to_chat(L, "<span class='bolddanger'><span class='anomaly'>Your body shakes as it moves to follow.</span></span>")
 				to_chat(L, "<span class='warning'>Pushing through is like running a marathon through a hurricane force windstorm, every act against the will aches as your muscles spasm against you. <span class='bolditalic'>Just... keep... pushing...</span></span>")
 			if(5)
+				if(ishuman(L))
+					var/mob/living/carbon/human/H = L
+					if(istype(H.ears, /obj/item/clothing/ears/earmuffs))
+						return
+				if(!(L.can_hear()))
+					return
 				to_chat(L, "<span class='anomaly'>[message]</span></span>")
 				to_chat(L, "<span class='smallnotice'><span class='anomaly'>Your body shivers as it yearns to follow.</span></span>")
 				to_chat(L, "<span class='smallnotice'><span class='warning'>Just focus on not doing it, don't lose focus.</span></span>")
 			if(6)
+				if(ishuman(L))
+					var/mob/living/carbon/human/H = L
+					if(istype(H.ears, /obj/item/clothing/ears/earmuffs))
+						return
+				if(!(L.can_hear()))
+					return
 				message = lowertext(message)
 				to_chat(L, "<span class='small'><span class='anomaly'>...<span class='italics'>[message]</span>...</span></span>")
 

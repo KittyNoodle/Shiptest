@@ -84,9 +84,9 @@
 			. += "<span class='alertwarning'>Its radiation alarms shriek rhythmically.</span>"
 		if(HEAT_VERYHOT+0.001 to HEAT_MELTDOWN)
 			if(damage > DAMAGE_RADLEAK)
-				. += "<span class='userdanger'>The autoregulator light has shattered and the surface of the reactor is cracked and releasing bursts of burning hot steam.</span>"
+				. += "<span class='userdanger'>The autoregulator light has shattered. The surface of the reactor has cracked and releases bursts of burning hot steam.</span>"
 			else if(damage > 70)
-				. += "<span class='bolddanger'>The autoregulator light has shattered and the pipes rattle and crack, letting out occasional bursts of searing hot steam.</span>"
+				. += "<span class='bolddanger'>The autoregulator light has shattered. The pipes rattle and crack, letting out occasional bursts of searing hot steam.</span>"
 			else if(damage > 50)
 				. += "<span class='bolddanger'>The autoregulator light flickers as the pipes rattle and hum with searing hot steam.</span>"
 			else
@@ -170,7 +170,6 @@
 		if("toggle_power")
 			TogglePower()
 			. = TRUE
-
 
 /obj/machinery/power/reactor/process()
 	if(active)

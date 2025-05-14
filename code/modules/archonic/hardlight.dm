@@ -175,6 +175,15 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	hitsound_non_living = 'sound/weapons/parry.ogg'
 
+/obj/projectile/bullet/hardlight_spear/on_hit(target)
+	if(ismob(target))
+		var/mob/M = target
+		if(HAS_TRAIT(M, TRAIT_ANOMALY_IMMUNE_AIMTIACRYSTAL))
+			M.visible_message("<span class='warning'>[src] crashes into [target]'s body, dissipating into a pink and gold veinlike structure under their skin!</span>")
+			qdel(src)
+			return BULLET_ACT_BLOCK
+	. = ..()
+
 /obj/item/shrapnel/spear
 	name = "hardlight spear"
 	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'

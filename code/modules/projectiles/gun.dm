@@ -790,7 +790,7 @@
 	if(chambered && chambered.BB && can_trigger_gun(user))
 		chambered.BB.damage *= 3
 
-		if(GLOB.palefire)
+		if(GLOB.palefire) //Archonic Edit
 			return
 
 		//Check is here for safeties and such, brain will be removed after
