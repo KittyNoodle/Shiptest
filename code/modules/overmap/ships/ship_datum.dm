@@ -32,7 +32,7 @@
 	if(docked_to)
 		RegisterSignal(docked_to, COMSIG_OVERMAP_MOVED, PROC_REF(on_docked_to_moved))
 
-	switch(space_plane)
+	switch(space_plane) //Archonic Edit
 		if(SPATIAL_PLANE_SPACE)
 			token.color = "#FFFFFF"
 		if(SPATIAL_PLANE_WIRE)
@@ -186,7 +186,7 @@
 
 	adjust_speed(added_velocity["x"], added_velocity["y"])
 
-	switch(space_plane)
+	switch(space_plane) // Archonic Edit
 		if(SPATIAL_PLANE_SPACE)
 			token.color = "#FFFFFF"
 		if(SPATIAL_PLANE_WIRE)

@@ -82,7 +82,7 @@
 // The filepath used to store the admin-controlled next round outpost map override.
 #define OUTPOST_OVERRIDE_FILEPATH "data/outpost_override.json"
 
-// Spatial Planes
+// Spatial Planes //Archonic Edit
 #define SPATIAL_PLANE_SPACE "space"
 #define SPATIAL_PLANE_WIRE "wire"
 #define SPATIAL_PLANE_OVERA "overic"

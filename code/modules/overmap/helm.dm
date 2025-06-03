@@ -182,14 +182,14 @@
 
 		//Even if its full or incompatible with us, it should still show up.
 		if(object in SSovermap.overmap_container[current_ship.x][current_ship.y])
-			if(object.space_plane == current_ship.space_plane)
+			if(object.space_plane == current_ship.space_plane) //Archonic Edit
 				available_dock = TRUE
 
 		//Detect any ships in this location we can dock to
 		if(istype(object))
 			for(var/obj/docking_port/stationary/docking_port as anything in object.shuttle_port.docking_points)
 				if(current_ship.shuttle_port.check_dock(docking_port, silent = TRUE))
-					if(object.space_plane == current_ship.space_plane)
+					if(object.space_plane == current_ship.space_plane) //Archonic Edit
 						available_dock = TRUE
 						break
 

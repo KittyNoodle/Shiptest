@@ -210,11 +210,6 @@
 /area/ruin/jungle/ventilation_shaft)
 "lU" = (
 /obj/structure/table,
-/obj/item/gun/energy/minigun{
-	name = "partially disassembled laser gatling gun";
-	pixel_y = -5;
-	pixel_x = -5
-	},
 /obj/item/storage/toolbox/syndicate{
 	pixel_y = 10;
 	pixel_x = 5

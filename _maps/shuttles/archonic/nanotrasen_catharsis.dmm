@@ -423,13 +423,10 @@
 	pixel_y = 10;
 	pixel_x = -5
 	},
-/obj/item/kitchen/knife/combat/survival{
-	pixel_y = 6;
-	pixel_x = 5
-	},
 /obj/effect/turf_decal/techfloor{
 	dir = 4
 	},
+/obj/item/melee/knife/survival,
 /turf/open/floor/plasteel/mono/dark,
 /area/ship/engineering)
 "er" = (
@@ -448,12 +445,6 @@
 /obj/effect/turf_decal/corner/opaque/ntblue,
 /turf/open/floor/plasteel/white,
 /area/ship/hallway/port)
-"eE" = (
-/obj/machinery/computer/cargo/express{
-	dir = 1
-	},
-/turf/open/floor/plasteel/tech,
-/area/ship/cargo)
 "eN" = (
 /turf/open/floor/plasteel/stairs/wood{
 	dir = 8
@@ -584,7 +575,7 @@
 	dir = 4
 	},
 /obj/structure/table/reinforced,
-/obj/item/reagent_containers/food/condiment/oliveoil,
+/obj/item/melee/knife,
 /turf/open/floor/plasteel,
 /area/ship/crew/canteen/kitchen)
 "gz" = (
@@ -1398,8 +1389,8 @@
 /turf/open/floor/plating,
 /area/ship/engineering)
 "ox" = (
-/obj/structure/chair/sofa/corner,
 /obj/machinery/light/dim/directional/east,
+/obj/structure/chair/sofa/brown/corner,
 /turf/open/floor/plasteel/dark,
 /area/ship/hallway/central)
 "oz" = (
@@ -1743,12 +1734,8 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced,
-/obj/item/reagent_containers/food/condiment/rice,
 /obj/item/kitchen/rollingpin,
-/obj/item/kitchen/knife,
 /obj/item/storage/box/drinkingglasses,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/sugar,
 /turf/open/floor/plasteel,
 /area/ship/crew/canteen/kitchen)
 "sU" = (
@@ -2775,7 +2762,6 @@
 	},
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/food/drinks/shaker,
-/obj/item/reagent_containers/food/condiment/enzyme,
 /obj/item/reagent_containers/glass/rag,
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/plasteel,
@@ -2833,10 +2819,6 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/ship/hallway/port)
-"EP" = (
-/obj/machinery/vending/snack/random,
-/turf/open/floor/plasteel/dark,
-/area/ship/hallway/central)
 "Ff" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3158,12 +3140,10 @@
 /turf/open/floor/plasteel/tech,
 /area/ship/engineering)
 "IM" = (
-/obj/structure/chair/sofa{
-	dir = 8
-	},
 /obj/item/toy/plush/blahaj{
 	layer = 3.1
 	},
+/obj/structure/chair/sofa/brown/directional/west,
 /turf/open/floor/plasteel/dark,
 /area/ship/hallway/central)
 "IQ" = (
@@ -3195,10 +3175,17 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/item/reagent_containers/food/condiment/milk,
-/obj/item/reagent_containers/food/condiment/soymilk,
-/obj/item/reagent_containers/food/condiment/soymilk,
 /obj/item/storage/fancy/egg_box,
+/obj/item/reagent_containers/condiment/flour,
+/obj/item/reagent_containers/condiment/enzyme,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/item/reagent_containers/condiment/soymilk,
+/obj/item/reagent_containers/condiment/soymilk,
+/obj/item/reagent_containers/condiment/rice,
+/obj/item/reagent_containers/condiment/rice,
+/obj/item/reagent_containers/condiment/oliveoil,
+/obj/item/reagent_containers/condiment/oliveoil,
 /turf/open/floor/plasteel,
 /area/ship/crew/canteen/kitchen)
 "Js" = (
@@ -3490,6 +3477,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
+/obj/item/melee/knife/survival,
 /turf/open/floor/wood,
 /area/ship/crew/dorm)
 "Mx" = (
@@ -3885,9 +3873,7 @@
 /turf/open/floor/plasteel/white,
 /area/ship/hallway/port)
 "RM" = (
-/obj/structure/chair/sofa/left{
-	dir = 8
-	},
+/obj/structure/chair/sofa/brown/left/directional/west,
 /turf/open/floor/plasteel/dark,
 /area/ship/hallway/central)
 "RS" = (
@@ -4271,7 +4257,6 @@
 /turf/open/floor/plasteel/white,
 /area/ship/hallway/starboard)
 "Wv" = (
-/obj/structure/chair/sofa/right,
 /obj/item/toy/plush/goatplushie{
 	layer = 3.1
 	},
@@ -4279,6 +4264,7 @@
 	pixel_x = -7;
 	pixel_y = 21
 	},
+/obj/structure/chair/sofa/brown/right,
 /turf/open/floor/plasteel/dark,
 /area/ship/hallway/central)
 "WF" = (
@@ -5552,7 +5538,7 @@ Mf
 Mf
 Mf
 sJ
-EP
+bu
 ZL
 Nu
 MY
@@ -5676,7 +5662,7 @@ XT
 TL
 pD
 pD
-eE
+pD
 XT
 XT
 zW

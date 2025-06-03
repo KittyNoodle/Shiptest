@@ -41,7 +41,7 @@
 	/// The current docking ticket of this object, if any
 	var/datum/docking_ticket/current_docking_ticket
 
-	/// The Spatial Plane it occupies
+	/// The Spatial Plane it occupies //Archonic Edit
 	var/space_plane = SPATIAL_PLANE_SPACE
 
 /datum/overmap/New(position, ...)

@@ -27,6 +27,7 @@
 	var/power_gen = 0
 	var/melted = FALSE
 	var/decay_coeff = 1
+	var/power_coeff = 1
 
 	var/heat = 0 //this is all in precent because fuck you and fuck everyone
 	var/damage = 0
@@ -235,11 +236,11 @@
 			if(1 to HEAT_COLDSTART)
 				power_gen = 0
 			if(HEAT_COLDSTART+0.001 to HEAT_STARTING)
-				power_gen = 20000
+				power_gen = 20000 * power_coeff
 			if(HEAT_STARTING+0.001 to HEAT_NOMINAL)
-				power_gen = 120000
+				power_gen = 120000 * power_coeff
 			if(HEAT_NOMINAL+0.001 to 200)
-				power_gen = 300000
+				power_gen = 300000 * power_coeff
 	switch(heat)
 		if(0)
 			//nothing
@@ -300,6 +301,12 @@
 				. += "[base_icon_state]_damaged_4"
 	else
 		. += "[base_icon_state]_damaged_melt"
+
+/obj/machinery/power/reactor/adv
+	name = "Advanced S.R.F.P.G. Reactor"
+	desc = "A Self Regulating Fission Pile Generator, a reactor designed for the Nanotrasen Frontier Exploration Program for the purposes of being both cheap to produce, and requiring no additional fueling, while not having the risk of the supermatter. This one has been refurbished with quadratic capacitor systems, alongside an internal overhaul greatly extending the lifespan and reliablity of the reactor using next-generation materials."
+	decay_coeff = 0
+	power_coeff = 3
 
 /obj/item/stack/reactorpart
 	name = "reactor replacement parts"

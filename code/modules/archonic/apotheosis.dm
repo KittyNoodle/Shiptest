@@ -24,6 +24,77 @@
 	pic = mutable_appearance(black_texture)
 	return TRUE
 
+/datum/outfit/apotheotic
+	name = "Apotheotic"
+	uniform = /obj/item/clothing/under/syndicate/skirt
+	suit = /obj/item/clothing/suit/wizrobe/magusred/apotheotic
+	shoes = /obj/item/clothing/shoes/jackboots
+	gloves = /obj/item/clothing/gloves/combat
+	belt = /obj/item/apoth_deleter
+	implants = list(/obj/item/implant/weapons_auth, /obj/item/implant/radio, /obj/item/implant/archonic_storage)
+
+/obj/item/clothing/suit/wizrobe/magusred/apotheotic
+	name = "\improper nothingness"
+	desc = "Drapes made through rituals unknown to the world, encoded in runes made by the thing that spurred the anomaly to glow. It is sheer         ."
+	gas_transfer_coefficient = 0
+	permeability_coefficient = 0
+	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT
+	cold_protection = HEAD|CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	min_cold_protection_temperature = HELMET_MIN_TEMP_PROTECT
+	heat_protection = HEAD|CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
+	body_parts_covered = HEAD|CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	icon_state = "apotheotic_armor"
+	item_state = "apotheotic_armor"
+	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
+	mob_overlay_icon = 'code/modules/archonic/icons/worn/armor.dmi'
+	armor = list("melee" = 80, "bullet" = 90, "laser" = 90, "energy" = 100, "bomb" = 90, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
+
+/obj/item/clothing/suit/wizrobe/magusred/archonic/equipped(mob/living/carbon/human/user, slot)
+	. = ..()
+	if(slot == ITEM_SLOT_OCLOTHING)
+		ADD_TRAIT(user, TRAIT_NOBREATH, "suit_[REF(src)]")
+		ADD_TRAIT(user, TRAIT_BOMBIMMUNE, "suit_[REF(src)]")
+		ADD_TRAIT(user, TRAIT_RESISTLOWPRESSURE, "suit_[REF(src)]")
+		ADD_TRAIT(user, TRAIT_RESISTCOLD, "suit_[REF(src)]")
+		ADD_TRAIT(user, TRAIT_RESISTHIGHPRESSURE, "suit_[REF(src)]")
+		ADD_TRAIT(user, TRAIT_RESISTHEAT, "suit_[REF(src)]")
+		ADD_TRAIT(user, TRAIT_NOFIRE, "suit_[REF(src)]")
+		ADD_TRAIT(user, TRAIT_SLEEPIMMUNE, "suit_[REF(src)]")
+		ADD_TRAIT(user, TRAIT_IGNOREDAMAGESLOWDOWN, "suit_[REF(src)]")
+		ADD_TRAIT(user, TRAIT_VIRUSIMMUNE, "suit_[REF(src)]")
+		ADD_TRAIT(user, TRAIT_BOMBIMMUNE, "suit_[REF(src)]")
+		ADD_TRAIT(user, TRAIT_STABLEHEART, "suit_[REF(src)]")
+		ADD_TRAIT(user, TRAIT_STABLELIVER, "suit_[REF(src)]")
+		ADD_TRAIT(user, TRAIT_NODEATH, "suit_[REF(src)]")
+		ADD_TRAIT(user, TRAIT_NOSOFTCRIT, "suit_[REF(src)]")
+		ADD_TRAIT(user, TRAIT_NOHARDCRIT, "suit_[REF(src)]")
+		ADD_TRAIT(user, TRAIT_NOCRITDAMAGE, "suit_[REF(src)]")
+		user.failed_last_breath = FALSE
+		user.clear_alert("not_enough_oxy")
+		user.apply_status_effect(/datum/status_effect/rebreathing)
+
+/obj/item/clothing/suit/wizrobe/magusred/archonic/dropped(mob/living/carbon/human/user)
+	..()
+	REMOVE_TRAIT(user, TRAIT_NOBREATH, "suit_[REF(src)]")
+	REMOVE_TRAIT(user, TRAIT_BOMBIMMUNE, "suit_[REF(src)]")
+	REMOVE_TRAIT(user, TRAIT_RESISTLOWPRESSURE, "suit_[REF(src)]")
+	REMOVE_TRAIT(user, TRAIT_RESISTCOLD, "suit_[REF(src)]")
+	REMOVE_TRAIT(user, TRAIT_RESISTHIGHPRESSURE, "suit_[REF(src)]")
+	REMOVE_TRAIT(user, TRAIT_RESISTHEAT, "suit_[REF(src)]")
+	REMOVE_TRAIT(user, TRAIT_NOFIRE, "suit_[REF(src)]")
+	REMOVE_TRAIT(user, TRAIT_SLEEPIMMUNE, "suit_[REF(src)]")
+	REMOVE_TRAIT(user, TRAIT_IGNOREDAMAGESLOWDOWN, "suit_[REF(src)]")
+	REMOVE_TRAIT(user, TRAIT_VIRUSIMMUNE, "suit_[REF(src)]")
+	REMOVE_TRAIT(user, TRAIT_BOMBIMMUNE, "suit_[REF(src)]")
+	REMOVE_TRAIT(user, TRAIT_STABLEHEART, "suit_[REF(src)]")
+	REMOVE_TRAIT(user, TRAIT_STABLELIVER, "suit_[REF(src)]")
+	REMOVE_TRAIT(user, TRAIT_NODEATH, "suit_[REF(src)]")
+	REMOVE_TRAIT(user, TRAIT_NOSOFTCRIT, "suit_[REF(src)]")
+	REMOVE_TRAIT(user, TRAIT_NOHARDCRIT, "suit_[REF(src)]")
+	REMOVE_TRAIT(user, TRAIT_NOCRITDAMAGE, "suit_[REF(src)]")
+	user.remove_status_effect(/datum/status_effect/rebreathing)
+
 /obj/item/apoth_deleter
 	desc = "A strange baton-like object with a hole in reality jutting out of it. You really should avoid touching it."
 	name = "\improper P-PDS-093 'Banhammer'"
@@ -91,6 +162,10 @@
 							"<span class='adminhelp'>You delete [O] with the [src]!</span>")
 	O.apoth_delete()
 
+/obj/item/apoth_deleter/v2
+	desc = "A strange baton-like object with a hole in reality jutting out of it. You really should avoid touching it."
+	name = "\improper P-PAS-583 'Termina Nil'"
+
 /area/ruin/space/has_grav/singularitylab/command
 	name = "Command Center"
 	icon_state = "blue"
@@ -121,3 +196,16 @@
 				M.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u>[message]</u></span>")
 		message_admins("[key_name_admin(usr)] mass screen messaged \"[message]\"")
 		log_admin("[key_name_admin(usr)] mass screen messaged \"[message]\"")
+
+/datum/overmap/outpost/nanotrasen_asteroid
+	token_icon_state = "station_asteroid_0"
+	main_template = /datum/map_template/outpost/nt_asteroid
+	elevator_template = /datum/map_template/outpost/elevator_test
+	// Using a second list of hangar templates.
+	hangar_templates = list(
+		/datum/map_template/outpost/hangar/nt_asteroid_20x20,
+		/datum/map_template/outpost/hangar/nt_asteroid_40x20,
+		/datum/map_template/outpost/hangar/nt_asteroid_40x40,
+		/datum/map_template/outpost/hangar/nt_asteroid_56x20,
+		/datum/map_template/outpost/hangar/nt_asteroid_56x40
+	)

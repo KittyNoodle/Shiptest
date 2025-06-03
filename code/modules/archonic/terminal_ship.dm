@@ -595,7 +595,7 @@
 /datum/outfit/sprout_rebel
 	name = "Sprout Rebel"
 	uniform = /obj/item/clothing/under/pants/black
-	suit = null
+	suit = /obj/item/gun/ballistic/automatic/smg/sprout_minigun
 	belt = /obj/item/storage/belt/grenade/modified
 	shoes = /obj/item/clothing/shoes/jackboots
 	neck = null
@@ -1083,6 +1083,154 @@
 // Shoots mostly orange sparklers with a rare chance to fire bright red flares.
 
 
+/obj/item/gun/ballistic/automatic/smg/sprout_minigun
+	name = "\improper 'El-Star' makeshift minigun"
+	desc = "A hollowed out and repurposed laser gatling gun. Several reinforcing brass plates have been attached to allow for support of continious ballistic fire. The cell has been replaced with a slot for an ammo belt. A bandolier has been attached to allow for storage over the body."
+	icon = 'code/modules/archonic/icons/48x32.dmi'
+	mob_overlay_icon = 'code/modules/archonic/icons/worn/armor.dmi'
+	icon_state = "sprout_minigun"
+	show_magazine_on_sprite = TRUE
+	base_pixel_x = -8
+	slot_flags = ITEM_SLOT_OCLOTHING | ITEM_SLOT_BACK
+	gun_firemodes = list(FIREMODE_FULLAUTO)
+	default_firemode = FIREMODE_FULLAUTO
+	weapon_weight = WEAPON_HEAVY
+	fire_delay = 0.1 SECONDS
+	default_ammo_type = /obj/item/ammo_box/magazine/m47_sparkler
+	allowed_ammo_types = list(
+		/obj/item/ammo_box/magazine/m47_sparkler,
+	)
+
+	recoil = 1
+	recoil_unwielded = 5
+
+	gunslinger_recoil_bonus = 3
+	gunslinger_spread_bonus = 16
+
+	spread = 8
+	spread_unwielded = 14
+
+	wield_delay = 0.6 SECONDS
+	wield_slowdown = 0.35
+
+	manufacturer = MANUFACTURER_NONE
+
+/obj/item/gun/ballistic/automatic/smg/sprout_minigun/Initialize(mapload, spawn_empty)
+	. = ..()
+	if(!magazine)
+		if(iscarbon(loc))
+			var/mob/living/carbon/C = loc
+			if(C.back == src)
+				C.dropItemToGround(src, TRUE)
+				balloon_alert(C, "The [src] falls off your back.")
+			else if (ishuman(C))
+				var/mob/living/carbon/human/H = C
+				if(H.wear_suit == src)
+					H.dropItemToGround(src, TRUE)
+					balloon_alert(H, "The [src] falls off your back.")
+		slot_flags = null
+
+/obj/item/gun/ballistic/automatic/smg/sprout_minigun/eject_magazine(mob/user, display_message = TRUE, obj/item/ammo_box/magazine/tac_load = null)
+	. = ..()
+	if(!magazine)
+		if(iscarbon(loc))
+			var/mob/living/carbon/C = loc
+			if(C.back == src)
+				C.dropItemToGround(src, TRUE)
+				balloon_alert(C, "The [src] falls off your back.")
+			else if (ishuman(C))
+				var/mob/living/carbon/human/H = C
+				if(H.wear_suit == src)
+					H.dropItemToGround(src, TRUE)
+					balloon_alert(H, "The [src] falls off your back.")
+		slot_flags = null
+
+/obj/item/gun/ballistic/automatic/smg/sprout_minigun/insert_magazine(mob/user, obj/item/ammo_box/magazine/inserted_mag, display_message = TRUE)
+	. = ..()
+	if(magazine) //WHAT DID YOU DO
+		slot_flags = ITEM_SLOT_OCLOTHING | ITEM_SLOT_BACK
+
+/obj/item/ammo_box/magazine/m47_sparkler
+	name = "minigun ammo belt (.47 sparkler)"
+	desc = "An 190 round belt magazine for the 'El-Star' makeshift minigun. These rounds are designed for maximum supression."
+	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
+	mob_overlay_icon = 'code/modules/archonic/icons/worn/armor.dmi'
+	icon_state = "ammobelt"
+	ammo_type = /obj/item/ammo_casing/m47
+	max_ammo = 190
+	w_class = WEIGHT_CLASS_NORMAL
+	slot_flags = ITEM_SLOT_OCLOTHING | ITEM_SLOT_BACK
+
+/obj/item/ammo_casing/m47
+	name = ".47 bullet casing"
+	desc = "A .47 bullet casing."
+	icon_state = "magnum-brass"
+	caliber = ".47"
+	projectile_type = /obj/projectile/bullet/m47
+	stack_size = 12
+
+/obj/projectile/bullet/m47
+	name = ".47 sparkler bullet"
+	icon_state = "gauss"
+	damage = 23
+	range = 40
+	armour_penetration = 1
+	light_system = MOVABLE_LIGHT
+	light_range = 1
+	light_power = 1
+	light_color = "#FFFF00"
+	light_on = FALSE
+	speed = BULLET_SPEED_PDW
+	var/big_one = FALSE
+	var/datum/effect_system/spark_spread/sparks
+
+/obj/projectile/bullet/m47/Initialize(mapload)
+	. = ..()
+	sparks = new
+	sparks.set_up(1, 0, src)
+	sparks.attach(src)
+	if(prob(15))
+		big_one = TRUE
+		set_light_color("#ff4b4b")
+		sparks.effect_type = /obj/effect/particle_effect/sparks/red
+		damage = 27
+		armour_penetration = 10
+		speed = BULLET_SPEED_PDW+0.1
+		light_range = 2
+		light_power = 1.6
+		icon_state = "gauss-slug"
+	else
+		sparks.effect_type = /obj/effect/particle_effect/sparks/sparkler
+
+
+/obj/projectile/bullet/m47/fire(setAngle)
+	set_light_on(TRUE)
+	..()
+
+/obj/projectile/bullet/m47/on_hit(target)
+	if(istype(target, /obj/item/grenade))
+		var/obj/item/grenade/G = target
+		G.prime() //Detonate grenades 100% of the time.
+	. = ..()
+
+/obj/projectile/bullet/m47/Move()
+	. = ..()
+	var/turf/location = get_turf(src)
+	if(location)
+		//add sparks and stuff with a 20% chance
+		if(big_one)
+			sparks.start()
+			for(var/mob/living/M in get_hearers_in_view(2, location))
+				if(M != firer) // Listen man it's cheating but it's good cheating
+					M.flash_act(affect_silicon = 1)
+		else if(prob(20))
+			sparks.start()
+
+/obj/effect/particle_effect/sparks/sparkler
+	light_range = 1
+
+/obj/effect/particle_effect/sparks/red
+	light_color = "#ff4b4b"
 
 //Bluespace Distorter
 /obj/projectile/energy/bluespace //launcher-type weapon that shoots bluespace crystals.

@@ -16,14 +16,14 @@
 "ap" = (
 /obj/effect/turf_decal/trimline/transparent/blue/line,
 /turf/open/floor/concrete/slab_1,
-/area/space)
+/area/outpost/medical/sprout)
 "ay" = (
 /obj/machinery/computer/operating/retro{
 	dir = 1
 	},
 /obj/effect/turf_decal/techfloor,
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "aA" = (
 /obj/structure/closet/toolcloset,
 /turf/open/floor/plasteel/tech,
@@ -72,7 +72,7 @@
 	pixel_x = -8
 	},
 /turf/open/floor/plasteel/white,
-/area/space)
+/area/outpost/medical/sprout)
 "bc" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -112,7 +112,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/tech/grid,
-/area/space)
+/area/outpost/medical/sprout)
 "bI" = (
 /obj/structure/chair/sofa/olive/left/directional/west,
 /turf/open/floor/plasteel/tech/grid/root,
@@ -146,7 +146,7 @@
 	pixel_x = 8
 	},
 /turf/open/floor/plasteel/tech/grid,
-/area/space)
+/area/outpost/medical/sprout)
 "cB" = (
 /obj/structure/bed,
 /obj/item/bedsheet/medical,
@@ -155,7 +155,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/mono/white,
-/area/space)
+/area/outpost/medical/sprout)
 "cF" = (
 /obj/effect/turf_decal/siding/thinplating/light,
 /obj/structure/table,
@@ -174,7 +174,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "cJ" = (
 /obj/structure/railing{
 	dir = 4
@@ -227,7 +227,7 @@
 "dq" = (
 /obj/structure/bed/roller,
 /turf/open/floor/concrete/slab_3,
-/area/space)
+/area/outpost/medical/sprout)
 "dS" = (
 /obj/structure/railing{
 	dir = 4
@@ -263,7 +263,7 @@
 /obj/effect/turf_decal/stoneborder,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/tech/techmaint,
-/area/space)
+/area/outpost/medical/sprout)
 "eE" = (
 /turf/closed/wall/mineral/iron,
 /area/space)
@@ -272,7 +272,7 @@
 /obj/item/flashlight/lamp,
 /obj/effect/turf_decal/spline/fancy/opaque/black,
 /turf/open/floor/plasteel/tech/grid,
-/area/space)
+/area/outpost/medical/sprout)
 "eK" = (
 /obj/effect/turf_decal/stoneborder{
 	dir = 8
@@ -281,7 +281,7 @@
 	pixel_x = 10
 	},
 /turf/open/floor/plasteel/tech/techmaint,
-/area/space)
+/area/outpost/medical/sprout)
 "eO" = (
 /obj/structure/bed,
 /obj/item/bedsheet/medical,
@@ -292,7 +292,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/mono/white,
-/area/space)
+/area/outpost/medical/sprout)
 "eQ" = (
 /obj/structure/chair/sofa/grey/right/directional/south,
 /turf/open/floor/plasteel/tech/grid/root,
@@ -325,7 +325,7 @@
 "fk" = (
 /obj/machinery/light/directional/south,
 /turf/open/floor/concrete/tiles,
-/area/space)
+/area/outpost/medical/sprout)
 "fm" = (
 /turf/closed/indestructible/reinforced,
 /area/space)
@@ -349,7 +349,7 @@
 "fS" = (
 /obj/effect/turf_decal/stoneborder/corner,
 /turf/open/floor/plasteel/tech/techmaint,
-/area/space)
+/area/outpost/medical/sprout)
 "gg" = (
 /obj/structure/window/reinforced/fulltile/shuttle/tinted,
 /obj/structure/grille,
@@ -369,11 +369,11 @@
 	pixel_y = 19
 	},
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "gu" = (
 /obj/effect/turf_decal/stoneborder,
 /turf/open/floor/plasteel/tech/techmaint,
-/area/space)
+/area/outpost/medical/sprout)
 "gB" = (
 /obj/structure/closet/cabinet,
 /turf/open/floor/wood/ebony,
@@ -475,7 +475,7 @@
 	},
 /obj/item/storage/box/pillbottles,
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "gG" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/carpet/red_gold,
@@ -494,7 +494,7 @@
 "gS" = (
 /obj/machinery/door/airlock/grunge,
 /turf/open/floor/concrete/tiles,
-/area/space)
+/area/outpost/medical/sprout)
 "gW" = (
 /obj/effect/turf_decal/stoneborder/corner{
 	dir = 8
@@ -502,7 +502,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/closet/crate/bin,
 /turf/open/floor/plasteel/tech/techmaint,
-/area/space)
+/area/outpost/medical/sprout)
+"hb" = (
+/turf/open/floor/concrete/tiles,
+/area/outpost/medical/sprout)
 "hk" = (
 /obj/structure/bed/double,
 /obj/item/bedsheet/double,
@@ -543,7 +546,7 @@
 "hN" = (
 /obj/structure/table,
 /turf/open/floor/concrete/tiles,
-/area/space)
+/area/outpost/medical/sprout)
 "hY" = (
 /obj/structure/flora/bigplant{
 	pixel_x = -24;
@@ -569,13 +572,16 @@
 	dir = 4
 	},
 /turf/open/floor/concrete/tiles,
-/area/space)
+/area/outpost/medical/sprout)
+"ix" = (
+/turf/open/floor/concrete/slab_2,
+/area/outpost/medical/sprout)
 "iA" = (
 /obj/structure/chair{
 	dir = 8
 	},
 /turf/open/floor/concrete/tiles,
-/area/space)
+/area/outpost/medical/sprout)
 "iC" = (
 /obj/effect/turf_decal/trimline/opaque/orange/corner{
 	dir = 1
@@ -604,7 +610,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/tech/grid,
-/area/space)
+/area/outpost/medical/sprout)
 "iR" = (
 /obj/structure/catwalk/over,
 /obj/effect/bump_transfer{
@@ -620,12 +626,12 @@
 	},
 /obj/machinery/light/directional/north,
 /turf/open/floor/plasteel/mono/white,
-/area/space)
+/area/outpost/medical/sprout)
 "iX" = (
 /obj/structure/closet/crate/bin,
 /obj/machinery/light/directional/west,
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "ja" = (
 /obj/structure/chair/sofa/olive/directional/west,
 /obj/machinery/light/directional/east,
@@ -692,7 +698,7 @@
 	},
 /obj/machinery/light/directional/north,
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "jU" = (
 /obj/structure/catwalk/over,
 /turf/open/floor/plating{
@@ -710,6 +716,9 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/plating/dirt,
 /area/outpost/exterior/sprout)
+"kb" = (
+/turf/open/floor/concrete/slab_3,
+/area/outpost/medical/sprout)
 "kd" = (
 /turf/open/floor/plasteel/stairs{
 	icon = 'icons/obj/stairs.dmi';
@@ -720,11 +729,11 @@
 "kj" = (
 /obj/machinery/door/airlock/grunge,
 /turf/open/floor/concrete/slab_2,
-/area/space)
+/area/outpost/medical/sprout)
 "ks" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/concrete/tiles,
-/area/space)
+/area/outpost/medical/sprout)
 "kt" = (
 /turf/open/floor/plasteel/stairs{
 	icon = 'icons/obj/stairs.dmi';
@@ -737,9 +746,13 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/rust,
 /area/outpost/maintenance/sprout)
+"kz" = (
+/obj/structure/table,
+/turf/open/floor/plasteel/tech/grid,
+/area/outpost/medical/sprout)
 "kA" = (
 /turf/open/floor/carpet/cyan,
-/area/space)
+/area/outpost/medical/sprout)
 "kK" = (
 /obj/effect/turf_decal/siding/thinplating/light,
 /obj/structure/table,
@@ -760,7 +773,7 @@
 	},
 /obj/machinery/light/directional/west,
 /turf/open/floor/plasteel/tech/techmaint,
-/area/space)
+/area/outpost/medical/sprout)
 "ld" = (
 /obj/structure/railing,
 /turf/open/floor/plating,
@@ -778,7 +791,7 @@
 	},
 /obj/machinery/light/directional/west,
 /turf/open/floor/plasteel/tech/grid,
-/area/space)
+/area/outpost/medical/sprout)
 "lC" = (
 /obj/structure/table,
 /obj/item/flashlight/lamp,
@@ -786,7 +799,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/tech/grid,
-/area/space)
+/area/outpost/medical/sprout)
 "lG" = (
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/wood/ebony,
@@ -797,7 +810,7 @@
 	},
 /obj/structure/table,
 /turf/open/floor/plasteel/tech/techmaint,
-/area/space)
+/area/outpost/medical/sprout)
 "lW" = (
 /obj/machinery/door/poddoor/multi_tile/three_tile_ver,
 /turf/closed/indestructible/reinforced,
@@ -817,7 +830,7 @@
 	pixel_x = 6
 	},
 /turf/open/floor/carpet,
-/area/space)
+/area/outpost/medical/sprout)
 "mt" = (
 /obj/effect/turf_decal/trimline/opaque/red/line,
 /obj/effect/decal/cleanable/dirt,
@@ -846,7 +859,7 @@
 	pixel_y = 4
 	},
 /turf/open/floor/plasteel/white,
-/area/space)
+/area/outpost/medical/sprout)
 "mC" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/dirt,
@@ -908,7 +921,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "nl" = (
 /obj/structure/closet,
 /turf/open/floor/carpet/black,
@@ -919,7 +932,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "nM" = (
 /obj/machinery/light/directional/south,
 /obj/structure/catwalk/over,
@@ -928,6 +941,9 @@
 "nR" = (
 /turf/closed/wall/concrete,
 /area/space)
+"nX" = (
+/turf/open/floor/plasteel/tech,
+/area/outpost/medical/sprout)
 "op" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/plating,
@@ -943,7 +959,7 @@
 	},
 /obj/machinery/smartfridge/chemistry/preloaded,
 /turf/open/floor/plasteel/white,
-/area/space)
+/area/outpost/medical/sprout)
 "oD" = (
 /obj/structure/railing{
 	dir = 4;
@@ -990,7 +1006,7 @@
 /area/outpost/maintenance/sprout)
 "pd" = (
 /turf/open/floor/concrete/slab_1,
-/area/space)
+/area/outpost/medical/sprout)
 "ph" = (
 /obj/effect/turf_decal/steeldecal/steel_decals10{
 	dir = 9
@@ -1008,7 +1024,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/tech/techmaint,
-/area/space)
+/area/outpost/medical/sprout)
 "pl" = (
 /obj/machinery/door/window/brigdoor/southright,
 /obj/structure/table/reinforced,
@@ -1062,7 +1078,7 @@
 	dir = 5
 	},
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "rj" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -1081,14 +1097,14 @@
 "rL" = (
 /obj/structure/curtain/cloth,
 /turf/open/floor/concrete/tiles,
-/area/space)
+/area/outpost/medical/sprout)
 "rT" = (
 /obj/structure/frame/computer/retro{
 	dir = 1
 	},
 /obj/effect/turf_decal/techfloor,
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "rY" = (
 /turf/open/floor/plating/dirt,
 /area/space)
@@ -1114,7 +1130,7 @@
 	pixel_y = 4
 	},
 /turf/open/floor/plasteel/white,
-/area/space)
+/area/outpost/medical/sprout)
 "sh" = (
 /obj/effect/bump_transfer{
 	name = "sath_entrance_staircase";
@@ -1155,7 +1171,7 @@
 /obj/effect/turf_decal/techfloor,
 /obj/machinery/light/directional/south,
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "tq" = (
 /obj/machinery/light/directional/south,
 /turf/open/floor/plating,
@@ -1222,7 +1238,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/tech/grid,
-/area/space)
+/area/outpost/medical/sprout)
 "up" = (
 /obj/machinery/door/airlock/grunge,
 /turf/open/floor/plasteel/tech,
@@ -1268,7 +1284,7 @@
 	},
 /obj/machinery/light/directional/south,
 /turf/open/floor/plasteel/mono/white,
-/area/space)
+/area/outpost/medical/sprout)
 "uE" = (
 /turf/closed/indestructible/edge,
 /area/space)
@@ -1276,6 +1292,9 @@
 /obj/machinery/light/directional/east,
 /turf/open/floor/carpet/black,
 /area/space)
+"uL" = (
+/turf/open/floor/plasteel/tech/techmaint,
+/area/outpost/medical/sprout)
 "uP" = (
 /obj/effect/turf_decal/corner/transparent/blue/diagonal,
 /turf/open/floor/concrete/slab_4,
@@ -1294,7 +1313,7 @@
 	dir = 4
 	},
 /turf/open/floor/concrete/slab_1,
-/area/space)
+/area/outpost/medical/sprout)
 "vc" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
@@ -1309,7 +1328,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "vq" = (
 /obj/effect/turf_decal/borderfloorblack,
 /turf/open/floor/plasteel/white,
@@ -1320,13 +1339,17 @@
 	},
 /obj/machinery/door/airlock/grunge,
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
+"vD" = (
+/obj/machinery/door/airlock/grunge,
+/turf/open/floor/plasteel/tech,
+/area/outpost/medical/sprout)
 "vG" = (
 /obj/effect/turf_decal/stoneborder/corner{
 	dir = 4
 	},
 /turf/open/floor/plasteel/tech/techmaint,
-/area/space)
+/area/outpost/medical/sprout)
 "vO" = (
 /obj/structure/catwalk/over,
 /obj/machinery/light/directional/north,
@@ -1335,7 +1358,7 @@
 "wd" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/carpet,
-/area/space)
+/area/outpost/medical/sprout)
 "wl" = (
 /obj/machinery/light/directional/south,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1347,6 +1370,9 @@
 	},
 /turf/open/floor/wood/ebony,
 /area/space)
+"wN" = (
+/turf/closed/wall/mineral/iron,
+/area/outpost/medical/sprout)
 "wP" = (
 /obj/structure/table/rolling,
 /obj/effect/turf_decal/techfloor,
@@ -1354,7 +1380,7 @@
 /obj/item/clothing/gloves/color/latex,
 /obj/item/clothing/suit/apron/surgical,
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "wQ" = (
 /turf/open/floor/plasteel/tech,
 /area/space)
@@ -1364,7 +1390,7 @@
 	},
 /obj/structure/closet/crate/freezer/blood,
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "wW" = (
 /obj/effect/turf_decal/industrial/traffic{
 	dir = 8
@@ -1408,7 +1434,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/tech/techmaint,
-/area/space)
+/area/outpost/medical/sprout)
 "xo" = (
 /obj/structure/catwalk/over,
 /obj/effect/bump_transfer{
@@ -1422,7 +1448,7 @@
 	pixel_x = -27
 	},
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "xG" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -1452,7 +1478,7 @@
 	pixel_y = 4
 	},
 /turf/open/floor/plasteel/white,
-/area/space)
+/area/outpost/medical/sprout)
 "xP" = (
 /turf/open/floor/plasteel/stairs{
 	dir = 8;
@@ -1461,7 +1487,7 @@
 /area/space)
 "xZ" = (
 /turf/open/floor/carpet,
-/area/space)
+/area/outpost/medical/sprout)
 "yd" = (
 /obj/structure/table,
 /turf/open/floor/plasteel/tech/grid,
@@ -1475,7 +1501,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "yV" = (
 /obj/effect/turf_decal/techfloor/hole,
 /turf/open/floor/plasteel/tech/grid,
@@ -1495,6 +1521,10 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/concrete/tiles,
 /area/space)
+"zl" = (
+/obj/machinery/light/directional/east,
+/turf/open/floor/plasteel/tech,
+/area/outpost/medical/sprout)
 "zv" = (
 /obj/structure/railing{
 	dir = 8;
@@ -1523,11 +1553,11 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/tech/grid,
-/area/space)
+/area/outpost/medical/sprout)
 "Ah" = (
 /obj/structure/closet/cabinet,
 /turf/open/floor/carpet,
-/area/space)
+/area/outpost/medical/sprout)
 "Aj" = (
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/plasteel/dark,
@@ -1561,7 +1591,7 @@
 "Bo" = (
 /obj/vehicle/ridden/wheelchair,
 /turf/open/floor/concrete/slab_3,
-/area/space)
+/area/outpost/medical/sprout)
 "Bw" = (
 /obj/structure/closet,
 /turf/open/floor/plasteel/tech,
@@ -1573,13 +1603,13 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/kirbyplants,
 /turf/open/floor/plasteel/tech/techmaint,
-/area/space)
+/area/outpost/medical/sprout)
 "BC" = (
 /obj/machinery/door/airlock/grunge{
 	dir = 4
 	},
 /turf/open/floor/concrete/tiles,
-/area/space)
+/area/outpost/medical/sprout)
 "BG" = (
 /obj/effect/turf_decal/corner/transparent/solgovblue/diagonal,
 /obj/structure/table/bronze,
@@ -1597,7 +1627,7 @@
 "Ch" = (
 /obj/structure/closet/crate/bin,
 /turf/open/floor/concrete/tiles,
-/area/space)
+/area/outpost/medical/sprout)
 "Ci" = (
 /turf/open/floor/plasteel/stairs{
 	icon = 'icons/obj/stairs.dmi';
@@ -1611,7 +1641,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/tech/grid,
-/area/space)
+/area/outpost/medical/sprout)
 "Ct" = (
 /obj/structure/chair/bench/grey/directional/south,
 /turf/open/floor/plasteel/tech/techmaint,
@@ -1630,14 +1660,14 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "CJ" = (
 /obj/effect/turf_decal/trimline/opaque/bottlegreen/line,
 /obj/effect/turf_decal/borderfloorwhite{
 	dir = 1
 	},
 /turf/open/floor/plasteel/mono/white,
-/area/space)
+/area/outpost/medical/sprout)
 "CP" = (
 /obj/structure/table/optable,
 /obj/effect/turf_decal/siding/thinplating/dark{
@@ -1647,7 +1677,7 @@
 	dir = 9
 	},
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "CQ" = (
 /obj/effect/turf_decal/corner/transparent/blue/diagonal,
 /obj/machinery/door/airlock/sandstone,
@@ -1735,7 +1765,7 @@
 	pixel_y = 3
 	},
 /turf/open/floor/concrete/slab_1,
-/area/space)
+/area/outpost/medical/sprout)
 "Ft" = (
 /obj/effect/turf_decal/steeldecal/steel_decals10{
 	dir = 9
@@ -1790,7 +1820,10 @@
 "Gz" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/plasteel/tech/grid,
-/area/space)
+/area/outpost/medical/sprout)
+"GD" = (
+/turf/open/floor/plasteel/tech/grid,
+/area/outpost/medical/sprout)
 "GE" = (
 /obj/effect/turf_decal/siding/thinplating/light,
 /obj/structure/table,
@@ -1835,7 +1868,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/tech/techmaint,
-/area/space)
+/area/outpost/medical/sprout)
 "Hd" = (
 /obj/effect/turf_decal/industrial/warning{
 	dir = 8
@@ -1853,7 +1886,7 @@
 /obj/item/storage/pill_bottle/charcoal,
 /obj/item/storage/pill_bottle/charcoal,
 /turf/open/floor/plasteel/white,
-/area/space)
+/area/outpost/medical/sprout)
 "Hx" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -1894,7 +1927,7 @@
 "Id" = (
 /obj/structure/closet/crate/bin,
 /turf/open/floor/concrete/slab_1,
-/area/space)
+/area/outpost/medical/sprout)
 "In" = (
 /obj/effect/turf_decal/steeldecal/steel_decals9,
 /obj/machinery/conveyor_switch{
@@ -1935,12 +1968,12 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/tech/techmaint,
-/area/space)
+/area/outpost/medical/sprout)
 "IQ" = (
 /obj/structure/table/chem,
 /obj/machinery/chem_press,
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "IT" = (
 /obj/effect/turf_decal/stoneborder{
 	dir = 4
@@ -1950,7 +1983,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/tech/techmaint,
-/area/space)
+/area/outpost/medical/sprout)
 "IY" = (
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/plasteel/tech/techmaint,
@@ -1988,7 +2021,7 @@
 /obj/structure/table,
 /obj/machinery/light/directional/north,
 /turf/open/floor/carpet/cyan,
-/area/space)
+/area/outpost/medical/sprout)
 "Ks" = (
 /obj/effect/turf_decal/trimline/opaque/red/line{
 	dir = 4
@@ -2054,7 +2087,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/mono/white,
-/area/space)
+/area/outpost/medical/sprout)
 "LE" = (
 /obj/effect/turf_decal/steeldecal/steel_decals_central4,
 /turf/open/floor/plasteel/tech,
@@ -2068,7 +2101,7 @@
 "LK" = (
 /obj/machinery/vending/coffee,
 /turf/open/floor/carpet/cyan,
-/area/space)
+/area/outpost/medical/sprout)
 "LR" = (
 /obj/structure/railing{
 	dir = 8;
@@ -2107,7 +2140,7 @@
 	},
 /obj/effect/turf_decal/trimline/transparent/blue/line,
 /turf/open/floor/concrete/slab_1,
-/area/space)
+/area/outpost/medical/sprout)
 "Mx" = (
 /obj/structure/sink{
 	dir = 8;
@@ -2136,7 +2169,7 @@
 /area/space)
 "ML" = (
 /turf/open/floor/plasteel/rockvault,
-/area/space)
+/area/outpost/medical/sprout)
 "MS" = (
 /obj/structure/sign/number/three,
 /turf/closed/wall/concrete,
@@ -2180,7 +2213,7 @@
 	},
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "NT" = (
 /obj/structure/table/rolling,
 /obj/effect/turf_decal/siding/thinplating/dark{
@@ -2194,7 +2227,7 @@
 /obj/item/clothing/suit/apron/surgical,
 /obj/machinery/light/directional/west,
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "NV" = (
 /obj/machinery/conveyor{
 	dir = 10;
@@ -2207,7 +2240,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/tech/grid,
-/area/space)
+/area/outpost/medical/sprout)
 "Of" = (
 /obj/structure/chair/comfy/olive/directional/south,
 /turf/open/floor/carpet/red_gold,
@@ -2240,7 +2273,7 @@
 	},
 /obj/machinery/light/directional/east,
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "OG" = (
 /obj/structure/flora/rock/pile{
 	density = 0
@@ -2269,12 +2302,12 @@
 "Pf" = (
 /obj/structure/sign/departments/medbay/alt,
 /turf/closed/wall/mineral/iron,
-/area/space)
+/area/outpost/medical/sprout)
 "Ph" = (
 /obj/structure/bed/roller,
 /obj/machinery/light/directional/east,
 /turf/open/floor/concrete/slab_3,
-/area/space)
+/area/outpost/medical/sprout)
 "Pq" = (
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 8
@@ -2284,7 +2317,7 @@
 	},
 /obj/structure/table/chem,
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "Pt" = (
 /obj/structure/table,
 /obj/machinery/recharger{
@@ -2360,13 +2393,13 @@
 	dir = 4
 	},
 /turf/open/floor/carpet,
-/area/space)
+/area/outpost/medical/sprout)
 "QV" = (
 /obj/machinery/door/airlock/grunge{
 	dir = 4
 	},
 /turf/open/floor/concrete/slab_4,
-/area/space)
+/area/outpost/medical/sprout)
 "Rf" = (
 /obj/structure/railing{
 	dir = 4
@@ -2414,7 +2447,7 @@
 	pixel_y = 4
 	},
 /turf/open/floor/plasteel/white,
-/area/space)
+/area/outpost/medical/sprout)
 "RJ" = (
 /obj/machinery/light/directional/west,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2448,7 +2481,7 @@
 	dir = 8
 	},
 /turf/open/floor/concrete/slab_1,
-/area/space)
+/area/outpost/medical/sprout)
 "Sm" = (
 /turf/open/floor/concrete/tiles,
 /area/space)
@@ -2478,7 +2511,7 @@
 	pixel_y = 19
 	},
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "SF" = (
 /obj/effect/bump_transfer{
 	name = "sath_entrance_staircase";
@@ -2499,7 +2532,7 @@
 "SY" = (
 /obj/effect/turf_decal/spline/fancy/opaque/black,
 /turf/open/floor/plasteel/tech/grid,
-/area/space)
+/area/outpost/medical/sprout)
 "SZ" = (
 /turf/open/floor/plasteel/tech/techmaint,
 /area/space)
@@ -2511,7 +2544,7 @@
 	},
 /obj/item/pen,
 /turf/open/floor/plasteel/tech/grid,
-/area/space)
+/area/outpost/medical/sprout)
 "Td" = (
 /obj/machinery/door/window/westright,
 /turf/open/floor/plasteel/tech/techmaint,
@@ -2547,7 +2580,7 @@
 /obj/item/defibrillator/loaded,
 /obj/item/defibrillator/loaded,
 /turf/open/floor/plasteel/white,
-/area/space)
+/area/outpost/medical/sprout)
 "Tw" = (
 /obj/structure/chair/sofa/blue/right/directional/south,
 /turf/open/floor/plasteel/tech/grid/root,
@@ -2561,15 +2594,15 @@
 	dir = 1
 	},
 /turf/open/floor/concrete/slab_1,
-/area/space)
+/area/outpost/medical/sprout)
 "TY" = (
 /obj/structure/table,
 /turf/open/floor/concrete/slab_1,
-/area/space)
+/area/outpost/medical/sprout)
 "Un" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/concrete/slab_1,
-/area/space)
+/area/outpost/medical/sprout)
 "Up" = (
 /obj/structure/table,
 /obj/item/table_bell/brass{
@@ -2581,7 +2614,7 @@
 	pixel_x = -9
 	},
 /turf/open/floor/plasteel/tech/grid,
-/area/space)
+/area/outpost/medical/sprout)
 "Ur" = (
 /obj/structure/chair/sofa/grey/corner/directional/south,
 /turf/open/floor/plasteel/tech/grid/root,
@@ -2596,7 +2629,7 @@
 "UD" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "UF" = (
 /obj/effect/turf_decal/trimline/opaque/red/line,
 /turf/open/floor/plasteel/dark,
@@ -2604,7 +2637,7 @@
 "UL" = (
 /obj/machinery/iv_drip,
 /turf/open/floor/plasteel/tech,
-/area/space)
+/area/outpost/medical/sprout)
 "UN" = (
 /turf/open/floor/plasteel/patterned/grid,
 /area/space)
@@ -2623,7 +2656,7 @@
 	pixel_x = 18
 	},
 /turf/open/floor/plasteel/tech/grid,
-/area/space)
+/area/outpost/medical/sprout)
 "Vb" = (
 /obj/machinery/door/poddoor/multi_tile/three_tile_ver{
 	id = "esrocathia_vent_bulkhead"
@@ -2700,7 +2733,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/tech/grid,
-/area/space)
+/area/outpost/medical/sprout)
 "WB" = (
 /obj/effect/turf_decal/trimline/opaque/bottlegreen/line{
 	dir = 8
@@ -2709,7 +2742,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/mono/white,
-/area/space)
+/area/outpost/medical/sprout)
 "WE" = (
 /obj/structure/chair/sofa/grey/left/directional/west,
 /turf/open/floor/plasteel/tech/grid/root,
@@ -2721,7 +2754,7 @@
 "WJ" = (
 /obj/machinery/door/airlock/grunge,
 /turf/open/floor/concrete/slab_1,
-/area/space)
+/area/outpost/medical/sprout)
 "WK" = (
 /obj/effect/turf_decal/siding/thinplating/light,
 /obj/structure/table,
@@ -2756,7 +2789,7 @@
 	dir = 6
 	},
 /turf/open/floor/plasteel/tech/grid,
-/area/space)
+/area/outpost/medical/sprout)
 "WY" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
@@ -2783,7 +2816,7 @@
 	pixel_y = 19
 	},
 /turf/open/floor/carpet/cyan,
-/area/space)
+/area/outpost/medical/sprout)
 "Xn" = (
 /obj/effect/decal/fakelattice{
 	layer = 2.010
@@ -2799,7 +2832,7 @@
 	dir = 10
 	},
 /turf/open/floor/plasteel/tech/grid,
-/area/space)
+/area/outpost/medical/sprout)
 "Xx" = (
 /obj/effect/turf_decal/siding/thinplating/light,
 /obj/structure/table,
@@ -2817,7 +2850,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/tech/grid,
-/area/space)
+/area/outpost/medical/sprout)
 "XG" = (
 /obj/structure/fence,
 /turf/open/floor/concrete,
@@ -9001,11 +9034,11 @@ GH
 mC
 Ts
 Ts
-eE
-eE
-eE
-eE
-eE
+wN
+wN
+wN
+wN
+wN
 js
 Ts
 Ts
@@ -9124,12 +9157,12 @@ GH
 Qw
 fL
 Ts
-eE
+wN
 CP
 NT
 Pq
-eE
-eE
+wN
+wN
 Ts
 Ts
 Ts
@@ -9247,13 +9280,13 @@ GH
 Qw
 Ts
 js
-eE
+wN
 gm
-wQ
+nX
 nI
 Xt
-eE
-eE
+wN
+wN
 js
 Ts
 Ts
@@ -9370,14 +9403,14 @@ GH
 mC
 Ts
 Ts
-eE
+wN
 zJ
 yK
-wQ
+nX
 nI
 Xt
-eE
-eE
+wN
+wN
 Ts
 Ts
 Ts
@@ -9493,15 +9526,15 @@ Qw
 Qw
 js
 Ts
-eE
+wN
 zJ
 yK
-wQ
-wQ
+nX
+nX
 nI
 Xt
-eE
-eE
+wN
+wN
 Ts
 Ts
 Ts
@@ -9616,7 +9649,7 @@ Qw
 Pz
 pv
 aS
-eE
+wN
 qT
 vp
 vp
@@ -9624,8 +9657,8 @@ OF
 vp
 nj
 WW
-eE
-eE
+wN
+wN
 js
 Ts
 js
@@ -9739,19 +9772,19 @@ mC
 xi
 Ts
 Ts
-eE
-eE
+wN
+wN
 QV
-eE
-eE
-eE
-eE
-eE
-eE
-eE
-eE
-eE
-eE
+wN
+wN
+wN
+wN
+wN
+wN
+wN
+wN
+wN
+wN
 js
 Ts
 Qw
@@ -9862,11 +9895,11 @@ Qw
 xi
 js
 KU
-eE
+wN
 Id
 pd
 Mv
-eE
+wN
 sf
 mA
 RI
@@ -9874,8 +9907,8 @@ xI
 gF
 Gz
 UV
-eE
-eE
+wN
+wN
 Ts
 Ts
 Qw
@@ -9989,17 +10022,17 @@ WJ
 pd
 ML
 ap
-eE
-ag
-ag
-ag
-sw
-wQ
+wN
+kb
+kb
+kb
+ix
+nX
 cz
-eE
-eE
-eE
-eE
+wN
+wN
+wN
+wN
 Ts
 Ts
 Qw
@@ -10108,22 +10141,22 @@ Qw
 xi
 Ts
 Ts
-eE
+wN
 pd
 ML
 ap
 kj
-ag
-ag
-ag
-sw
+kb
+kb
+kb
+ix
 IQ
-eE
-eE
+wN
+wN
 cB
 Cn
-eE
-eE
+wN
+wN
 js
 Ts
 Qw
@@ -10230,24 +10263,24 @@ mC
 Qw
 tw
 pv
-eE
-eE
+wN
+wN
 pd
 ML
 ap
-eE
+wN
 Tv
 aY
 Hd
 oy
-eE
-eE
+wN
+wN
 lu
 CJ
 uj
 iX
-eE
-eE
+wN
+wN
 Ts
 Ts
 Qw
@@ -10353,25 +10386,25 @@ Qw
 Qw
 mC
 Qw
-eE
-eE
+wN
+wN
 Un
 ML
 ap
-eE
-eE
-eE
-eE
-eE
-eE
+wN
+wN
+wN
+wN
+wN
+wN
 cB
 Wr
 Xy
 bG
-wQ
+nX
 rL
-eE
-eE
+wN
+wN
 Ts
 Ts
 Qw
@@ -10475,27 +10508,27 @@ GH
 Qw
 Qw
 Qw
-eE
-eE
-eE
+wN
+wN
+wN
 pd
 ML
 ap
-eE
+wN
 SA
 xx
 ay
-eE
+wN
 eH
 CJ
 uj
-Cu
-Cu
-wQ
+GD
+GD
+nX
 rL
 iP
-eE
-eE
+wN
+wN
 js
 Ts
 Qw
@@ -10597,29 +10630,29 @@ GH
 jo
 Qw
 Qw
-eE
-eE
-eE
-eE
+wN
+wN
+wN
+wN
 pd
 ML
 ap
 kj
 yK
-wQ
+nX
 sZ
-eE
+wN
 rL
 rL
 rL
 rL
 rL
-wQ
+nX
 rL
 Lw
 uD
-eE
-eE
+wN
+wN
 Ts
 Ts
 Ts
@@ -10719,30 +10752,30 @@ GH
 GH
 mC
 Qw
-eE
-eE
-eE
+wN
+wN
+wN
 Ah
-eE
+wN
 pd
 ML
 ap
-eE
+wN
 wS
 UL
 wP
-eE
+wN
 iT
 uj
 SY
 CJ
 uj
-wQ
+nX
 rL
 Xy
 Xy
 Xy
-eE
+wN
 Qw
 Ts
 Ts
@@ -10842,30 +10875,30 @@ GH
 GH
 Qw
 Qw
-eE
+wN
 xZ
 QM
 xZ
-eE
+wN
 Un
 ML
 ap
-eE
-eE
-eE
-eE
-eE
+wN
+wN
+wN
+wN
+wN
 cB
 Cn
 SY
 cB
 Cn
-wQ
+nX
 rL
 NX
 NX
 NX
-eE
+wN
 Qw
 Ts
 Ts
@@ -10965,29 +10998,29 @@ GH
 GH
 Qw
 Qw
-eE
+wN
 wd
 mm
 xZ
-eE
+wN
 pd
 ML
 ap
-eE
+wN
 SA
 xx
 rT
-eE
+wN
 rL
 rL
 rL
 rL
 rL
-wQ
+nX
 rL
 WB
 eO
-eE
+wN
 Pf
 Qw
 Ts
@@ -11088,29 +11121,29 @@ GH
 GH
 ZV
 Qw
-eE
-Sm
+wN
+hb
 xZ
-Sm
-eE
+hb
+wN
 pd
 ML
 ap
 kj
 yK
-wQ
+nX
 sZ
-eE
+wN
 UD
-wQ
-wQ
-wQ
-wQ
-wQ
+nX
+nX
+nX
+nX
+nX
 rL
 lC
-eE
-eE
+wN
+wN
 Qw
 Qw
 Ts
@@ -11211,28 +11244,28 @@ GH
 GH
 Qw
 mC
-eE
-Sm
-Sm
-Sm
-eE
+wN
+hb
+hb
+hb
+wN
 pd
 ML
 ap
-eE
+wN
 yK
 UL
 wP
-eE
-wQ
-wQ
-wQ
-wQ
-wQ
-Ek
+wN
+nX
+nX
+nX
+nX
+nX
+zl
 rL
-eE
-eE
+wN
+wN
 mC
 Qw
 mC
@@ -11334,27 +11367,27 @@ GH
 GH
 Qw
 Qw
-eE
-eE
+wN
+wN
 BC
-eE
-eE
+wN
+wN
 Un
 ML
 ap
-eE
-eE
-eE
-eE
-eE
-wQ
+wN
+wN
+wN
+wN
+wN
+nX
 rL
 rL
 rL
 rL
-eE
-eE
-eE
+wN
+wN
+wN
 Qw
 Qw
 Ts
@@ -11457,26 +11490,26 @@ GH
 GH
 Qw
 Qw
-eE
+wN
 Ch
-Sm
+hb
 gS
 pd
 pd
 ML
 ap
-eE
+wN
 SA
 xx
 rT
-eE
-wQ
-Sm
-ag
+wN
+nX
+hb
+kb
 Bo
 dq
-eE
-eE
+wN
+wN
 mC
 Qw
 Ts
@@ -11580,24 +11613,24 @@ GH
 GH
 Qw
 Qw
-eE
-Sm
+wN
+hb
 fk
-eE
+wN
 TY
 pd
 ML
 ap
 kj
 yK
-wQ
+nX
 sZ
-eE
-wQ
-Sm
+wN
+nX
+hb
 Bo
 Ph
-eE
+wN
 Pf
 Qw
 Qw
@@ -11703,24 +11736,24 @@ GH
 jo
 mC
 Qw
-eE
-Sm
-Sm
-eE
+wN
+hb
+hb
+wN
 ED
 TR
 ML
 ap
-eE
+wN
 yK
 UL
 wP
-eE
-wQ
-Sm
+wN
+nX
+hb
 dq
-eE
-eE
+wN
+wN
 jo
 mC
 Qw
@@ -11826,23 +11859,23 @@ GH
 Qw
 Qw
 ZV
-eE
-Sm
-Sm
-eE
+wN
+hb
+hb
+wN
 TY
 pd
 ML
 ap
-eE
-eE
-eE
-eE
-eE
-wQ
-Sm
-eE
-eE
+wN
+wN
+wN
+wN
+wN
+nX
+hb
+wN
+wN
 Qw
 mC
 Qw
@@ -11948,11 +11981,11 @@ GH
 GH
 ZV
 Qw
-eE
-eE
-Sm
-Sm
-eE
+wN
+wN
+hb
+hb
+wN
 Sj
 pd
 ML
@@ -11963,8 +11996,8 @@ NJ
 CH
 CH
 CH
-eE
-eE
+wN
+wN
 mC
 Qw
 Qw
@@ -12071,22 +12104,22 @@ GH
 mC
 Qw
 mC
-eE
+wN
 Xg
-Sm
-Sm
-eE
-eE
+hb
+hb
+wN
+wN
 uZ
-eE
+wN
 uZ
-eE
-eE
-eE
-eE
-eE
-eE
-eE
+wN
+wN
+wN
+wN
+wN
+wN
+wN
 ka
 Qw
 Qw
@@ -12193,15 +12226,15 @@ GH
 GH
 Qw
 Qw
-eE
-eE
+wN
+wN
 LK
-Sm
-Sm
-eE
+hb
+hb
+wN
 yK
-wQ
-yd
+nX
+kz
 fS
 pi
 kN
@@ -12209,7 +12242,7 @@ IT
 pi
 kN
 gW
-eE
+wN
 Qw
 mC
 Qw
@@ -12316,21 +12349,21 @@ GH
 GH
 Qw
 OG
-eE
+wN
 Kr
 kA
-Sm
+hb
 iq
-eE
+wN
 jT
-wQ
+nX
 Tb
 gu
-SZ
-SZ
-SZ
-SZ
-SZ
+uL
+uL
+uL
+uL
+uL
 xm
 Pf
 mC
@@ -12439,23 +12472,23 @@ GH
 GH
 Qw
 Qw
-eE
+wN
 Kr
 kA
-Sm
+hb
 hN
-eE
+wN
 yK
-wQ
+nX
 Up
 eC
-SZ
-SZ
-SZ
-SZ
-SZ
+uL
+uL
+uL
+uL
+uL
 xm
-up
+vD
 Qw
 Ts
 Ts
@@ -12562,15 +12595,15 @@ GH
 Qw
 mC
 Qw
-eE
+wN
 Kr
 kA
 ks
 iA
-eE
+wN
 cG
-wQ
-yd
+nX
+kz
 IF
 GZ
 lN
@@ -12578,7 +12611,7 @@ eK
 Bx
 GZ
 vG
-eE
+wN
 Qw
 Ts
 Ts
@@ -12685,23 +12718,23 @@ GH
 ZV
 Qw
 mC
-eE
-eE
-eE
-eE
-eE
-eE
-eE
-eE
-eE
-eE
-eE
-eE
-eE
-eE
-eE
-eE
-eE
+wN
+wN
+wN
+wN
+wN
+wN
+wN
+wN
+wN
+wN
+wN
+wN
+wN
+wN
+wN
+wN
+wN
 Wp
 Ts
 Ts
