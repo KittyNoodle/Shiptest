@@ -1,4 +1,3 @@
-/*
 /datum/overmap/outpost/gateway
 	token_icon_state = "gateway"
 	main_template = /datum/map_template/outpost/gateway
@@ -13,7 +12,6 @@
 	token.color = "#4d4d4d"
 	token.update_icon()
 
-*/
 
 /datum/map_template/outpost/gateway
 	name = "gateway"
@@ -253,6 +251,7 @@
 	min_dam = 25
 
 	max_integrity = 4000
+	breakdown_duration = 100
 
 	mob_smash_flags = ENVIRONMENT_SMASH_RWALLS
 	proj_bonus_damage_flags = PROJECTILE_BONUS_DAMAGE_RWALLS
@@ -266,7 +265,7 @@
 		if(EXPLODE_HEAVY)
 			alter_integrity(rand(-500, -800))
 		if(EXPLODE_LIGHT)
-			alter_integrity(rand(-200, -700))
+			alter_integrity(rand(-200, -600))
 
 /turf/closed/indestructible/void
 	name = "void"
@@ -369,7 +368,7 @@
 
 GLOBAL_VAR_INIT(gateway_active, FALSE) //Is the thing on.
 GLOBAL_VAR_INIT(gateway_output, FALSE) //False mean its one-way going in, true means one-way going out.
-GLOBAL_VAR_INIT(gateway_integrity, TRUE) //0(FALSE):Gateway is damaged to the point of nonfunctionality 1(TRUE): Gateway is intact. 2: Gateway has been drastically altered, but is still functional.
+GLOBAL_VAR_INIT(gateway_integrity, FALSE) //0(FALSE):Gateway is damaged to the point of nonfunctionality 1(TRUE): Gateway is intact. 2: Gateway has been drastically altered, but is still functional.
 GLOBAL_VAR_INIT(gateway_throttle, 1) //What vaccum state is the gateway trying to reach, measured in lightspeed ratios. 1:Standard. 0.02:The Void. 1.04: Wirespace. 309: ANOMALY. Gateway maximum range is: 0.01 to 1.34
 
 /obj/machinery/computer/pandora_control
@@ -388,9 +387,9 @@ GLOBAL_VAR_INIT(gateway_throttle, 1) //What vaccum state is the gateway trying t
 	var/target_throttles = list(0.02, 1.04, 309)
 
 	//Gateway components and their working status
-	var/pandora_powered = TRUE
-	var/pandora_vsa = TRUE
-	var/pandora_field_emitter = TRUE
+	var/pandora_powered = FALSE
+	var/pandora_vsa = FALSE
+	var/pandora_field_emitter = FALSE
 	var/pandora_guidance = TRUE
 
 /obj/machinery/computer/pandora_control/Initialize()

@@ -134,6 +134,10 @@
 #define VV_HK_SET_SPECIES "setspecies"
 #define VV_HK_PURRBATION "purrbation"
 
+//Archonic Edit
+#define VV_HK_DEL_CYTHRX "delete_cythrx"
+#define VV_HK_ADJUST_VEIL "adjust_veil"
+
 // misc
 #define VV_HK_SPACEVINE_PURGE "spacevine_purge"
 

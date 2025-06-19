@@ -191,6 +191,8 @@
 	else
 		ethereal_light.set_light_on(FALSE)
 		fixed_mut_color = rgb(128,128,128)
+	if(HAS_TRAIT(_human, TRAIT_APOTHEOTIC)) //Archonic Edit
+		ethereal_light.set_light_on(FALSE)
 
 	for(var/obj/item/bodypart/parts_to_update as anything in _human.bodyparts)
 		parts_to_update.species_color = fixed_mut_color

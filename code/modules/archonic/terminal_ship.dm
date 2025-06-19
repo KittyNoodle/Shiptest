@@ -343,6 +343,182 @@
 /obj/item/disk/surgery/debug/terminal
 	name = "SIGIL Surgery Disk"
 
+//IRON STAR//
+/obj/item/disk/design_disk/adv/ironstar_med
+	design_name = "Iron Star experimental medical supplies"
+	desc = "A disk for storing device design data for construction in lathes. This one has more extra storage space."
+	color = "#652d71"
+	illustration = "dna"
+	starting_blueprints = list(/datum/design/iron_star_synthread, /datum/design/iron_star_gauze)
+	max_blueprints = 3
+
+
+/obj/item/disk/design_disk/adv/ironstar_med/examine(mob/user)
+	. = ..()
+	. += "<span class='notice'>You notice a small note scribbled on the back.</span>"
+
+/obj/item/disk/design_disk/adv/ironstar_med/examine_more(mob/user)
+	. = ..()
+	. += span_notice("Cloth is pretty rare if you can't find somewhere to steal it from. So I managed to find a working synthetic cloth recipe. Should be helpful for gauze.")
+	. += "\t<span class='notice'>—Crux CF</span>"
+
+/datum/design/iron_star_synthread
+	name = "Experimental Synthetic Cloth"
+	desc = "A synthetic cloth made with plastic, glass, and iron."
+	id = "iron_star_synthread"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/plastic = MINERAL_MATERIAL_AMOUNT/8, /datum/material/iron = MINERAL_MATERIAL_AMOUNT/2, /datum/material/glass = MINERAL_MATERIAL_AMOUNT) //8 per plastic and iron sheet. 4 per glass sheet.
+	build_path = /obj/item/stack/sheet/cotton/cloth
+	category = list("Imported")
+	maxstack = MAX_STACK_SIZE
+
+/datum/design/iron_star_gauze
+	name = "Experimental Synthetic Gauze"
+	desc = "A synthetic cloth gauze made with plastic, glass, and iron."
+	id = "iron_star_gauze"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/plastic = MINERAL_MATERIAL_AMOUNT/16, /datum/material/iron = MINERAL_MATERIAL_AMOUNT/4, /datum/material/glass = MINERAL_MATERIAL_AMOUNT/2) //Two per synthetic cloth
+	build_path = /obj/item/stack/medical/gauze/synthread
+	category = list("Imported")
+	maxstack = 12
+
+/obj/item/stack/medical/gauze/synthread
+	name = "synthread medical gauze"
+	singular_name = "improvised gauze"
+	desc = "A roll of elastic synthetic cloth that is extremely effective at stopping bleeding and slowly heals wounds."
+	bleed_reduction = 0.015
+	amount = 1
+
+/obj/item/disk/design_disk/elite/ironstar_ammo
+	design_name = "Iron Star ammunition"
+	desc = "A disk for storing device design data for construction in lathes. This one has more extra storage space."
+	illustration = "design"
+	starting_blueprints = list(/datum/design/iron_star_a556_42_box, /datum/design/iron_star_hydra_mag, /datum/design/iron_star_p16_mag, /datum/design/iron_star_sniper_rounds, /datum/design/iron_star_c57x39_box, /datum/design/iron_star_sidewinder_mag, /datum/design/iron_star_gun_cell_upgraded, /datum/design/iron_star_a70mm_he, /datum/design/iron_star_a70mm_hedp, /datum/design/iron_star_speedload357)
+	max_blueprints = 11
+
+/obj/item/disk/design_disk/elite/ironstar_ammo/examine(mob/user)
+	. = ..()
+	. += "<span class='notice'>You notice a small note scribbled on the back.</span>"
+
+/obj/item/disk/design_disk/elite/ironstar_ammo/examine_more(mob/user)
+	. = ..()
+	. += span_notice("Not entirely sure what kind of apocalypse you guys might be staring down, so I will run you by the one I might understand. \
+	 Archous gets out of the veil, gonna happen eventually, might as well tell you what to do.")
+	. += span_notice("1. Close the windows. Not gonna bother explaining this one, light is death.")
+	. += span_notice("2. Forget everything you know about the threat level of Archous. Fighting is death, getting touched by violet light is also death. Best case scenario you spend a few hours in the burn ward.")
+	. += span_notice("3. Anyone touched by Archonic light is a living tracking device. Treat on site or put them down as necessary. If the exposure was severe enough you won't have to dispose of a body.")
+	. += span_notice("4. You treat archonic light exposure by waiting it out. If you have access to the Lamp of Silence, that could help you out.")
+	. += span_notice("5. If the archonic light appears to be getting brighter, kill them. You would need some way of isolating your environment from Archous, like another veil.")
+	. += span_notice("6. Get light and energy resistant armor. VIME hardsuits should protect you very well from Archonic light.")
+	. += span_notice("7. Do not engage Archonicists unless its an absolute necessity. It's better to take your chances starving.")
+	. += "\t<span class='notice'>—Crux CF</span>"
+
+
+/datum/design/iron_star_a556_42_box
+	name = "box of 5.56x42mm CLIP ammo (60 rounds)"
+	desc = "A box of standard 5.56x42mm CLIP ammo."
+	id = "iron_star_a556_42_box"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 54200) //200 + (500*1.8)60
+	build_path = /obj/item/storage/box/ammo/a556_42
+	category = list("Imported")
+
+/datum/design/iron_star_hydra_mag
+	name = "casket Hydra assault rifle magazine (5.56x42mm CLIP)"
+	desc = "A very long and bulky 100-round magazine for the Hydra platform of 5.56x42mm CLIP assault rifles. These rounds do moderate damage with good armor penetration."
+	id = "iron_star_hydra_mag"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 105000) //1500 + (500*1.8)100
+	build_path = /obj/item/ammo_box/magazine/m556_42_hydra/casket
+	category = list("Imported")
+
+/datum/design/iron_star_p16_mag
+	name = "P-16 magazine (5.56x42mm CLIP)"
+	desc = "A simple, 30-round magazine for 5.56x42mm CLIP assault rifles. These rounds do moderate damage with good armor penetration."
+	id = "iron_star_p16_mag"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 28500) //1500 + (500*1.8)30
+	build_path = /obj/item/ammo_box/magazine/p16
+	category = list("Imported")
+
+/datum/design/iron_star_sniper_rounds
+	name = "anti-material rifle magazine (.50 BMG)"
+	desc = "A large, heavy 6-round box magazine designed for the sniper rifle. These rounds deal absurd damage, able to delimb targets, knock them on their feet, and bypass most protective equipment."
+	id = "iron_star_sniper_rounds"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 25500) //1500 + (500*8)6
+	build_path = /obj/item/ammo_box/magazine/sniper_rounds
+	category = list("Imported")
+
+/datum/design/iron_star_c57x39_box
+	name = "box of 5.7x39mm ammo (48 rounds)"
+	desc = "A box of standard 5.7x39mm ammo."
+	id = "iron_star_c57x39_box"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 36200) //200 + (500*1.5)48
+	build_path = /obj/item/storage/box/ammo/c57x39
+	category = list("Imported")
+
+/datum/design/iron_star_sidewinder_mag
+	name = "Sidewinder magazine (5.7x39mm)"
+	desc = "A 30-round magazine for the Sidewinder submachine gun. These rounds do okay damage with average performance against armor."
+	id = "iron_star_sidewinder_mag"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 23500) //1500 + (500*1.5)30
+	build_path = /obj/item/ammo_box/magazine/m57_39_sidewinder
+	category = list("Imported")
+
+/datum/design/iron_star_gun_cell_upgraded
+	name = "Upgraded Weapon Power Cell"
+	desc = "A upgraded power cell for weapons holds 20 MJ of energy."
+	id = "iron_star_gun_cell_upgraded"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 700, /datum/material/gold = 150, /datum/material/silver = 150, /datum/material/glass = 80)
+	build_path = /obj/item/stock_parts/cell/gun/upgraded/empty
+	category = list("Imported")
+
+/datum/design/iron_star_a70mm_he
+	name = "M-KO-9HE rocket"
+	desc = "A 70mm High Explosive rocket. Fire at mech and pray."
+	id = "iron_star_a70mm_he"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 7500, /datum/material/plasma = 7500)
+	build_path = /obj/item/ammo_casing/caseless/rocket/a70mm
+	category = list("Imported")
+
+/datum/design/iron_star_a70mm_hedp
+	name = "M-KO-9HEDP rocket"
+	desc = "A 70mm High Explosive Dual Purpose rocket. Pointy end toward armor."
+	id = "iron_star_a70mm_hedp"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 10000, /datum/material/plasma = 7500, /datum/material/silver = 250)
+	build_path = /obj/item/ammo_casing/caseless/rocket/a70mm/hedp
+	category = list("Imported")
+
+/datum/design/iron_star_speedload357
+	name = ".357 revolver speedloader"
+	desc = "A speedloader of .357 ammo for use in revolvers."
+	id = "iron_star_speedload357"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 15000)
+	build_path = /obj/item/ammo_box/a357
+	category = list("Imported")
+
+/obj/machinery/power/port_gen/pacman/super/fullupgrade //fully ugpraded stock parts
+	circuit = /obj/item/circuitboard/machine/pacman/super/fullupgrade
+
+/obj/item/circuitboard/machine/pacman/super/fullupgrade
+	name = "SUPERPACMAN-type Generator (Machine Board)"
+	icon_state = "engineering"
+	build_path = /obj/machinery/power/port_gen/pacman/super/fullupgrade
+	req_components = list(
+		/obj/item/stock_parts/matter_bin/bluespace = 1,
+		/obj/item/stock_parts/micro_laser/quadultra = 1,
+		/obj/item/stack/cable_coil = 2,
+		/obj/item/stock_parts/capacitor/quadratic = 1)
+
+///////////////////////////
+
 /obj/machinery/porta_turret/ship/archonic
 	name = "Archonic Ward"
 	desc = "A rune made of an unknown glowing substance."
@@ -351,11 +527,11 @@
 	base_icon_state = "ward"
 	shot_delay = 10
 	scan_range = 15
-	stun_projectile = /obj/projectile/magic/arcane_barrage/archonic/stun
+	stun_projectile = /obj/projectile/beam/archonic/stun
 	stun_projectile_sound = 'sound/weapons/laser3.ogg'
 	lethal_projectile = /obj/projectile/beam/archonic/death
 	lethal_projectile_sound = 'sound/weapons/blastcannon.ogg'
-	faction = list("Archous", "turret")
+	faction = list(FACTION_ARCHOUS, "turret")
 	color = "#ff1a75"
 	max_integrity = 600
 	armor = list("melee" = 100, "bullet" = 100, "laser" = 100, "energy" = 100, "bomb" = 100, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
@@ -377,16 +553,21 @@
 		if(TURRET_LETHAL)
 			. += "<span class='revenminor'>It seems to want to kill you.</span>"
 
+/obj/machinery/porta_turret/ship/archonic/hyperlethal
+	stun_projectile = /obj/projectile/beam/archonic/bolt
+
 /obj/item/clothing/head/helmet/space/hardsuit/quixote/dimensional/archonic
 	name = "\improper VIME hardsuit helmet"
 	desc = "The integrated helmet of a VIME hardsuit."
-	armor = list("melee" = 50, "bullet" = 40, "laser" = 40, "energy" = 35, "bomb" = 50, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
+	armor = list("melee" = 50, "bullet" = 55, "laser" = 50, "energy" = 85, "bomb" = 90, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
+	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 
 /obj/item/clothing/suit/space/hardsuit/quixote/dimensional/archonic
 	name = "\improper VIME hardsuit"
-	armor = list("melee" = 50, "bullet" = 40, "laser" = 40, "energy" = 35, "bomb" = 50, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
+	armor = list("melee" = 50, "bullet" = 55, "laser" = 50, "energy" = 85, "bomb" = 90, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 	desc = "The Voidic Interchange Mobile Exosuit or VIME is an experimental hardsuit designed by the Aetherofusion Nusquamology division. Its design incorporates a thin layer of hyperdense protomatter around it, the layer provides no conventional armor, however protects from the effects of Voidic diffusion."
-	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/quixote/dimensional
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/quixote/dimensional/archonic
+	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	var/protomatter_shield = 100
 
 /obj/item/clothing/suit/space/hardsuit/quixote/dimensional/archonic/Initialize()
@@ -426,51 +607,6 @@
 					if(M.is_holding(src) || M.wear_suit == src)
 						cythrx_turf.dust_mob(M)
 
-/obj/projectile/magic/arcane_barrage/archonic/stun
-	name = "archonic flash"
-	damage = 40
-	damage_type = STAMINA
-	armour_penetration = 30
-
-/obj/projectile/magic/arcane_barrage/archonic/stun/on_hit(atom/target, blocked = FALSE)
-	. = ..()
-	if(isliving(target))
-		var/mob/living/M = target
-		M.archonic_flash()
-		if(!ishuman(M))
-			M.electrocute_act(70, src, flags = SHOCK_NOGLOVES)
-
-/obj/projectile/beam/archonic/death
-	name = "archonic annihilation beam"
-	impact_effect_type = /obj/effect/temp_visual/impact_effect/red_laser
-	light_color = "#ff1a75"
-	hitscan = TRUE
-	tracer_type = /obj/effect/projectile/tracer/archonic
-	muzzle_type = /obj/effect/projectile/muzzle/archonic
-	impact_type = /obj/effect/projectile/impact/archonic
-	damage = 1000
-	palefire_immune = TRUE //Ship mounted cannon, too big for palefire tech.
-
-/obj/projectile/beam/archonic/death/on_hit(atom/target, blocked = FALSE)
-	. = ..()
-	new /obj/effect/temp_visual/archous_flash/huge/fading(get_turf(target))
-	if(isliving(target))
-		var/mob/living/M = target
-		M.archonic_flash()
-		M.dust(TRUE, TRUE, TRUE)
-	explosion(target, 2, 3, 4, 7)
-
-
-/obj/effect/projectile/impact/archonic
-	name = "archonic impact"
-	icon_state = "impact_hcult"
-
-/obj/effect/projectile/tracer/archonic
-	name = "archonic beam"
-	icon_state = "hcult"
-
-/obj/effect/projectile/muzzle/archonic
-	icon_state = "muzzle_hcult"
 
 /obj/item/hairbrush
 	name = "hairbrush"
@@ -620,7 +756,7 @@
 	. = ..()
 	if(visualsOnly)
 		return
-	H.faction |= list(FACTION_ARCHOUS)
+	//H.faction |= list(FACTION_ARCHOUS)
 
 /obj/item/clothing/glasses/welding/steampunk_goggles
 	name = "steampunk goggles"
@@ -734,25 +870,39 @@
 	mindspace = FALSE
 	light_on = FALSE
 
+//BRIEF INTERMISSION: SUBDERMAL ARMOR//
+/mob/living/carbon/human
+	var/datum/armor/subdermal_armor
+
+//The Implant//
 /obj/item/implant/third_circle
 	name = "aimtisalized archonic crystal"
 	desc = "A contorted and warped archonic crystal. It now beats with the third circle's light."
 	activated = FALSE
 	var/obj/effect/proc_holder/spell/spell = /obj/effect/proc_holder/spell/self/bioresonance/transis/aimtiacrystal
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	//Armor value to be applied to the target.
+	var/datum/armor/internal_armor = list("melee" = 30, "bullet" = 35, "laser" = 10, "energy" = 20, "bomb" = 10, "bio" = 20, "rad" = 25, "fire" = 5, "acid" = 20)
 
 /obj/item/implant/third_circle/Initialize()
-    . = ..()
-    if(ispath(src.spell))
-        src.spell = new spell
+	. = ..()
+	if(ispath(src.spell))
+		src.spell = new spell
+	if (islist(internal_armor))
+		internal_armor = getArmor(arglist(internal_armor))
+	else if (!internal_armor)
+		internal_armor = getArmor()
+	else if (!istype(internal_armor, /datum/armor))
+		stack_trace("Invalid type [armor.type] found in .armor during /obj Initialize()")
 
 /obj/item/implant/third_circle/implant(mob/living/target, mob/user, silent = FALSE, force = FALSE)
 	. = ..()
 	if (.)
 		if(ishuman(target))
 			var/mob/living/carbon/human/H = target
-			H.physiology.armor.melee += 30 // Passive Principle of Conviction
-			H.physiology.armor.bullet += 30 // Passive Principle of Conviction
-		ADD_TRAIT(target, TRAIT_ANOMALY_IMMUNE_AIMTIACRYSTAL, "implant") //Archonic Principle of Firebrand(Absorbting lower anomalistic energy) aimtisalized into a partial fusion of Firebrand and Silence
+			H.subdermal_armor = internal_armor // Passive Principle of Conviction
+			H.apply_status_effect(/datum/status_effect/aimtisalir_crystal_recalibration)
+		ADD_TRAIT(target, TRAIT_ANOMALY_IMMUNE_AIMTIACRYSTAL, "implant") //Archonic Principle of Firebrand(Absorbing lower anomalistic energy) aimtisalized into a partial fusion of Firebrand and Silence
 		ADD_TRAIT(target, TRAIT_GUNSLINGER, "implant") //Quirks
 		ADD_TRAIT(target, TRAIT_LIGHT_STEP, "implant") //Quirks
 		ADD_TRAIT(target, TRAIT_FREERUNNING, "implant") //Passive Principle of Transis
@@ -769,8 +919,8 @@
 		target.RemoveSpell(spell)
 		if(ishuman(target))
 			var/mob/living/carbon/human/H = target
-			H.physiology.armor.melee -= 25
-			H.physiology.armor.bullet -= 25
+			H.subdermal_armor = null
+			H.remove_status_effect(/datum/status_effect/aimtisalir_crystal_recalibration)
 		if(target.stat != DEAD && !silent)
 			to_chat(target, "<span class='boldnotice'>The knowledge of how to cast [spell] slips out from your mind.</span>")
 		REMOVE_TRAIT(target, TRAIT_ANOMALY_IMMUNE_AIMTIACRYSTAL, "implant")
@@ -782,6 +932,206 @@
 				<b>Implant Details:</b> <BR>
 				<b>Function:</b> UNKNOWN." : "None"]"}
 	return dat
+
+//This insanity//
+
+/datum/status_effect/aimtisalir_crystal_recalibration
+	id = "aimcrystal_healing"
+	status_type = STATUS_EFFECT_UNIQUE
+	examine_text = null
+	tick_interval = 30
+	var/paused = FALSE
+
+	var/death_prevention_charges = 100
+	var/health_threshold = 100
+	var/inertia = 100
+	var/panic_mode = FALSE
+	//Always heal 1.25 archonic damage per interval.
+	//When damaged health threshold slowly climbs to our level of health. -0.3 per tick.
+	//Has to clear inertia first before it starts climbing down.
+	//Inertia goes down by 2 per tick from 100 to 80, 5 per tick from 80 to 30 and 10 per tick from 30 and below. Inertia is instantly dropped to zero once we go below -50.
+	//Once it's halfway reached our damage level we heal (100-health_threshold)/80 of our biggest damage source. I.e. activate once health threshold reaches 90 on 80 health.
+	//Does not let you die unless death_prevention_charges == 0.
+	//Every tick where you would die sets death_prevention_charges to death_prevention_charges-0.5.
+	//Triggering death prevention activates panic mode.
+	//Panic mode is kept on until we reach -20 health.
+	//Panic mode triples health threshold decrease amount.
+	//Panic mode successfully turning off costs 10 death charges.
+	//Panic mode turns off crit damage.
+	//Death prevention charges restore at 0.05 per tick when fully healed.
+	//Inertia goes up by 5 every tick once fully healed.
+	//All inertia reductions are multiplied by death_prevention_charges/100.
+	//
+	//Oxyloss is healed at a x1.5 rate
+	//Burnloss is healed at a x0.8 rate
+	//Toxloss is healed at a x0.75 rate
+	//Cloneloss is healed at a x0.1 rate
+	//Blood is healed at a x4.5 rate
+
+/datum/status_effect/aimtisalir_crystal_recalibration/tick()
+
+	if(paused)
+		return
+
+	if(QDELETED(src))
+		return
+
+	if(owner.stat == DEAD)
+		return
+
+	on_tick_effects()
+
+/datum/status_effect/aimtisalir_crystal_recalibration/proc/on_tick_effects() //I assure you all of this makes sense.
+	if(!ishuman(owner))
+		return //Fuck you
+	var/mob/living/carbon/human/human_owner = owner
+	human_owner.adjust_archonic_sublimation(-1.25)
+	//Misc background healing
+
+	human_owner.adjustOrganLoss(ORGAN_SLOT_HEART, -0.25) //Heart // 0.25% per tick
+	human_owner.adjustOrganLoss(ORGAN_SLOT_LUNGS, -0.5) //Lungs // 0.50% per tick
+	human_owner.adjustOrganLoss(ORGAN_SLOT_LIVER, -0.75) //Liver // 0.75% per tick
+	human_owner.adjustOrganLoss(ORGAN_SLOT_STOMACH, -0.75)
+	human_owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, -2) //Nerves //1% per tick
+	human_owner.adjustOrganLoss(ORGAN_SLOT_EYES, -1) //Nerves //1% per tick
+	human_owner.adjustOrganLoss(ORGAN_SLOT_EARS, -1) //Nerves //1% per tick
+	if(prob(10))
+		human_owner.cure_trauma_type(resilience = TRAUMA_RESILIENCE_BASIC)
+	if(prob(5*(death_prevention_charges/100)))
+		if(human_owner.health >= 100)
+			var/list/broken_limbs = list()
+			for(var/obj/item/bodypart/limb in human_owner.bodyparts)
+				if(limb.bone_status != BONE_FLAG_NORMAL)
+					broken_limbs += limb
+			var/obj/item/bodypart/chosen_one = pick(broken_limbs)
+			chosen_one.fix_bone()
+	if(prob(2.5))
+		if(human_owner.health >= 100 && inertia >= 100 && death_prevention_charges >= 100)
+			var/list/missing_limbs = list()
+			var/list/limb_list = list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
+			for(var/zone in limb_list)
+				if(!owner.get_bodypart(zone))
+					missing_limbs += zone
+			if(missing_limbs.len)
+				var/regrow_zone = pick(missing_limbs)
+				human_owner.regenerate_limb(regrow_zone)
+				human_owner.visible_message("<span class='warning'>Golden glowing flesh slowly stems out from [human_owner]'s [parse_zone(BODY_ZONE_CHEST)], slowly growing into a [parse_zone(regrow_zone)]!!</span>")
+				human_owner.adjustCloneLoss(10)
+				var/obj/item/bodypart/regrown_limb = owner.get_bodypart(regrow_zone)
+				human_owner.apply_damage(regrown_limb.max_damage, BRUTE, regrow_zone, 0, TRUE, FALSE, 0)
+				inertia = 0
+				health_threshold = max(0, human_owner.health) //The system knows what its doing.
+
+	//to_chat(world, "HP: [human_owner.health]")
+	//Death fuckery
+	if(HAS_TRAIT(human_owner, TRAIT_NODEATH)) //Should we be preventing death
+		if(should_be_dead()) //Should we be dead right now
+			death_prevention_charges = max(0, death_prevention_charges-0.5) //If yes then we use half a charge.
+			if(!panic_mode) //If we aren't in panic mode, go to panic mode.
+				panic_mode = TRUE
+				//to_chat(world, "PANIC ON")
+		if(death_prevention_charges <= 0) //If we can't sustain it anymore, stop it. Die.
+			REMOVE_TRAIT(human_owner, TRAIT_NODEATH, "aimcrystal_healing")
+		if(panic_mode)
+			ADD_TRAIT(human_owner, TRAIT_NOCRITDAMAGE, "aimcrystal_healing")
+		else
+			REMOVE_TRAIT(human_owner, TRAIT_NOCRITDAMAGE, "aimcrystal_healing")
+	else
+		if(death_prevention_charges > 0) //If we can sustain it now, great! Wonderful! do so.
+			ADD_TRAIT(human_owner, TRAIT_NODEATH, "aimcrystal_healing")
+			if(panic_mode) //Panic mode's critical stabilization
+				ADD_TRAIT(human_owner, TRAIT_NOCRITDAMAGE, "aimcrystal_healing")
+			else
+				REMOVE_TRAIT(human_owner, TRAIT_NOCRITDAMAGE, "aimcrystal_healing")
+
+	//Inertia
+	if(inertia > 0)
+		switch(human_owner.health)
+			if(80 to 100) //Minor injuries
+				if(human_owner.health >= 100) //Are we fully healed?
+					inertia = min(100, inertia+(5*(2-(death_prevention_charges/100)))) //0 death prevention charges means double the inertia gain. 50 means 1.5x.
+					health_threshold = max(inertia, health_threshold) //Don't want health threshold going down to 0 while climbing up with inertia
+					//to_chat(world, "I0")
+				else
+					inertia = max(0, inertia-(2*(death_prevention_charges/100)))
+					//to_chat(world, "I1")
+			if(30 to 80) //Major Injuries
+				inertia = max(0, inertia-(5*(death_prevention_charges/100)))
+				//to_chat(world, "I2")
+			if(-50 to 30) //Severe Injuries
+				inertia = max(0, inertia-(10*(death_prevention_charges/100)))
+				//to_chat(world, "I3")
+			if(-INFINITY to -50) //Fuck fuck fuck fuck fuck fuck fuck
+				inertia = 0
+				//to_chat(world, "I4")
+		if(human_owner.health >= 100 && inertia == 100)
+			death_prevention_charges = min(100, death_prevention_charges+0.05)
+	else //Once we've gotten past inertia
+		if(human_owner.health == 100) //Are we fully healed?
+			inertia = min(100, inertia+(5*(2-(death_prevention_charges/100)))) //0 death prevention charges means double the inertia gain. 50 means 1.5x.
+			health_threshold = max(inertia, health_threshold) //Don't want health threshold going down to 0 while climbing up with inertia
+		var/capped_health = max(0, human_owner.health) //Health that's capped at 0 for calculation purposes.
+		//var/damage = human_owner.maxHealth-human_owner.health //How much damage has been dealt //Commented out for warning reasons.
+		var/capped_damage = human_owner.maxHealth-capped_health //For things like checking to see if we are at a good threshold.
+		if(human_owner.health < 100) // Determine health new health_threshold
+			if(panic_mode)
+				health_threshold = max(capped_health, health_threshold-0.3*3)
+			else
+				if(human_owner.health < 30)
+					health_threshold = max(capped_health, health_threshold-0.15)
+				health_threshold = max(capped_health, health_threshold-0.3)
+		var/damage_threshold = human_owner.maxHealth-health_threshold
+		if(damage_threshold >= capped_damage/2) //Once threshhold has halfway reached our health(or zero if its below it), start doing healing.
+			var/heal_amount = (100-health_threshold)/80
+			heal_amount = clamp(heal_amount, 0.1, 0.8) //No infinitesimal healing, please.
+			heal_amount = -heal_amount //AHAHAHAHAHAHAHAHAH
+			var/damage_type_healed = determine_highest_damage()
+			//to_chat(world, "DTH: [damage_type_healed]")
+			switch(damage_type_healed)
+				if(BRUTE)
+					human_owner.adjustBruteLoss(heal_amount)
+				if(BURN)
+					human_owner.adjustFireLoss(heal_amount*0.8)
+				if(TOX)
+					human_owner.adjustToxLoss(heal_amount*0.75)
+				if(OXY)
+					human_owner.adjustOxyLoss(heal_amount*1.5)
+				if(CLONE)
+					human_owner.adjustCloneLoss(heal_amount*0.1)
+			//to_chat(world, "Blood: [human_owner.blood_volume]")
+			if(human_owner.blood_volume < BLOOD_VOLUME_NORMAL) //Always top up on blood when injured.
+				human_owner.blood_volume = min(BLOOD_VOLUME_NORMAL, human_owner.blood_volume + (-heal_amount)*4.5)
+				//to_chat(world, "Blood+: [human_owner.blood_volume]")
+			//to_chat(world, "Heal: [heal_amount]")
+		if(human_owner.health > -30 && panic_mode)
+			//to_chat(world, "PANIC OFF")
+			panic_mode = FALSE
+			death_prevention_charges = max(0, death_prevention_charges-10)
+	//to_chat(world, "DPC: [death_prevention_charges]  HT: [health_threshold]  I:[inertia]  Panic:[panic_mode]")
+
+
+/datum/status_effect/aimtisalir_crystal_recalibration/proc/should_be_dead()
+	var/mob/living/carbon/human/human_owner = owner
+	if(human_owner.blood_volume <= BLOOD_VOLUME_SURVIVE)
+		return 1
+	if(human_owner.health <= HEALTH_THRESHOLD_DEAD)
+		return 1
+	return 0
+
+/datum/status_effect/aimtisalir_crystal_recalibration/proc/determine_highest_damage() //They're calling it the 'worst proc ever'.
+	var/mob/living/carbon/human/human_owner = owner
+	if(human_owner.getOxyLoss() >= human_owner.getBruteLoss() && human_owner.getOxyLoss() >= human_owner.getFireLoss() && human_owner.getOxyLoss() >= human_owner.getToxLoss() && human_owner.getOxyLoss() >= human_owner.getCloneLoss())
+		return OXY
+	if(human_owner.getBruteLoss() >= human_owner.getFireLoss() && human_owner.getBruteLoss() >= human_owner.getToxLoss() && human_owner.getBruteLoss() >= human_owner.getOxyLoss() && human_owner.getBruteLoss() >= human_owner.getCloneLoss())
+		return BRUTE
+	if(human_owner.getFireLoss() >= human_owner.getBruteLoss() && human_owner.getFireLoss() >= human_owner.getToxLoss() && human_owner.getFireLoss() >= human_owner.getOxyLoss() && human_owner.getFireLoss() >= human_owner.getCloneLoss())
+		return BURN
+	if(human_owner.getToxLoss() >= human_owner.getBruteLoss() && human_owner.getToxLoss() >= human_owner.getFireLoss() && human_owner.getToxLoss() >= human_owner.getOxyLoss() && human_owner.getToxLoss() >= human_owner.getCloneLoss())
+		return TOX
+	if(human_owner.getCloneLoss() >= human_owner.getBruteLoss() && human_owner.getCloneLoss() >= human_owner.getFireLoss() && human_owner.getCloneLoss() >= human_owner.getToxLoss() && human_owner.getCloneLoss() >= human_owner.getOxyLoss())
+		return CLONE
+
+//Equipment//
 
 /obj/item/storage/belt/grenade/modified
 	name = "modified grenadier belt"
@@ -1081,14 +1431,15 @@
 
 //Unnamed firework gun.
 // Shoots mostly orange sparklers with a rare chance to fire bright red flares.
-
-
 /obj/item/gun/ballistic/automatic/smg/sprout_minigun
 	name = "\improper 'El-Star' makeshift minigun"
 	desc = "A hollowed out and repurposed laser gatling gun. Several reinforcing brass plates have been attached to allow for support of continious ballistic fire. The cell has been replaced with a slot for an ammo belt. A bandolier has been attached to allow for storage over the body."
 	icon = 'code/modules/archonic/icons/48x32.dmi'
 	mob_overlay_icon = 'code/modules/archonic/icons/worn/armor.dmi'
+	lefthand_file = 'code/modules/archonic/icons/inhands/lefthand.dmi'
+	righthand_file = 'code/modules/archonic/icons/inhands/righthand.dmi'
 	icon_state = "sprout_minigun"
+	item_state = "sprout_minigun"
 	show_magazine_on_sprite = TRUE
 	base_pixel_x = -8
 	slot_flags = ITEM_SLOT_OCLOTHING | ITEM_SLOT_BACK

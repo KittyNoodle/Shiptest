@@ -26,7 +26,7 @@
 */
 
 /obj/item/melee/spear/archous
-	icon_state = "archonic_spear0"
+	icon_state = "archonic_spear"
 	name = "\improper Archonic Shard"
 	desc = "A shard of archonic crystal, transformed into a powerful weapon. The prefered weapon of archonicists."
 	icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
@@ -37,10 +37,10 @@
 	mob_overlay_icon = 'icons/mob/clothing/back.dmi'
 	sharpness = IS_SHARP_ACCURATE
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 100)
-	force = 30
+	force = 20
 	throwforce = 50
 	block_chance = 80
-	armour_penetration = 70
+	armour_penetration = 50
 	max_integrity = 300
 	var/wielded = FALSE
 
@@ -67,8 +67,56 @@
 
 /obj/item/melee/spear/archous/attack(mob/living/M, mob/user)
 	. = ..()
+	var/archonic_subsumption_damage = 0
+	switch(SSreality.veil)
+		if(5)
+			archonic_subsumption_damage = 20
+		if(4)
+			archonic_subsumption_damage = 30
+		if(3)
+			archonic_subsumption_damage = 40
+		if(2, 2.5)
+			archonic_subsumption_damage = 55
+		if(1)
+			archonic_subsumption_damage = 80
+		if(0)
+			archonic_subsumption_damage = 101
+	if(iscarbon(M))
+		var/mob/living/carbon/C = M
+		var/obj/item/bodypart/target_limb
+		target_limb = user.zone_selected
+		if(C.get_archonic_immunity(FALSE))
+			if(HAS_TRAIT(C, TRAIT_ANOMALY_IMMUNE_AIMTIACRYSTAL))
+				C.visible_message("<span class='warning'>A pink and gold vein-like structure under [M]'s skin bursts into brilliant light.</span>")
+			archonic_subsumption_damage = 0
+		var/light_potency = 0
+		switch(SSreality.veil)
+			if(5)
+				light_potency = 0.1
+			if(4)
+				light_potency = 0.4
+			if(3)
+				light_potency = 0.7
+			if(2, 2.5)
+				light_potency = 1
+			if(1)
+				light_potency = 1.25
+			if(0)
+				light_potency = 1.5
+		//Archonic armor is calculated by taking the highest value of either energy or laser armor. The amount of power subsumption has is based on the subsumption damage value.
+		//Subsumption armor penetration is based on light potency which is derived from the veil state, and the armor penetration of the projectile.
+		var/archonic_armor = max(C.run_armor_check(target_limb, "laser", armour_penetration * light_potency, silent = TRUE), C.run_armor_check(target_limb, "energy", armour_penetration * light_potency, silent = TRUE))
+		var/hit_percent = (100-archonic_armor)/100
+		C.adjust_archonic_sublimation(archonic_subsumption_damage*hit_percent, TRUE)
+	else
+		if(M.get_archonic_immunity(FALSE))
+			if(HAS_TRAIT(M, TRAIT_ANOMALY_IMMUNE_AIMTIACRYSTAL))
+				M.visible_message("<span class='warning'>A pink and gold vein-like structure under [M]'s skin bursts into brilliant light.</span>")
+			archonic_subsumption_damage = 0
+		M.apply_damage(archonic_subsumption_damage*2.5, BURN) //Woe, armor-peircing burn damage be apon ye.
 	if(wielded)
-		flash_color(M, "#ff0066", 1)
+		if(SSreality.veil > 5) //Still flash if above 5 veil
+			flash_color(M, "#ff0066", 1)
 
 /obj/item/melee/spear/archous/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", final_block_chance = 0, damage = 0, attack_type = MELEE_ATTACK)
 	if(prob(final_block_chance))
@@ -168,7 +216,7 @@
 	item_state = "cultrobesalt"
 	//icon_state = "magusred"
 	//item_state = "magusred"
-	armor = list("melee" = 80, "bullet" = 90, "laser" = 90, "energy" = 100, "bomb" = 90, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
+	armor = list("melee" = 80, "bullet" = 80, "laser" = 80, "energy" = 90, "bomb" = 90, "bio" = 100, "rad" = 100, "fire" = 100, "acid" = 100)
 
 /obj/item/clothing/suit/wizrobe/magusred/archonic/equipped(mob/living/carbon/human/user, slot)
 	. = ..()
@@ -205,15 +253,15 @@
 
 /obj/item/archonic_talisman/equipped(mob/living/carbon/human/user)
 	. = ..()
-	if("Archous" in user.faction) //do not double archous me
+	if(FACTION_ARCHOUS in user.faction) //do not double archous me
 		return
-	user.faction |= "Archous"
+	user.faction |= FACTION_ARCHOUS
 	in_use = TRUE
 
 /obj/item/archonic_talisman/dropped(mob/living/carbon/human/user)
 	..()
 	if(in_use)
-		user.faction -= "Archous"
+		user.faction -= FACTION_ARCHOUS
 
 
 /obj/machinery/cythrxcrystal
@@ -372,9 +420,9 @@
 	righthand_file = 'icons/mob/inhands/antag/abductor_righthand.dmi'
 
 /obj/item/proc/ArchonicCheck(mob/user)
-	if(HAS_TRAIT(user, TRAIT_ABDUCTOR_TRAINING))
+	if(HAS_TRAIT(user, TRAIT_ARCHONICIST))
 		return TRUE
-	if(istype(user) && user.mind && HAS_TRAIT(user.mind, TRAIT_ABDUCTOR_TRAINING))
+	if(istype(user) && user.mind && HAS_TRAIT(user.mind, TRAIT_ARCHONICIST))
 		return TRUE
 	to_chat(user, "<span class='warning'>You can't figure out how this works!</span>")
 	user.dropItemToGround(src, TRUE)
@@ -713,16 +761,16 @@
 	invoke(user)
 
 /obj/effect/overa_rune/proc/OveristCheck(mob/invoker)
-	if(HAS_TRAIT(invoker, TRAIT_ABDUCTOR_SCIENTIST_TRAINING))
+	if(HAS_TRAIT(invoker, TRAIT_OVERIC))
 		return TRUE
-	if(istype(invoker) && invoker.mind && HAS_TRAIT(invoker.mind, TRAIT_ABDUCTOR_SCIENTIST_TRAINING))
+	if(istype(invoker) && invoker.mind && HAS_TRAIT(invoker.mind, TRAIT_OVERIC))
 		return TRUE
 	return FALSE
 
 /obj/effect/overa_rune/proc/ArchonicCheck(mob/invoker)
-	if(HAS_TRAIT(invoker, TRAIT_ABDUCTOR_TRAINING))
+	if(HAS_TRAIT(invoker, TRAIT_ARCHONICIST))
 		return TRUE
-	if(istype(invoker) && invoker.mind && HAS_TRAIT(invoker.mind, TRAIT_ABDUCTOR_TRAINING))
+	if(istype(invoker) && invoker.mind && HAS_TRAIT(invoker.mind, TRAIT_ARCHONICIST))
 		return TRUE
 	return FALSE
 
@@ -914,9 +962,10 @@
 	invocation_type = INVOCATION_WHISPER
 	human_req = TRUE
 	clothes_req = FALSE
-	action_icon = 'icons/mob/actions/actions_revenant.dmi'
-	action_icon_state = "blight"
-	action_background_icon_state = "bg_hive"
+	action_background_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon_state = "heal_archonic"
+	action_background_icon_state = "bg_archonic"
 
 /obj/effect/proc_holder/spell/self/archonic/heal/cast(list/targets, mob/living/carbon/human/user)
 	user.visible_message("<span class='revenwarning'>[user]'s body is wrapped in violet light as their wounds shut closed and flesh revives</span>", "<span class='revenminor'>Your wounds are closed as violet light blankets you.</span>")
@@ -932,7 +981,7 @@
 	charge_max = 20
 	human_req = TRUE
 	clothes_req = FALSE
-	action_icon = 'code/modules/archonic/icons/items_and_weapons.dmi'
+	action_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
 	action_icon_state = "flightpack_fly"
 
 /obj/effect/proc_holder/spell/self/flight/cast(list/targets, mob/living/carbon/human/user)
@@ -940,16 +989,21 @@
 		user.setMovetype(user.movement_type | FLYING)
 		user.setMovetype(user.movement_type | FLOATING)
 		user.float(TRUE)
+		user.update_icon()
 		user.visible_message("<span class='warning'>[user] slowly lifts off the ground.</span>", "<span class='notice'>You channel power to your legs, and slowly levitate off the ground.</span>")
 
 	else
 		user.setMovetype(user.movement_type & ~FLYING)
 		user.setMovetype(user.movement_type & ~FLOATING)
 		user.float(FALSE)
+		user.update_icon()
 		user.visible_message("<span class='warning'>[user] slowly falls back to the ground.</span>", "<span class='notice'>You dispell your levitation, and slowly drift back to the ground.</span>")
 
 /obj/effect/proc_holder/spell/self/flight/archonic
-	action_background_icon_state = "bg_hive"
+	action_background_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon_state = "archonic_flight"
+	action_background_icon_state = "bg_archonic"
 
 /obj/effect/proc_holder/spell/targeted/infinite_guns/arcane_barrage/archonic //Archonic Barrage
 	name = "Archonic Barrage"
@@ -957,7 +1011,10 @@
 	charge_max = 10
 	cooldown_min = 10
 	summon_path = /obj/item/gun/ballistic/rifle/illestren/enchanted/arcane_barrage/archonic
-	action_background_icon_state = "bg_hive"
+	action_background_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon_state = "archonic_boltcast"
+	action_background_icon_state = "bg_archonic"
 
 /obj/item/gun/ballistic/rifle/illestren/enchanted/arcane_barrage/archonic
 	name = "archonic barrage"
@@ -974,12 +1031,7 @@
 	ammo_type = /obj/item/ammo_casing/magic/arcane_barrage/archonic
 
 /obj/item/ammo_casing/magic/arcane_barrage/archonic
-	projectile_type = /obj/projectile/magic/arcane_barrage/archonic
-
-/obj/projectile/magic/arcane_barrage/archonic
-	name = "archonic bolt"
-	damage = 40
-	armour_penetration = 30
+	projectile_type = /obj/projectile/beam/archonic/bolt
 
 /obj/effect/proc_holder/spell/targeted/infinite_guns/arcane_barrage/archonic/sparkstorm //Sparkstorm
 	name = "Archonic Sparkstorm"
@@ -987,9 +1039,10 @@
 	charge_max = 600
 	cooldown_min = 600
 	summon_path = /obj/item/gun/magic/wand/archonicspark
-	action_icon = 'icons/effects/effects.dmi'
-	action_icon_state = "plasmasoul"
-	action_background_icon_state = "bg_hive"
+	action_background_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon_state = "archonic_sparkstorm"
+	action_background_icon_state = "bg_archonic"
 
 /obj/item/gun/magic/wand/archonicspark
 	name = "archonic sparkstorm"
@@ -1014,11 +1067,7 @@
 	AddComponent(/datum/component/automatic_fire, 0.10 SECONDS)
 
 /obj/item/ammo_casing/magic/archonicspark
-	projectile_type = /obj/projectile/magic/arcane_barrage/archonic/spark
-
-/obj/projectile/magic/arcane_barrage/archonic/spark
-	name = "archonic spark"
-	damage = 20
+	projectile_type = /obj/projectile/beam/archonic/spark
 
 /obj/effect/proc_holder/spell/aoe_turf/knock/archonic //Violet Entry
 	name = "Violet Entry"
@@ -1026,17 +1075,551 @@
 	invocation = "IANTHINIS"
 	charge_max = 1
 	range = 1
-	action_background_icon_state = "bg_alien"
-	action_icon_state = "rekindling"
+	action_background_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon_state = "violet_entry"
+	action_background_icon_state = "bg_archonic"
 
 /obj/effect/proc_holder/spell/targeted/summonitem/archonic //Archonic Return
 	name = "Archonic Return"
 	charge_max = 1
 	invocation = "UT ERIT"
 	cooldown_min = 1
-	action_background_icon_state = "bg_hive"
-	action_icon = 'icons/mob/actions/actions_elites.dmi'
-	action_icon_state = "pandora_teleport"
+	action_background_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon_state = "archonic_recall"
+	action_background_icon_state = "bg_archonic"
+
+/obj/effect/proc_holder/spell/aimed/archonic_death_ray
+	name = "PREFORATE"
+	desc = "Fire a beam of brilliant archonic light."
+	school = "evocation"
+	charge_max = 100
+	clothes_req = FALSE
+	invocation = "HAFR"
+	invocation_type = INVOCATION_SHOUT
+	action_background_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon_state = "archonic_death_ray0"
+	action_background_icon_state = "bg_archonic"
+	base_icon_state = "archonic_death_ray"
+	sound = 'sound/weapons/blastcannon.ogg'
+	active = FALSE
+	active_msg = "You split your hand in two..."
+	deactive_msg = "You reconnect your hand..."
+	projectile_type = /obj/projectile/beam/archonic/death
+
+
+////////////////////////////Projectiles////////////////////////////
+
+/mob/living/proc/get_archonic_immunity(do_flavor_text = TRUE) //Determine if you are immune to archonic sublimation through antimagic, circle assimilation, being an archonicist, or being severed.
+	if(HAS_TRAIT(src, TRAIT_ARCHONICIST))
+		return 1
+	if(HAS_TRAIT(src, TRAIT_ANOMALY_IMMUNE_AIMTIACRYSTAL))
+		if(do_flavor_text)
+			visible_message("<span class='warning'>A pink and gold vein-like structure under [src]'s skin glows under the violet light.</span>")
+		return 1
+	if(HAS_TRAIT(src, TRAIT_APOTHEOTIC))
+		return 1
+	if(anti_magic_check())
+		return 1
+	return 0
+
+/obj/projectile/beam/archonic
+	name = "archonic bolt"
+	icon_state = "arcane_barrage"
+	damage = 30
+	armour_penetration = 15
+	impact_effect_type = /obj/effect/temp_visual/impact_effect/red_laser
+	light_color = "#ff1a75"
+	var/archonic_subsumption_damage = 0
+
+/obj/projectile/beam/archonic/fire(setAngle)
+	if(SSreality.veil == 7) //Good luck accessing Archous here.
+		qdel(src)
+		return
+	..()
+
+/obj/projectile/beam/archonic/on_hit(target)
+	. = ..()
+	if(QDELETED(src)) //Just in case the guy got vaporized.
+		return BULLET_ACT_HIT
+	if(ismob(target))
+		var/mob/M = target
+		if(HAS_TRAIT(M, TRAIT_ARCHONICIST)) //Friendly fire will not be tolerated
+			M.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
+			qdel(src)
+			return BULLET_ACT_BLOCK
+		if(iscarbon(target))
+			var/mob/living/carbon/C = target
+			var/obj/item/bodypart/target_limb
+			target_limb = C.check_limb_hit(def_zone)
+			if(C.get_archonic_immunity(FALSE))
+				if(HAS_TRAIT(C, TRAIT_ANOMALY_IMMUNE_AIMTIACRYSTAL))
+					C.visible_message("<span class='warning'>A pink and gold vein-like structure under [target]'s skin bursts into brilliant light.</span>")
+				archonic_subsumption_damage = 0
+			var/light_potency = 0
+			switch(SSreality.veil)
+				if(5)
+					light_potency = 0.1
+				if(4)
+					light_potency = 0.4
+				if(3)
+					light_potency = 0.7
+				if(2, 2.5)
+					light_potency = 1
+				if(1)
+					light_potency = 1.25
+				if(0)
+					light_potency = 1.5
+			//Archonic armor is calculated by taking the highest value of either energy or laser armor. The amount of power subsumption has is based on the subsumption damage value.
+			//Subsumption armor penetration is based on light potency which is derived from the veil state, and the armor penetration of the projectile.
+			var/archonic_armor = max(C.run_armor_check(target_limb, "laser", armour_penetration * light_potency, silent = TRUE), C.run_armor_check(target_limb, "energy", armour_penetration * light_potency, silent = TRUE))
+			var/hit_percent = (100-archonic_armor)/100
+			C.adjust_archonic_sublimation(archonic_subsumption_damage*hit_percent, TRUE)
+		else if(isliving(M))
+			var/mob/living/L = target
+			if(L.get_archonic_immunity(FALSE))
+				if(HAS_TRAIT(L, TRAIT_ANOMALY_IMMUNE_AIMTIACRYSTAL))
+					L.visible_message("<span class='warning'>A pink and gold vein-like structure under [target]'s skin bursts into brilliant light.</span>")
+				archonic_subsumption_damage = 0
+			L.apply_damage(archonic_subsumption_damage*2.5, BURN) //Woe, armor-peircing burn damage be apon ye.
+
+/obj/projectile/beam/archonic/bolt
+
+/obj/projectile/beam/archonic/bolt/fire(setAngle)
+	switch(SSreality.veil)
+		if(5) //"Now don't get me wrong, these are powerful lasers, but they aren't magic."
+			armour_penetration = 15
+			archonic_subsumption_damage = 10
+		if(4)
+			armour_penetration = 17
+			archonic_subsumption_damage = 15
+		if(3)  //"I mean; what's the difference at a point?"
+			damage = 30
+			armour_penetration = 20
+			archonic_subsumption_damage = 20
+		if(2, 2.5)
+			damage = 33
+			armour_penetration = 25
+			archonic_subsumption_damage = 35
+		if(1)
+			damage = 35
+			armour_penetration = 30 // Old Values
+			archonic_subsumption_damage = 50
+		if(0)
+			palefire_immune = TRUE //Overic technology is no match for archonic magic.
+			damage = 40 // Old Values
+			armour_penetration = 35
+			archonic_subsumption_damage = 70 //"A whole lot."
+	..()
+
+/obj/projectile/beam/archonic/spark
+	name = "archonic spark"
+	damage = 15
+	armour_penetration = 0
+	light_range = 0.7
+	hitsound = 'sound/weapons/barragespellhit.ogg'
+
+/obj/projectile/beam/archonic/spark/fire(setAngle)
+	switch(SSreality.veil)
+		if(5)
+			armour_penetration = 2
+			archonic_subsumption_damage = 3
+		if(4)
+			armour_penetration = 5
+			archonic_subsumption_damage = 5
+		if(3)
+			damage = 18
+			armour_penetration = 7
+			archonic_subsumption_damage = 8
+		if(2, 2.5)
+			damage = 20
+			armour_penetration = 10
+			archonic_subsumption_damage = 12
+		if(1)
+			damage = 26
+			armour_penetration = 15
+			archonic_subsumption_damage = 15
+		if(0)
+			palefire_immune = TRUE //Overic technology is no match for archonic magic.
+			damage = 30 // Old Values
+			armour_penetration = 17
+			archonic_subsumption_damage = 20
+	..()
+
+
+/obj/projectile/beam/archonic/stun
+	name = "archonic flash"
+	damage = 35
+	light_range = 1
+	damage_type = STAMINA
+	armour_penetration = 0 //20 more than your average disabler
+
+/obj/projectile/beam/archonic/stun/fire(setAngle)
+	switch(SSreality.veil)
+		if(5)
+			damage = 38
+			armour_penetration = 5
+		if(4)
+			damage = 45
+			armour_penetration = 10
+		if(3)
+			damage = 50
+			armour_penetration = 20
+		if(2, 2.5)
+			damage = 60
+			armour_penetration = 30 // Old Value
+		if(1)
+			damage = 70
+			armour_penetration = 35
+		if(0)
+			palefire_immune = TRUE //Overic technology is no match for archonic magic.
+			damage = 90
+			armour_penetration = 40
+			archonic_subsumption_damage = 1
+
+/obj/projectile/beam/archonic/stun/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	if(isliving(target))
+		var/mob/living/M = target
+		if(!ishuman(M))
+			var/light_potency = 0
+			switch(SSreality.veil)
+				if(3 to 5)
+					light_potency = 1
+				if(2, 2.5)
+					light_potency = 1.25
+				if(1)
+					light_potency = 1.5
+				if(0)
+					light_potency = 1.75
+			M.electrocute_act(damage*2*light_potency, src, flags = SHOCK_NOGLOVES)
+
+/obj/projectile/beam/archonic/death
+	name = "archonic annihilation beam"
+	hitscan = TRUE
+	tracer_type = /obj/effect/projectile/tracer/archonic
+	muzzle_type = /obj/effect/projectile/muzzle/archonic
+	impact_type = /obj/effect/projectile/impact/archonic
+	damage = 1000
+	palefire_immune = TRUE //Ship mounted cannon, too big for palefire tech.
+	range = 200
+	var/list/flashburned = list()
+
+/obj/projectile/beam/archonic/death/Move()
+	. = ..()
+	var/turf/location = get_turf(src)
+	if(location)
+		for(var/mob/living/flashburn in get_hearers_in_view(7,src))
+			if(flashburn in flashburned)
+				continue
+			flashburned += flashburn
+
+/obj/projectile/beam/archonic/death/prehit_pierce(atom/A)
+	if(isobj(A))
+		var/obj/O = A
+		if(istype(O, /obj/structure/barricade) || istype(O, /obj/structure/flippedtable) || istype(O, /obj/mecha))
+			return PROJECTILE_PIERCE_NONE //Let barricades do their job. Mechs also count as a full hit.
+		explosion(O, 0, 1, 1, 2)
+		O.take_damage(100, BURN, "laser", FALSE)
+		new /obj/effect/temp_visual/archous_flash/fading(get_turf(A))
+		return PROJECTILE_PIERCE_PHASE
+	return ..()
+
+/obj/projectile/beam/archonic/death/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	new /obj/effect/temp_visual/archous_flash/huge/fading(get_turf(target))
+
+	for(var/mob/living/illuminated in flashburned) //Seeing the beam as it travels.
+		switch(SSreality.veil)
+			if(4)
+				archonic_subsumption_damage = 2
+			if(3)
+				archonic_subsumption_damage = 4
+			if(2, 2.5)
+				archonic_subsumption_damage = 10
+			if(1)
+				archonic_subsumption_damage = 15
+			if(0)
+				archonic_subsumption_damage = 20
+		if(illuminated.get_archonic_immunity())
+			archonic_subsumption_damage = 0
+		if(iscarbon(illuminated))
+			var/mob/living/carbon/C = illuminated
+			var/light_potency = 0
+			switch(SSreality.veil)
+				if(4)
+					light_potency = 5
+				if(3)
+					light_potency = 7
+				if(2, 2.5)
+					light_potency = 10
+				if(1)
+					light_potency = 15
+				if(0)
+					light_potency = 17
+			var/archonic_armor = max(C.run_armor_check(null, "laser", light_potency, silent = TRUE), C.run_armor_check(null, "energy", light_potency, silent = TRUE))
+			var/hit_percent = (100-archonic_armor)/100
+			C.adjust_archonic_sublimation(archonic_subsumption_damage*hit_percent, TRUE)
+	if(isliving(target))
+		var/mob/living/M = target
+		if(HAS_TRAIT(M, TRAIT_ARCHONICIST)) //Friendly fire will not be tolerated
+			M.visible_message("<span class='warning'>[src] vanishes on contact with [target]!</span>")
+			qdel(src)
+			return BULLET_ACT_BLOCK
+		M.archonic_flash()
+		if(M.health <= 0)
+			M.dust(TRUE, FALSE, TRUE)
+	explosion(target, 2, 3, 4, 7)
+
+/obj/effect/projectile/impact/archonic
+	name = "archonic impact"
+	icon_state = "impact_hcult"
+
+/obj/effect/projectile/tracer/archonic
+	name = "archonic beam"
+	icon_state = "hcult"
+
+/obj/effect/projectile/muzzle/archonic
+	icon_state = "muzzle_hcult"
+
+/obj/effect/temp_visual/archous_flash/huge/fading/artillery
+	duration = 8
+
+/obj/effect/temp_visual/archous_flash/huge/fading/artillery/Initialize()
+	. = ..()
+	var/archonic_subsumption_damage = 0
+	for(var/mob/living/illuminated in get_hearers_in_view(6,src))
+		switch(SSreality.veil)
+			if(4)
+				archonic_subsumption_damage = 5
+			if(3)
+				archonic_subsumption_damage = 8
+			if(2, 2.5)
+				archonic_subsumption_damage = 13
+			if(1)
+				archonic_subsumption_damage = 16
+			if(0)
+				archonic_subsumption_damage = 25
+		if(illuminated.get_archonic_immunity())
+			archonic_subsumption_damage = 0
+		if(iscarbon(illuminated))
+			var/mob/living/carbon/C = illuminated
+			var/light_potency = 0
+			switch(SSreality.veil)
+				if(4)
+					light_potency = 5
+				if(3)
+					light_potency = 7
+				if(2, 2.5)
+					light_potency = 10
+				if(1)
+					light_potency = 16
+				if(0)
+					light_potency = 20
+			var/archonic_armor = max(C.run_armor_check(null, "laser", light_potency, silent = TRUE), C.run_armor_check(null, "energy", light_potency, silent = TRUE))
+			var/hit_percent = (100-archonic_armor)/100
+			C.adjust_archonic_sublimation(archonic_subsumption_damage*hit_percent, TRUE)
+	explosion(src, 2, 3, 4, 7)
+
+/*
+//////////////////////////Status Effects//////////////////////////
+*/
+
+/mob/living/proc/adjust_archonic_sublimation(amount, as_damage = FALSE, flash_screen = TRUE, down_to = 0, up_to = INFINITY)
+	if(!isnum(amount))
+		CRASH("adjust_archonic_sublimation: called with an invalid amount. (Got: [amount])")
+	var/datum/status_effect/archonic_subsumption/sublimation = has_status_effect(/datum/status_effect/archonic_subsumption)
+	if(amount == 0)
+		return
+	if(flash_screen)
+		flash_color(src, "#ff00aa", amount*2)
+	if(sublimation)
+		sublimation.set_severity(clamp(sublimation.severity + amount, down_to, up_to), as_damage)
+	else if(amount > 0)
+		apply_status_effect(/datum/status_effect/archonic_subsumption, amount)
+
+/mob/living/proc/set_archsub_severity(set_to)
+	if(!isnum(set_to) || set_to < 0)
+		CRASH("set_archsub_effect: called with an invalid value. (Got: [set_to])")
+
+	var/datum/status_effect/archonic_subsumption/sublimation = has_status_effect(/datum/status_effect/archonic_subsumption)
+	if(sublimation)
+		sublimation.set_severity(set_to)
+	else if(set_to > 0)
+		apply_status_effect(/datum/status_effect/archonic_subsumption, set_to)
+
+/// Helper to get the amount of drunkness the mob's currently experiencing.
+/mob/living/proc/get_archsub_severity()
+	var/datum/status_effect/archonic_subsumption/sublimation = has_status_effect(/datum/status_effect/archonic_subsumption)
+	if(sublimation)
+		return sublimation?.severity
+	return 0
+
+/mob/living/proc/pause_arcsub() //Storytelling thing
+	var/datum/status_effect/archonic_subsumption/sublimation = has_status_effect(/datum/status_effect/archonic_subsumption)
+	if(sublimation)
+		if(sublimation.paused)
+			sublimation.paused = FALSE
+		else
+			sublimation.paused = TRUE
+
+/atom/movable/screen/alert/status_effect/archonic_subsumption
+	name = "Sublimating"
+	desc = "The LIGHT creeps under your SKIN. IT BURNS IT BURNS IT BURNS IT BURNS."
+	icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	icon_state = "sublimation"
+
+/datum/status_effect/archonic_subsumption
+	id = "archous_subsume"
+	status_type = STATUS_EFFECT_UNIQUE
+	alert_type = /atom/movable/screen/alert/status_effect/archonic_subsumption
+	examine_text = "<span class='revenwarning'>Their wounds seem to glow with a burning violet light.</span>  <span class='notice'>You doubt its good for them.</span>"
+	tick_interval = 30
+	var/severity = 0
+	var/paused = FALSE
+
+/datum/status_effect/archonic_subsumption/on_creation(mob/living/new_owner, severity = 0)
+	. = ..()
+	set_severity(severity)
+
+/datum/status_effect/archonic_subsumption/on_apply()
+	SSreality.archonically_seen += owner
+	return ..()
+
+/datum/status_effect/archonic_subsumption/on_remove()
+	if(owner in SSreality.archonically_seen)
+		SSreality.archonically_seen -= owner
+
+
+/datum/status_effect/archonic_subsumption/proc/set_severity(set_to, as_damage = FALSE)
+	if(!isnum(set_to))
+		CRASH("[type] - invalid value passed to set_severity. (Got: [set_to])")
+
+	if(as_damage && set_to > severity && severity >= 100)
+		var/difference = set_to - severity
+		severity = severity+(difference*(severity/100))
+	else
+		severity = set_to
+	if(severity <= 0)
+		qdel(src)
+
+/datum/status_effect/archonic_subsumption/tick()
+
+	if(paused || !SSreality.advance_archonic_sublimation)
+		return
+
+	if(severity > 100)
+		tick_interval = 50
+		switch(SSreality.veil)
+			if(7)
+				set_severity(0)
+			if(6)
+				set_severity(max(90,max(225,severity)*rand())) //44% chance to recover at 100-225 severity. After that your chances go way down.
+	else
+		tick_interval = 30
+		examine_text = "<span class='revenwarning'>Their wounds seem to glow with a burning violet light.</span>  <span class='notice'>You doubt its good for them.</span>"
+		switch(SSreality.veil)
+			if(7)
+				set_severity(0)
+			if(6)
+				set_severity(severity - 1)
+			if(5)
+				set_severity(severity - 0.5)
+			if(4)
+				set_severity(severity - 0.35)
+			if(3)
+				set_severity(severity - 0.25)
+			if(2, 2.5)
+				set_severity(severity - 0.20)
+			if(1)
+				set_severity(severity - 0.08)
+			if(0)
+				set_severity(severity - 0.04) //Archous does not lose its prey.
+
+	if(QDELETED(src))
+		return
+
+	on_tick_effects()
+
+/datum/status_effect/archonic_subsumption/proc/subsume()
+	owner.visible_message("<span class='revenwarning'>[owner]'s burning flesh crackles with violet light then falls into dust.</span>")
+	owner.visible_message("<span class='notice'>Their items were uneffected.</span>")
+	if(owner in SSreality.archonically_seen)
+		SSreality.archonically_seen -= owner
+	owner.dust(TRUE, TRUE)
+
+/datum/status_effect/archonic_subsumption/proc/on_tick_effects()
+	//1-6 severity, minor progressive burns over time. 0.07 burn damage.
+	//7-15 severity, escalate to 0.15 burn damage.
+	//16-27 severity, 0.25 burn damage.
+	//28-48 severity, 0.4 burn damage. Dust on death.
+	//49-66 severity, 0.6 burn damage Minor non-critical organ damage. No brain damage. Dust on death.
+	//67-90 severity, 0.8 burn damage. High non-critical organ damage. Minor critical organ damage. No brain damage. Dust on death.
+	//91-100 severity, 1 burn damage. 2 burn damage in crit. High non-critical organ damage. Minor critical organ damage. No brain damage. Dust on death.
+	//100+ severity. Fatal damage. severity/7500 damage. Severity increases by a random amount between itself and 0 each tick. Does a 1/10 of burn damage delt to all non-critical organs. Does 1/20th of all burn damage delt to all critical non-brain non-sensory organs. Dusts on death.
+	switch(severity)
+		if(0 to 6) // Mild
+			owner.adjustFireLoss(0.07*SSreality.archonic_sublimation_damage)
+		if(6 to 15) // Moderate
+			owner.adjustFireLoss(0.15*SSreality.archonic_sublimation_damage)
+		if(15 to 27) // High
+			owner.adjustFireLoss(0.25*SSreality.archonic_sublimation_damage)
+		if(27 to 48) // Hazardous
+			if(owner.stat == DEAD)
+				subsume()
+			owner.adjustFireLoss(0.4*SSreality.archonic_sublimation_damage)
+		if(48 to 66) // Severe
+			if(owner.stat == DEAD)
+				subsume()
+			owner.adjustFireLoss(0.6*SSreality.archonic_sublimation_damage)
+		if(66 to 90) // Extreme
+			if(owner.stat == DEAD)
+				subsume()
+			owner.adjustFireLoss(0.8*SSreality.archonic_sublimation_damage)
+		if(90 to 100) //Catastrophic
+			if(owner.stat == DEAD)
+				subsume()
+			owner.adjustFireLoss(1*SSreality.archonic_sublimation_damage)
+		if(100 to INFINITY) //Fatal
+			var/damage_to_deal
+			switch(SSreality.veil)
+				if(7)
+					damage_to_deal = 0
+				if(4 to 6)
+					damage_to_deal = severity/250000
+				if(3)
+					damage_to_deal = severity/75000
+				if(2.5)
+					damage_to_deal = severity/5000 //Archous's energy and hostility are currently hyperfocused on this specific region.
+				if(1, 2)
+					damage_to_deal = severity/25000
+				if(0)
+					damage_to_deal = severity/12500
+			switch(damage_to_deal)
+				if(0 to 0.6)
+					examine_text = "<span class='revenwarning'>Their wounds seem to glow with a burning violet light.</span>  <span class='notice'>You doubt its good for them.</span>"
+				if(0.6 to 3)
+					examine_text = "<span class='revenwarning'>Their wounds seem to glow with a burning violet light.</span>  <span class='warning'>It seems to be spreading faster and more intensely.</span>"
+				if(3 to 10)
+					examine_text = "<span class='revenminor'>Their wounds seem to burn with crackling violet embers.</span>  <span class='warning'>With each pulse of the light it grows brighter.</span>"
+				if(10 to 30)
+					examine_text = "<span class='revenminor'>Their body is charred with crackling violet light. It almost looks like fire inside them.</span>  <span class='alertwarning'>Death is imminent.</span>"
+				if(30 to 50)
+					examine_text = "<span class='revenminor'><b>Their body is burning away from the inside out with a violet flame.</b></span>  <span class='alertwarning'>Death is imminent.</span>"
+				if(50 to INFINITY)
+					examine_text = "<span class='revendanger'>Their body is awash with violet flame.</span> <span class='alertwarning'>Death is imminent.</span>"
+			owner.adjustFireLoss(damage_to_deal*SSreality.archonic_sublimation_damage)
+			if(owner.stat == DEAD)
+				subsume()
+			if(SSreality.veil == 2.5)
+				set_severity(severity + (severity*clamp(rand(), 0, 0.5)))
+			else if(severity < 1000)
+				set_severity(severity + (severity*clamp(rand(), 0, 0.15))) //Grace period
+			else
+				set_severity(severity + (severity*clamp(rand(), 0, 0.30)))
+
 
 /*
 /////////////////////////////Implants/////////////////////////////
@@ -1050,12 +1633,14 @@
 /obj/item/implant/archonic/implant(mob/living/target, mob/user, silent = FALSE, force = FALSE)
 	. = ..()
 	if (.)
-		ADD_TRAIT(target, TRAIT_ABDUCTOR_TRAINING, "implant")
+		ADD_TRAIT(target, TRAIT_ARCHONICIST, "implant")
+		target.faction |= FACTION_ARCHOUS
 
 /obj/item/implant/archonic/removed(mob/target, silent = FALSE, special = 0)
 	. = ..()
 	if (.)
-		REMOVE_TRAIT(target, TRAIT_ABDUCTOR_TRAINING, "implant")
+		REMOVE_TRAIT(target, TRAIT_ARCHONICIST, "implant")
+		target.faction -= FACTION_ARCHOUS
 
 /obj/item/implant/archonic/get_data()
 	var/dat = {"<b>Implant Specifications:</b><BR>
@@ -1109,11 +1694,12 @@
 	if(!special)
 		var/datum/component/storage/lostimplant = GetComponent(/datum/component/storage/concrete/implant)
 		var/mob/living/implantee = source
-		for (var/obj/item/I in lostimplant.contents())
-			I.add_mob_blood(implantee)
-		lostimplant.do_quick_empty()
-		implantee.visible_message("<span class='revenwarning'>A violetspace pocket opens around [src] as it exits [implantee], spewing out its contents and rupturing the surrounding tissue!</span>")
-		implantee.apply_damage(90, BRUTE, BODY_ZONE_CHEST)
+		if(!QDELETED(implantee)) //Runtime prevention
+			for (var/obj/item/I in lostimplant.contents())
+				I.add_mob_blood(implantee)
+			lostimplant.do_quick_empty()
+			implantee.visible_message("<span class='revenwarning'>A violetspace pocket opens around [src] as it exits [implantee], spewing out its contents and rupturing the surrounding tissue!</span>")
+			implantee.apply_damage(90, BRUTE, BODY_ZONE_CHEST)
 		qdel(lostimplant)
 	return ..()
 

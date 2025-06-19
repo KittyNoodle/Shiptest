@@ -180,3 +180,95 @@
 	name = "Sixth-Order Whisper Word"
 	desc = "Speak the words that carry will indomitable."
 	order = 6
+
+//Anomalistic aura farming update
+/obj/effect/proc_holder/spell
+	var/magic_animation //If we want to do a silly animation or not. And if so which one.
+
+/mob/proc/magic_anim(animation)
+	var/animation_icon = 'code/modules/archonic/icons/effects.dmi'
+	var/animation_icon_state = ""
+	var/animation_pixel_x = 0
+	var/animation_pixel_y = 0
+	var/animation_duration = 0
+	switch(animation)
+	//Put all the stuff here
+		if("3c_spear_summon") //Third Circle
+			animation_icon_state = "3c_spear_summon"
+			animation_duration = 7
+		if("3c_command")
+			animation_icon_state = "3c_command"
+			animation_duration = 7
+		if("3c_fly")
+			animation_icon_state = "3c_fly"
+			animation_duration = 7
+		if("3c_heal")
+			animation_icon_state = "3c_heal"
+			animation_duration = 7
+		if("3c_spear_summon_extra")
+			animation_icon_state = "3c_spear_summon_extra"
+			animation_duration = 7
+		if("3c_command_extra")
+			animation_icon_state = "3c_command_extra"
+			animation_duration = 7
+		if("3c_fly_extra")
+			animation_icon_state = "3c_fly_extra"
+			animation_duration = 7
+		if("3c_heal_extra")
+			animation_icon_state = "3c_heal_extra"
+			animation_duration = 7
+		if("3c_spear_summon_ascendant")
+			animation_icon_state = "3c_spear_summon_ascendant"
+			animation_duration = 7
+		if("3c_command_ascendant")
+			animation_icon_state = "3c_command_ascendant"
+			animation_duration = 7
+		if("3c_fly_ascendant")
+			animation_icon_state = "3c_fly_ascendant"
+			animation_duration = 7
+		if("3c_heal_ascendant")
+			animation_icon_state = "3c_heal_ascendant"
+			animation_duration = 8
+		if("archous_heal")
+			animation_icon_state = "archous_heal"
+			animation_duration = 7
+	//Set up effect
+	var/obj/effect/spell_animation/magic_sparkles = new(loc, animation_duration)
+	magic_sparkles.forceMove(loc)
+	magic_sparkles.setDir(dir)
+	magic_sparkles.transform = transform
+	magic_sparkles.alpha = 255
+	magic_sparkles.pixel_x = animation_pixel_x
+	magic_sparkles.pixel_y = animation_pixel_y
+	magic_sparkles.icon = animation_icon
+	//magic_sparkles.icon_state = animation_icon_state
+	flick("[animation_icon_state]", magic_sparkles) //Please?
+
+/obj/effect/spell_animation
+	icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	icon_state = ""
+	anchored = TRUE
+	layer = ABOVE_MOB_LAYER
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	var/duration = 10 //in deciseconds
+	var/timerid
+
+/obj/effect/spell_animation/Initialize(mapload, set_duration)
+	. = ..()
+	if(set_duration)
+		duration = set_duration
+
+	timerid = QDEL_IN(src, duration)
+
+/obj/effect/spell_animation/Destroy()
+	. = ..()
+	deltimer(timerid)
+
+/obj/effect/spell_animation/singularity_act()
+	return
+
+/obj/effect/spell_animation/singularity_pull()
+	return
+
+/obj/effect/spell_animation/ex_act()
+	return

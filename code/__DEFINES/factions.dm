@@ -13,9 +13,9 @@
 #define FACTION_PLAYER_ROUMAIN "playerRoumain"
 #define FACTION_PLAYER_GEZENA "playerGezena"
 
-#define FACTION_OVERIC "Overic"
+#define FACTION_OVERIC "Overic" // Archonic Edit
 
-#define FACTION_ARCHOUS "Cult of Archous"
+#define FACTION_ARCHOUS "Cult of Archous" //Archonic Edit
 #define FACTION_SYNDICATE "Syndicate"
 	#define FACTION_NGR "New Gorlex Republic"
 	#define FACTION_CYBERSUN "CyberSun"
@@ -32,8 +32,8 @@
 #define FACTION_PGF "Pan-Gezenan Federation"
 #define FACTION_INDEPENDENT "Independent"
 
-#define PREFIX_ARCHOUS list("ACSV")
-#define PREFIX_OVERIC list("OSV")
+#define PREFIX_ARCHOUS list("ACSV") //Archonic Edit
+#define PREFIX_OVERIC list("OSV") //Archonic Edit
 
 #define PREFIX_SYNDICATE list("SEV", "SSV")
 	#define PREFIX_NGR list("NGRV")

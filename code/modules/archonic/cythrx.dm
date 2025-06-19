@@ -3,10 +3,36 @@
 ///////////////It had to be this way//////////////////
 */
 
-GLOBAL_VAR_INIT(cythrx_wall_resist, 80)
-GLOBAL_VAR_INIT(cythrx_tendrils, 20) //good lord do not touch this if you don't know what you are doing
-GLOBAL_VAR_INIT(cythrx_delay, 0) //in deciseconds
-GLOBAL_VAR_INIT(cythrx_spread, TRUE)
+PROCESSING_SUBSYSTEM_DEF(cythrx)
+	name = "CYTHRX"
+	wait = 2
+	stat_tag = "CXP"
+	var/cythrx_wall_resist = 80
+	var/cythrx_tendrils = 20
+	var/cythrx_delay = 0
+	var/cythrx_spread = TRUE
+	var/list/turf/open/indestructible/cythrx/cythrx_turfs = list()
+
+
+/datum/controller/subsystem/processing/cythrx/stat_entry(msg)
+	msg = "[stat_tag]:[length(processing)]  CXT:[length(cythrx_turfs)]"
+	return ..()
+
+/datum/controller/subsystem/processing/cythrx/vv_get_dropdown()
+	VV_DROPDOWN_OPTION("", "---------")
+	VV_DROPDOWN_OPTION(VV_HK_DEL_CYTHRX, "Clear CYTHRX")
+
+/datum/controller/subsystem/processing/cythrx/vv_do_topic(list/href_list)
+	. = ..()
+	if(href_list[VV_HK_DEL_CYTHRX])
+		if(!check_rights(NONE))
+			return
+		clean_cythrx()
+
+/datum/controller/subsystem/processing/cythrx/proc/clean_cythrx()
+	for(var/turf/open/indestructible/cythrx in cythrx_turfs)
+		cythrx.ScrapeAway()
+
 
 /turf/open/indestructible/cythrx
 	name = "creeping purple haze"
@@ -37,16 +63,18 @@ GLOBAL_VAR_INIT(cythrx_spread, TRUE)
 	. = ..()
 	for(var/delete_items in contents)
 		Consume(delete_items)
-	if(GLOB.cythrx_delay)
-		COOLDOWN_START(src, spreading_cooldown, GLOB.cythrx_delay)
-	START_PROCESSING(SSfastprocess, src)
+	if(SScythrx.cythrx_delay)
+		COOLDOWN_START(src, spreading_cooldown, SScythrx.cythrx_delay)
+	SScythrx.cythrx_turfs += src
+	START_PROCESSING(SScythrx, src)
 	is_processing = TRUE
 
 /turf/open/indestructible/cythrx/Destroy()
-	STOP_PROCESSING(SSobj, src)
+	SScythrx.cythrx_turfs -= src
+	STOP_PROCESSING(SScythrx, src)
 	for(var/turf/open/indestructible/cythrx/reactivate_turfs in range(1))
 		reactivate_turfs.try_directions = list(NORTH, SOUTH, EAST, WEST)
-		START_PROCESSING(SSobj, reactivate_turfs)
+		START_PROCESSING(SScythrx, reactivate_turfs)
 	. = ..()
 
 /turf/open/indestructible/cythrx/proc/spread()
@@ -57,17 +85,17 @@ GLOBAL_VAR_INIT(cythrx_spread, TRUE)
 	var/turf/try_movement = get_step(src, select_direction)
 	if(istype(try_movement, /turf/open/indestructible/cythrx) || istype(try_movement, /turf/open/space/transit) || istype(try_movement, /turf/closed/indestructible/edge))
 		return
-	if(try_movement.density && GLOB.cythrx_wall_resist < 100)
-		if(prob(GLOB.cythrx_wall_resist))
+	if(try_movement.density && SScythrx.cythrx_wall_resist < 100)
+		if(prob(SScythrx.cythrx_wall_resist))
 			try_directions += select_direction
 			return
 	try_movement.ChangeTurf(/turf/open/indestructible/cythrx)
 
 /turf/open/indestructible/cythrx/process(delta_time)
-	if(GLOB.cythrx_delay)
+	if(SScythrx.cythrx_delay)
 		if(!COOLDOWN_FINISHED(src, spreading_cooldown))
 			return
-		COOLDOWN_START(src, spreading_cooldown, GLOB.cythrx_delay)
+		COOLDOWN_START(src, spreading_cooldown, SScythrx.cythrx_delay)
 	cythrx_neighbors = 0
 	var/turf/try_neighbor = get_step(src, NORTH)
 	if(istype(try_neighbor, /turf/open/indestructible/cythrx))
@@ -81,16 +109,16 @@ GLOBAL_VAR_INIT(cythrx_spread, TRUE)
 	try_neighbor = get_step(src, WEST)
 	if(istype(try_neighbor, /turf/open/indestructible/cythrx))
 		cythrx_neighbors = cythrx_neighbors + 1
-	if(!spread || !GLOB.cythrx_spread)
+	if(!spread || !SScythrx.cythrx_spread)
 		return
 	if(cythrx_neighbors >= 2)
-		if(prob(GLOB.cythrx_tendrils))
+		if(prob(SScythrx.cythrx_tendrils))
 			spread()
 	if(cythrx_neighbors <= 1)
 		spread()
 	if(!length(try_directions))
 		is_processing = FALSE
-		STOP_PROCESSING(SSobj, src)
+		STOP_PROCESSING(SScythrx, src)
 
 /turf/open/indestructible/cythrx/narsie_act(force, ignore_mobs, probability)
 	return

@@ -13,6 +13,7 @@
 	var/action_icon = 'icons/mob/actions/actions_spells.dmi'
 	var/action_icon_state = "spell_default"
 	var/action_background_icon_state = "bg_spell"
+	var/action_background_icon = 'icons/mob/actions/backgrounds.dmi' //Archonic Edit
 	var/base_action = /datum/action/spell_action
 
 /obj/effect/proc_holder/Initialize()
@@ -312,6 +313,8 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 		recharging = TRUE
 	if(sound)
 		playMagSound()
+	if(magic_animation) //Archonic Edit
+		user.magic_anim(magic_animation)
 	cast(targets,user=user)
 	after_cast(targets)
 	if(action)

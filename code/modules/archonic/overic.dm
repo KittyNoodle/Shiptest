@@ -226,7 +226,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/overic_light, 26)
 
 ////////////////////PALEFIRE////////////////////
 // Of all Overic technology none is more dreaded and respected as Palefire, which dispite its name is not a white flame.
-// What Palefire is, is an array of extremely precise sensors, field emitters, and micro-wormhole generators that, when active, effectively destroy any small high energy emissions like bullets or laser fire before they can exit their source.
+// Palefire is an array of extremely precise sensors, field emitters, and micro-wormhole generators that, when active, effectively destroy any small high energy emissions like bullets or laser fire before they can exit their source.
 // This obviously carries a significant tactical advantage, as it prevents smaller caliber ship weapons like autocannons and almost all personell weaponry from firing. However the original intent was never for this purpose, but instead to prevent suicides.
 GLOBAL_VAR_INIT(palefire, FALSE)
 
@@ -692,7 +692,7 @@ GLOBAL_VAR_INIT(palefire, FALSE)
 	projectile_type = /obj/projectile/overic/cage
 
 /datum/action/innate/overic
-	button_icon = 'code/modules/archonic/icons/overic.dmi'
+	button_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
 	background_icon_state = "bg_overic"
 	icon_icon = 'code/modules/archonic/icons/overic.dmi'
 

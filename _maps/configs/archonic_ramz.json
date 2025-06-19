@@ -1,0 +1,27 @@
+{
+	"$schema": "https://raw.githubusercontent.com/shiptest-ss13/Shiptest/master/_maps/ship_config_schema.json",
+	"map_name": "Ramz-class Assault Frigate",
+	"prefix": "ACSV",
+	"namelists": [
+		"WEAPONS"
+	],
+	"faction_name": "Cult of Archous",
+	"faction": "/datum/faction/archonic",
+	"map_short_name": "Ramz-class",
+	"unique_ship_access": false,
+	"description": "The Ramz-Class is primary shock-and-awe vessel of any archonic warfleet. It contains an internal archonic gateway for rapid reinforcement, 360 degree archonic cannon coverage, and a near-impenetrable hull. As one of very few ships actually produced by the Cult of Archous, only twelve Ramz-Class vessels have ever been produced.",
+	"tags": [
+		"Specialist"
+	],
+	"map_path": "_maps/shuttles/archonic/archonic_ramz.dmm",
+	"limit":1,
+	"starting_funds": 0,
+	"job_slots": {
+		"Archonicist": {
+			"outfit": "/datum/outfit/archonic",
+			"slots": 1
+		}
+	},
+	"enabled": false,
+	"space_spawn": true
+}

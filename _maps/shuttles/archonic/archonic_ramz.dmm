@@ -1,0 +1,1946 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ac" = (
+/obj/machinery/power/ship_gravity,
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"aL" = (
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"aO" = (
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/corner,
+/obj/structure/cable/pink{
+	icon_state = "5-8"
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"aT" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 6
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"aW" = (
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/line{
+	dir = 9
+	},
+/obj/machinery/light/directional/north,
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"aZ" = (
+/obj/effect/turf_decal/trimline/transparent/purple/corner{
+	dir = 1
+	},
+/obj/structure/cable/pink{
+	icon_state = "1-10"
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"bd" = (
+/obj/structure/table/reinforced{
+	color = "#6A445D"
+	},
+/obj/machinery/light/directional/east,
+/obj/item/storage/firstaid/tactical{
+	pixel_x = 10;
+	pixel_y = 7
+	},
+/obj/item/storage/firstaid/tactical{
+	pixel_y = 6;
+	pixel_x = -6
+	},
+/obj/item/storage/firstaid/tactical{
+	pixel_x = 5
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"bF" = (
+/obj/effect/turf_decal/trimline/transparent/pink/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/transparent/purple/line{
+	dir = 5
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"ca" = (
+/obj/structure/window/plasma/reinforced/plastitanium/archonic,
+/turf/open/indestructible/hierophant,
+/area/ship/bridge)
+"cr" = (
+/obj/effect/turf_decal/industrial/warning{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"cs" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line,
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"dN" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 2
+	},
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/line{
+	dir = 5
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"ee" = (
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/line{
+	dir = 10
+	},
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"eh" = (
+/obj/structure/table/abductor,
+/obj/machinery/turretid{
+	pixel_y = 7;
+	pixel_x = 2;
+	locked = 0
+	},
+/obj/machinery/light_switch{
+	pixel_y = -2;
+	pixel_x = -5
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/bridge)
+"el" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tech/grid/root,
+/area/ship/bridge)
+"er" = (
+/obj/effect/turf_decal/trimline/opaque/syndiered/filled/line{
+	dir = 5
+	},
+/obj/machinery/light/directional/north,
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"ev" = (
+/obj/machinery/door/airlock/abductor{
+	name = "Gateway Chamber"
+	},
+/turf/open/indestructible/hierophant,
+/area/ship/bridge)
+"eB" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line,
+/obj/machinery/light/directional/south,
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"fw" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 9
+	},
+/obj/effect/turf_decal/trimline/transparent/purple/corner,
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"fL" = (
+/obj/effect/turf_decal/trimline/opaque/yellow/filled/line{
+	dir = 9
+	},
+/obj/machinery/light/directional/north,
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"fO" = (
+/obj/structure/table/reinforced{
+	color = "#8A9397"
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/hallway/central)
+"gS" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 2
+	},
+/obj/effect/turf_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/corner{
+	dir = 1
+	},
+/obj/machinery/light/directional/north,
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"hr" = (
+/turf/open/floor/plasteel/dark,
+/area/ship/hallway/central)
+"hw" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 9
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"hN" = (
+/obj/structure/cable/pink{
+	icon_state = "6-8"
+	},
+/obj/effect/turf_decal/trimline/transparent/purple/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"hR" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/transparent/purple/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"ix" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/transparent/purple/line,
+/obj/machinery/light/directional/north,
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"iI" = (
+/obj/structure/fans/tiny,
+/obj/machinery/door/poddoor{
+	id = "Ramz_Blasts";
+	name = "Access Hatch"
+	},
+/turf/open/floor/engine,
+/area/ship/hallway/central)
+"jC" = (
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/corner,
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"jW" = (
+/obj/structure/cable/pink{
+	icon_state = "4-8"
+	},
+/obj/effect/turf_decal/trimline/transparent/purple/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"kt" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Bridge"
+	},
+/obj/structure/cable/pink{
+	icon_state = "1-2"
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"lh" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/transparent/purple/line{
+	dir = 8
+	},
+/obj/machinery/door/airlock/centcom{
+	name = "Bridge"
+	},
+/obj/structure/cable/pink{
+	icon_state = "1-2"
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"lu" = (
+/obj/machinery/shower{
+	pixel_y = 16
+	},
+/turf/open/floor/plating/catwalk_floor,
+/area/ship/hallway/central)
+"lN" = (
+/obj/structure/table/reinforced{
+	color = "#6A445D"
+	},
+/obj/item/clothing/neck/crystal_amulet/archous,
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"ml" = (
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/corner{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"mm" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/transparent/purple/line,
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"mn" = (
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/line,
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"nz" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 2
+	},
+/obj/effect/turf_decal/industrial/warning/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/corner{
+	dir = 4
+	},
+/obj/machinery/light/directional/north,
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"oe" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/transparent/purple/line,
+/obj/structure/cable/pink{
+	icon_state = "1-6"
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"oj" = (
+/obj/structure/mineral_door/iron{
+	color = "#8B225A"
+	},
+/turf/open/floor/white{
+	color = "#66024A"
+	},
+/area/ship/bridge)
+"oC" = (
+/obj/machinery/meteor_ward,
+/turf/closed/gateway,
+/area/ship/hallway/central)
+"pa" = (
+/obj/structure/table/reinforced{
+	color = "#6A445D"
+	},
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/gloves/combat,
+/obj/item/clothing/gloves/combat,
+/obj/item/clothing/gloves/combat,
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"pj" = (
+/obj/effect/turf_decal/techfloor{
+	dir = 1
+	},
+/turf/open/floor/plating/abductor,
+/area/ship/hallway/central)
+"pr" = (
+/obj/effect/turf_decal/trimline/opaque/yellow/filled/line{
+	dir = 8
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"pN" = (
+/obj/structure/table/reinforced{
+	color = "#6A445D"
+	},
+/obj/item/storage/backpack/duffelbag/syndie/med/medicalbundle,
+/turf/open/floor/plasteel/tech/techmaint,
+/area/ship/hallway/central)
+"pQ" = (
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 4
+	},
+/obj/structure/cable/pink{
+	icon_state = "0-2"
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"pR" = (
+/obj/effect/turf_decal/techfloor{
+	dir = 6
+	},
+/turf/open/floor/plating/abductor,
+/area/ship/hallway/central)
+"qn" = (
+/turf/template_noop,
+/area/template_noop)
+"rB" = (
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/line{
+	dir = 6
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"rO" = (
+/obj/structure/cable/pink{
+	icon_state = "4-9"
+	},
+/obj/effect/turf_decal/trimline/transparent/purple/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"sQ" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 1
+	},
+/obj/machinery/light/directional/north,
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"sV" = (
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/line{
+	dir = 6
+	},
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"to" = (
+/obj/effect/turf_decal/trimline/transparent/purple/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/transparent/pink/corner{
+	dir = 4
+	},
+/obj/structure/cable/pink{
+	icon_state = "1-2"
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"tu" = (
+/obj/structure/fans/tiny,
+/obj/docking_port/mobile{
+	can_move_docking_ports = 1;
+	dir = 2;
+	launch_status = 0;
+	port_direction = 8;
+	preferred_direction = 4
+	},
+/obj/machinery/door/poddoor{
+	id = "Ramz_Blasts";
+	name = "Access Hatch"
+	},
+/turf/open/floor/engine,
+/area/ship/hallway/central)
+"tB" = (
+/obj/effect/turf_decal/trimline/transparent/pink/corner,
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"tN" = (
+/obj/effect/turf_decal/trimline/transparent/purple/line{
+	dir = 9
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"ue" = (
+/obj/effect/turf_decal/trimline/transparent/purple/line{
+	dir = 5
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"uk" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 5
+	},
+/obj/effect/turf_decal/trimline/transparent/purple/corner{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"uD" = (
+/obj/structure/table/reinforced{
+	color = "#6A445D"
+	},
+/obj/item/storage/toolbox/syndicate,
+/obj/machinery/light_switch{
+	pixel_y = 22;
+	pixel_x = -9
+	},
+/turf/open/floor/plasteel/tech/techmaint,
+/area/ship/hallway/central)
+"uU" = (
+/obj/effect/turf_decal/trimline/transparent/pink/corner,
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/corner{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"vi" = (
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium/archonic,
+/turf/open/floor/plating,
+/area/ship/hallway/central)
+"vr" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 10
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"vz" = (
+/obj/machinery/computer/helm,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/bridge)
+"vC" = (
+/obj/effect/turf_decal/techfloor{
+	dir = 5
+	},
+/turf/open/floor/plating/abductor,
+/area/ship/hallway/central)
+"vL" = (
+/obj/effect/turf_decal/trimline/transparent/purple/warning{
+	dir = 10
+	},
+/obj/effect/turf_decal/corner/opaque/solgovblue{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/bridge)
+"vM" = (
+/obj/effect/turf_decal/techfloor{
+	dir = 8
+	},
+/turf/open/floor/plating/abductor,
+/area/ship/hallway/central)
+"wq" = (
+/obj/machinery/power/shuttle/engine/void,
+/turf/open/floor/plating/abductor2,
+/area/ship/hallway/central)
+"wz" = (
+/obj/effect/turf_decal/trimline/opaque/yellow/filled/line{
+	dir = 10
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"wF" = (
+/obj/effect/turf_decal/techfloor{
+	dir = 4
+	},
+/turf/open/floor/plating/abductor,
+/area/ship/hallway/central)
+"wI" = (
+/turf/open/floor/plasteel/rockvault/alien,
+/area/ship/hallway/central)
+"xD" = (
+/obj/structure/table/reinforced{
+	color = "#6A445D"
+	},
+/obj/item/storage/backpack/duffelbag/syndie/med/bioterrorbundle,
+/turf/open/floor/plasteel/tech/techmaint,
+/area/ship/hallway/central)
+"xQ" = (
+/obj/structure/table/abductor,
+/obj/item/archonic/interface_system,
+/obj/machinery/light/directional/north,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/bridge)
+"yo" = (
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/line{
+	dir = 9
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"yr" = (
+/obj/structure/table/reinforced{
+	color = "#6A445D"
+	},
+/obj/item/clothing/neck/crystal_amulet/archous/stayofexecution{
+	pixel_y = 11;
+	pixel_x = -8
+	},
+/obj/item/clothing/neck/crystal_amulet/archous/stayofexecution{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/obj/item/clothing/neck/crystal_amulet/archous/stayofexecution,
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"za" = (
+/obj/effect/overa_rune{
+	archonic = 1
+	},
+/turf/open/floor/plasteel/cult,
+/area/ship/bridge)
+"zb" = (
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/line{
+	dir = 5
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"zm" = (
+/obj/structure/cable/pink{
+	icon_state = "4-9"
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"zS" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"zY" = (
+/obj/effect/turf_decal/trimline/transparent/purple/warning{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"Ai" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/transparent/purple/line{
+	dir = 4
+	},
+/obj/machinery/door/airlock/centcom{
+	name = "Bridge"
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"AQ" = (
+/obj/effect/turf_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/button/door{
+	pixel_y = 3;
+	name = "Blast Doors";
+	id = "Ramz_Blasts";
+	req_ship_access = 1;
+	pixel_x = -25
+	},
+/turf/open/floor/plasteel/tech/grid,
+/area/ship/hallway/central)
+"Bg" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 8
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"BX" = (
+/obj/structure/table/reinforced{
+	color = "#6A445D"
+	},
+/obj/item/storage/toolbox/syndicate,
+/turf/open/floor/plasteel/tech/techmaint,
+/area/ship/hallway/central)
+"De" = (
+/obj/structure/table/reinforced{
+	color = "#6A445D"
+	},
+/obj/item/clothing/suit/wizrobe/magusred/archonic,
+/obj/item/melee/spear/archous,
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"Dm" = (
+/obj/effect/turf_decal/industrial/warning{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tech/grid,
+/area/ship/hallway/central)
+"DW" = (
+/turf/open/floor/plasteel/cult,
+/area/ship/bridge)
+"DY" = (
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"EP" = (
+/obj/effect/turf_decal/trimline/opaque/syndiered/filled/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"Ft" = (
+/obj/structure/table/reinforced{
+	color = "#6A445D"
+	},
+/obj/item/storage/backpack/duffelbag/syndie/x4,
+/turf/open/floor/plasteel/tech/techmaint,
+/area/ship/hallway/central)
+"FM" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/transparent/purple/line{
+	dir = 8
+	},
+/obj/structure/cable/pink{
+	icon_state = "1-2"
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"GB" = (
+/obj/effect/turf_decal/trimline/transparent/purple/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/transparent/pink/corner{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"GZ" = (
+/obj/effect/turf_decal/trimline/transparent/purple/warning{
+	dir = 6
+	},
+/obj/effect/turf_decal/corner/opaque/solgovblue{
+	dir = 1
+	},
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable/pink{
+	icon_state = "0-2"
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/bridge)
+"Hg" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 5
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"Hx" = (
+/obj/effect/turf_decal/trimline/opaque/syndiered/filled/line{
+	dir = 6
+	},
+/obj/machinery/button/door{
+	id = "SecureCell";
+	normaldoorcontrol = 1;
+	pixel_x = 7;
+	pixel_y = -27;
+	specialfunctions = 4;
+	name = "Cell Bolt Controls"
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"Ic" = (
+/obj/structure/table/reinforced{
+	color = "#6A445D"
+	},
+/obj/item/storage/backpack/duffelbag/syndie/c4,
+/obj/item/storage/backpack/duffelbag/syndie/sabotage{
+	pixel_y = 12
+	},
+/turf/open/floor/plasteel/tech/techmaint,
+/area/ship/hallway/central)
+"IB" = (
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/line{
+	dir = 6
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"Jn" = (
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/line,
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"Jt" = (
+/turf/closed/indestructible/riveted/hierophant,
+/area/ship/bridge)
+"JI" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Bridge"
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"Kh" = (
+/turf/closed/gateway,
+/area/ship/hallway/central)
+"Kv" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 10
+	},
+/obj/effect/turf_decal/trimline/transparent/purple/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"KR" = (
+/obj/effect/turf_decal/trimline/transparent/pink/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"Lg" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 6
+	},
+/obj/effect/turf_decal/trimline/transparent/purple/corner{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"Ll" = (
+/obj/structure/fans/tiny,
+/obj/docking_port/stationary{
+	dwidth = 15;
+	height = 15;
+	width = 30
+	},
+/obj/machinery/door/poddoor{
+	id = "Ramz_Blasts";
+	name = "Access Hatch"
+	},
+/turf/open/floor/engine,
+/area/ship/hallway/central)
+"Lo" = (
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/line{
+	dir = 10
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"Lt" = (
+/obj/machinery/porta_turret/ship/archonic/hyperlethal,
+/turf/closed/gateway,
+/area/ship/bridge)
+"LW" = (
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"Mm" = (
+/obj/structure/cable/pink{
+	icon_state = "6-8"
+	},
+/obj/effect/turf_decal/trimline/transparent/pink/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"MK" = (
+/obj/structure/table/reinforced{
+	color = "#6A445D"
+	},
+/obj/item/storage/firstaid/tactical{
+	pixel_x = 10;
+	pixel_y = 7
+	},
+/obj/item/storage/firstaid/tactical{
+	pixel_y = 6;
+	pixel_x = -6
+	},
+/obj/item/storage/firstaid/tactical{
+	pixel_x = 5
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"No" = (
+/obj/structure/table/abductor,
+/obj/item/radio/intercom/wideband/table{
+	dir = 8;
+	pixel_y = 2
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/ship/bridge)
+"Op" = (
+/obj/effect/turf_decal/trimline/transparent/purple/corner{
+	dir = 1
+	},
+/obj/structure/cable/pink{
+	icon_state = "4-8"
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"OA" = (
+/obj/machinery/power/shuttle/engine/void{
+	dir = 8
+	},
+/turf/open/floor/plating/abductor2,
+/area/ship/hallway/central)
+"OH" = (
+/obj/structure/table/reinforced{
+	color = "#6A445D"
+	},
+/obj/item/clothing/under/syndicate/skirt,
+/obj/item/clothing/under/syndicate/skirt,
+/obj/item/clothing/under/syndicate,
+/obj/item/clothing/under/syndicate,
+/obj/item/clothing/under/syndicate,
+/obj/item/clothing/under/syndicate/skirt,
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"Pp" = (
+/obj/effect/turf_decal/trimline/transparent/pink/corner,
+/obj/effect/turf_decal/trimline/transparent/purple/line{
+	dir = 9
+	},
+/obj/structure/cable/pink{
+	icon_state = "2-9"
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"PV" = (
+/obj/structure/toilet{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/hallway/central)
+"Qv" = (
+/obj/structure/bed/pod,
+/turf/open/floor/plating/catwalk_floor,
+/area/ship/hallway/central)
+"Qy" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 2
+	},
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/line{
+	dir = 9
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"QL" = (
+/obj/structure/table/reinforced{
+	color = "#6A445D"
+	},
+/obj/item/clothing/neck/crystal_amulet/archous,
+/obj/machinery/light/directional/west,
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"RF" = (
+/obj/machinery/power/rtg/abductor/archonic,
+/obj/structure/cable/pink{
+	icon_state = "0-2"
+	},
+/turf/open/floor/plating/abductor2,
+/area/ship/hallway/central)
+"So" = (
+/obj/structure/catwalk/over/plated_catwalk/dark,
+/obj/structure/cable/pink{
+	icon_state = "1-6"
+	},
+/obj/structure/cable/pink{
+	icon_state = "1-10"
+	},
+/turf/open/floor/plating/abductor,
+/area/ship/hallway/central)
+"SS" = (
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/line{
+	dir = 10
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"SV" = (
+/obj/machinery/door/airlock/centcom{
+	dir = 4;
+	name = "Holding Cell";
+	id_tag = "SecureCell"
+	},
+/turf/open/floor/pod/dark,
+/area/ship/hallway/central)
+"SW" = (
+/obj/structure/cable/pink{
+	icon_state = "5-8"
+	},
+/obj/effect/turf_decal/trimline/transparent/purple/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"TS" = (
+/obj/effect/turf_decal/trimline/transparent/pink/corner{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"Ug" = (
+/obj/effect/turf_decal/trimline/transparent/purple/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"Um" = (
+/obj/effect/turf_decal/techfloor{
+	dir = 10
+	},
+/turf/open/floor/plating/abductor,
+/area/ship/hallway/central)
+"UT" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"Vi" = (
+/obj/effect/turf_decal/trimline/transparent/pink/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/corner,
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"VB" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"VH" = (
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/line{
+	dir = 5
+	},
+/obj/machinery/light/directional/north,
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"Wk" = (
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/line,
+/obj/machinery/light/directional/south,
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"WV" = (
+/turf/open/floor/plasteel/tech/techmaint,
+/area/ship/hallway/central)
+"Xh" = (
+/obj/effect/turf_decal/corner/opaque/solgovblue/half{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/transparent/purple/warning,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/bridge)
+"XW" = (
+/obj/structure/table/abductor,
+/obj/item/eter_violet,
+/obj/machinery/light/directional/north,
+/turf/open/floor/mineral/plastitanium,
+/area/ship/bridge)
+"Yx" = (
+/obj/effect/turf_decal/techfloor{
+	dir = 9
+	},
+/turf/open/floor/plating/abductor,
+/area/ship/hallway/central)
+"YP" = (
+/obj/structure/cable/pink{
+	icon_state = "1-6"
+	},
+/obj/effect/turf_decal/trimline/transparent/pink/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/opaque/solgovblue/filled/corner{
+	dir = 8
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+"Zk" = (
+/obj/effect/turf_decal/trimline/transparent/pink/line,
+/obj/effect/turf_decal/trimline/transparent/purple/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"ZK" = (
+/turf/open/floor/plasteel/dark,
+/area/ship/bridge)
+"ZX" = (
+/obj/effect/turf_decal/trimline/transparent/pink/corner{
+	dir = 8
+	},
+/turf/open/floor/plasteel/tech,
+/area/ship/hallway/central)
+
+(1,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+Kh
+Kh
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+"}
+(2,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+Kh
+Kh
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+"}
+(3,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+Lt
+Kh
+Kh
+Lt
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+"}
+(4,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+Kh
+pN
+xD
+Kh
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+"}
+(5,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+Kh
+Kh
+WV
+WV
+Kh
+Kh
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+"}
+(6,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+oC
+wI
+Kh
+BX
+WV
+WV
+Ic
+Kh
+wI
+oC
+qn
+qn
+qn
+qn
+qn
+"}
+(7,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+Kh
+wq
+Kh
+uD
+WV
+WV
+Ft
+Kh
+wq
+Kh
+qn
+qn
+qn
+qn
+qn
+"}
+(8,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+Kh
+Kh
+Kh
+fL
+pr
+pr
+wz
+Kh
+Kh
+Kh
+qn
+qn
+qn
+qn
+qn
+"}
+(9,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+Kh
+Kh
+yo
+uU
+zS
+pQ
+YP
+SS
+Kh
+Kh
+qn
+qn
+qn
+qn
+qn
+"}
+(10,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+Kh
+yo
+ml
+cs
+Jt
+Jt
+UT
+zm
+SS
+Kh
+qn
+qn
+qn
+qn
+qn
+"}
+(11,1,1) = {"
+qn
+qn
+qn
+qn
+Lt
+Kh
+DY
+tB
+aT
+Jt
+Jt
+Hg
+Mm
+Jn
+Kh
+Lt
+qn
+qn
+qn
+qn
+"}
+(12,1,1) = {"
+qn
+qn
+qn
+qn
+Kh
+yo
+ml
+cs
+Jt
+Jt
+Jt
+Jt
+UT
+zm
+SS
+Kh
+qn
+qn
+qn
+qn
+"}
+(13,1,1) = {"
+qn
+qn
+qn
+Kh
+Kh
+DY
+tB
+aT
+Jt
+lN
+QL
+Jt
+Hg
+Mm
+Jn
+Kh
+Kh
+qn
+qn
+qn
+"}
+(14,1,1) = {"
+qn
+qn
+qn
+Kh
+aW
+ml
+eB
+Jt
+Jt
+fw
+Kv
+Jt
+Jt
+sQ
+zm
+Lo
+Kh
+qn
+qn
+qn
+"}
+(15,1,1) = {"
+qn
+qn
+oC
+Kh
+DY
+tB
+aT
+Jt
+yr
+mm
+Zk
+De
+Jt
+Hg
+Mm
+Jn
+Kh
+oC
+qn
+qn
+"}
+(16,1,1) = {"
+qn
+qn
+Kh
+yo
+ml
+cs
+Jt
+Jt
+yr
+mm
+Zk
+De
+Jt
+Jt
+UT
+zm
+SS
+Kh
+qn
+qn
+"}
+(17,1,1) = {"
+qn
+Kh
+Kh
+DY
+tB
+aT
+Jt
+Jt
+Jt
+ix
+bF
+hR
+hR
+Ai
+GB
+hN
+Jn
+Kh
+Kh
+qn
+"}
+(18,1,1) = {"
+qn
+Kh
+Qy
+ml
+cs
+Jt
+Jt
+vL
+JI
+mm
+ZK
+ZK
+VB
+Jt
+Jt
+Ug
+zm
+ee
+Kh
+qn
+"}
+(19,1,1) = {"
+Lt
+Kh
+gS
+tB
+aT
+Jt
+XW
+Xh
+Jt
+ca
+ev
+ca
+Jt
+Jt
+aL
+ue
+jW
+Wk
+Kh
+Lt
+"}
+(20,1,1) = {"
+tu
+AQ
+cr
+cs
+Jt
+Jt
+No
+Xh
+ca
+za
+DW
+za
+ca
+Yx
+vM
+Um
+SW
+aL
+ee
+Kh
+"}
+(21,1,1) = {"
+Ll
+Dm
+cr
+cs
+Jt
+vz
+el
+Xh
+ca
+DW
+oj
+DW
+ca
+pj
+RF
+So
+zY
+aL
+mn
+Kh
+"}
+(22,1,1) = {"
+iI
+Dm
+cr
+cs
+Jt
+Jt
+eh
+Xh
+ca
+za
+DW
+za
+ca
+vC
+wF
+pR
+rO
+jC
+sV
+Kh
+"}
+(23,1,1) = {"
+Lt
+Kh
+nz
+ZX
+vr
+Jt
+xQ
+Xh
+Jt
+ca
+ev
+ca
+Jt
+Jt
+aL
+tN
+Op
+Wk
+Kh
+Lt
+"}
+(24,1,1) = {"
+qn
+Kh
+dN
+LW
+cs
+Jt
+Jt
+GZ
+kt
+oe
+ZK
+ZK
+ac
+Jt
+Jt
+Ug
+aO
+sV
+Kh
+qn
+"}
+(25,1,1) = {"
+qn
+Kh
+Kh
+DY
+ZX
+vr
+Jt
+Jt
+Jt
+ix
+Pp
+FM
+FM
+lh
+to
+aZ
+Jn
+Kh
+Kh
+qn
+"}
+(26,1,1) = {"
+qn
+qn
+Kh
+zb
+LW
+cs
+Jt
+Jt
+pa
+mm
+Zk
+OH
+Jt
+Jt
+UT
+jC
+rB
+Kh
+qn
+qn
+"}
+(27,1,1) = {"
+qn
+qn
+oC
+Kh
+DY
+ZX
+vr
+Jt
+pa
+mm
+Zk
+OH
+Jt
+hw
+TS
+Jn
+Kh
+oC
+qn
+qn
+"}
+(28,1,1) = {"
+qn
+qn
+qn
+Kh
+VH
+LW
+eB
+Jt
+Jt
+uk
+Lg
+Jt
+Jt
+sQ
+jC
+IB
+Kh
+qn
+qn
+qn
+"}
+(29,1,1) = {"
+qn
+qn
+qn
+Kh
+Kh
+DY
+ZX
+vr
+Jt
+MK
+bd
+Jt
+hw
+TS
+Jn
+Kh
+Kh
+qn
+qn
+qn
+"}
+(30,1,1) = {"
+qn
+qn
+qn
+qn
+Kh
+zb
+LW
+cs
+Jt
+Jt
+Jt
+Jt
+UT
+jC
+rB
+Kh
+qn
+qn
+qn
+qn
+"}
+(31,1,1) = {"
+qn
+qn
+qn
+qn
+Lt
+Kh
+DY
+ZX
+vr
+Jt
+Jt
+hw
+TS
+Jn
+Kh
+Lt
+qn
+qn
+qn
+qn
+"}
+(32,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+Kh
+zb
+aL
+cs
+Jt
+Jt
+UT
+jC
+rB
+Kh
+qn
+qn
+qn
+qn
+qn
+"}
+(33,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+Kh
+Kh
+zb
+KR
+Bg
+Bg
+Vi
+rB
+Kh
+Kh
+qn
+qn
+qn
+qn
+qn
+"}
+(34,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+Kh
+Kh
+Kh
+er
+EP
+EP
+Hx
+Kh
+Kh
+Kh
+qn
+qn
+qn
+qn
+qn
+"}
+(35,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+Kh
+OA
+Kh
+vi
+vi
+SV
+vi
+Kh
+OA
+Kh
+qn
+qn
+qn
+qn
+qn
+"}
+(36,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+oC
+wI
+Kh
+fO
+hr
+hr
+PV
+Kh
+wI
+oC
+qn
+qn
+qn
+qn
+qn
+"}
+(37,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+Kh
+Kh
+lu
+hr
+Kh
+Kh
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+"}
+(38,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+Kh
+Qv
+Qv
+Kh
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+"}
+(39,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+Lt
+Kh
+Kh
+Lt
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+"}
+(40,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+Kh
+Kh
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+"}
+(41,1,1) = {"
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+Kh
+Kh
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+qn
+"}

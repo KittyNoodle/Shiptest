@@ -81,6 +81,10 @@
 "fI" = (
 /obj/structure/bed/pod,
 /obj/item/bedsheet/grey,
+/obj/effect/decal/cleanable/blood/splatter{
+	color = "#7FFF7F";
+	bloodiness = 0
+	},
 /turf/open/floor/pod/dark,
 /area/ruin/jungle/ventilation_shaft)
 "fP" = (
@@ -438,6 +442,10 @@
 /turf/closed/indestructible/rock,
 /area/overmap_encounter/planetoid/jungle/explored)
 "zd" = (
+/obj/effect/decal/cleanable/blood/drip{
+	color = "#7FFF7F";
+	pixel_y = 11
+	},
 /turf/open/floor/pod/dark,
 /area/ruin/jungle/ventilation_shaft)
 "BD" = (
@@ -451,6 +459,7 @@
 /area/ruin/jungle/ventilation_shaft)
 "Cg" = (
 /obj/structure/table,
+/obj/item/storage/firstaid/ancient,
 /turf/open/floor/pod/dark,
 /area/ruin/jungle/ventilation_shaft)
 "CU" = (
@@ -664,8 +673,21 @@
 	pixel_y = 30;
 	icon_state = "mirror_broke"
 	},
+/obj/effect/decal/cleanable/blood/drip{
+	color = "#7FFF7F";
+	pixel_x = 7;
+	pixel_y = 5
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	color = "#7FFF7F";
+	pixel_y = 16;
+	pixel_x = 13
+	},
 /obj/structure/chair{
 	dir = 1
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	color = "#7FFF7F"
 	},
 /turf/open/floor/pod/dark,
 /area/ruin/jungle/ventilation_shaft)

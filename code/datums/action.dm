@@ -517,6 +517,7 @@
 	icon_icon = S.action_icon
 	button_icon_state = S.action_icon_state
 	background_icon_state = S.action_background_icon_state
+	button_icon = S.action_background_icon //Archonic Edit
 	button.name = name
 
 /datum/action/spell_action/Destroy()

@@ -19,9 +19,10 @@
 
 /obj/effect/proc_holder/spell/targeted/conjure_item/hardlight_spear/before_cast(mob/living/cast_on)
 	. = ..()
-	for(var/I in cast_on.get_contents())
+	/*var/list/caster_holding = cast_on.get_contents() //TODO: Find a new way to do this that doesn't maximally runtime.
+	for(var/I in caster_holding)
 		if(istype(I, /obj/item/gun/magic/hardlight_spear))
-			return
+			return*/
 
 /obj/effect/proc_holder/spell/targeted/conjure_item/hardlight_spear/make_item()
 	. = ..()
@@ -57,7 +58,18 @@
 	charge_max = 10 SECONDS
 	cooldown_min = 10 SECONDS
 	spell_level = 7
-	action_background_icon_state = "bg_alien"
+	action_background_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_background_icon_state = "bg_bioresonant"
+	action_icon_state = "spear_bioresonant"
+	magic_animation = "3c_spear_summon"
+
+/obj/effect/proc_holder/spell/targeted/conjure_item/hardlight_spear/max/extra
+	action_background_icon_state = "bg_bioresonant_extra-af"
+	action_icon_state = "spear_bioresonant_extra-af"
+	item_type = /obj/item/gun/magic/hardlight_spear/pink
+	magic_animation = "3c_spear_summon_extra"
+
 
 /*
 /obj/effect/proc_holder/spell/targeted/conjure_item/max/get_spell_title()
@@ -89,16 +101,14 @@
 	light_power = 1
 	max_charges = 1
 	var/spears_left = 6
+	var/spear_type = null
 	ammo_type = /obj/item/ammo_casing/magic/hardlight_spear
 
 /obj/item/gun/magic/hardlight_spear/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/jousting)
 
-	AddComponent(/datum/component/butchering, \
-		speed = 10 SECONDS, \
-		effectiveness = 70, \
-	)
+	AddComponent(/datum/component/butchering, 100, 70)
 
 	block_chance = 25+spears_left*5
 
@@ -109,21 +119,13 @@
 	if(!spears_left)
 		return
 	var/mutable_appearance/back_spear_overlay
-	switch(spears_left)
-		if(0)
-			return
-		if(1)
-			back_spear_overlay = mutable_appearance('code/modules/archonic/icons/hardlightspear.dmi', "spear1", MOB_LAYER + 0.01)
-		if(2)
-			back_spear_overlay = mutable_appearance('code/modules/archonic/icons/hardlightspear.dmi', "spear2", MOB_LAYER + 0.01)
-		if(3)
-			back_spear_overlay = mutable_appearance('code/modules/archonic/icons/hardlightspear.dmi', "spear3", MOB_LAYER + 0.01)
-		if(4)
-			back_spear_overlay = mutable_appearance('code/modules/archonic/icons/hardlightspear.dmi', "spear4", MOB_LAYER + 0.01)
-		if(5)
-			back_spear_overlay = mutable_appearance('code/modules/archonic/icons/hardlightspear.dmi', "spear5", MOB_LAYER + 0.01)
-		if(6)
-			back_spear_overlay = mutable_appearance('code/modules/archonic/icons/hardlightspear.dmi', "spear6", MOB_LAYER + 0.01)
+	if(spears_left == 0)
+		return
+	else
+		if(spear_type)
+			back_spear_overlay = mutable_appearance('code/modules/archonic/icons/hardlightspear.dmi', "spear[spears_left]_[spear_type]", MOB_LAYER + 0.01)
+		else
+			back_spear_overlay = mutable_appearance('code/modules/archonic/icons/hardlightspear.dmi', "spear[spears_left]", MOB_LAYER + 0.01)
 	back_spear_overlay.pixel_x = -32
 	. += back_spear_overlay
 
@@ -183,6 +185,19 @@
 			qdel(src)
 			return BULLET_ACT_BLOCK
 	. = ..()
+
+
+/obj/item/gun/magic/hardlight_spear/pink
+	spear_type = "pink"
+	icon_state = "lightspear_pink"
+	item_state = "lightspear_pink"
+	ammo_type = /obj/item/ammo_casing/magic/hardlight_spear/pink
+
+/obj/item/ammo_casing/magic/hardlight_spear/pink
+	projectile_type = /obj/projectile/bullet/hardlight_spear/pink
+
+/obj/projectile/bullet/hardlight_spear/pink
+	icon_state = "lightspear_pink"
 
 /obj/item/shrapnel/spear
 	name = "hardlight spear"

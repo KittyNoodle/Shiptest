@@ -1,14 +1,14 @@
 {
 	"$schema": "https://raw.githubusercontent.com/shiptest-ss13/Shiptest/master/_maps/ship_config_schema.json",
-	"prefix": "NTSV",
-	"map_name": "Catharsis-class Frontier Exploration Vessel",
-	"faction": "/datum/faction/nt",
+	"prefix": "SV",
+	"map_name": "'Iron Star' modified Catharsis-class",
+	"faction": "/datum/faction/independent",
 	"namelists": [
 		"NANOTRASEN",
 		"NATURAL_AGGRESSIVE",
 		"WEAPONS"
 	],
-	"map_short_name": "Catharsis-class",
+	"map_short_name": "M-Catharsis-class",
 	"description": "█ ██████████ ██████ ███ ███ ███████ ████████ ████ ██ ██ █████ ████████ ██████ █████ ███ █████████ ███ ███ ██████ ███ ███████ ███ ███████████ ██████████ █████ ███████ █████ █████ ██ ████ ██ █ ██████ ███ ██ ███ █████ ██████ ██ ███ ████████ ███████ ██████████ █████ ████ ██████ ███ █████████ ██ ███ ██████████ ██ █ ████ ██████████ ██████ ████ █ ████████████ ██ ███ ████ ██████████ ██ ███ ████ ███████",
 	"tags": [
 		"RP Focus",
@@ -17,7 +17,7 @@
 	],
 	"starting_funds": 500,
 	"roundstart": true,
-	"map_path": "_maps/shuttles/archonic/nanotrasen_catharsis.dmm",
+	"map_path": "_maps/shuttles/archonic/iron_star.dmm",
 	"limit": 1,
 	"job_slots": {
 		"Pilot": {

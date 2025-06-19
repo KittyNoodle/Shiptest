@@ -207,7 +207,7 @@
 /area/ship/crew)
 "gx" = (
 /obj/machinery/power/shuttle/engine/void{
-	dir = 2
+	dir = 1
 	},
 /turf/open/floor/plating/abductor2,
 /area/ship/medical)
@@ -998,7 +998,7 @@
 /area/ship/archonic)
 "PX" = (
 /obj/machinery/power/shuttle/engine/void{
-	dir = 2
+	dir = 1
 	},
 /turf/open/floor/plating/abductor2,
 /area/ship/engineering)

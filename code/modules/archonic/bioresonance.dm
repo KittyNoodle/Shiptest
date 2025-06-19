@@ -1,7 +1,16 @@
 //Vulgar Bioresonance//
 
 /obj/effect/proc_holder/spell/self/flight/bioresonance
-	action_background_icon_state = "bg_alien"
+	action_background_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon_state = "fly_bioresonant"
+	action_background_icon_state = "bg_bioresonant"
+	magic_animation = "3c_fly"
+
+/obj/effect/proc_holder/spell/self/flight/bioresonance/extra
+	action_icon_state = "fly_bioresonant_extra-af"
+	action_background_icon_state = "bg_bioresonant_extra-af"
+	magic_animation = "3c_fly_extra"
 
 /obj/effect/proc_holder/spell/self/bioresonance/heal
 	name = "Restore Vitality"
@@ -11,9 +20,13 @@
 	charge_max = 600
 	invocation_type = "none"
 	sound = 'sound/magic/demon_consume.ogg'
-	action_icon = 'icons/mob/actions/actions_changeling.dmi'
-	action_icon_state = "regenerate"
-	action_background_icon_state = "bg_alien"
+	action_background_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon_state = "heal_bioresonant"
+	action_background_icon_state = "bg_bioresonant"
+	overlay = TRUE
+	overlay_icon = 'code/modules/archonic/icons/effects.dmi'
+	overlay_icon_state = "heal"
 
 /obj/effect/proc_holder/spell/self/bioresonance/heal/cast(list/targets, mob/living/carbon/human/user)
 	user.visible_message("<span class='abductor'>[user]'s body twitches as their wounds knit and their flesh regenerates!</span>", "<span class='mind_control'>You will your wounds to shut and your body to reform.</span>")
@@ -22,13 +35,20 @@
 	user.restore_blood()
 	user.adjustBruteLoss(-60)
 	user.adjustFireLoss(-60)
+	user.adjust_archonic_sublimation(-5000)
 	user.updatehealth()
 
+/obj/effect/proc_holder/spell/self/bioresonance/heal/extra
+	action_icon_state = "heal_bioresonant_extra-af"
+	action_background_icon_state = "bg_bioresonant_extra-af"
+	magic_animation = "3c_heal_extra"
 
 /obj/effect/proc_holder/spell/self/bioresonance/grant_all/vulgar
 	name = "Transcend"
 	desc = "Dream the reality around you, bend it to your will."
-	action_background_icon_state = "bg_alien"
+	action_background_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_background_icon_state = "bg_bioresonant"
 	clothes_req = FALSE
 
 /obj/effect/proc_holder/spell/self/bioresonance/grant_all/vulgar/cast(list/targets, mob/living/carbon/human/user)
@@ -38,7 +58,23 @@
 	user.mind.AddSpell(S1)
 	user.mind.AddSpell(S2)
 	user.mind.AddSpell(S3)
-	qdel(src)
+	user.mind.RemoveSpell(src)
+
+/obj/effect/proc_holder/spell/self/bioresonance/grant_all/vulgar/extra
+	action_background_icon_state = "bg_bioresonant_extra-af"
+	clothes_req = FALSE
+
+/obj/effect/proc_holder/spell/self/bioresonance/grant_all/vulgar/extra/cast(list/targets, mob/living/carbon/human/user)
+	var/obj/effect/proc_holder/spell/S1 = new /obj/effect/proc_holder/spell/voice_of_god/bioresonance/extra
+	var/obj/effect/proc_holder/spell/S2 = new /obj/effect/proc_holder/spell/self/bioresonance/heal/extra
+	var/obj/effect/proc_holder/spell/S3 = new /obj/effect/proc_holder/spell/self/flight/bioresonance/extra
+	var/obj/effect/proc_holder/spell/S4 = new /obj/effect/proc_holder/spell/targeted/conjure_item/hardlight_spear/max/extra
+	user.mind.AddSpell(S1)
+	user.mind.AddSpell(S2)
+	user.mind.AddSpell(S3)
+	user.mind.AddSpell(S4)
+	user.mind.RemoveSpell(src)
+
 
 /obj/effect/proc_holder/spell/voice_of_god/bioresonance //Bioresonance
 	name = "Bioresonant Command"
@@ -47,10 +83,17 @@
 	power_mod = 0.9
 	cooldown_mod = 0.7
 	speech_sound = 'sound/magic/mandswap.ogg'
-	action_icon = 'icons/mob/actions/actions_borer.dmi'
-	action_icon_state = "borer_whisper"
-	action_background_icon_state = "bg_alien"
+	action_background_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon = 'code/modules/archonic/icons/statuses_and_actions.dmi'
+	action_icon_state = "bioresonant_command"
+	action_background_icon_state = "bg_bioresonant"
+	magic_animation = "3c_command"
 	antimagic_allowed = FALSE
+
+/obj/effect/proc_holder/spell/voice_of_god/bioresonance/extra
+	action_icon_state = "bioresonant_command_extra-af"
+	action_background_icon_state = "bg_bioresonant_extra-af"
+	magic_animation = "3c_command_extra"
 
 //Principled Bioresonance//
 
@@ -59,6 +102,8 @@
 //Recalibration: Healing
 
 //Conviction: Armor
+
+//Silence: Counterspell
 
 //Transis// Created by accelerating your mind and editing your body to match its movements.
 
