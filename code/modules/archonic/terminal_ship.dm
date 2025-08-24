@@ -768,7 +768,7 @@
 	flash_protect = FLASH_PROTECTION_NONE
 	flags_cover = GLASSESCOVERSEYES
 	custom_materials = null // Don't want that to go in the autolathe
-	visor_vars_to_toggle = 0
+	visor_vars_to_toggle = SEALS_EYES
 	tint = 0
 	actions_types = list(/datum/action/item_action/toggle, /datum/action/item_action/toggle_steampunk_goggles_welding_protection)
 
@@ -1463,6 +1463,7 @@
 
 	wield_delay = 0.6 SECONDS
 	wield_slowdown = 0.35
+	force = 15
 
 	manufacturer = MANUFACTURER_NONE
 

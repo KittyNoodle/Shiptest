@@ -2269,7 +2269,7 @@
 /turf/open/floor/plasteel/mono/dark,
 /area/ship/engineering)
 "pA" = (
-/obj/machinery/vending/snack,
+/obj/machinery/rnd/production/protolathe,
 /turf/open/floor/plasteel/lightgrey,
 /area/ship/hallway/central)
 "pD" = (
@@ -2618,7 +2618,7 @@
 /turf/open/floor/plasteel/tech,
 /area/ship/engineering/engines/port)
 "sp" = (
-/obj/machinery/vending/games,
+/obj/machinery/rnd/production/circuit_imprinter,
 /turf/open/floor/plasteel/lightgrey,
 /area/ship/hallway/central)
 "su" = (
@@ -3096,6 +3096,7 @@
 	dir = 5
 	},
 /obj/structure/closet/firecloset/wall/directional/west,
+/obj/machinery/vending/coffee,
 /turf/open/floor/plasteel/lightgrey,
 /area/ship/hallway/central)
 "vF" = (
@@ -4102,6 +4103,7 @@
 	},
 /obj/structure/closet/emcloset/wall/directional/west,
 /obj/item/radio/intercom/directional/south,
+/obj/machinery/vending/snack,
 /turf/open/floor/plasteel/lightgrey,
 /area/ship/hallway/central)
 "CN" = (
@@ -5375,7 +5377,7 @@
 /area/ship/engineering/engine)
 "Nu" = (
 /obj/effect/turf_decal/siding/thinplating/dark,
-/obj/machinery/vending/coffee,
+/obj/machinery/rnd/destructive_analyzer,
 /turf/open/floor/plasteel/lightgrey,
 /area/ship/hallway/central)
 "Ny" = (
@@ -6009,6 +6011,7 @@
 	dir = 4
 	},
 /obj/machinery/airalarm/directional/west,
+/obj/machinery/vending/games,
 /turf/open/floor/plasteel/lightgrey,
 /area/ship/hallway/central)
 "SC" = (
